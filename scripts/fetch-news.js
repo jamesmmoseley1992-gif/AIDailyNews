@@ -54,13 +54,71 @@ function stripHtml(html = '') {
     .replace(/&amp;/g, '&')
     .replace(/&quot;/g, '"')
     .replace(/&#39;/g, "'")
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
     .replace(/\s+/g, ' ')
     .trim();
 }
 
-function truncate(text, maxLength = 200) {
-  if (text.length <= maxLength) return text;
+function truncate(text, maxLength) {
+  if (!text || text.length <= maxLength) return text || '';
   return text.slice(0, maxLength - 1).trimEnd() + '…';
+}
+
+function deriveInsights(title, text, source, category) {
+  const combined = `${title} ${text}`.toLowerCase();
+
+  if (source === 'Databricks Release Notes' || /release|runtime|delta|unity catalog|photon|sql/.test(combined)) {
+    return {
+      whyItMatters:
+        'Platform updates and release notes often introduce performance improvements, new SQL/Spark capabilities, or deprecations that impact production pipelines.',
+      whoIsAffected:
+        'Databricks Data Engineers, Lakehouse Architects, and Workspace Admins managing clusters, jobs, and governance.'
+    };
+  }
+
+  if (category === 'Databricks') {
+    return {
+      whyItMatters:
+        'Highlights architectural patterns, benchmarks, and engineering practices for scaling data and AI workloads on the Lakehouse.',
+      whoIsAffected:
+        'Data Platform Teams, Analytics Engineers, and ML Engineers building on Databricks.'
+    };
+  }
+
+  if (/open[- ]source|weights|hugging face|llama|mistral|qwen|deepseek|fine-tun|gguf/.test(combined)) {
+    return {
+      whyItMatters:
+        'New open-weights models and tooling lower inference costs and give teams full control over privacy, customization, and self-hosting.',
+      whoIsAffected:
+        'ML Engineers, AI App Developers, and Infrastructure Teams evaluating self-hosted or fine-tuned models.'
+    };
+  }
+
+  if (/regulat|law|policy|copyright|antitrust|senate|eu ai act|safety/.test(combined)) {
+    return {
+      whyItMatters:
+        'Regulatory and policy shifts can create new compliance requirements, data-usage rules, and vendor risk considerations.',
+      whoIsAffected:
+        'Legal & Compliance Teams, CISOs, and Enterprise AI Governance Leaders.'
+    };
+  }
+
+  if (/fund|raise|acqui|valuation|billion|million|partnership|enterprise/.test(combined)) {
+    return {
+      whyItMatters:
+        'Major funding, M&A, and enterprise partnerships signal where capital and ecosystem momentum are consolidating.',
+      whoIsAffected:
+        'Technology Executives, Product Leaders, Vendors, and Investors tracking the AI market.'
+    };
+  }
+
+  return {
+    whyItMatters:
+      'Tracks fast-moving capabilities, product launches, and industry shifts shaping how AI is built and deployed.',
+    whoIsAffected:
+      'AI Builders, Engineering Leaders, and Product Teams evaluating new tools and workflows.'
+  };
 }
 
 async function fetchFeed(feed, maxItems = MAX_PER_SOURCE) {
@@ -72,15 +130,22 @@ async function fetchFeed(feed, maxItems = MAX_PER_SOURCE) {
       const dateStr = item.isoDate || item.pubDate;
       const parsedMs = dateStr ? Date.parse(dateStr) : NaN;
       const publishedMs = Number.isNaN(parsedMs) ? Date.now() : parsedMs;
-      const rawSummary = item.contentSnippet || item.content || item.summary || '';
+
+      const cleanTitle = (item.title || 'Untitled').trim();
+      const rawLong = item['content:encoded'] || item.content || item.contentSnippet || item.summary || '';
+      const cleanLong = stripHtml(rawLong);
+      const insights = deriveInsights(cleanTitle, cleanLong, feed.name, feed.category);
 
       return {
-        title: (item.title || 'Untitled').trim(),
+        title: cleanTitle,
         url: item.link || '',
         source: feed.name,
         category: feed.category,
         publishedAt: new Date(publishedMs).toISOString(),
-        summary: truncate(stripHtml(rawSummary))
+        summary: truncate(cleanLong, 150),
+        fullStory: truncate(cleanLong, 950) || 'Open the original article below to read the full story.',
+        whyItMatters: insights.whyItMatters,
+        whoIsAffected: insights.whoIsAffected
       };
     })
     .filter((item) => item.url && Date.parse(item.publishedAt) >= cutoffMs)
@@ -111,7 +176,7 @@ async function fetchTrendingModels() {
         };
       })
       .filter((m) => m.id && (!m.tag || m.tag === 'text-generation' || m.tag === 'image-text-to-text'))
-      .slice(0, 10);
+      .slice(0, 12);
   } catch (err) {
     console.warn(`Warning: Failed to fetch Hugging Face trending models: ${err.message}`);
     return [];
@@ -122,7 +187,7 @@ async function main() {
   const [feedResults, trendingModels, modelNewsResult] = await Promise.all([
     Promise.allSettled(FEEDS.map((f) => fetchFeed(f, MAX_PER_SOURCE))),
     fetchTrendingModels(),
-    fetchFeed(MODEL_NEWS_FEED, 8).catch((err) => {
+    fetchFeed(MODEL_NEWS_FEED, 10).catch((err) => {
       console.warn(`Warning: Failed to fetch LLM release news: ${err.message}`);
       return [];
     })
@@ -148,7 +213,6 @@ async function main() {
     }
   }
 
-  // Strictly sort newest first across all sources
   items.sort((a, b) => Date.parse(b.publishedAt) - Date.parse(a.publishedAt));
 
   const output = {
