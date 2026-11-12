@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-11-12T20:51:43.187Z",
+  "lastUpdated": "2026-11-12T21:00:14.637Z",
   "items": [
     {
       "title": "Review Finds Artificial Intelligence Shows Promise but Limited Real-World Healthcare Infection Surveillance - Bioengineer.org",
@@ -8,20 +8,10 @@
       "category": "AI",
       "publishedAt": "2026-11-12T20:35:47.000Z",
       "summary": "Review Finds Artificial Intelligence Shows Promise but Limited Real-World Healthcare Infection Surveillance Bioengineer.org",
-      "fullStory": "Review Finds Artificial Intelligence Shows Promise but Limited Real-World Healthcare Infection Surveillance Bioengineer.",
-      "whyItMatters": "Tracks fast-moving capabilities, product launches, and industry shifts shaping how AI is built and deployed.",
-      "whoIsAffected": "AI Builders, Engineering Leaders, and Product Teams evaluating new tools and workflows."
-    },
-    {
-      "title": "Intel, RadixArk Collaborate to Advance Open AI Inference on Intel Platforms - Intel",
-      "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxPc1Rfc251d0hmN3hsejVTT3d5SFZGZ2pwT0VOYVVwZ3VyN21CUnVRNnlMQ0lIWWxYM1hvRWYzSFBELXRHNkhmeEpyZi1DZG54dzlPbi0yZE9WeEdiMThwWlczVzJudWM3NmpJRzUxUGl6UEd0STFheG05RWtRbjU3YU5xWlJLM3QxZHZDb21VT3RtTjZqUlJIZEJSQW50UUZManJFT0N0U0oyQ3hXTkE?oc=5",
-      "source": "Google News AI",
-      "category": "AI",
-      "publishedAt": "2026-11-12T20:34:21.000Z",
-      "summary": "Intel, RadixArk Collaborate to Advance Open AI Inference on Intel Platforms Intel",
-      "fullStory": "Intel, RadixArk Collaborate to Advance Open AI Inference on Intel Platforms Intel",
-      "whyItMatters": "Tracks fast-moving capabilities, product launches, and industry shifts shaping how AI is built and deployed.",
-      "whoIsAffected": "AI Builders, Engineering Leaders, and Product Teams evaluating new tools and workflows."
+      "fullStory": "A recent review has concluded that artificial intelligence (AI) demonstrates promise for healthcare infection surveillance. However, its real-world application in this critical area is currently limited, indicating a gap between potential and practical implementation.",
+      "whyItMatters": "This finding is significant as it highlights AI's current developmental stage in a crucial healthcare domain, suggesting that while the technology holds future promise for improving public health, its practical deployment for infection control is still nascent.",
+      "whoIsAffected": "Healthcare professionals, public health officials, AI researchers, and patients are affected, as effective infection surveillance directly impacts patient safety and public health outcomes.",
+      "aiAnalyzed": true
     },
     {
       "title": "Jensen Huang was having a third affair, Reuters reports",
@@ -30,9 +20,10 @@
       "category": "AI",
       "publishedAt": "2026-11-12T20:26:47.000Z",
       "summary": "Reuters is withholding the name of the new employee linked to Huang, but says she is an employee of Nvidia.",
-      "fullStory": "Reuters is withholding the name of the new employee linked to Huang, but says she is an employee of Nvidia.",
-      "whyItMatters": "Tracks fast-moving capabilities, product launches, and industry shifts shaping how AI is built and deployed.",
-      "whoIsAffected": "AI Builders, Engineering Leaders, and Product Teams evaluating new tools and workflows."
+      "fullStory": "Reuters has reported that Nvidia CEO Jensen Huang was involved in a third affair. The news agency is withholding the name of the employee linked to Huang, but confirms she is an employee of Nvidia.",
+      "whyItMatters": "This news could raise questions about corporate governance and workplace ethics at Nvidia, potentially impacting the company's public image and internal dynamics.",
+      "whoIsAffected": "Jensen Huang, the unnamed Nvidia employee, and Nvidia as a company are directly affected.",
+      "aiAnalyzed": true
     },
     {
       "title": "United Airlines blocks AI agents from booking flights - The Washington Post",
@@ -41,20 +32,10 @@
       "category": "AI",
       "publishedAt": "2026-11-12T20:02:59.000Z",
       "summary": "United Airlines blocks AI agents from booking flights The Washington Post",
-      "fullStory": "United Airlines blocks AI agents from booking flights The Washington Post",
-      "whyItMatters": "Tracks fast-moving capabilities, product launches, and industry shifts shaping how AI is built and deployed.",
-      "whoIsAffected": "AI Builders, Engineering Leaders, and Product Teams evaluating new tools and workflows."
-    },
-    {
-      "title": "US nonprofits sue tech giants to halt AI development - Al Jazeera",
-      "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxOUzh3Xzg0ek1tUjktMHMxV1pIR014ckFIT202VFUwTGpDMC0tOWZKaFRkQVg5UzkzaE9VWVVxcnFpclVOU05PZElkMUJXT19qS1NQTE5UbUFPMUFnRDVTeW9oUkpSbkFMcy02WUZwRm44eVV4ZGJNMGxjaEM0TGZ1cVgzejFmaU1sc1diV2R6UDlMZTB1UnYzcXpR0gGfAUFVX3lxTE96N2UydjlyZ3Vmbm9RemR1SGxrMjdQRXFOQ0ZHaUFxOHVlRmVoR3dHV3poMUtuSnNVWEtVWFlpR3RubjRNTkxPVkxSQ1lRNkZsbmozcVYydWRjaTBwM0M1Y21SNWVZNFRzSkZtYVM1OTV6VDFFZkhkSWxyT3BEakZMRkMzeEpzNVhBcXBpY3hIOUw1WlpBMlZLLWpieTZlUQ?oc=5",
-      "source": "Google News AI",
-      "category": "AI",
-      "publishedAt": "2026-11-12T19:58:45.000Z",
-      "summary": "US nonprofits sue tech giants to halt AI development Al Jazeera",
-      "fullStory": "US nonprofits sue tech giants to halt AI development Al Jazeera",
-      "whyItMatters": "Tracks fast-moving capabilities, product launches, and industry shifts shaping how AI is built and deployed.",
-      "whoIsAffected": "AI Builders, Engineering Leaders, and Product Teams evaluating new tools and workflows."
+      "fullStory": "United Airlines has implemented a policy to block artificial intelligence agents from booking flights through its systems. This move indicates a direct action by the airline to control how automated systems interact with its booking infrastructure.",
+      "whyItMatters": "This action by a major airline highlights the ongoing tension and challenges between traditional service providers and emerging AI technologies, potentially setting a precedent for how other travel companies manage AI-driven interactions.",
+      "whoIsAffected": "AI travel agents, developers of AI booking platforms, and travelers who use or plan to use AI for flight reservations are directly affected.",
+      "aiAnalyzed": true
     },
     {
       "title": "A.I., the Incarnation and the true source of human dignity - America Magazine",
@@ -63,9 +44,10 @@
       "category": "AI",
       "publishedAt": "2026-11-12T19:51:06.000Z",
       "summary": "A.I., the Incarnation and the true source of human dignity America Magazine",
-      "fullStory": "",
-      "whyItMatters": "Tracks fast-moving capabilities, product launches, and industry shifts shaping how AI is built and deployed.",
-      "whoIsAffected": "AI Builders, Engineering Leaders, and Product Teams evaluating new tools and workflows."
+      "fullStory": "America Magazine has published an article titled 'A.I., the Incarnation and the true source of human dignity.' This publication signals an ongoing discussion about the profound philosophical and theological implications of artificial intelligence for human identity and inherent worth.",
+      "whyItMatters": "This news matters as it highlights the expanding discourse on the ethical and existential questions posed by AI, particularly from a theological perspective, challenging traditional understandings of human dignity. It underscores the need for interdisciplinary dialogue as AI technology advances.",
+      "whoIsAffected": "Ethicists, theologians, AI developers, policymakers, and individuals contemplating the societal and spiritual impact of advanced AI are affected.",
+      "aiAnalyzed": true
     },
     {
       "title": "Jensen Huang, a global salesman for artificial intelligence, resigns from Nvidia after affair - Boston Herald",
@@ -76,7 +58,8 @@
       "summary": "Jensen Huang, a global salesman for artificial intelligence, resigns from Nvidia after affair Boston Herald",
       "fullStory": "Jensen Huang, a global salesman for artificial intelligence, resigns from Nvidia after affair Boston Herald",
       "whyItMatters": "Tracks fast-moving capabilities, product launches, and industry shifts shaping how AI is built and deployed.",
-      "whoIsAffected": "AI Builders, Engineering Leaders, and Product Teams evaluating new tools and workflows."
+      "whoIsAffected": "AI Builders, Engineering Leaders, and Product Teams evaluating new tools and workflows.",
+      "aiAnalyzed": false
     },
     {
       "title": "Google’s latest Search upgrade promises better answers to your most complicated questions",
@@ -87,7 +70,8 @@
       "summary": "Powered by Gemini 4 Hydrogen, Google's AI Mode is getting better at understanding complex queries, surfacing relevant links, and delivering richer vi…",
       "fullStory": "Powered by Gemini 4 Hydrogen, Google's AI Mode is getting better at understanding complex queries, surfacing relevant links, and delivering richer visual responses.",
       "whyItMatters": "Tracks fast-moving capabilities, product launches, and industry shifts shaping how AI is built and deployed.",
-      "whoIsAffected": "AI Builders, Engineering Leaders, and Product Teams evaluating new tools and workflows."
+      "whoIsAffected": "AI Builders, Engineering Leaders, and Product Teams evaluating new tools and workflows.",
+      "aiAnalyzed": false
     },
     {
       "title": "AI Expert, Spelman College President’s New Book Offers a New Vision for the Future of Artificial Intelligence - The Manila Times",
@@ -98,7 +82,8 @@
       "summary": "AI Expert, Spelman College President’s New Book Offers a New Vision for the Future of Artificial Intelligence The Manila Times",
       "fullStory": "AI Expert, Spelman College President’s New Book Offers a New Vision for the Future of Artificial Intelligence The Manila Times",
       "whyItMatters": "Tracks fast-moving capabilities, product launches, and industry shifts shaping how AI is built and deployed.",
-      "whoIsAffected": "AI Builders, Engineering Leaders, and Product Teams evaluating new tools and workflows."
+      "whoIsAffected": "AI Builders, Engineering Leaders, and Product Teams evaluating new tools and workflows.",
+      "aiAnalyzed": false
     },
     {
       "title": "How Constellation is building a governed data foundation on Databricks",
@@ -109,7 +94,8 @@
       "summary": "Constellation operates the largest nuclear fleet in the United States. For them,...",
       "fullStory": "Constellation operates the largest nuclear fleet in the United States.",
       "whyItMatters": "Highlights architectural patterns, benchmarks, and engineering practices for scaling data and AI workloads on the Lakehouse.",
-      "whoIsAffected": "Data Platform Teams, Analytics Engineers, and ML Engineers building on Databricks."
+      "whoIsAffected": "Data Platform Teams, Analytics Engineers, and ML Engineers building on Databricks.",
+      "aiAnalyzed": false
     },
     {
       "title": "Advocacy groups sue AI giants to freeze models, warning of 'catastrophic' risks - Scripps News",
@@ -120,18 +106,8 @@
       "summary": "Advocacy groups sue AI giants to freeze models, warning of 'catastrophic' risks Scripps News",
       "fullStory": "Advocacy groups sue AI giants to freeze models, warning of 'catastrophic' risks Scripps News",
       "whyItMatters": "Tracks fast-moving capabilities, product launches, and industry shifts shaping how AI is built and deployed.",
-      "whoIsAffected": "AI Builders, Engineering Leaders, and Product Teams evaluating new tools and workflows."
-    },
-    {
-      "title": "Jensen Huang built the company that powers AI. Now Nvidia must find a way forward without him - The Seattle Times",
-      "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxPd0FodDFsbW1OcHVjYmxYRGQtQXhULXpxVUplUHNPMzZmdWNPU0w4Z0NPR1daV0lEenVlUE9wVTVDNXM0a21ZVVFhUE56X2I0eGxqTkZRZVpBM2VWeHVMeXdUTUZob2JxSFIxVUd2b1RTVUlwZmJDOHZXMDc3c1VFalBzejN2Ui1uc3ZONVdLN1BsOS0ybVQ2eFlGX3pRaXhZT1I1eWRfdVJoUG1kVW1SQ3BQVnZWbjZXWGZpZjNEYl9LY3BiOEJjTE5PaU4?oc=5",
-      "source": "Google News AI",
-      "category": "AI",
-      "publishedAt": "2026-11-12T19:16:26.000Z",
-      "summary": "Jensen Huang built the company that powers AI. Now Nvidia must find a way forward without him The Seattle Times",
-      "fullStory": "Jensen Huang built the company that powers AI.",
-      "whyItMatters": "Tracks fast-moving capabilities, product launches, and industry shifts shaping how AI is built and deployed.",
-      "whoIsAffected": "AI Builders, Engineering Leaders, and Product Teams evaluating new tools and workflows."
+      "whoIsAffected": "AI Builders, Engineering Leaders, and Product Teams evaluating new tools and workflows.",
+      "aiAnalyzed": false
     },
     {
       "title": "SDSU researcher puts artificial intelligence to work in wheat fields - The Dakota Scout",
@@ -142,7 +118,8 @@
       "summary": "SDSU researcher puts artificial intelligence to work in wheat fields The Dakota Scout",
       "fullStory": "SDSU researcher puts artificial intelligence to work in wheat fields The Dakota Scout",
       "whyItMatters": "Tracks fast-moving capabilities, product launches, and industry shifts shaping how AI is built and deployed.",
-      "whoIsAffected": "AI Builders, Engineering Leaders, and Product Teams evaluating new tools and workflows."
+      "whoIsAffected": "AI Builders, Engineering Leaders, and Product Teams evaluating new tools and workflows.",
+      "aiAnalyzed": false
     },
     {
       "title": "Nectar launches an AI agent to automate creator discovery and outreach for brands",
@@ -153,7 +130,8 @@
       "summary": "Nectar's new AI agent automates influencer marketing, helping brands discover creators, manage outreach and partnerships, and track campaign results.",
       "fullStory": "Nectar's new AI agent automates influencer marketing, helping brands discover creators, manage outreach and partnerships, and track campaign results.",
       "whyItMatters": "Major funding, M&A, and enterprise partnerships signal where capital and ecosystem momentum are consolidating.",
-      "whoIsAffected": "Technology Executives, Product Leaders, Vendors, and Investors tracking the AI market."
+      "whoIsAffected": "Technology Executives, Product Leaders, Vendors, and Investors tracking the AI market.",
+      "aiAnalyzed": false
     },
     {
       "title": "SMX Brings American Innovation to the Next Frontier of Artificial Intelligence - Yahoo Finance",
@@ -164,7 +142,8 @@
       "summary": "SMX Brings American Innovation to the Next Frontier of Artificial Intelligence Yahoo Finance",
       "fullStory": "SMX Brings American Innovation to the Next Frontier of Artificial Intelligence Yahoo Finance",
       "whyItMatters": "Tracks fast-moving capabilities, product launches, and industry shifts shaping how AI is built and deployed.",
-      "whoIsAffected": "AI Builders, Engineering Leaders, and Product Teams evaluating new tools and workflows."
+      "whoIsAffected": "AI Builders, Engineering Leaders, and Product Teams evaluating new tools and workflows.",
+      "aiAnalyzed": false
     },
     {
       "title": "LLMON: An LLM-Native Markup Language, now in Granite 4.1 3B and 8B",
@@ -175,7 +154,20 @@
       "summary": "",
       "fullStory": "LLMON: An LLM-Native Markup Language, now in Granite 4.1 3B and 8B.\n\nOpen the original article below for the full coverage.",
       "whyItMatters": "Tracks fast-moving capabilities, product launches, and industry shifts shaping how AI is built and deployed.",
-      "whoIsAffected": "AI Builders, Engineering Leaders, and Product Teams evaluating new tools and workflows."
+      "whoIsAffected": "AI Builders, Engineering Leaders, and Product Teams evaluating new tools and workflows.",
+      "aiAnalyzed": false
+    },
+    {
+      "title": "AI industry reassesses future without Jensen Huang at Nvidia - Yahoo News Singapore",
+      "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxOLTNCUmJZWEpfTHN5TnpvNXZQdDlNcjRrWHdXLXdHazRPbEU4R3hqazdtYURHRDNlY1pOdHM1Wi1lMzhHcWZGZUpLeVlwZVFOUFBuMlA3dzdRNGZPX2kyVlBNbGFka0Q5b1Zwcy1zb1Z3NXVVYTkwcnJZbDhsazdBUFlQT3o?oc=5",
+      "source": "Google News AI",
+      "category": "AI",
+      "publishedAt": "2026-11-12T19:05:20.000Z",
+      "summary": "AI industry reassesses future without Jensen Huang at Nvidia Yahoo News Singapore",
+      "fullStory": "AI industry reassesses future without Jensen Huang at Nvidia Yahoo News Singapore",
+      "whyItMatters": "Tracks fast-moving capabilities, product launches, and industry shifts shaping how AI is built and deployed.",
+      "whoIsAffected": "AI Builders, Engineering Leaders, and Product Teams evaluating new tools and workflows.",
+      "aiAnalyzed": false
     },
     {
       "title": "Explainer-Tougher curbs on AI chip sales to China likely after Nvidia CEO resigns - Yahoo",
@@ -186,7 +178,8 @@
       "summary": "Explainer-Tougher curbs on AI chip sales to China likely after Nvidia CEO resigns Yahoo",
       "fullStory": "Explainer-Tougher curbs on AI chip sales to China likely after Nvidia CEO resigns Yahoo",
       "whyItMatters": "Tracks fast-moving capabilities, product launches, and industry shifts shaping how AI is built and deployed.",
-      "whoIsAffected": "AI Builders, Engineering Leaders, and Product Teams evaluating new tools and workflows."
+      "whoIsAffected": "AI Builders, Engineering Leaders, and Product Teams evaluating new tools and workflows.",
+      "aiAnalyzed": false
     },
     {
       "title": "Why Jensen Huang’s ousting is a stress test for the AI boom - The Times",
@@ -197,7 +190,8 @@
       "summary": "Why Jensen Huang’s ousting is a stress test for the AI boom The Times",
       "fullStory": "Why Jensen Huang’s ousting is a stress test for the AI boom The Times",
       "whyItMatters": "Tracks fast-moving capabilities, product launches, and industry shifts shaping how AI is built and deployed.",
-      "whoIsAffected": "AI Builders, Engineering Leaders, and Product Teams evaluating new tools and workflows."
+      "whoIsAffected": "AI Builders, Engineering Leaders, and Product Teams evaluating new tools and workflows.",
+      "aiAnalyzed": false
     },
     {
       "title": "Optimizing cost per task and proving agent ROI on Amazon Bedrock - Amazon Web Services (AWS)",
@@ -208,7 +202,8 @@
       "summary": "Optimizing cost per task and proving agent ROI on Amazon Bedrock Amazon Web Services (AWS)",
       "fullStory": "Optimizing cost per task and proving agent ROI on Amazon Bedrock Amazon Web Services (AWS)",
       "whyItMatters": "Tracks fast-moving capabilities, product launches, and industry shifts shaping how AI is built and deployed.",
-      "whoIsAffected": "AI Builders, Engineering Leaders, and Product Teams evaluating new tools and workflows."
+      "whoIsAffected": "AI Builders, Engineering Leaders, and Product Teams evaluating new tools and workflows.",
+      "aiAnalyzed": false
     },
     {
       "title": "Building a self-service LLM gateway with Amazon Bedrock and LiteLLM - Amazon Web Services (AWS)",
@@ -219,7 +214,8 @@
       "summary": "Building a self-service LLM gateway with Amazon Bedrock and LiteLLM Amazon Web Services (AWS)",
       "fullStory": "Building a self-service LLM gateway with Amazon Bedrock and LiteLLM Amazon Web Services (AWS)",
       "whyItMatters": "Tracks fast-moving capabilities, product launches, and industry shifts shaping how AI is built and deployed.",
-      "whoIsAffected": "AI Builders, Engineering Leaders, and Product Teams evaluating new tools and workflows."
+      "whoIsAffected": "AI Builders, Engineering Leaders, and Product Teams evaluating new tools and workflows.",
+      "aiAnalyzed": false
     },
     {
       "title": "Jensen Huang’s exit puts Nvidia’s support for open source in question",
@@ -230,7 +226,8 @@
       "summary": "Jensen Huang’s resignation raises questions about Nvidia’s commitment to open source AI, including its Hugging Face acquisition, open-weight models,…",
       "fullStory": "Jensen Huang’s resignation raises questions about Nvidia’s commitment to open source AI, including its Hugging Face acquisition, open-weight models, and advocacy against restrictions, as the company navigates a leadership transition.",
       "whyItMatters": "New open-weights models and tooling lower inference costs and give teams full control over privacy, customization, and self-hosting.",
-      "whoIsAffected": "ML Engineers, AI App Developers, and Infrastructure Teams evaluating self-hosted or fine-tuned models."
+      "whoIsAffected": "ML Engineers, AI App Developers, and Infrastructure Teams evaluating self-hosted or fine-tuned models.",
+      "aiAnalyzed": false
     },
     {
       "title": "Local student helps lead team to victory in artificial intelligence pitch competition - Marietta Daily Journal",
@@ -241,7 +238,8 @@
       "summary": "Local student helps lead team to victory in artificial intelligence pitch competition Marietta Daily Journal",
       "fullStory": "Local student helps lead team to victory in artificial intelligence pitch competition Marietta Daily Journal",
       "whyItMatters": "Tracks fast-moving capabilities, product launches, and industry shifts shaping how AI is built and deployed.",
-      "whoIsAffected": "AI Builders, Engineering Leaders, and Product Teams evaluating new tools and workflows."
+      "whoIsAffected": "AI Builders, Engineering Leaders, and Product Teams evaluating new tools and workflows.",
+      "aiAnalyzed": false
     },
     {
       "title": "Primary Care Patients Report Cautious Perceptions Toward Portal Artificial Intelligence Chatbots - Bioengineer.org",
@@ -252,7 +250,8 @@
       "summary": "Primary Care Patients Report Cautious Perceptions Toward Portal Artificial Intelligence Chatbots Bioengineer.org",
       "fullStory": "Primary Care Patients Report Cautious Perceptions Toward Portal Artificial Intelligence Chatbots Bioengineer.",
       "whyItMatters": "Tracks fast-moving capabilities, product launches, and industry shifts shaping how AI is built and deployed.",
-      "whoIsAffected": "AI Builders, Engineering Leaders, and Product Teams evaluating new tools and workflows."
+      "whoIsAffected": "AI Builders, Engineering Leaders, and Product Teams evaluating new tools and workflows.",
+      "aiAnalyzed": false
     },
     {
       "title": "Jensen Huang, a global salesman for artificial intelligence, resigns from Nvidia after affair - Cherokee Tribune",
@@ -263,7 +262,8 @@
       "summary": "Jensen Huang, a global salesman for artificial intelligence, resigns from Nvidia after affair Cherokee Tribune",
       "fullStory": "Jensen Huang, a global salesman for artificial intelligence, resigns from Nvidia after affair Cherokee Tribune",
       "whyItMatters": "Tracks fast-moving capabilities, product launches, and industry shifts shaping how AI is built and deployed.",
-      "whoIsAffected": "AI Builders, Engineering Leaders, and Product Teams evaluating new tools and workflows."
+      "whoIsAffected": "AI Builders, Engineering Leaders, and Product Teams evaluating new tools and workflows.",
+      "aiAnalyzed": false
     },
     {
       "title": "Artificial intelligence lets companies check every transaction instead of a handful. It can also reach where the law forbids. Adamo Brunetti, founder of CODE, explains why the real competitive advantage lies in knowing the difference. - Leaders League",
@@ -274,7 +274,8 @@
       "summary": "Artificial intelligence lets companies check every transaction instead of a handful. It can also reach where the law forbids. Adamo Brunetti, founder…",
       "fullStory": "Artificial intelligence lets companies check every transaction instead of a handful. It can also reach where the law forbids.\n\nAdamo Brunetti, founder of CODE, explains why the real competitive advantage lies in knowing the difference.",
       "whyItMatters": "Regulatory and policy shifts can create new compliance requirements, data-usage rules, and vendor risk considerations.",
-      "whoIsAffected": "Legal & Compliance Teams, CISOs, and Enterprise AI Governance Leaders."
+      "whoIsAffected": "Legal & Compliance Teams, CISOs, and Enterprise AI Governance Leaders.",
+      "aiAnalyzed": false
     },
     {
       "title": "DOJ AI Task Force Puts Business Users in Enforcement Spotlight - PYMNTS.com",
@@ -285,7 +286,8 @@
       "summary": "DOJ AI Task Force Puts Business Users in Enforcement Spotlight PYMNTS.com",
       "fullStory": "DOJ AI Task Force Puts Business Users in Enforcement Spotlight PYMNTS.",
       "whyItMatters": "Tracks fast-moving capabilities, product launches, and industry shifts shaping how AI is built and deployed.",
-      "whoIsAffected": "AI Builders, Engineering Leaders, and Product Teams evaluating new tools and workflows."
+      "whoIsAffected": "AI Builders, Engineering Leaders, and Product Teams evaluating new tools and workflows.",
+      "aiAnalyzed": false
     },
     {
       "title": "Introducing Gemini 4 Hydrogen for Agentic Workflows - blog.google",
@@ -296,7 +298,8 @@
       "summary": "Introducing Gemini 4 Hydrogen for Agentic Workflows blog.google",
       "fullStory": "Introducing Gemini 4 Hydrogen for Agentic Workflows blog.",
       "whyItMatters": "Tracks fast-moving capabilities, product launches, and industry shifts shaping how AI is built and deployed.",
-      "whoIsAffected": "AI Builders, Engineering Leaders, and Product Teams evaluating new tools and workflows."
+      "whoIsAffected": "AI Builders, Engineering Leaders, and Product Teams evaluating new tools and workflows.",
+      "aiAnalyzed": false
     },
     {
       "title": "10 things I’ve been told about AI over 72 hours in San Francisco - AFR",
@@ -307,7 +310,20 @@
       "summary": "10 things I’ve been told about AI over 72 hours in San Francisco AFR",
       "fullStory": "10 things I’ve been told about AI over 72 hours in San Francisco AFR",
       "whyItMatters": "Tracks fast-moving capabilities, product launches, and industry shifts shaping how AI is built and deployed.",
-      "whoIsAffected": "AI Builders, Engineering Leaders, and Product Teams evaluating new tools and workflows."
+      "whoIsAffected": "AI Builders, Engineering Leaders, and Product Teams evaluating new tools and workflows.",
+      "aiAnalyzed": false
+    },
+    {
+      "title": "Chinese AI Firms Scramble for Nvidia Chips After Huang Exit - Gizmodo",
+      "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxORU1iZUcyX2ZWN0w4aUlWc3B3WUt6QnhSa3lJTW9ibTg4UVBLRzlDNWlEajBiU2kzQnh0U3dZMXEtRHJuZzhvbnd3eTVrZktYQmpBbFVUNjVJaEI3Z3RUeVR4ZFhBSXFtWmhVeEh5LWdMeXc5MmgzNWNOVi1Qakw1V1NVV2lYeWRicVBmbU5FbTdtTkZiMlZlYmUzV09jQWItdzJGZXVJSnY0VjhtSGhEY3pHaw?oc=5",
+      "source": "Google News AI",
+      "category": "AI",
+      "publishedAt": "2026-11-12T17:50:21.000Z",
+      "summary": "Chinese AI Firms Scramble for Nvidia Chips After Huang Exit Gizmodo",
+      "fullStory": "Chinese AI Firms Scramble for Nvidia Chips After Huang Exit Gizmodo",
+      "whyItMatters": "Tracks fast-moving capabilities, product launches, and industry shifts shaping how AI is built and deployed.",
+      "whoIsAffected": "AI Builders, Engineering Leaders, and Product Teams evaluating new tools and workflows.",
+      "aiAnalyzed": false
     },
     {
       "title": "IMF monitoring AI developments, too early to say if AI reassessment underway - Reuters",
@@ -318,7 +334,8 @@
       "summary": "IMF monitoring AI developments, too early to say if AI reassessment underway Reuters",
       "fullStory": "IMF monitoring AI developments, too early to say if AI reassessment underway Reuters",
       "whyItMatters": "Tracks fast-moving capabilities, product launches, and industry shifts shaping how AI is built and deployed.",
-      "whoIsAffected": "AI Builders, Engineering Leaders, and Product Teams evaluating new tools and workflows."
+      "whoIsAffected": "AI Builders, Engineering Leaders, and Product Teams evaluating new tools and workflows.",
+      "aiAnalyzed": false
     },
     {
       "title": "Hugging Face CEO vows to keep fighting for open source AI after Jensen Huang’s exit",
@@ -329,7 +346,8 @@
       "summary": "Hugging Face's CEO pledged to keep fighting for open source AI after Huang's exit, raising questions about Nvidia's $12.9 billion acquisition.",
       "fullStory": "Hugging Face's CEO pledged to keep fighting for open source AI after Huang's exit, raising questions about Nvidia's $12. 9 billion acquisition.",
       "whyItMatters": "New open-weights models and tooling lower inference costs and give teams full control over privacy, customization, and self-hosting.",
-      "whoIsAffected": "ML Engineers, AI App Developers, and Infrastructure Teams evaluating self-hosted or fine-tuned models."
+      "whoIsAffected": "ML Engineers, AI App Developers, and Infrastructure Teams evaluating self-hosted or fine-tuned models.",
+      "aiAnalyzed": false
     },
     {
       "title": "Artificial intelligence in the classroom - Tri-Cities Area Journal of Business",
@@ -340,7 +358,8 @@
       "summary": "Artificial intelligence in the classroom Tri-Cities Area Journal of Business",
       "fullStory": "Artificial intelligence in the classroom Tri-Cities Area Journal of Business",
       "whyItMatters": "Tracks fast-moving capabilities, product launches, and industry shifts shaping how AI is built and deployed.",
-      "whoIsAffected": "AI Builders, Engineering Leaders, and Product Teams evaluating new tools and workflows."
+      "whoIsAffected": "AI Builders, Engineering Leaders, and Product Teams evaluating new tools and workflows.",
+      "aiAnalyzed": false
     },
     {
       "title": "Jensen Huang, a global salesman for artificial intelligence, resigns from Nvidia after affair - WSMV",
@@ -351,7 +370,20 @@
       "summary": "Jensen Huang, a global salesman for artificial intelligence, resigns from Nvidia after affair WSMV",
       "fullStory": "Jensen Huang, a global salesman for artificial intelligence, resigns from Nvidia after affair WSMV",
       "whyItMatters": "Tracks fast-moving capabilities, product launches, and industry shifts shaping how AI is built and deployed.",
-      "whoIsAffected": "AI Builders, Engineering Leaders, and Product Teams evaluating new tools and workflows."
+      "whoIsAffected": "AI Builders, Engineering Leaders, and Product Teams evaluating new tools and workflows.",
+      "aiAnalyzed": false
+    },
+    {
+      "title": "Artificial Intelligence Stocks To Keep An Eye On - November 12th - MarketBeat",
+      "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxPbjBWMUxZZ0hBYjhuY0JYYm42ODVhdzQyaVNkcXhzTXVEVVhrS2ZraXBOektRcGVWOFpyTTF3cERFTUY4YmxWVXNPeWtZS1VZNnhTeVZvMnpsYm1JalIwRlo3OHFZSHNZQUZpejViSHc3eHhOekpQZ3R5VWNDVktuaXBXbEVIQmtubHVzcWUyTDFQWGp0dV9ickd6SFFFUW03QlBzVVZ6UUVhVllBb1BVVGFfSnJkWUMzTjNZMUZR?oc=5",
+      "source": "Google News AI",
+      "category": "AI",
+      "publishedAt": "2026-11-12T17:25:57.000Z",
+      "summary": "Artificial Intelligence Stocks To Keep An Eye On - November 12th MarketBeat",
+      "fullStory": "Artificial Intelligence Stocks To Keep An Eye On - November 12th MarketBeat",
+      "whyItMatters": "Tracks fast-moving capabilities, product launches, and industry shifts shaping how AI is built and deployed.",
+      "whoIsAffected": "AI Builders, Engineering Leaders, and Product Teams evaluating new tools and workflows.",
+      "aiAnalyzed": false
     },
     {
       "title": "United Airlines blocks AI agents from booking flights, citing cybersecurity risks",
@@ -362,7 +394,8 @@
       "summary": "The airline said it will not allow customers to use AI agents to book flights and manage reservations.",
       "fullStory": "The airline said it will not allow customers to use AI agents to book flights and manage reservations.",
       "whyItMatters": "Tracks fast-moving capabilities, product launches, and industry shifts shaping how AI is built and deployed.",
-      "whoIsAffected": "AI Builders, Engineering Leaders, and Product Teams evaluating new tools and workflows."
+      "whoIsAffected": "AI Builders, Engineering Leaders, and Product Teams evaluating new tools and workflows.",
+      "aiAnalyzed": false
     },
     {
       "title": "SoftBank’s billion-dollar loss may have put a cap on AI’s natural gas ambitions",
@@ -373,7 +406,8 @@
       "summary": "SoftBank lost over $3 billion preordering natural gas turbines to power AI data centers. Here's what the loss means to power markets.",
       "fullStory": "SoftBank lost over $3 billion preordering natural gas turbines to power AI data centers. Here's what the loss means to power markets.",
       "whyItMatters": "Major funding, M&A, and enterprise partnerships signal where capital and ecosystem momentum are consolidating.",
-      "whoIsAffected": "Technology Executives, Product Leaders, Vendors, and Investors tracking the AI market."
+      "whoIsAffected": "Technology Executives, Product Leaders, Vendors, and Investors tracking the AI market.",
+      "aiAnalyzed": false
     },
     {
       "title": "Phota Labs uses AI to turn everyday photos into professional-looking shots",
@@ -384,7 +418,8 @@
       "summary": "Rather than giving consumers yet another photo-editing tool, Phota Labs aims to use advances in AI to automate the editing process so it’s easier for…",
       "fullStory": "Rather than giving consumers yet another photo-editing tool, Phota Labs aims to use advances in AI to automate the editing process so it’s easier for anyone to turn everyday moments into better photos.",
       "whyItMatters": "Tracks fast-moving capabilities, product launches, and industry shifts shaping how AI is built and deployed.",
-      "whoIsAffected": "AI Builders, Engineering Leaders, and Product Teams evaluating new tools and workflows."
+      "whoIsAffected": "AI Builders, Engineering Leaders, and Product Teams evaluating new tools and workflows.",
+      "aiAnalyzed": false
     },
     {
       "title": "Lakehouse//RT: Scale real-time analytics, not your bill",
@@ -395,7 +430,8 @@
       "summary": "AI agents are pushing the limits of data warehouses. A human analyst might run a...",
       "fullStory": "AI agents are pushing the limits of data warehouses. A human analyst might run a...",
       "whyItMatters": "Highlights architectural patterns, benchmarks, and engineering practices for scaling data and AI workloads on the Lakehouse.",
-      "whoIsAffected": "Data Platform Teams, Analytics Engineers, and ML Engineers building on Databricks."
+      "whoIsAffected": "Data Platform Teams, Analytics Engineers, and ML Engineers building on Databricks.",
+      "aiAnalyzed": false
     },
     {
       "title": "Jensen Huang agrees to testify before Congress",
@@ -406,7 +442,8 @@
       "summary": "Huang, who was ousted as CEO following reports of an alleged affair with a woman suspected of spying for China, agreed to testify Wednesday after sev…",
       "fullStory": "Huang, who was ousted as CEO following reports of an alleged affair with a woman suspected of spying for China, agreed to testify Wednesday after several senior lawmakers threatened to subpoena him.",
       "whyItMatters": "Regulatory and policy shifts can create new compliance requirements, data-usage rules, and vendor risk considerations.",
-      "whoIsAffected": "Legal & Compliance Teams, CISOs, and Enterprise AI Governance Leaders."
+      "whoIsAffected": "Legal & Compliance Teams, CISOs, and Enterprise AI Governance Leaders.",
+      "aiAnalyzed": false
     },
     {
       "title": "Five ways Jensen Huang’s ouster from Nvidia could damage the AI industry",
@@ -417,7 +454,8 @@
       "summary": "Nvidia's ousted CEO Jensen Huang's downfall isn’t just your run-of-the-mill salacious billionaire sex scandal. He was using his influence to push the…",
       "fullStory": "Nvidia's ousted CEO Jensen Huang's downfall isn’t just your run-of-the-mill salacious billionaire sex scandal. He was using his influence to push the AI industry in some very specific ways.",
       "whyItMatters": "Major funding, M&A, and enterprise partnerships signal where capital and ecosystem momentum are consolidating.",
-      "whoIsAffected": "Technology Executives, Product Leaders, Vendors, and Investors tracking the AI market."
+      "whoIsAffected": "Technology Executives, Product Leaders, Vendors, and Investors tracking the AI market.",
+      "aiAnalyzed": false
     },
     {
       "title": "Trump floats Apple chairman Tim Cook as Jensen Huang’s successor",
@@ -428,7 +466,8 @@
       "summary": "In a post on Truth Social, President Trump says only one man can take Jensen Huang's place as head of Nvidia: Tim Cook.",
       "fullStory": "In a post on Truth Social, President Trump says only one man can take Jensen Huang's place as head of Nvidia: Tim Cook.",
       "whyItMatters": "Tracks fast-moving capabilities, product launches, and industry shifts shaping how AI is built and deployed.",
-      "whoIsAffected": "AI Builders, Engineering Leaders, and Product Teams evaluating new tools and workflows."
+      "whoIsAffected": "AI Builders, Engineering Leaders, and Product Teams evaluating new tools and workflows.",
+      "aiAnalyzed": false
     },
     {
       "title": "Jensen Huang is out at Nvidia — who is Colette Kress, his interim replacement?",
@@ -439,7 +478,8 @@
       "summary": "Nvidia CFO Colette Kress is taking over as an interim replacement for longtime CEO Jensen Huang, who is embroiled in scandal.",
       "fullStory": "Nvidia CFO Colette Kress is taking over as an interim replacement for longtime CEO Jensen Huang, who is embroiled in scandal.",
       "whyItMatters": "Tracks fast-moving capabilities, product launches, and industry shifts shaping how AI is built and deployed.",
-      "whoIsAffected": "AI Builders, Engineering Leaders, and Product Teams evaluating new tools and workflows."
+      "whoIsAffected": "AI Builders, Engineering Leaders, and Product Teams evaluating new tools and workflows.",
+      "aiAnalyzed": false
     },
     {
       "title": "Norwest pushes deeper into AI with new $4B fund",
@@ -450,7 +490,8 @@
       "summary": "This is the investment firm's largest fund to date.",
       "fullStory": "This is the investment firm's largest fund to date.",
       "whyItMatters": "Major funding, M&A, and enterprise partnerships signal where capital and ecosystem momentum are consolidating.",
-      "whoIsAffected": "Technology Executives, Product Leaders, Vendors, and Investors tracking the AI market."
+      "whoIsAffected": "Technology Executives, Product Leaders, Vendors, and Investors tracking the AI market.",
+      "aiAnalyzed": false
     },
     {
       "title": "Cyberattack on Fireworks AI allowed hackers to access Notion customers’ chat transcripts",
@@ -461,7 +502,8 @@
       "summary": "This is Fireworks' second data breach in as many months.",
       "fullStory": "This is Fireworks' second data breach in as many months.",
       "whyItMatters": "Tracks fast-moving capabilities, product launches, and industry shifts shaping how AI is built and deployed.",
-      "whoIsAffected": "AI Builders, Engineering Leaders, and Product Teams evaluating new tools and workflows."
+      "whoIsAffected": "AI Builders, Engineering Leaders, and Product Teams evaluating new tools and workflows.",
+      "aiAnalyzed": false
     },
     {
       "title": "The unfolding Jensen Huang scandal: a timeline",
@@ -472,7 +514,8 @@
       "summary": "Jensen Huang has resigned from Nvidia following an affair, which could have ramifications for national security as the U.S. and China race to develop…",
       "fullStory": "Jensen Huang has resigned from Nvidia following an affair, which could have ramifications for national security as the U. and China race to develop the most advanced AI infrastructure.",
       "whyItMatters": "Tracks fast-moving capabilities, product launches, and industry shifts shaping how AI is built and deployed.",
-      "whoIsAffected": "AI Builders, Engineering Leaders, and Product Teams evaluating new tools and workflows."
+      "whoIsAffected": "AI Builders, Engineering Leaders, and Product Teams evaluating new tools and workflows.",
+      "aiAnalyzed": false
     },
     {
       "title": "Nine Korean startups vie for a spot in Disrupt 2027’s Startup Battlefield 200 competition",
@@ -483,7 +526,8 @@
       "summary": "The startups work across the deep tech sector, including healthcare, fintech, energy, semiconductors, and AI. All nine are looking to enter the U.S.",
       "fullStory": "The startups work across the deep tech sector, including healthcare, fintech, energy, semiconductors, and AI. All nine are looking to enter the U.",
       "whyItMatters": "Tracks fast-moving capabilities, product launches, and industry shifts shaping how AI is built and deployed.",
-      "whoIsAffected": "AI Builders, Engineering Leaders, and Product Teams evaluating new tools and workflows."
+      "whoIsAffected": "AI Builders, Engineering Leaders, and Product Teams evaluating new tools and workflows.",
+      "aiAnalyzed": false
     },
     {
       "title": "Who could replace Jensen Huang? A highly unscientific list of possible successors",
@@ -494,7 +538,8 @@
       "summary": "Nvidia has no succession plan and a CEO in hot water, so we’ve drafted a shortlist.",
       "fullStory": "Nvidia has no succession plan and a CEO in hot water, so we’ve drafted a shortlist.",
       "whyItMatters": "Tracks fast-moving capabilities, product launches, and industry shifts shaping how AI is built and deployed.",
-      "whoIsAffected": "AI Builders, Engineering Leaders, and Product Teams evaluating new tools and workflows."
+      "whoIsAffected": "AI Builders, Engineering Leaders, and Product Teams evaluating new tools and workflows.",
+      "aiAnalyzed": false
     },
     {
       "title": "ABAC DENY policies support AI securables and attachment to individual objects (Beta)",
@@ -505,7 +550,8 @@
       "summary": "Expanded FOR clause support: DENY policies can now apply to model services, model provider services, MCP services, agent services, and skills. Expand…",
       "fullStory": "Expanded FOR clause support: DENY policies can now apply to model services, model provider services, MCP services, agent services, and skills. Expanded ON clause support: DENY policies can now be attached directly on tables, volumes, functions, models, secrets, model services, model provider services, MCP services, ag…\n\nSee Supported securable types and privileges .",
       "whyItMatters": "Platform updates and release notes often introduce performance improvements, new SQL/Spark capabilities, or deprecations that impact production pipelines.",
-      "whoIsAffected": "Databricks Data Engineers, Lakehouse Architects, and Workspace Admins managing clusters, jobs, and governance."
+      "whoIsAffected": "Databricks Data Engineers, Lakehouse Architects, and Workspace Admins managing clusters, jobs, and governance.",
+      "aiAnalyzed": false
     },
     {
       "title": "Genie ZeroOps is available in Beta",
@@ -516,7 +562,8 @@
       "summary": "Genie ZeroOps is now available in Beta . It monitors jobs, pipelines, and tables in the background, detects failures and data quality issues, investi…",
       "fullStory": "Genie ZeroOps is now available in Beta . It monitors jobs, pipelines, and tables in the background, detects failures and data quality issues, investigates the root cause, and proposes a fix.\n\nSee Get started with Genie ZeroOps .",
       "whyItMatters": "Platform updates and release notes often introduce performance improvements, new SQL/Spark capabilities, or deprecations that impact production pipelines.",
-      "whoIsAffected": "Databricks Data Engineers, Lakehouse Architects, and Workspace Admins managing clusters, jobs, and governance."
+      "whoIsAffected": "Databricks Data Engineers, Lakehouse Architects, and Workspace Admins managing clusters, jobs, and governance.",
+      "aiAnalyzed": false
     },
     {
       "title": "The Definitive Fine-Tuning Guide for 3D Generation Models",
@@ -527,7 +574,8 @@
       "summary": "",
       "fullStory": "The Definitive Fine-Tuning Guide for 3D Generation Models.\n\nOpen the original article below for the full coverage.",
       "whyItMatters": "New open-weights models and tooling lower inference costs and give teams full control over privacy, customization, and self-hosting.",
-      "whoIsAffected": "ML Engineers, AI App Developers, and Infrastructure Teams evaluating self-hosted or fine-tuned models."
+      "whoIsAffected": "ML Engineers, AI App Developers, and Infrastructure Teams evaluating self-hosted or fine-tuned models.",
+      "aiAnalyzed": false
     },
     {
       "title": "Air gapped, not data dark: how Bright Machines gives customers live factory dashboards without opening the plant",
@@ -538,7 +586,8 @@
       "summary": "Bright Machines gives customers live, governed dashboards of their factory data without...",
       "fullStory": "Bright Machines gives customers live, governed dashboards of their factory data without...",
       "whyItMatters": "Highlights architectural patterns, benchmarks, and engineering practices for scaling data and AI workloads on the Lakehouse.",
-      "whoIsAffected": "Data Platform Teams, Analytics Engineers, and ML Engineers building on Databricks."
+      "whoIsAffected": "Data Platform Teams, Analytics Engineers, and ML Engineers building on Databricks.",
+      "aiAnalyzed": false
     },
     {
       "title": "Nvidia’s stock drops as board reportedly preps to oust CEO Jensen Huang",
@@ -549,7 +598,8 @@
       "summary": "As soon as Wednesday evening, Nvidia's board could decide to remove its founder and CEO of 33 years.",
       "fullStory": "As soon as Wednesday evening, Nvidia's board could decide to remove its founder and CEO of 33 years.",
       "whyItMatters": "Tracks fast-moving capabilities, product launches, and industry shifts shaping how AI is built and deployed.",
-      "whoIsAffected": "AI Builders, Engineering Leaders, and Product Teams evaluating new tools and workflows."
+      "whoIsAffected": "AI Builders, Engineering Leaders, and Product Teams evaluating new tools and workflows.",
+      "aiAnalyzed": false
     },
     {
       "title": "Jensen Huang accused of having another affair — with an Nvidia exec",
@@ -560,7 +610,8 @@
       "summary": "Jensen Huang, who has come under fire for admitting to an affair with a woman accused of being a Chinese intelligence agent, has been accused of havi…",
       "fullStory": "Jensen Huang, who has come under fire for admitting to an affair with a woman accused of being a Chinese intelligence agent, has been accused of having a separate affair with an Nvidia subordinate.",
       "whyItMatters": "Tracks fast-moving capabilities, product launches, and industry shifts shaping how AI is built and deployed.",
-      "whoIsAffected": "AI Builders, Engineering Leaders, and Product Teams evaluating new tools and workflows."
+      "whoIsAffected": "AI Builders, Engineering Leaders, and Product Teams evaluating new tools and workflows.",
+      "aiAnalyzed": false
     },
     {
       "title": "Why the data center you dread might never even be built",
@@ -571,7 +622,8 @@
       "summary": "The data center boom is running into serious real-world obstacles, from widespread local opposition and permitting delays to a scramble for electrici…",
       "fullStory": "The data center boom is running into serious real-world obstacles, from widespread local opposition and permitting delays to a scramble for electricity. &#160;Before those challenges even come into play, though, there&#8217;s a more basic problem: A lot of the projects being announced may never get built in the first place.",
       "whyItMatters": "Major funding, M&A, and enterprise partnerships signal where capital and ecosystem momentum are consolidating.",
-      "whoIsAffected": "Technology Executives, Product Leaders, Vendors, and Investors tracking the AI market."
+      "whoIsAffected": "Technology Executives, Product Leaders, Vendors, and Investors tracking the AI market.",
+      "aiAnalyzed": false
     },
     {
       "title": "BotPsy: On-Device Personal Assistant with a Sub-Billion-Parameter Agentic Language Model",
@@ -582,7 +634,8 @@
       "summary": "",
       "fullStory": "BotPsy: On-Device Personal Assistant with a Sub-Billion-Parameter Agentic Language Model.\n\nOpen the original article below for the full coverage.",
       "whyItMatters": "Major funding, M&A, and enterprise partnerships signal where capital and ecosystem momentum are consolidating.",
-      "whoIsAffected": "Technology Executives, Product Leaders, Vendors, and Investors tracking the AI market."
+      "whoIsAffected": "Technology Executives, Product Leaders, Vendors, and Investors tracking the AI market.",
+      "aiAnalyzed": false
     },
     {
       "title": "Bring your own ChatGPT subscription to Codex with Unity Gateway",
@@ -593,7 +646,8 @@
       "summary": "You can now use your own ChatGPT Go, Plus, Pro, or Enterprise subscription with Codex and ChatGPT desktop through Unity Gateway. Requests are billed…",
       "fullStory": "You can now use your own ChatGPT Go, Plus, Pro, or Enterprise subscription with Codex and ChatGPT desktop through Unity Gateway. Requests are billed to your subscription, and Unity Gateway governs access and usage.\n\nSee ChatGPT subscription support .",
       "whyItMatters": "Platform updates and release notes often introduce performance improvements, new SQL/Spark capabilities, or deprecations that impact production pipelines.",
-      "whoIsAffected": "Databricks Data Engineers, Lakehouse Architects, and Workspace Admins managing clusters, jobs, and governance."
+      "whoIsAffected": "Databricks Data Engineers, Lakehouse Architects, and Workspace Admins managing clusters, jobs, and governance.",
+      "aiAnalyzed": false
     },
     {
       "title": "Connect ChatGPT to Genie One with the Databricks Genie plugin",
@@ -604,7 +658,8 @@
       "summary": "The Databricks Genie plugin connects ChatGPT to the Genie One MCP, so users can ask questions about their data from ChatGPT. A ChatGPT admin sets up…",
       "fullStory": "The Databricks Genie plugin connects ChatGPT to the Genie One MCP, so users can ask questions about their data from ChatGPT. A ChatGPT admin sets up the plugin for the ChatGPT workspace, and each user connects by signing in with their Databricks account.\n\nSee Databricks Genie plugins for ChatGPT, Claude, and Grok Bot/Cursor .",
       "whyItMatters": "Platform updates and release notes often introduce performance improvements, new SQL/Spark capabilities, or deprecations that impact production pipelines.",
-      "whoIsAffected": "Databricks Data Engineers, Lakehouse Architects, and Workspace Admins managing clusters, jobs, and governance."
+      "whoIsAffected": "Databricks Data Engineers, Lakehouse Architects, and Workspace Admins managing clusters, jobs, and governance.",
+      "aiAnalyzed": false
     },
     {
       "title": "Connect Claude to Genie One with the Databricks Genie connector",
@@ -615,7 +670,8 @@
       "summary": "The Databricks Genie connector connects Claude to the Genie One MCP, so users can ask questions about their data from Claude. A Claude admin connects…",
       "fullStory": "The Databricks Genie connector connects Claude to the Genie One MCP, so users can ask questions about their data from Claude. A Claude admin connects it for the team, and each user connects by signing in with their Databricks account.\n\nSee Databricks Genie plugins for ChatGPT, Claude, and Grok Bot/Cursor .",
       "whyItMatters": "Platform updates and release notes often introduce performance improvements, new SQL/Spark capabilities, or deprecations that impact production pipelines.",
-      "whoIsAffected": "Databricks Data Engineers, Lakehouse Architects, and Workspace Admins managing clusters, jobs, and governance."
+      "whoIsAffected": "Databricks Data Engineers, Lakehouse Architects, and Workspace Admins managing clusters, jobs, and governance.",
+      "aiAnalyzed": false
     },
     {
       "title": "Connect GitHub Copilot CLI and GitHub Copilot in Visual Studio Code with Unity Gateway",
@@ -626,7 +682,8 @@
       "summary": "ug configure --agents copilot now sets up GitHub Copilot in Visual Studio Code alongside GitHub Copilot CLI, with Claude, GPT, and open-source models…",
       "fullStory": "ug configure --agents copilot now sets up GitHub Copilot in Visual Studio Code alongside GitHub Copilot CLI, with Claude, GPT, and open-source models. Admins can add GitHub Copilot to the coding agent configuration to set its models, default model, HTTP headers, and tracing for both Copilot CLI and Copilot in Visual S…\n\nDevelopers must use the latest ug . See Connect GitHub Copilot .",
       "whyItMatters": "Platform updates and release notes often introduce performance improvements, new SQL/Spark capabilities, or deprecations that impact production pipelines.",
-      "whoIsAffected": "Databricks Data Engineers, Lakehouse Architects, and Workspace Admins managing clusters, jobs, and governance."
+      "whoIsAffected": "Databricks Data Engineers, Lakehouse Architects, and Workspace Admins managing clusters, jobs, and governance.",
+      "aiAnalyzed": false
     },
     {
       "title": "Connect Grok Bot/Cursor to Genie One with the Databricks Genie plugin",
@@ -637,7 +694,8 @@
       "summary": "The Databricks Genie plugin connects Grok Bot/Cursor to the Genie One MCP, so users can ask questions about their data from Grok Bot/Cursor. A Cursor…",
       "fullStory": "The Databricks Genie plugin connects Grok Bot/Cursor to the Genie One MCP, so users can ask questions about their data from Grok Bot/Cursor. A Cursor team admin publishes the plugin for the team, and each user connects by signing in with their Databricks account.\n\nSee Databricks Genie plugins for ChatGPT, Claude, and Grok Bot/Cursor .",
       "whyItMatters": "Platform updates and release notes often introduce performance improvements, new SQL/Spark capabilities, or deprecations that impact production pipelines.",
-      "whoIsAffected": "Databricks Data Engineers, Lakehouse Architects, and Workspace Admins managing clusters, jobs, and governance."
+      "whoIsAffected": "Databricks Data Engineers, Lakehouse Architects, and Workspace Admins managing clusters, jobs, and governance.",
+      "aiAnalyzed": false
     },
     {
       "title": "Feature Views are now available by default for workspaces with the compliance security profile enabled",
@@ -648,7 +706,8 @@
       "summary": "Feature Views are now available by default for workspaces with the compliance security profile enabled. See Feature Views .",
       "fullStory": "Feature Views are now available by default for workspaces with the compliance security profile enabled.",
       "whyItMatters": "Platform updates and release notes often introduce performance improvements, new SQL/Spark capabilities, or deprecations that impact production pipelines.",
-      "whoIsAffected": "Databricks Data Engineers, Lakehouse Architects, and Workspace Admins managing clusters, jobs, and governance."
+      "whoIsAffected": "Databricks Data Engineers, Lakehouse Architects, and Workspace Admins managing clusters, jobs, and governance.",
+      "aiAnalyzed": false
     },
     {
       "title": "Pages are generally available",
@@ -659,7 +718,8 @@
       "summary": "Pages, governed definitions of business concepts organized by domain on the Discover page, are generally available. Curators can certify and deprecat…",
       "fullStory": "Pages, governed definitions of business concepts organized by domain on the Discover page, are generally available. Curators can certify and deprecate Pages, and the new MANAGE PAGES permission controls who can publish and manage Pages in a domain.\n\nYou can also manage Pages with the REST API.",
       "whyItMatters": "Platform updates and release notes often introduce performance improvements, new SQL/Spark capabilities, or deprecations that impact production pipelines.",
-      "whoIsAffected": "Databricks Data Engineers, Lakehouse Architects, and Workspace Admins managing clusters, jobs, and governance."
+      "whoIsAffected": "Databricks Data Engineers, Lakehouse Architects, and Workspace Admins managing clusters, jobs, and governance.",
+      "aiAnalyzed": false
     },
     {
       "title": "Standalone pipelines on serverless general compute are now generally available",
@@ -670,7 +730,8 @@
       "summary": "Creating and refreshing standalone materialized views and streaming tables from a notebook on serverless general compute is now generally available.…",
       "fullStory": "Creating and refreshing standalone materialized views and streaming tables from a notebook on serverless general compute is now generally available. You can define them with SQL through spark.\n\nsql() or with the Python pipelines decorators. See Notebooks and Use Python with standalone pipelines .",
       "whyItMatters": "Platform updates and release notes often introduce performance improvements, new SQL/Spark capabilities, or deprecations that impact production pipelines.",
-      "whoIsAffected": "Databricks Data Engineers, Lakehouse Architects, and Workspace Admins managing clusters, jobs, and governance."
+      "whoIsAffected": "Databricks Data Engineers, Lakehouse Architects, and Workspace Admins managing clusters, jobs, and governance.",
+      "aiAnalyzed": false
     },
     {
       "title": "The Genie One desktop app for Windows is in Beta",
@@ -681,7 +742,8 @@
       "summary": "The Genie One desktop app is now available for Windows in Beta , in addition to macOS. The native app opens Genie One on your desktop instead of in a…",
       "fullStory": "The Genie One desktop app is now available for Windows in Beta , in addition to macOS. The native app opens Genie One on your desktop instead of in a browser tab, so business users can chat with data in natural language, work with their threads and documents, and use Genie Agents without a browser.",
       "whyItMatters": "Platform updates and release notes often introduce performance improvements, new SQL/Spark capabilities, or deprecations that impact production pipelines.",
-      "whoIsAffected": "Databricks Data Engineers, Lakehouse Architects, and Workspace Admins managing clusters, jobs, and governance."
+      "whoIsAffected": "Databricks Data Engineers, Lakehouse Architects, and Workspace Admins managing clusters, jobs, and governance.",
+      "aiAnalyzed": false
     },
     {
       "title": "Write custom service policies in Python (Beta)",
@@ -692,7 +754,8 @@
       "summary": "You can now write a custom service policy as a Python function in Unity Catalog. Use it for rules that SQL can't express, such as regular expressions…",
       "fullStory": "You can now write a custom service policy as a Python function in Unity Catalog. Use it for rules that SQL can't express, such as regular expressions, Python packages, or calls to an external guardrail through a service credential.\n\nIt's available in select regions. See Write a custom Python service policy .",
       "whyItMatters": "Platform updates and release notes often introduce performance improvements, new SQL/Spark capabilities, or deprecations that impact production pipelines.",
-      "whoIsAffected": "Databricks Data Engineers, Lakehouse Architects, and Workspace Admins managing clusters, jobs, and governance."
+      "whoIsAffected": "Databricks Data Engineers, Lakehouse Architects, and Workspace Admins managing clusters, jobs, and governance.",
+      "aiAnalyzed": false
     },
     {
       "title": "Bring your own ChatGPT subscription to Codex with Unity Gateway",
@@ -703,7 +766,8 @@
       "summary": "You can now use your own ChatGPT Go, Plus, Pro, or Enterprise subscription with Codex and ChatGPT desktop through Unity Gateway. Requests are billed…",
       "fullStory": "You can now use your own ChatGPT Go, Plus, Pro, or Enterprise subscription with Codex and ChatGPT desktop through Unity Gateway. Requests are billed to your subscription, and Unity Gateway governs access and usage.\n\nSee ChatGPT subscription support .",
       "whyItMatters": "Platform updates and release notes often introduce performance improvements, new SQL/Spark capabilities, or deprecations that impact production pipelines.",
-      "whoIsAffected": "Databricks Data Engineers, Lakehouse Architects, and Workspace Admins managing clusters, jobs, and governance."
+      "whoIsAffected": "Databricks Data Engineers, Lakehouse Architects, and Workspace Admins managing clusters, jobs, and governance.",
+      "aiAnalyzed": false
     },
     {
       "title": "Connect GitHub Copilot CLI and GitHub Copilot in Visual Studio Code with Unity Gateway",
@@ -714,7 +778,8 @@
       "summary": "ug configure --agents copilot now sets up GitHub Copilot in Visual Studio Code alongside GitHub Copilot CLI, with Claude, GPT, and open-source models…",
       "fullStory": "ug configure --agents copilot now sets up GitHub Copilot in Visual Studio Code alongside GitHub Copilot CLI, with Claude, GPT, and open-source models. Admins can add GitHub Copilot to the coding agent configuration to set its models, default model, HTTP headers, and tracing for both Copilot CLI and Copilot in Visual S…\n\nDevelopers must use the latest ug . See Connect GitHub Copilot .",
       "whyItMatters": "Platform updates and release notes often introduce performance improvements, new SQL/Spark capabilities, or deprecations that impact production pipelines.",
-      "whoIsAffected": "Databricks Data Engineers, Lakehouse Architects, and Workspace Admins managing clusters, jobs, and governance."
+      "whoIsAffected": "Databricks Data Engineers, Lakehouse Architects, and Workspace Admins managing clusters, jobs, and governance.",
+      "aiAnalyzed": false
     },
     {
       "title": "Write custom service policies in Python (Beta)",
@@ -725,7 +790,8 @@
       "summary": "You can now write a custom service policy as a Python function in Unity Catalog. Use it for rules that SQL can't express, such as regular expressions…",
       "fullStory": "You can now write a custom service policy as a Python function in Unity Catalog. Use it for rules that SQL can't express, such as regular expressions, Python packages, or calls to an external guardrail through a service credential.\n\nIt's available in select regions. See Write a custom Python service policy .",
       "whyItMatters": "Platform updates and release notes often introduce performance improvements, new SQL/Spark capabilities, or deprecations that impact production pipelines.",
-      "whoIsAffected": "Databricks Data Engineers, Lakehouse Architects, and Workspace Admins managing clusters, jobs, and governance."
+      "whoIsAffected": "Databricks Data Engineers, Lakehouse Architects, and Workspace Admins managing clusters, jobs, and governance.",
+      "aiAnalyzed": false
     },
     {
       "title": "Partial schema inference for Python Lakeflow pipelines",
@@ -736,7 +802,8 @@
       "summary": "In an upcoming release, Python Lakeflow pipelines will support partial schema inference in Beta. You will be able to use the override_schema argument…",
       "fullStory": "In an upcoming release, Python Lakeflow pipelines will support partial schema inference in Beta. You will be able to use the override_schema argument of table , materialized_view , or create_streaming_table to declare only the columns whose type, constraint, or comment you want to control.\n\nThe pipeline infers the remaining columns from the query output. See Develop pipeline code with Python .",
       "whyItMatters": "Platform updates and release notes often introduce performance improvements, new SQL/Spark capabilities, or deprecations that impact production pipelines.",
-      "whoIsAffected": "Databricks Data Engineers, Lakehouse Architects, and Workspace Admins managing clusters, jobs, and governance."
+      "whoIsAffected": "Databricks Data Engineers, Lakehouse Architects, and Workspace Admins managing clusters, jobs, and governance.",
+      "aiAnalyzed": false
     },
     {
       "title": "Token Pooling-Aware Training for Multi-Vector Embedding Models",
@@ -747,7 +814,8 @@
       "summary": "",
       "fullStory": "Token Pooling-Aware Training for Multi-Vector Embedding Models.\n\nOpen the original article below for the full coverage.",
       "whyItMatters": "Tracks fast-moving capabilities, product launches, and industry shifts shaping how AI is built and deployed.",
-      "whoIsAffected": "AI Builders, Engineering Leaders, and Product Teams evaluating new tools and workflows."
+      "whoIsAffected": "AI Builders, Engineering Leaders, and Product Teams evaluating new tools and workflows.",
+      "aiAnalyzed": false
     },
     {
       "title": "Allow ChatGPT and Claude as partner platforms in context-based ingress policies",
@@ -758,7 +826,8 @@
       "summary": "Context-based ingress policies can now allow traffic from ChatGPT and Claude as partner platforms. Databricks keeps their published IP ranges current…",
       "fullStory": "Context-based ingress policies can now allow traffic from ChatGPT and Claude as partner platforms. Databricks keeps their published IP ranges current, so you don't track the IPs yourself.\n\nUse these rules to allow hosted Model Context Protocol (MCP) clients, such as the Databricks Genie plugins for ChatGPT and Claude, to reach your workspace. See Allow partner platforms in context-based ingress policies .",
       "whyItMatters": "Platform updates and release notes often introduce performance improvements, new SQL/Spark capabilities, or deprecations that impact production pipelines.",
-      "whoIsAffected": "Databricks Data Engineers, Lakehouse Architects, and Workspace Admins managing clusters, jobs, and governance."
+      "whoIsAffected": "Databricks Data Engineers, Lakehouse Architects, and Workspace Admins managing clusters, jobs, and governance.",
+      "aiAnalyzed": false
     },
     {
       "title": "Budget alerts can now trigger webhooks (Beta)",
@@ -769,7 +838,8 @@
       "summary": "You can now configure budgets to trigger webhooks when spend thresholds are exhausted, so budget events can be routed to incident, ticketing, or auto…",
       "fullStory": "You can now configure budgets to trigger webhooks when spend thresholds are exhausted, so budget events can be routed to incident, ticketing, or automation tools. See Trigger custom webhooks .",
       "whyItMatters": "Platform updates and release notes often introduce performance improvements, new SQL/Spark capabilities, or deprecations that impact production pipelines.",
-      "whoIsAffected": "Databricks Data Engineers, Lakehouse Architects, and Workspace Admins managing clusters, jobs, and governance."
+      "whoIsAffected": "Databricks Data Engineers, Lakehouse Architects, and Workspace Admins managing clusters, jobs, and governance.",
+      "aiAnalyzed": false
     },
     {
       "title": "Google Gemini 4 Carbon is now available on Unity Gateway",
@@ -780,7 +850,8 @@
       "summary": "Google Gemini 4 Carbon is now available on Unity Gateway. You can access this model using Foundation Model APIs . Customers are responsible for ensur…",
       "fullStory": "Google Gemini 4 Carbon is now available on Unity Gateway. You can access this model using Foundation Model APIs .\n\nCustomers are responsible for ensuring their compliance with applicable terms .",
       "whyItMatters": "Platform updates and release notes often introduce performance improvements, new SQL/Spark capabilities, or deprecations that impact production pipelines.",
-      "whoIsAffected": "Databricks Data Engineers, Lakehouse Architects, and Workspace Admins managing clusters, jobs, and governance."
+      "whoIsAffected": "Databricks Data Engineers, Lakehouse Architects, and Workspace Admins managing clusters, jobs, and governance.",
+      "aiAnalyzed": false
     },
     {
       "title": "Text and binary inputs for protobuf requests to custom model serving endpoints (Public Preview)",
@@ -791,7 +862,8 @@
       "summary": "Protobuf requests to custom model serving endpoints can now carry text and binary data, such as titles, images, audio, and documents, as KServe v2 BY…",
       "fullStory": "Protobuf requests to custom model serving endpoints can now carry text and binary data, such as titles, images, audio, and documents, as KServe v2 BYTES tensors alongside numeric tensors in the same request. Text and binary model outputs are returned as BYTES tensors.\n\nThis feature is in Public Preview and is only available on endpoints deployed after November 10, 2026. See Protobuf tensor input .",
       "whyItMatters": "Platform updates and release notes often introduce performance improvements, new SQL/Spark capabilities, or deprecations that impact production pipelines.",
-      "whoIsAffected": "Databricks Data Engineers, Lakehouse Architects, and Workspace Admins managing clusters, jobs, and governance."
+      "whoIsAffected": "Databricks Data Engineers, Lakehouse Architects, and Workspace Admins managing clusters, jobs, and governance.",
+      "aiAnalyzed": false
     },
     {
       "title": "The Genie One Chrome extension is in Beta",
@@ -802,7 +874,8 @@
       "summary": "The Genie One Chrome extension is now available in Beta . The extension makes every new Chrome tab open Genie One in your workspace, so asking a ques…",
       "fullStory": "The Genie One Chrome extension is now available in Beta . The extension makes every new Chrome tab open Genie One in your workspace, so asking a question, searching across your tools, or opening a dashboard takes one click.\n\nInstall it from the Chrome Web Store. See Use Genie One as your Chrome new tab page .",
       "whyItMatters": "Platform updates and release notes often introduce performance improvements, new SQL/Spark capabilities, or deprecations that impact production pipelines.",
-      "whoIsAffected": "Databricks Data Engineers, Lakehouse Architects, and Workspace Admins managing clusters, jobs, and governance."
+      "whoIsAffected": "Databricks Data Engineers, Lakehouse Architects, and Workspace Admins managing clusters, jobs, and governance.",
+      "aiAnalyzed": false
     },
     {
       "title": "Budget alerts can now trigger webhooks (Beta)",
@@ -813,7 +886,8 @@
       "summary": "You can now configure budgets to trigger webhooks when spend thresholds are exhausted, so budget events can be routed to incident, ticketing, or auto…",
       "fullStory": "You can now configure budgets to trigger webhooks when spend thresholds are exhausted, so budget events can be routed to incident, ticketing, or automation tools. See Trigger custom webhooks .",
       "whyItMatters": "Platform updates and release notes often introduce performance improvements, new SQL/Spark capabilities, or deprecations that impact production pipelines.",
-      "whoIsAffected": "Databricks Data Engineers, Lakehouse Architects, and Workspace Admins managing clusters, jobs, and governance."
+      "whoIsAffected": "Databricks Data Engineers, Lakehouse Architects, and Workspace Admins managing clusters, jobs, and governance.",
+      "aiAnalyzed": false
     },
     {
       "title": "Google Gemini 4 Carbon is now available on Unity Gateway",
@@ -824,7 +898,8 @@
       "summary": "Google Gemini 4 Carbon is now available on Unity Gateway. You can access this model using Foundation Model APIs . Customers are responsible for ensur…",
       "fullStory": "Google Gemini 4 Carbon is now available on Unity Gateway. You can access this model using Foundation Model APIs .\n\nCustomers are responsible for ensuring their compliance with applicable terms .",
       "whyItMatters": "Platform updates and release notes often introduce performance improvements, new SQL/Spark capabilities, or deprecations that impact production pipelines.",
-      "whoIsAffected": "Databricks Data Engineers, Lakehouse Architects, and Workspace Admins managing clusters, jobs, and governance."
+      "whoIsAffected": "Databricks Data Engineers, Lakehouse Architects, and Workspace Admins managing clusters, jobs, and governance.",
+      "aiAnalyzed": false
     },
     {
       "title": "External access to Unity Catalog managed Delta tables will soon be available by default for workspaces with the compliance security profile enabled",
@@ -835,7 +910,8 @@
       "summary": "Starting on or after December 10, 2026, external access to Unity Catalog managed Delta tables will be available by default for eligible workspaces wi…",
       "fullStory": "Starting on or after December 10, 2026, external access to Unity Catalog managed Delta tables will be available by default for eligible workspaces with the compliance security profile enabled. Supported external Delta clients can create, read, and write Unity Catalog managed Delta tables. Creating and writing managed…\n\nMetastore external data access settings and Unity Catalog privileges continue to control access. See Access Databricks tables from Delta clients .",
       "whyItMatters": "Platform updates and release notes often introduce performance improvements, new SQL/Spark capabilities, or deprecations that impact production pipelines.",
-      "whoIsAffected": "Databricks Data Engineers, Lakehouse Architects, and Workspace Admins managing clusters, jobs, and governance."
+      "whoIsAffected": "Databricks Data Engineers, Lakehouse Architects, and Workspace Admins managing clusters, jobs, and governance.",
+      "aiAnalyzed": false
     },
     {
       "title": "Pay for Hugging Face Hub with your Google Cloud Account",
@@ -846,7 +922,8 @@
       "summary": "",
       "fullStory": "Pay for Hugging Face Hub with your Google Cloud Account.\n\nOpen the original article below for the full coverage.",
       "whyItMatters": "New open-weights models and tooling lower inference costs and give teams full control over privacy, customization, and self-hosting.",
-      "whoIsAffected": "ML Engineers, AI App Developers, and Infrastructure Teams evaluating self-hosted or fine-tuned models."
+      "whoIsAffected": "ML Engineers, AI App Developers, and Infrastructure Teams evaluating self-hosted or fine-tuned models.",
+      "aiAnalyzed": false
     },
     {
       "title": "Decision Models in Hugging Face",
@@ -857,7 +934,8 @@
       "summary": "",
       "fullStory": "Decision Models in Hugging Face.\n\nOpen the original article below for the full coverage.",
       "whyItMatters": "New open-weights models and tooling lower inference costs and give teams full control over privacy, customization, and self-hosting.",
-      "whoIsAffected": "ML Engineers, AI App Developers, and Infrastructure Teams evaluating self-hosted or fine-tuned models."
+      "whoIsAffected": "ML Engineers, AI App Developers, and Infrastructure Teams evaluating self-hosted or fine-tuned models.",
+      "aiAnalyzed": false
     },
     {
       "title": "Accelerate GPU training on Unity Catalog tables with UCDataset",
@@ -868,7 +946,8 @@
       "summary": "GPUs are usually the most expensive part of any training run, and most teams can't...",
       "fullStory": "GPUs are usually the most expensive part of any training run, and most teams can't...",
       "whyItMatters": "Platform updates and release notes often introduce performance improvements, new SQL/Spark capabilities, or deprecations that impact production pipelines.",
-      "whoIsAffected": "Databricks Data Engineers, Lakehouse Architects, and Workspace Admins managing clusters, jobs, and governance."
+      "whoIsAffected": "Databricks Data Engineers, Lakehouse Architects, and Workspace Admins managing clusters, jobs, and governance.",
+      "aiAnalyzed": false
     },
     {
       "title": "Nemotron-Personas-Finance-Japan: A Synthetic Dataset Capturing Japan's Demographics and Financial Context",
@@ -879,7 +958,8 @@
       "summary": "",
       "fullStory": "Nemotron-Personas-Finance-Japan: A Synthetic Dataset Capturing Japan's Demographics and Financial Context.\n\nOpen the original article below for the full coverage.",
       "whyItMatters": "Tracks fast-moving capabilities, product launches, and industry shifts shaping how AI is built and deployed.",
-      "whoIsAffected": "AI Builders, Engineering Leaders, and Product Teams evaluating new tools and workflows."
+      "whoIsAffected": "AI Builders, Engineering Leaders, and Product Teams evaluating new tools and workflows.",
+      "aiAnalyzed": false
     },
     {
       "title": "Your Experts Have Partners. There's HOPE for Keeping Them Together",
@@ -890,7 +970,8 @@
       "summary": "",
       "fullStory": "Your Experts Have Partners. There's HOPE for Keeping Them Together.\n\nOpen the original article below for the full coverage.",
       "whyItMatters": "Tracks fast-moving capabilities, product launches, and industry shifts shaping how AI is built and deployed.",
-      "whoIsAffected": "AI Builders, Engineering Leaders, and Product Teams evaluating new tools and workflows."
+      "whoIsAffected": "AI Builders, Engineering Leaders, and Product Teams evaluating new tools and workflows.",
+      "aiAnalyzed": false
     },
     {
       "title": "AI Functions Asynchronous API (Beta)",
@@ -901,7 +982,8 @@
       "summary": "You can now use the AI Functions Asynchronous API to run ai_parse_document , ai_extract , or ai_classify asynchronously on up to 50,000 requests from…",
       "fullStory": "You can now use the AI Functions Asynchronous API to run ai_parse_document , ai_extract , or ai_classify asynchronously on up to 50,000 requests from a JSONL file in a Unity Catalog volume. The batch writes one result for each request to a file in a volume. Workspace admins can turn on the AI Functions Asynchronous AP…\n\nThis feature is in Beta . See the Asynchronous API reference . For examples, see document parsing , information extraction , and classification .",
       "whyItMatters": "Platform updates and release notes often introduce performance improvements, new SQL/Spark capabilities, or deprecations that impact production pipelines.",
-      "whoIsAffected": "Databricks Data Engineers, Lakehouse Architects, and Workspace Admins managing clusters, jobs, and governance."
+      "whoIsAffected": "Databricks Data Engineers, Lakehouse Architects, and Workspace Admins managing clusters, jobs, and governance.",
+      "aiAnalyzed": false
     },
     {
       "title": "Read, don't copy: replacing file feeds with OpenSharing - Part 2 (How to Implement)",
@@ -912,7 +994,8 @@
       "summary": "Many data-sharing architectures begin with a familiar pattern: A provider exports...",
       "fullStory": "Many data-sharing architectures begin with a familiar pattern: A provider exports...",
       "whyItMatters": "Highlights architectural patterns, benchmarks, and engineering practices for scaling data and AI workloads on the Lakehouse.",
-      "whoIsAffected": "Data Platform Teams, Analytics Engineers, and ML Engineers building on Databricks."
+      "whoIsAffected": "Data Platform Teams, Analytics Engineers, and ML Engineers building on Databricks.",
+      "aiAnalyzed": false
     },
     {
       "title": "ToyBlocks: A controlled world for robot learning and evaluation",
@@ -923,7 +1006,8 @@
       "summary": "",
       "fullStory": "ToyBlocks: A controlled world for robot learning and evaluation.\n\nOpen the original article below for the full coverage.",
       "whyItMatters": "Major funding, M&A, and enterprise partnerships signal where capital and ecosystem momentum are consolidating.",
-      "whoIsAffected": "Technology Executives, Product Leaders, Vendors, and Investors tracking the AI market."
+      "whoIsAffected": "Technology Executives, Product Leaders, Vendors, and Investors tracking the AI market.",
+      "aiAnalyzed": false
     },
     {
       "title": "Egyptian and Nigerian English join the Open ASR Leaderboard",
@@ -934,7 +1018,8 @@
       "summary": "",
       "fullStory": "Egyptian and Nigerian English join the Open ASR Leaderboard.\n\nOpen the original article below for the full coverage.",
       "whyItMatters": "Tracks fast-moving capabilities, product launches, and industry shifts shaping how AI is built and deployed.",
-      "whoIsAffected": "AI Builders, Engineering Leaders, and Product Teams evaluating new tools and workflows."
+      "whoIsAffected": "AI Builders, Engineering Leaders, and Product Teams evaluating new tools and workflows.",
+      "aiAnalyzed": false
     },
     {
       "title": "Real-time fraud detection with Feature Views",
@@ -945,7 +1030,8 @@
       "summary": "Real-time fraud detection depends on three kinds of features: what a customer did...",
       "fullStory": "Real-time fraud detection depends on three kinds of features: what a customer did...",
       "whyItMatters": "Highlights architectural patterns, benchmarks, and engineering practices for scaling data and AI workloads on the Lakehouse.",
-      "whoIsAffected": "Data Platform Teams, Analytics Engineers, and ML Engineers building on Databricks."
+      "whoIsAffected": "Data Platform Teams, Analytics Engineers, and ML Engineers building on Databricks.",
+      "aiAnalyzed": false
     }
   ],
   "llmTracker": {
@@ -968,7 +1054,7 @@
         "id": "DavidAU/Qwen3.8-27B-TURBO-Fable-Cold-Fusion-735-882-Heretic-Uncensored-NEO-CODER-MAX-MTP-GGUF",
         "url": "https://huggingface.co/DavidAU/Qwen3.8-27B-TURBO-Fable-Cold-Fusion-735-882-Heretic-Uncensored-NEO-CODER-MAX-MTP-GGUF",
         "tag": "image-text-to-text",
-        "likes": 2971,
+        "likes": 2972,
         "downloads": 1599836
       },
       {
@@ -1003,7 +1089,8 @@
         "summary": "Google is letting staff test a 'fast' new Gemini AI model named Hydrogen Business Insider",
         "fullStory": "Google is letting staff test a 'fast' new Gemini AI model named Hydrogen Business Insider",
         "whyItMatters": "Tracks fast-moving capabilities, product launches, and industry shifts shaping how AI is built and deployed.",
-        "whoIsAffected": "AI Builders, Engineering Leaders, and Product Teams evaluating new tools and workflows."
+        "whoIsAffected": "AI Builders, Engineering Leaders, and Product Teams evaluating new tools and workflows.",
+        "aiAnalyzed": false
       },
       {
         "title": "Gemini 4 Carbon is now available for developers. - blog.google",
@@ -1014,7 +1101,8 @@
         "summary": "Gemini 4 Carbon is now available for developers. blog.google",
         "fullStory": "Gemini 4 Carbon is now available for developers.",
         "whyItMatters": "Tracks fast-moving capabilities, product launches, and industry shifts shaping how AI is built and deployed.",
-        "whoIsAffected": "AI Builders, Engineering Leaders, and Product Teams evaluating new tools and workflows."
+        "whoIsAffected": "AI Builders, Engineering Leaders, and Product Teams evaluating new tools and workflows.",
+        "aiAnalyzed": false
       },
       {
         "title": "Claude Fable and Mythos 5.2 explained: Anthropic’s new model that wrote an entire operating system - Digit",
@@ -1025,7 +1113,8 @@
         "summary": "Claude Fable and Mythos 5.2 explained: Anthropic’s new model that wrote an entire operating system Digit",
         "fullStory": "Claude Fable and Mythos 5.",
         "whyItMatters": "Tracks fast-moving capabilities, product launches, and industry shifts shaping how AI is built and deployed.",
-        "whoIsAffected": "AI Builders, Engineering Leaders, and Product Teams evaluating new tools and workflows."
+        "whoIsAffected": "AI Builders, Engineering Leaders, and Product Teams evaluating new tools and workflows.",
+        "aiAnalyzed": false
       }
     ]
   }
