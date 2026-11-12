@@ -6,46 +6,140 @@
   <title>AI &amp; Databricks Daily</title>
   <style>
     :root {
-      --bg: #f8fafc;
-      --card: #ffffff;
+      --bg: #f1f5f9;
+      --surface: #ffffff;
+      --surface-hover: #f8fafc;
       --text: #0f172a;
       --muted: #64748b;
       --border: #e2e8f0;
       --accent: #2563eb;
-      --db-bg: #fff1f2;
+      --accent-soft: #dbeafe;
+      --db-bg: #ffe4e6;
       --db-text: #be123c;
-      --ai-bg: #eff6ff;
+      --ai-bg: #dbeafe;
       --ai-text: #1d4ed8;
+      --llm-bg: #ede9fe;
+      --llm-text: #6d28d9;
+      --shadow: 0 1px 3px rgba(15, 23, 42, 0.06);
+    }
+
+    [data-theme="dark"] {
+      --bg: #0b1120;
+      --surface: #111827;
+      --surface-hover: #1e293b;
+      --text: #f1f5f9;
+      --muted: #94a3b8;
+      --border: #1f2937;
+      --accent: #3b82f6;
+      --accent-soft: #1e3a8a;
+      --db-bg: #4c0519;
+      --db-text: #fda4af;
+      --ai-bg: #172554;
+      --ai-text: #93c5fd;
+      --llm-bg: #2e1065;
+      --llm-text: #c4b5fd;
+      --shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
     }
 
     * { box-sizing: border-box; }
 
     body {
       margin: 0;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
       background: var(--bg);
       color: var(--text);
-      line-height: 1.5;
+      line-height: 1.55;
+      transition: background 0.2s, color 0.2s;
     }
 
-    .container {
-      max-width: 960px;
+    .topbar {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+
+    .topbar-inner {
+      max-width: 1240px;
       margin: 0 auto;
-      padding: 2rem 1rem 4rem;
+      padding: 1rem 1.25rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
     }
 
-    header {
-      margin-bottom: 1.5rem;
-    }
-
-    h1 {
-      margin: 0 0 0.25rem;
-      font-size: 1.85rem;
+    .brand h1 {
+      margin: 0;
+      font-size: 1.35rem;
+      letter-spacing: -0.02em;
     }
 
     .updated {
+      font-size: 0.82rem;
       color: var(--muted);
-      font-size: 0.9rem;
+      margin-top: 0.15rem;
+    }
+
+    .top-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .theme-btn {
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text);
+      padding: 0.45rem 0.75rem;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 0.85rem;
+    }
+
+    .theme-btn:hover {
+      background: var(--surface-hover);
+    }
+
+    .container {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 4rem;
+    }
+
+    .stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .stat-pill {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 0.3rem 0.8rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .stat-pill strong {
+      color: var(--text);
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 340px;
+      gap: 1.75rem;
+      align-items: start;
+    }
+
+    @media (max-width: 960px) {
+      .layout {
+        grid-template-columns: 1fr;
+      }
     }
 
     .controls {
@@ -54,55 +148,72 @@
       gap: 0.75rem;
       align-items: center;
       justify-content: space-between;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.25rem;
     }
 
     .tabs {
       display: flex;
-      gap: 0.5rem;
+      gap: 0.45rem;
     }
 
     .tab {
       padding: 0.45rem 0.9rem;
       border: 1px solid var(--border);
-      background: var(--card);
+      background: var(--surface);
       border-radius: 999px;
       cursor: pointer;
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       color: var(--text);
+      font-weight: 500;
     }
 
     .tab.active {
       background: var(--accent);
       border-color: var(--accent);
       color: #fff;
-      font-weight: 600;
     }
 
     .search {
       padding: 0.5rem 0.85rem;
       border: 1px solid var(--border);
       border-radius: 8px;
-      font-size: 0.9rem;
+      font-size: 0.88rem;
       min-width: 240px;
-      background: var(--card);
+      background: var(--surface);
+      color: var(--text);
+    }
+
+    .day-group {
+      margin-bottom: 1.75rem;
+    }
+
+    .day-heading {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      font-weight: 700;
+      margin: 0 0 0.75rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 1px solid var(--border);
     }
 
     .grid {
       display: grid;
-      gap: 1rem;
+      gap: 0.75rem;
     }
 
     .card {
-      background: var(--card);
+      background: var(--surface);
       border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 1.1rem 1.25rem;
-      transition: box-shadow 0.15s ease;
+      border-radius: 10px;
+      padding: 1rem 1.15rem;
+      box-shadow: var(--shadow);
+      transition: border-color 0.15s ease, transform 0.15s ease;
     }
 
     .card:hover {
-      box-shadow: 0 4px 14px rgba(15, 23, 42, 0.06);
+      border-color: var(--accent);
     }
 
     .meta {
@@ -110,31 +221,26 @@
       flex-wrap: wrap;
       gap: 0.5rem;
       align-items: center;
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       color: var(--muted);
-      margin-bottom: 0.45rem;
+      margin-bottom: 0.4rem;
     }
 
     .badge {
       font-weight: 600;
-      padding: 0.15rem 0.55rem;
+      padding: 0.12rem 0.5rem;
       border-radius: 999px;
-      font-size: 0.75rem;
+      font-size: 0.72rem;
     }
 
-    .badge.Databricks {
-      background: var(--db-bg);
-      color: var(--db-text);
-    }
-
-    .badge.AI {
-      background: var(--ai-bg);
-      color: var(--ai-text);
-    }
+    .badge.Databricks { background: var(--db-bg); color: var(--db-text); }
+    .badge.AI { background: var(--ai-bg); color: var(--ai-text); }
+    .badge.LLM { background: var(--llm-bg); color: var(--llm-text); }
 
     .card h2 {
-      margin: 0 0 0.4rem;
-      font-size: 1.1rem;
+      margin: 0 0 0.35rem;
+      font-size: 1.02rem;
+      line-height: 1.38;
     }
 
     .card h2 a {
@@ -150,42 +256,136 @@
     .summary {
       margin: 0;
       color: var(--muted);
-      font-size: 0.92rem;
+      font-size: 0.88rem;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    /* LLM Tracker Sidebar */
+    .sidebar {
+      display: grid;
+      gap: 1.25rem;
+    }
+
+    .panel {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.1rem;
+      box-shadow: var(--shadow);
+    }
+
+    .panel h3 {
+      margin: 0 0 0.25rem;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .panel-sub {
+      margin: 0 0 0.9rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .model-list {
+      display: grid;
+      gap: 0.6rem;
+    }
+
+    .model-item {
+      display: block;
+      padding: 0.65rem 0.75rem;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      text-decoration: none;
+      color: var(--text);
+      transition: background 0.15s ease, border-color 0.15s ease;
+    }
+
+    .model-item:hover {
+      background: var(--surface-hover);
+      border-color: var(--accent);
+    }
+
+    .model-name {
+      font-weight: 600;
+      font-size: 0.86rem;
+      word-break: break-word;
+    }
+
+    .model-meta {
+      margin-top: 0.2rem;
+      font-size: 0.75rem;
+      color: var(--muted);
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
     }
 
     .empty {
       color: var(--muted);
       padding: 2rem;
       text-align: center;
-      background: var(--card);
+      background: var(--surface);
       border: 1px dashed var(--border);
-      border-radius: 12px;
+      border-radius: 10px;
+      font-size: 0.9rem;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <header>
-      <h1>AI &amp; Databricks Daily</h1>
-      <div class="updated" id="last-updated">Loading latest news…</div>
-    </header>
-
-    <div class="controls">
-      <div class="tabs" id="tabs">
-        <button class="tab active" data-category="All">All</button>
-        <button class="tab" data-category="Databricks">Databricks</button>
-        <button class="tab" data-category="AI">AI</button>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">
+        <h1>AI &amp; Databricks Daily</h1>
+        <div class="updated" id="last-updated">Loading latest news…</div>
       </div>
-      <input
-        type="search"
-        id="search"
-        class="search"
-        placeholder="Filter by keyword..."
-        aria-label="Filter news by keyword"
-      />
+      <div class="top-actions">
+        <button class="theme-btn" id="theme-toggle" type="button">Toggle Theme</button>
+      </div>
     </div>
+  </header>
 
-    <main class="grid" id="news-grid"></main>
+  <div class="container">
+    <div class="stats" id="stats-bar"></div>
+
+    <div class="layout">
+      <section>
+        <div class="controls">
+          <div class="tabs" id="tabs">
+            <button class="tab active" data-category="All">All</button>
+            <button class="tab" data-category="Databricks">Databricks</button>
+            <button class="tab" data-category="AI">AI</button>
+          </div>
+          <input
+            type="search"
+            id="search"
+            class="search"
+            placeholder="Filter 7-day news..."
+            aria-label="Filter news by keyword"
+          />
+        </div>
+        <main id="news-feed"></main>
+      </section>
+
+      <aside class="sidebar">
+        <div class="panel">
+          <h3>🚀 New LLM Tracker</h3>
+          <p class="panel-sub">Trending open-weights models on Hugging Face</p>
+          <div class="model-list" id="trending-models"></div>
+        </div>
+
+        <div class="panel">
+          <h3>📣 Model Release News</h3>
+          <p class="panel-sub">Latest frontier &amp; LLM announcements (7 days)</p>
+          <div class="model-list" id="model-news"></div>
+        </div>
+      </aside>
+    </div>
   </div>
 
   <script>
@@ -193,77 +393,223 @@
     let activeCategory = 'All';
     let searchQuery = '';
 
-    const gridEl = document.getElementById('news-grid');
+    const feedEl = document.getElementById('news-feed');
+    const statsEl = document.getElementById('stats-bar');
     const updatedEl = document.getElementById('last-updated');
     const searchEl = document.getElementById('search');
     const tabsEl = document.getElementById('tabs');
+    const trendingEl = document.getElementById('trending-models');
+    const modelNewsEl = document.getElementById('model-news');
+    const themeBtn = document.getElementById('theme-toggle');
 
-    function formatDate(iso) {
-      if (!iso) return '';
+    // Theme persistence
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+    themeBtn.addEventListener('click', () => {
+      const next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+    });
+
+    function formatRelative(iso) {
+      const diffMs = Date.now() - Date.parse(iso);
+      const mins = Math.floor(diffMs / 60000);
+      if (mins < 60) return `${Math.max(1, mins)}m ago`;
+      const hrs = Math.floor(mins / 60);
+      if (hrs < 24) return `${hrs}h ago`;
+      const days = Math.floor(hrs / 24);
+      return `${days}d ago`;
+    }
+
+    function formatExact(iso) {
       return new Date(iso).toLocaleString(undefined, {
         month: 'short',
         day: 'numeric',
-        year: 'numeric',
         hour: 'numeric',
         minute: '2-digit'
       });
     }
 
-    function render() {
-      const q = searchQuery.trim().toLowerCase();
-      const filtered = allItems.filter((item) => {
-        const matchesCat = activeCategory === 'All' || item.category === activeCategory;
-        const matchesQuery =
-          !q ||
-          item.title.toLowerCase().includes(q) ||
-          (item.summary || '').toLowerCase().includes(q) ||
-          (item.source || '').toLowerCase().includes(q);
-        return matchesCat && matchesQuery;
-      });
+    function getDayLabel(iso) {
+      const d = new Date(iso);
+      const today = new Date();
+      const yesterday = new Date();
+      yesterday.setDate(today.getDate() - 1);
 
-      gridEl.replaceChildren();
+      if (d.toDateString() === today.toDateString()) return 'Today';
+      if (d.toDateString() === yesterday.toDateString()) return 'Yesterday';
+      return d.toLocaleDateString(undefined, { weekday: 'short', month: 'short', day: 'numeric' });
+    }
+
+    function formatCount(num) {
+      if (num == null) return null;
+      if (num >= 1000000) return `${(num / 1000000).toFixed(1)}M`;
+      if (num >= 1000) return `${(num / 1000).toFixed(1)}k`;
+      return String(num);
+    }
+
+    function renderStats(trendingCount) {
+      const dbCount = allItems.filter((i) => i.category === 'Databricks').length;
+      const aiCount = allItems.filter((i) => i.category === 'AI').length;
+
+      statsEl.replaceChildren();
+      const pills = [
+        ['7-Day Articles', allItems.length],
+        ['Databricks', dbCount],
+        ['AI News', aiCount],
+        ['Trending LLMs', trendingCount]
+      ];
+      for (const [label, val] of pills) {
+        const pill = document.createElement('div');
+        pill.className = 'stat-pill';
+        const strong = document.createElement('strong');
+        strong.textContent = val;
+        pill.append(strong, ` ${label}`);
+        statsEl.appendChild(pill);
+      }
+    }
+
+    function renderFeed() {
+      const q = searchQuery.trim().toLowerCase();
+      const filtered = allItems
+        .filter((item) => {
+          const matchesCat = activeCategory === 'All' || item.category === activeCategory;
+          const matchesQuery =
+            !q ||
+            item.title.toLowerCase().includes(q) ||
+            (item.summary || '').toLowerCase().includes(q) ||
+            (item.source || '').toLowerCase().includes(q);
+          return matchesCat && matchesQuery;
+        })
+        .sort((a, b) => Date.parse(b.publishedAt) - Date.parse(a.publishedAt));
+
+      feedEl.replaceChildren();
 
       if (filtered.length === 0) {
         const empty = document.createElement('div');
         empty.className = 'empty';
-        empty.textContent = 'No matching articles yet. Run the GitHub Action or adjust your filters.';
-        gridEl.appendChild(empty);
+        empty.textContent = 'No matching articles in the last 7 days.';
+        feedEl.appendChild(empty);
         return;
       }
 
+      // Group articles by publish day
+      const groups = new Map();
       for (const item of filtered) {
-        const card = document.createElement('article');
-        card.className = 'card';
+        const label = getDayLabel(item.publishedAt);
+        if (!groups.has(label)) groups.set(label, []);
+        groups.get(label).push(item);
+      }
 
-        const meta = document.createElement('div');
-        meta.className = 'meta';
+      for (const [dayLabel, dayItems] of groups) {
+        const section = document.createElement('div');
+        section.className = 'day-group';
 
-        const badge = document.createElement('span');
-        badge.className = `badge ${item.category}`;
-        badge.textContent = item.category;
+        const heading = document.createElement('h2');
+        heading.className = 'day-heading';
+        heading.textContent = `${dayLabel} (${dayItems.length})`;
+        section.appendChild(heading);
 
-        const source = document.createElement('span');
-        source.textContent = item.source;
+        const grid = document.createElement('div');
+        grid.className = 'grid';
 
-        const date = document.createElement('span');
-        date.textContent = `• ${formatDate(item.publishedAt)}`;
+        for (const item of dayItems) {
+          const card = document.createElement('article');
+          card.className = 'card';
 
-        meta.append(badge, source, date);
+          const meta = document.createElement('div');
+          meta.className = 'meta';
 
-        const title = document.createElement('h2');
-        const link = document.createElement('a');
-        link.href = item.url;
-        link.target = '_blank';
-        link.rel = 'noopener noreferrer';
-        link.textContent = item.title;
-        title.appendChild(link);
+          const badge = document.createElement('span');
+          badge.className = `badge ${item.category}`;
+          badge.textContent = item.category;
 
-        const summary = document.createElement('p');
-        summary.className = 'summary';
-        summary.textContent = item.summary || '';
+          const source = document.createElement('span');
+          source.textContent = item.source;
 
-        card.append(meta, title, summary);
-        gridEl.appendChild(card);
+          const time = document.createElement('span');
+          time.textContent = `• ${formatRelative(item.publishedAt)}`;
+          time.title = formatExact(item.publishedAt);
+
+          meta.append(badge, source, time);
+
+          const title = document.createElement('h2');
+          const link = document.createElement('a');
+          link.href = item.url;
+          link.target = '_blank';
+          link.rel = 'noopener noreferrer';
+          link.textContent = item.title;
+          title.appendChild(link);
+
+          card.append(meta, title);
+
+          if (item.summary) {
+            const summary = document.createElement('p');
+            summary.className = 'summary';
+            summary.textContent = item.summary;
+            card.appendChild(summary);
+          }
+
+          grid.appendChild(card);
+        }
+
+        section.appendChild(grid);
+        feedEl.appendChild(section);
+      }
+    }
+
+    function renderTracker(tracker = {}) {
+      const models = tracker.trendingModels || [];
+      const modelNews = tracker.modelNews || [];
+
+      trendingEl.replaceChildren();
+      if (models.length === 0) {
+        trendingEl.innerHTML = '<div class="empty">No trending models loaded yet.</div>';
+      } else {
+        for (const m of models) {
+          const a = document.createElement('a');
+          a.className = 'model-item';
+          a.href = m.url;
+          a.target = '_blank';
+          a.rel = 'noopener noreferrer';
+
+          const name = document.createElement('div');
+          name.className = 'model-name';
+          name.textContent = m.id;
+
+          const meta = document.createElement('div');
+          meta.className = 'model-meta';
+          if (m.tag) meta.append(`🏷️ ${m.tag}`);
+          if (m.likes != null) meta.append(`❤️ ${formatCount(m.likes)}`);
+          if (m.downloads != null) meta.append(`⬇️ ${formatCount(m.downloads)}`);
+
+          a.append(name, meta);
+          trendingEl.appendChild(a);
+        }
+      }
+
+      modelNewsEl.replaceChildren();
+      if (modelNews.length === 0) {
+        modelNewsEl.innerHTML = '<div class="empty">No recent model announcements.</div>';
+      } else {
+        for (const item of modelNews) {
+          const a = document.createElement('a');
+          a.className = 'model-item';
+          a.href = item.url;
+          a.target = '_blank';
+          a.rel = 'noopener noreferrer';
+
+          const name = document.createElement('div');
+          name.className = 'model-name';
+          name.textContent = item.title;
+
+          const meta = document.createElement('div');
+          meta.className = 'model-meta';
+          meta.textContent = formatRelative(item.publishedAt);
+
+          a.append(name, meta);
+          modelNewsEl.appendChild(a);
+        }
       }
     }
 
@@ -274,12 +620,12 @@
       for (const tab of tabsEl.querySelectorAll('.tab')) {
         tab.classList.toggle('active', tab === btn);
       }
-      render();
+      renderFeed();
     });
 
     searchEl.addEventListener('input', (e) => {
       searchQuery = e.target.value;
-      render();
+      renderFeed();
     });
 
     async function init() {
@@ -288,10 +634,13 @@
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         const data = await res.json();
         allItems = data.items || [];
+        const tracker = data.llmTracker || {};
         updatedEl.textContent = data.lastUpdated
-          ? `Last updated: ${formatDate(data.lastUpdated)} (${allItems.length} articles)`
+          ? `Last updated: ${formatExact(data.lastUpdated)}`
           : 'Waiting for first daily update…';
-        render();
+        renderStats((tracker.trendingModels || []).length);
+        renderFeed();
+        renderTracker(tracker);
       } catch (err) {
         updatedEl.textContent = 'Could not load news.json';
         console.error(err);
