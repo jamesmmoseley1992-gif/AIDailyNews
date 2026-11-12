@@ -65,6 +65,26 @@ function truncate(text, maxLength) {
   return text.slice(0, maxLength - 1).trimEnd() + '…';
 }
 
+function summarizeToTwoParagraphs(text, title) {
+  if (!text) {
+    return `${title}.\n\nOpen the original article below for the full coverage.`;
+  }
+
+  const sentences = (text.match(/[^.!?]+[.!?]+/g) || [text])
+    .map((s) => s.trim())
+    .filter((s) => s.length > 20)
+    .slice(0, 6);
+
+  if (sentences.length <= 2) {
+    return truncate(sentences.join(' '), 550);
+  }
+
+  const mid = Math.ceil(sentences.length / 2);
+  const p1 = sentences.slice(0, mid).join(' ');
+  const p2 = sentences.slice(mid).join(' ');
+  return `${truncate(p1, 320)}\n\n${truncate(p2, 320)}`;
+}
+
 function deriveInsights(title, text, source, category) {
   const combined = `${title} ${text}`.toLowerCase();
 
@@ -143,7 +163,7 @@ async function fetchFeed(feed, maxItems = MAX_PER_SOURCE) {
         category: feed.category,
         publishedAt: new Date(publishedMs).toISOString(),
         summary: truncate(cleanLong, 150),
-        fullStory: truncate(cleanLong, 950) || 'Open the original article below to read the full story.',
+        fullStory: summarizeToTwoParagraphs(cleanLong, cleanTitle),
         whyItMatters: insights.whyItMatters,
         whoIsAffected: insights.whoIsAffected
       };
