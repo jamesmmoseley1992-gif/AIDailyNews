@@ -27,6 +27,8 @@ jobs:
         run: npm install
 
       - name: Fetch latest news
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: npm run fetch
 
       - name: Commit and push updated news.json
