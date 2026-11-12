@@ -46,6 +46,11 @@ const MODEL_NEWS_FEED = {
 const DAYS_BACK = 7;
 const MAX_PER_SOURCE = 25;
 const MAX_TOTAL_ITEMS = 120;
+const MAX_AI_PER_RUN = 15;
+const AI_DELAY_MS = 1500;
+const GEMINI_API_KEY = process.env.GEMINI_API_KEY || '';
+
+const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 function stripHtml(html = '') {
   return html
@@ -141,6 +146,123 @@ function deriveInsights(title, text, source, category) {
   };
 }
 
+async function loadExistingCache(outPath) {
+  const cache = new Map();
+  try {
+    const raw = await fs.readFile(outPath, 'utf8');
+    const existing = JSON.parse(raw);
+    for (const item of existing.items || []) {
+      if (item.url && item.aiAnalyzed) cache.set(item.url, item);
+    }
+    for (const item of existing.llmTracker?.modelNews || []) {
+      if (item.url && item.aiAnalyzed) cache.set(item.url, item);
+    }
+  } catch {
+    // No existing cache yet
+  }
+  return cache;
+}
+
+async function analyzeWithGemini(item) {
+  const prompt = `Analyze this tech/AI news item and return ONLY valid JSON with three keys:
+- "fullStory": A clear 2-paragraph (or 1 short paragraph if limited info) summary of what happened, separated by "\\n\\n". Do not invent facts beyond the provided text.
+- "whyItMatters": 1-2 concise sentences explaining why this specific news matters.
+- "whoIsAffected": 1 concise sentence naming the specific roles, teams, or users affected.
+
+Source: ${item.source}
+Category: ${item.category}
+Title: ${item.title}
+Excerpt: ${item.rawText || item.summary}`;
+
+  const res = await fetch(
+    'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent',
+    {
+      method: 'POST',
+      headers: {
+        'x-goog-api-key': GEMINI_API_KEY,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        contents: [{ parts: [{ text: prompt }] }],
+        generationConfig: {
+          responseMimeType: 'application/json',
+          temperature: 0.3
+        }
+      })
+    }
+  );
+
+  if (!res.ok) {
+    const err = new Error(`Gemini HTTP ${res.status}`);
+    err.status = res.status;
+    throw err;
+  }
+
+  const data = await res.json();
+  const text = data.candidates?.[0]?.content?.parts?.[0]?.text || '';
+  const parsed = JSON.parse(text);
+
+  if (!parsed.fullStory || !parsed.whyItMatters || !parsed.whoIsAffected) {
+    throw new Error('Incomplete JSON from Gemini');
+  }
+
+  return {
+    fullStory: parsed.fullStory.trim(),
+    whyItMatters: parsed.whyItMatters.trim(),
+    whoIsAffected: parsed.whoIsAffected.trim()
+  };
+}
+
+async function enrichItems(items, cache) {
+  if (!GEMINI_API_KEY) {
+    console.log('No GEMINI_API_KEY set; using built-in summaries.');
+    return items.map(({ rawText, ...rest }) => rest);
+  }
+
+  let aiCalls = 0;
+  let rateLimited = false;
+
+  const enriched = [];
+  for (const item of items) {
+    const cached = cache.get(item.url);
+    if (cached) {
+      const { rawText, ...rest } = item;
+      enriched.push({
+        ...rest,
+        fullStory: cached.fullStory,
+        whyItMatters: cached.whyItMatters,
+        whoIsAffected: cached.whoIsAffected,
+        aiAnalyzed: true
+      });
+      continue;
+    }
+
+    if (!rateLimited && aiCalls < MAX_AI_PER_RUN) {
+      try {
+        const analysis = await analyzeWithGemini(item);
+        aiCalls++;
+        const { rawText, ...rest } = item;
+        enriched.push({
+          ...rest,
+          ...analysis,
+          aiAnalyzed: true
+        });
+        await sleep(AI_DELAY_MS);
+        continue;
+      } catch (err) {
+        console.warn(`Gemini skipped for "${item.title}": ${err.message}`);
+        if (err.status === 429) rateLimited = true;
+      }
+    }
+
+    const { rawText, ...rest } = item;
+    enriched.push(rest);
+  }
+
+  console.log(`AI analyzed ${aiCalls} new articles (reused ${cache.size} cached).`);
+  return enriched;
+}
+
 async function fetchFeed(feed, maxItems = MAX_PER_SOURCE) {
   const parsed = await parser.parseURL(feed.url);
   const cutoffMs = Date.now() - DAYS_BACK * 24 * 60 * 60 * 1000;
@@ -163,9 +285,11 @@ async function fetchFeed(feed, maxItems = MAX_PER_SOURCE) {
         category: feed.category,
         publishedAt: new Date(publishedMs).toISOString(),
         summary: truncate(cleanLong, 150),
+        rawText: truncate(cleanLong, 1800),
         fullStory: summarizeToTwoParagraphs(cleanLong, cleanTitle),
         whyItMatters: insights.whyItMatters,
-        whoIsAffected: insights.whoIsAffected
+        whoIsAffected: insights.whoIsAffected,
+        aiAnalyzed: false
       };
     })
     .filter((item) => item.url && Date.parse(item.publishedAt) >= cutoffMs)
@@ -204,7 +328,10 @@ async function fetchTrendingModels() {
 }
 
 async function main() {
-  const [feedResults, trendingModels, modelNewsResult] = await Promise.all([
+  const outPath = path.resolve('data/news.json');
+  const cache = await loadExistingCache(outPath);
+
+  const [feedResults, trendingModels, modelNewsRaw] = await Promise.all([
     Promise.allSettled(FEEDS.map((f) => fetchFeed(f, MAX_PER_SOURCE))),
     fetchTrendingModels(),
     fetchFeed(MODEL_NEWS_FEED, 10).catch((err) => {
@@ -235,16 +362,18 @@ async function main() {
 
   items.sort((a, b) => Date.parse(b.publishedAt) - Date.parse(a.publishedAt));
 
+  const enrichedItems = await enrichItems(items.slice(0, MAX_TOTAL_ITEMS), cache);
+  const enrichedModelNews = await enrichItems(modelNewsRaw, cache);
+
   const output = {
     lastUpdated: new Date().toISOString(),
-    items: items.slice(0, MAX_TOTAL_ITEMS),
+    items: enrichedItems,
     llmTracker: {
       trendingModels,
-      modelNews: modelNewsResult
+      modelNews: enrichedModelNews
     }
   };
 
-  const outPath = path.resolve('data/news.json');
   await fs.mkdir(path.dirname(outPath), { recursive: true });
   await fs.writeFile(outPath, JSON.stringify(output, null, 2) + '\n', 'utf8');
 
