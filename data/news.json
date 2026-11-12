@@ -1,4 +1,325 @@
 {
-  "lastUpdated": null,
-  "items": []
+  "lastUpdated": "2026-11-12T20:28:35.317Z",
+  "items": [
+    {
+      "title": "Jensen Huang was having a third affair, Reuters reports",
+      "url": "https://techcrunch.com/2026/11/12/jensen-huang-was-having-a-third-affair-reuters-reports/",
+      "source": "TechCrunch AI",
+      "category": "AI",
+      "publishedAt": "2026-11-12T20:26:47.000Z",
+      "summary": "Reuters is withholding the name of the new employee linked to Huang, but says she is an employee of Nvidia."
+    },
+    {
+      "title": "US nonprofits sue tech giants to halt AI development - Al Jazeera",
+      "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxOUzh3Xzg0ek1tUjktMHMxV1pIR014ckFIT202VFUwTGpDMC0tOWZKaFRkQVg5UzkzaE9VWVVxcnFpclVOU05PZElkMUJXT19qS1NQTE5UbUFPMUFnRDVTeW9oUkpSbkFMcy02WUZwRm44eVV4ZGJNMGxjaEM0TGZ1cVgzejFmaU1sc1diV2R6UDlMZTB1UnYzcXpR0gGfAUFVX3lxTE96N2UydjlyZ3Vmbm9RemR1SGxrMjdQRXFOQ0ZHaUFxOHVlRmVoR3dHV3poMUtuSnNVWEtVWFlpR3RubjRNTkxPVkxSQ1lRNkZsbmozcVYydWRjaTBwM0M1Y21SNWVZNFRzSkZtYVM1OTV6VDFFZkhkSWxyT3BEakZMRkMzeEpzNVhBcXBpY3hIOUw1WlpBMlZLLWpieTZlUQ?oc=5",
+      "source": "Google News AI",
+      "category": "AI",
+      "publishedAt": "2026-11-12T19:58:45.000Z",
+      "summary": "US nonprofits sue tech giants to halt AI development Al Jazeera"
+    },
+    {
+      "title": "Google’s latest Search upgrade promises better answers to your most complicated questions",
+      "url": "https://techcrunch.com/2026/11/12/googles-latest-search-upgrade-promises-better-answers-to-your-most-complicated-questions/",
+      "source": "TechCrunch AI",
+      "category": "AI",
+      "publishedAt": "2026-11-12T19:27:45.000Z",
+      "summary": "Powered by Gemini 4 Hydrogen, Google's AI Mode is getting better at understanding complex queries, surfacing relevant links, and delivering richer visual responses."
+    },
+    {
+      "title": "How Constellation is building a governed data foundation on Databricks",
+      "url": "https://www.databricks.com/blog/how-constellation-building-governed-data-foundation-databricks",
+      "source": "Databricks Engineering",
+      "category": "Databricks",
+      "publishedAt": "2026-11-12T19:21:00.000Z",
+      "summary": "Constellation operates the largest nuclear fleet in the United States. For them,..."
+    },
+    {
+      "title": "Jensen Huang built the company that powers AI. Now Nvidia must find a way forward without him - The Seattle Times",
+      "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxPd0FodDFsbW1OcHVjYmxYRGQtQXhULXpxVUplUHNPMzZmdWNPU0w4Z0NPR1daV0lEenVlUE9wVTVDNXM0a21ZVVFhUE56X2I0eGxqTkZRZVpBM2VWeHVMeXdUTUZob2JxSFIxVUd2b1RTVUlwZmJDOHZXMDc3c1VFalBzejN2Ui1uc3ZONVdLN1BsOS0ybVQ2eFlGX3pRaXhZT1I1eWRfdVJoUG1kVW1SQ3BQVnZWbjZXWGZpZjNEYl9LY3BiOEJjTE5PaU4?oc=5",
+      "source": "Google News AI",
+      "category": "AI",
+      "publishedAt": "2026-11-12T19:16:26.000Z",
+      "summary": "Jensen Huang built the company that powers AI. Now Nvidia must find a way forward without him The Seattle Times"
+    },
+    {
+      "title": "Nectar launches an AI agent to automate creator discovery and outreach for brands",
+      "url": "https://techcrunch.com/2026/11/12/nectar-launches-an-ai-agent-to-automate-creator-discovery-and-outreach-for-brands/",
+      "source": "TechCrunch AI",
+      "category": "AI",
+      "publishedAt": "2026-11-12T19:11:00.000Z",
+      "summary": "Nectar's new AI agent automates influencer marketing, helping brands discover creators, manage outreach and partnerships, and track campaign results."
+    },
+    {
+      "title": "LLMON: An LLM-Native Markup Language, now in Granite 4.1 3B and 8B",
+      "url": "https://huggingface.co/blog/ibm-granite/llmon-an-llm-native-markup-language-now-in-granite",
+      "source": "Hugging Face",
+      "category": "AI",
+      "publishedAt": "2026-11-12T19:07:35.000Z",
+      "summary": ""
+    },
+    {
+      "title": "Explainer-Tougher curbs on AI chip sales to China likely after Nvidia CEO resigns - Yahoo",
+      "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNM0pCanM1N0xJSnpHZVdocEZQODFsLUVfelNGb0JyNXRQZXVGaFBORVktUWJjbGNIbXcyVjdjbVlOd2NNcXp0U2JDc0xTTEZfYnQzVXdUSDVtOVNYaHZPTWc2WVp5aHMyb3V3bUxxbDNKWFk5TUVQeUNreC1ySzZhajJHSlI?oc=5",
+      "source": "Google News AI",
+      "category": "AI",
+      "publishedAt": "2026-11-12T18:54:47.000Z",
+      "summary": "Explainer-Tougher curbs on AI chip sales to China likely after Nvidia CEO resigns Yahoo"
+    },
+    {
+      "title": "Jensen Huang’s exit puts Nvidia’s support for open source in question",
+      "url": "https://techcrunch.com/2026/11/12/jensen-huangs-exit-puts-nvidias-support-for-open-source-in-question/",
+      "source": "TechCrunch AI",
+      "category": "AI",
+      "publishedAt": "2026-11-12T18:39:23.000Z",
+      "summary": "Jensen Huang’s resignation raises questions about Nvidia’s commitment to open source AI, including its Hugging Face acquisition, open-weight models, and advocacy against restrictions, as the company navigates a leadersh…"
+    },
+    {
+      "title": "Jensen Huang, a global salesman for artificial intelligence, resigns from Nvidia after affair - SFGATE",
+      "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxOYjMxeXdiRzJEZDQ4MFpKRUxaWi1SU3paemM0T1hhejctcmlPOVpUdEtSa0F4UTZ1Y3U2UFBRM2RLeDdsMXRDekp6d1lCRWcwRnhvdDhZWUk5bHAyYkRRQ3B6YUUzT1o2c3J6LTZpV1VHTHltdUx6UHZLYnQ1VjZMVE9PN21DcjBOVTliRkVXcHB5eUxRSzlnNmlmUGhqdU1vUkE?oc=5",
+      "source": "Google News AI",
+      "category": "AI",
+      "publishedAt": "2026-11-12T18:32:42.000Z",
+      "summary": "Jensen Huang, a global salesman for artificial intelligence, resigns from Nvidia after affair SFGATE"
+    },
+    {
+      "title": "DOJ AI Task Force Puts Business Users in Enforcement Spotlight - PYMNTS.com",
+      "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNRGxuT3ctZXQ0VDJ5d1NVRDd6ZVUzNWxVWXg3UzkwaGFhQlcwNHQ2TWxPWDJQZEg1bUxfaU9wNmFIT21GcTBuZk4wRThTU081a0JKaDE0ajc3QlJXRWRfQkpBc0FsMnVNa1gyX0s0MWR3cnFnUkVUYXR4UzlWZU9Td3M3TGYtbzBBdXM0Z0N5R19wMWQ4R25iT2kxX1JCcWRxM0hBb05sRkFHWkpDelJtQVBKRWtDSkNL?oc=5",
+      "source": "Google News AI",
+      "category": "AI",
+      "publishedAt": "2026-11-12T18:04:51.000Z",
+      "summary": "DOJ AI Task Force Puts Business Users in Enforcement Spotlight PYMNTS.com"
+    },
+    {
+      "title": "Introducing Gemini 4 Hydrogen for Agentic Workflows - blog.google",
+      "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxNbnlqelBIT1ZXblFBa25zdHlXalhPR2Z2b2xLZ2lmeEtFbUFXS3Mya3FtU0tyeGJrOXpHVEJOdFpDVUZSUTVOUHA0WjRiakw2a2hIRzc3ZHBfM3pDT3dKTDdfMExNQ2FnU1NWSHI3UGpXX2lVSEUxeVYwb2FfNE5vRGJnMjhWSzU5WkFrdmtOdW5Fb0lja1dFN3JUMkQ5R01JRXhNUA?oc=5",
+      "source": "Google News AI",
+      "category": "AI",
+      "publishedAt": "2026-11-12T18:04:04.000Z",
+      "summary": "Introducing Gemini 4 Hydrogen for Agentic Workflows blog.google"
+    },
+    {
+      "title": "Hugging Face CEO vows to keep fighting for open source AI after Jensen Huang’s exit",
+      "url": "https://techcrunch.com/2026/11/12/hugging-face-ceo-vows-to-keep-fighting-for-open-source-ai-after-jensen-huangs-exit/",
+      "source": "TechCrunch AI",
+      "category": "AI",
+      "publishedAt": "2026-11-12T17:36:40.000Z",
+      "summary": "Hugging Face's CEO pledged to keep fighting for open source AI after Huang's exit, raising questions about Nvidia's $12.9 billion acquisition."
+    },
+    {
+      "title": "Labour’s Welfare Guru Must Overcome AI Changes - Bloomberg.com",
+      "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxQcHk4Q2ZmaEdOMXp3ODk2OEE2NFZSR1BXcXA2WGM1V2ZJVW1uUlA1Q2gyZHlNMjZxVkNRWjZqYUctZEU4X0JsSS1RZGJZMF9RZmhyWU5LVDlLbndaMkMtWjhhdHJOZWx5WUExWDdaUTdleHBPRmE1aDFlLUtDbmt4WWhnN3lzTTJ5MzhTV05pQ0o?oc=5",
+      "source": "Google News AI",
+      "category": "AI",
+      "publishedAt": "2026-11-12T17:20:09.000Z",
+      "summary": "Labour’s Welfare Guru Must Overcome AI Changes Bloomberg.com"
+    },
+    {
+      "title": "United Airlines blocks AI agents from booking flights, citing cybersecurity risks",
+      "url": "https://techcrunch.com/2026/11/12/united-airlines-blocks-ai-agents-from-booking-flights-citing-cybersecurity-risks/",
+      "source": "TechCrunch AI",
+      "category": "AI",
+      "publishedAt": "2026-11-12T17:17:58.000Z",
+      "summary": "The airline said it will not allow customers to use AI agents to book flights and manage reservations."
+    },
+    {
+      "title": "SoftBank’s billion-dollar loss may have put a cap on AI’s natural gas ambitions",
+      "url": "https://techcrunch.com/2026/11/12/softbanks-billion-dollar-loss-may-have-put-a-cap-on-ais-natural-gas-ambitions/",
+      "source": "TechCrunch AI",
+      "category": "AI",
+      "publishedAt": "2026-11-12T17:00:52.000Z",
+      "summary": "SoftBank lost over $3 billion preordering natural gas turbines to power AI data centers. Here's what the loss means to power markets."
+    },
+    {
+      "title": "Phota Labs uses AI to turn everyday photos into professional-looking shots",
+      "url": "https://techcrunch.com/2026/11/12/phota-labs-uses-ai-to-turn-everyday-photos-into-professional-looking-shots/",
+      "source": "TechCrunch AI",
+      "category": "AI",
+      "publishedAt": "2026-11-12T17:00:00.000Z",
+      "summary": "Rather than giving consumers yet another photo-editing tool, Phota Labs aims to use advances in AI to automate the editing process so it’s easier for anyone to turn everyday moments into better photos."
+    },
+    {
+      "title": "Lakehouse//RT: Scale real-time analytics, not your bill",
+      "url": "https://www.databricks.com/blog/lakehousert-scale-real-time-analytics-not-your-bill",
+      "source": "Databricks Engineering",
+      "category": "Databricks",
+      "publishedAt": "2026-11-12T16:53:43.000Z",
+      "summary": "AI agents are pushing the limits of data warehouses. A human analyst might run a..."
+    },
+    {
+      "title": "Jensen Huang, a global salesman for artificial intelligence, resigns from Nvidia after affair - WTOP News",
+      "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxNSENMTERNNmZEYXEySTVmSTlkMnIyZHppRXFNYTIzMzRFZGhGRGJERlJqREFlanRYVHFaWnppeWJBT0pDc3dRTnRXNUwtT1VCWDBYMHVvUE5WeThUa1VaQjY0ZkpzUk1IR0JlOGF2ZkswdVRUM0Jsb0VUdTJBMml4di00NXpNOVozNHNCODFLV05IOXFldkxEdi03cXhPanI1SU9vQ1E3czFEQ3FON0Nlbk9jVXpuUWhDTU1oZ2RvX2xCZTg?oc=5",
+      "source": "Google News AI",
+      "category": "AI",
+      "publishedAt": "2026-11-12T16:53:00.000Z",
+      "summary": "Jensen Huang, a global salesman for artificial intelligence, resigns from Nvidia after affair WTOP News"
+    },
+    {
+      "title": "Jensen Huang agrees to testify before Congress",
+      "url": "https://techcrunch.com/2026/11/12/jensen-huang-agrees-to-testify-before-congress/",
+      "source": "TechCrunch AI",
+      "category": "AI",
+      "publishedAt": "2026-11-12T16:36:37.000Z",
+      "summary": "Huang, who was ousted as CEO following reports of an alleged affair with a woman suspected of spying for China, agreed to testify Wednesday after several senior lawmakers threatened to subpoena him."
+    },
+    {
+      "title": "Five ways Jensen Huang’s ouster from Nvidia could damage the AI industry",
+      "url": "https://techcrunch.com/2026/11/12/five-ways-jensen-huangs-ouster-from-nvidia-could-damage-the-ai-industry/",
+      "source": "TechCrunch AI",
+      "category": "AI",
+      "publishedAt": "2026-11-12T16:32:33.000Z",
+      "summary": "Nvidia's ousted CEO Jensen Huang's downfall isn’t just your run-of-the-mill salacious billionaire sex scandal. He was using his influence to push the AI industry in some very specific ways."
+    },
+    {
+      "title": "Letters to the Editor: ‘There is no rogue AI, only rogue program directors’ - Los Angeles Times",
+      "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQQlZlSmJCcy01NWcwXzBITVlWVWRQU2Y3VE5JS2R3RmhlanJjcFl3SV9XOWJRRTNhSDRFTUV5RGNkNGNHRjBKRWFVR0lNX1MtVHVHZjFfc2FsUlBmMl9KMFFIUDYzb3o1aGo5M2hjTkRCUE5PdWdNSTZEUkFieEY3SFc3MUR0Q1hXd3J6V2NzYS1NOXJZLUJhX2ttaWE?oc=5",
+      "source": "Google News AI",
+      "category": "AI",
+      "publishedAt": "2026-11-12T16:00:00.000Z",
+      "summary": "Letters to the Editor: ‘There is no rogue AI, only rogue program directors’ Los Angeles Times"
+    },
+    {
+      "title": "Nvidia vs. AMD: Which Is the Better Artificial Intelligence (AI) Stock for 2027 After the Tech Sell-Off? - The Motley Fool",
+      "url": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxNeUFRelQ3SHo1eld4ZGloSnNYNkdmcGpVdHg2WFczR1Jib3BJMG80a0xYRlU4amE5UFZqeXJNa0lscVVOdkhsek9TNHdrZFQyU0huYjZQUEtYTW9pYTA3NXhSZkloV28wSWNZbjVMTW9vRnNoSjZDdE9VWTc5ODZJNS1kdUlEVU5kdDlnXzF3c2xWV1d2bGZXNHJ4eko2cC1HNFNSSENoV0xHLW9BTFJMcjgzM3BvQUxvT3JMd244NHBVNktvYm5HR25DZmdZVDNXQmJtOE12UGJ3UQ?oc=5",
+      "source": "Google News AI",
+      "category": "AI",
+      "publishedAt": "2026-11-12T14:09:00.000Z",
+      "summary": "Nvidia vs. AMD: Which Is the Better Artificial Intelligence (AI) Stock for 2027 After the Tech Sell-Off? The Motley Fool"
+    },
+    {
+      "title": "ABAC DENY policies support AI securables and attachment to individual objects (Beta)",
+      "url": "https://docs.databricks.com/aws/en/release-notes/product/2026/november#abac-deny-policies-support-ai-securables-and-attachment-to-individual-objects-beta",
+      "source": "Databricks Release Notes",
+      "category": "Databricks",
+      "publishedAt": "2026-11-12T00:00:00.000Z",
+      "summary": "Expanded FOR clause support: DENY policies can now apply to model services, model provider services, MCP services, agent services, and skills. Expanded ON clause support: DENY policies can now be attached directly on ta…"
+    },
+    {
+      "title": "Genie ZeroOps is available in Beta",
+      "url": "https://docs.databricks.com/aws/en/release-notes/product/2026/november#genie-zeroops-is-available-in-beta",
+      "source": "Databricks Release Notes",
+      "category": "Databricks",
+      "publishedAt": "2026-11-12T00:00:00.000Z",
+      "summary": "Genie ZeroOps is now available in Beta. It monitors jobs, pipelines, and tables in the background, detects failures and data quality issues, investigates the root cause, and proposes a fix. See Get started with Genie Ze…"
+    },
+    {
+      "title": "The Definitive Fine-Tuning Guide for 3D Generation Models",
+      "url": "https://huggingface.co/blog/3d-lora-finetuning",
+      "source": "Hugging Face",
+      "category": "AI",
+      "publishedAt": "2026-11-12T00:00:00.000Z",
+      "summary": ""
+    },
+    {
+      "title": "Air gapped, not data dark: how Bright Machines gives customers live factory dashboards without opening the plant",
+      "url": "https://www.databricks.com/blog/air-gapped-not-data-dark-how-bright-machines-gives-customers-live-factory-dashboards-without",
+      "source": "Databricks Engineering",
+      "category": "Databricks",
+      "publishedAt": "2026-11-11T23:42:00.000Z",
+      "summary": "Bright Machines gives customers live, governed dashboards of their factory data without..."
+    },
+    {
+      "title": "BotPsy: On-Device Personal Assistant with a Sub-Billion-Parameter Agentic Language Model",
+      "url": "https://huggingface.co/blog/qvac/botpsy",
+      "source": "Hugging Face",
+      "category": "AI",
+      "publishedAt": "2026-11-11T05:01:16.000Z",
+      "summary": ""
+    },
+    {
+      "title": "Bring your own ChatGPT subscription to Codex with Unity Gateway",
+      "url": "https://docs.databricks.com/aws/en/release-notes/product/2026/november#bring-your-own-chatgpt-subscription-to-codex-with-unity-gateway",
+      "source": "Databricks Release Notes",
+      "category": "Databricks",
+      "publishedAt": "2026-11-11T00:00:00.000Z",
+      "summary": "You can now use your own ChatGPT Go, Plus, Pro, or Enterprise subscription with Codex and ChatGPT desktop through Unity Gateway. Requests are billed to your subscription, and Unity Gateway governs access and usage. See…"
+    },
+    {
+      "title": "Connect ChatGPT to Genie One with the Databricks Genie plugin",
+      "url": "https://docs.databricks.com/aws/en/release-notes/product/2026/november#connect-chatgpt-to-genie-one-with-the-databricks-genie-plugin",
+      "source": "Databricks Release Notes",
+      "category": "Databricks",
+      "publishedAt": "2026-11-11T00:00:00.000Z",
+      "summary": "The Databricks Genie plugin connects ChatGPT to the Genie One MCP, so users can ask questions about their data from ChatGPT. A ChatGPT admin sets up the plugin for the ChatGPT workspace, and each user connects by signin…"
+    },
+    {
+      "title": "Connect Claude to Genie One with the Databricks Genie connector",
+      "url": "https://docs.databricks.com/aws/en/release-notes/product/2026/november#connect-claude-to-genie-one-with-the-databricks-genie-connector",
+      "source": "Databricks Release Notes",
+      "category": "Databricks",
+      "publishedAt": "2026-11-11T00:00:00.000Z",
+      "summary": "The Databricks Genie connector connects Claude to the Genie One MCP, so users can ask questions about their data from Claude. A Claude admin connects it for the team, and each user connects by signing in with their Data…"
+    },
+    {
+      "title": "Connect GitHub Copilot CLI and GitHub Copilot in Visual Studio Code with Unity Gateway",
+      "url": "https://docs.databricks.com/aws/en/release-notes/product/2026/november#connect-github-copilot-cli-and-github-copilot-in-visual-studio-code-with-unity-gateway",
+      "source": "Databricks Release Notes",
+      "category": "Databricks",
+      "publishedAt": "2026-11-11T00:00:00.000Z",
+      "summary": "ug configure --agents copilot now sets up GitHub Copilot in Visual Studio Code alongside GitHub Copilot CLI, with Claude, GPT, and open-source models. Admins can add GitHub Copilot to the coding agent configuration to s…"
+    },
+    {
+      "title": "Connect Grok Bot/Cursor to Genie One with the Databricks Genie plugin",
+      "url": "https://docs.databricks.com/aws/en/release-notes/product/2026/november#connect-grok-botcursor-to-genie-one-with-the-databricks-genie-plugin",
+      "source": "Databricks Release Notes",
+      "category": "Databricks",
+      "publishedAt": "2026-11-11T00:00:00.000Z",
+      "summary": "The Databricks Genie plugin connects Grok Bot/Cursor to the Genie One MCP, so users can ask questions about their data from Grok Bot/Cursor. A Cursor team admin publishes the plugin for the team, and each user connects…"
+    },
+    {
+      "title": "Feature Views are now available by default for workspaces with the compliance security profile enabled",
+      "url": "https://docs.databricks.com/aws/en/release-notes/product/2026/november#feature-views-are-now-available-by-default-for-workspaces-with-the-compliance-security-profile-enabled",
+      "source": "Databricks Release Notes",
+      "category": "Databricks",
+      "publishedAt": "2026-11-11T00:00:00.000Z",
+      "summary": "Feature Views are now available by default for workspaces with the compliance security profile enabled. See Feature Views."
+    },
+    {
+      "title": "Pages are generally available",
+      "url": "https://docs.databricks.com/aws/en/release-notes/product/2026/november#pages-are-generally-available",
+      "source": "Databricks Release Notes",
+      "category": "Databricks",
+      "publishedAt": "2026-11-11T00:00:00.000Z",
+      "summary": "Pages, governed definitions of business concepts organized by domain on the Discover page, are generally available. Curators can certify and deprecate Pages, and the new MANAGE PAGES permission controls who can publish…"
+    },
+    {
+      "title": "Standalone pipelines on serverless general compute are now generally available",
+      "url": "https://docs.databricks.com/aws/en/release-notes/product/2026/november#standalone-pipelines-on-serverless-general-compute-are-now-generally-available",
+      "source": "Databricks Release Notes",
+      "category": "Databricks",
+      "publishedAt": "2026-11-11T00:00:00.000Z",
+      "summary": "Creating and refreshing standalone materialized views and streaming tables from a notebook on serverless general compute is now generally available. You can define them with SQL through spark.sql() or with the Python pi…"
+    },
+    {
+      "title": "Token Pooling-Aware Training for Multi-Vector Embedding Models",
+      "url": "https://huggingface.co/blog/token-pooling",
+      "source": "Hugging Face",
+      "category": "AI",
+      "publishedAt": "2026-11-11T00:00:00.000Z",
+      "summary": ""
+    },
+    {
+      "title": "Pay for Hugging Face Hub with your Google Cloud Account",
+      "url": "https://huggingface.co/blog/hub-gcp-marketplace",
+      "source": "Hugging Face",
+      "category": "AI",
+      "publishedAt": "2026-11-10T00:00:00.000Z",
+      "summary": ""
+    },
+    {
+      "title": "Decision Models in Hugging Face",
+      "url": "https://huggingface.co/blog/decision",
+      "source": "Hugging Face",
+      "category": "AI",
+      "publishedAt": "2026-11-10T00:00:00.000Z",
+      "summary": ""
+    },
+    {
+      "title": "Accelerate GPU training on Unity Catalog tables with UCDataset",
+      "url": "https://www.databricks.com/blog/accelerate-gpu-training-unity-catalog-tables-ucdataset",
+      "source": "Databricks Engineering",
+      "category": "Databricks",
+      "publishedAt": "2026-11-09T19:00:00.000Z",
+      "summary": "GPUs are usually the most expensive part of any training run, and most teams can't..."
+    }
+  ]
 }
