@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI &amp; Databricks Daily</title>
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --card: #ffffff;
+      --text: #0f172a;
+      --muted: #64748b;
+      --border: #e2e8f0;
+      --accent: #2563eb;
+      --db-bg: #fff1f2;
+      --db-text: #be123c;
+      --ai-bg: #eff6ff;
+      --ai-text: #1d4ed8;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 2rem 1rem 4rem;
+    }
+
+    header {
+      margin-bottom: 1.5rem;
+    }
+
+    h1 {
+      margin: 0 0 0.25rem;
+      font-size: 1.85rem;
+    }
+
+    .updated {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1.5rem;
+    }
+
+    .tabs {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .tab {
+      padding: 0.45rem 0.9rem;
+      border: 1px solid var(--border);
+      background: var(--card);
+      border-radius: 999px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      color: var(--text);
+    }
+
+    .tab.active {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
+      font-weight: 600;
+    }
+
+    .search {
+      padding: 0.5rem 0.85rem;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-size: 0.9rem;
+      min-width: 240px;
+      background: var(--card);
+    }
+
+    .grid {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.1rem 1.25rem;
+      transition: box-shadow 0.15s ease;
+    }
+
+    .card:hover {
+      box-shadow: 0 4px 14px rgba(15, 23, 42, 0.06);
+    }
+
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      align-items: center;
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-bottom: 0.45rem;
+    }
+
+    .badge {
+      font-weight: 600;
+      padding: 0.15rem 0.55rem;
+      border-radius: 999px;
+      font-size: 0.75rem;
+    }
+
+    .badge.Databricks {
+      background: var(--db-bg);
+      color: var(--db-text);
+    }
+
+    .badge.AI {
+      background: var(--ai-bg);
+      color: var(--ai-text);
+    }
+
+    .card h2 {
+      margin: 0 0 0.4rem;
+      font-size: 1.1rem;
+    }
+
+    .card h2 a {
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .card h2 a:hover {
+      color: var(--accent);
+      text-decoration: underline;
+    }
+
+    .summary {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .empty {
+      color: var(--muted);
+      padding: 2rem;
+      text-align: center;
+      background: var(--card);
+      border: 1px dashed var(--border);
+      border-radius: 12px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>AI &amp; Databricks Daily</h1>
+      <div class="updated" id="last-updated">Loading latest news…</div>
+    </header>
+
+    <div class="controls">
+      <div class="tabs" id="tabs">
+        <button class="tab active" data-category="All">All</button>
+        <button class="tab" data-category="Databricks">Databricks</button>
+        <button class="tab" data-category="AI">AI</button>
+      </div>
+      <input
+        type="search"
+        id="search"
+        class="search"
+        placeholder="Filter by keyword..."
+        aria-label="Filter news by keyword"
+      />
+    </div>
+
+    <main class="grid" id="news-grid"></main>
+  </div>
+
+  <script>
+    let allItems = [];
+    let activeCategory = 'All';
+    let searchQuery = '';
+
+    const gridEl = document.getElementById('news-grid');
+    const updatedEl = document.getElementById('last-updated');
+    const searchEl = document.getElementById('search');
+    const tabsEl = document.getElementById('tabs');
+
+    function formatDate(iso) {
+      if (!iso) return '';
+      return new Date(iso).toLocaleString(undefined, {
+        month: 'short',
+        day: 'numeric',
+        year: 'numeric',
+        hour: 'numeric',
+        minute: '2-digit'
+      });
+    }
+
+    function render() {
+      const q = searchQuery.trim().toLowerCase();
+      const filtered = allItems.filter((item) => {
+        const matchesCat = activeCategory === 'All' || item.category === activeCategory;
+        const matchesQuery =
+          !q ||
+          item.title.toLowerCase().includes(q) ||
+          (item.summary || '').toLowerCase().includes(q) ||
+          (item.source || '').toLowerCase().includes(q);
+        return matchesCat && matchesQuery;
+      });
+
+      gridEl.replaceChildren();
+
+      if (filtered.length === 0) {
+        const empty = document.createElement('div');
+        empty.className = 'empty';
+        empty.textContent = 'No matching articles yet. Run the GitHub Action or adjust your filters.';
+        gridEl.appendChild(empty);
+        return;
+      }
+
+      for (const item of filtered) {
+        const card = document.createElement('article');
+        card.className = 'card';
+
+        const meta = document.createElement('div');
+        meta.className = 'meta';
+
+        const badge = document.createElement('span');
+        badge.className = `badge ${item.category}`;
+        badge.textContent = item.category;
+
+        const source = document.createElement('span');
+        source.textContent = item.source;
+
+        const date = document.createElement('span');
+        date.textContent = `• ${formatDate(item.publishedAt)}`;
+
+        meta.append(badge, source, date);
+
+        const title = document.createElement('h2');
+        const link = document.createElement('a');
+        link.href = item.url;
+        link.target = '_blank';
+        link.rel = 'noopener noreferrer';
+        link.textContent = item.title;
+        title.appendChild(link);
+
+        const summary = document.createElement('p');
+        summary.className = 'summary';
+        summary.textContent = item.summary || '';
+
+        card.append(meta, title, summary);
+        gridEl.appendChild(card);
+      }
+    }
+
+    tabsEl.addEventListener('click', (e) => {
+      const btn = e.target.closest('.tab');
+      if (!btn) return;
+      activeCategory = btn.dataset.category;
+      for (const tab of tabsEl.querySelectorAll('.tab')) {
+        tab.classList.toggle('active', tab === btn);
+      }
+      render();
+    });
+
+    searchEl.addEventListener('input', (e) => {
+      searchQuery = e.target.value;
+      render();
+    });
+
+    async function init() {
+      try {
+        const res = await fetch('./data/news.json', { cache: 'no-store' });
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const data = await res.json();
+        allItems = data.items || [];
+        updatedEl.textContent = data.lastUpdated
+          ? `Last updated: ${formatDate(data.lastUpdated)} (${allItems.length} articles)`
+          : 'Waiting for first daily update…';
+        render();
+      } catch (err) {
+        updatedEl.textContent = 'Could not load news.json';
+        console.error(err);
+      }
+    }
+
+    init();
+  </script>
+</body>
+</html>
