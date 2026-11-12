@@ -37,9 +37,15 @@ const FEEDS = [
   }
 ];
 
-const DAYS_BACK = 7;        // Keep articles from the last 7 days
-const MAX_PER_SOURCE = 10;  // Prevent one noisy feed (like Google News) from drowning others
-const MAX_TOTAL_ITEMS = 40;
+const MODEL_NEWS_FEED = {
+  name: 'LLM Releases',
+  category: 'LLM',
+  url: 'https://news.google.com/rss/search?q=%22new+model%22+OR+%22LLM%22+release+OR+OpenAI+OR+Anthropic+OR+Gemini+OR+Llama&hl=en-US&gl=US&ceid=US:en'
+};
+
+const DAYS_BACK = 7;
+const MAX_PER_SOURCE = 25;
+const MAX_TOTAL_ITEMS = 120;
 
 function stripHtml(html = '') {
   return html
@@ -52,19 +58,20 @@ function stripHtml(html = '') {
     .trim();
 }
 
-function truncate(text, maxLength = 220) {
+function truncate(text, maxLength = 200) {
   if (text.length <= maxLength) return text;
   return text.slice(0, maxLength - 1).trimEnd() + '…';
 }
 
-async function fetchFeed(feed) {
+async function fetchFeed(feed, maxItems = MAX_PER_SOURCE) {
   const parsed = await parser.parseURL(feed.url);
   const cutoffMs = Date.now() - DAYS_BACK * 24 * 60 * 60 * 1000;
 
   return (parsed.items || [])
     .map((item) => {
       const dateStr = item.isoDate || item.pubDate;
-      const publishedMs = dateStr ? Date.parse(dateStr) : Date.now();
+      const parsedMs = dateStr ? Date.parse(dateStr) : NaN;
+      const publishedMs = Number.isNaN(parsedMs) ? Date.now() : parsedMs;
       const rawSummary = item.contentSnippet || item.content || item.summary || '';
 
       return {
@@ -72,22 +79,60 @@ async function fetchFeed(feed) {
         url: item.link || '',
         source: feed.name,
         category: feed.category,
-        publishedAt: new Date(Number.isNaN(publishedMs) ? Date.now() : publishedMs).toISOString(),
+        publishedAt: new Date(publishedMs).toISOString(),
         summary: truncate(stripHtml(rawSummary))
       };
     })
     .filter((item) => item.url && Date.parse(item.publishedAt) >= cutoffMs)
-    .slice(0, MAX_PER_SOURCE);
+    .sort((a, b) => Date.parse(b.publishedAt) - Date.parse(a.publishedAt))
+    .slice(0, maxItems);
+}
+
+async function fetchTrendingModels() {
+  try {
+    const res = await fetch('https://huggingface.co/api/trending?type=model', {
+      headers: { 'User-Agent': 'ai-databricks-daily-bot/1.0' }
+    });
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const data = await res.json();
+
+    const rawList = data.recentlyTrending || data.models || [];
+    return rawList
+      .map((entry) => {
+        const repo = entry.repoData || entry;
+        const id = repo.id || repo.modelId || '';
+        const tag = repo.pipeline_tag || '';
+        return {
+          id,
+          url: id ? `https://huggingface.co/${id}` : '',
+          tag,
+          likes: repo.likes ?? null,
+          downloads: repo.downloads ?? null
+        };
+      })
+      .filter((m) => m.id && (!m.tag || m.tag === 'text-generation' || m.tag === 'image-text-to-text'))
+      .slice(0, 10);
+  } catch (err) {
+    console.warn(`Warning: Failed to fetch Hugging Face trending models: ${err.message}`);
+    return [];
+  }
 }
 
 async function main() {
-  const results = await Promise.allSettled(FEEDS.map(fetchFeed));
+  const [feedResults, trendingModels, modelNewsResult] = await Promise.all([
+    Promise.allSettled(FEEDS.map((f) => fetchFeed(f, MAX_PER_SOURCE))),
+    fetchTrendingModels(),
+    fetchFeed(MODEL_NEWS_FEED, 8).catch((err) => {
+      console.warn(`Warning: Failed to fetch LLM release news: ${err.message}`);
+      return [];
+    })
+  ]);
 
   const seenUrls = new Set();
   const items = [];
 
-  for (let i = 0; i < results.length; i++) {
-    const result = results[i];
+  for (let i = 0; i < feedResults.length; i++) {
+    const result = feedResults[i];
     const feed = FEEDS[i];
 
     if (result.status === 'rejected') {
@@ -103,19 +148,25 @@ async function main() {
     }
   }
 
-  // Sort newest first
+  // Strictly sort newest first across all sources
   items.sort((a, b) => Date.parse(b.publishedAt) - Date.parse(a.publishedAt));
 
   const output = {
     lastUpdated: new Date().toISOString(),
-    items: items.slice(0, MAX_TOTAL_ITEMS)
+    items: items.slice(0, MAX_TOTAL_ITEMS),
+    llmTracker: {
+      trendingModels,
+      modelNews: modelNewsResult
+    }
   };
 
   const outPath = path.resolve('data/news.json');
   await fs.mkdir(path.dirname(outPath), { recursive: true });
   await fs.writeFile(outPath, JSON.stringify(output, null, 2) + '\n', 'utf8');
 
-  console.log(`Saved ${output.items.length} articles to data/news.json`);
+  console.log(
+    `Saved ${output.items.length} news items and ${trendingModels.length} trending models to data/news.json`
+  );
 }
 
 main().catch((err) => {
