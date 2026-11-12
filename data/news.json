@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-11-12T20:43:02.528Z",
+  "lastUpdated": "2026-11-12T20:51:43.187Z",
   "items": [
     {
       "title": "Review Finds Artificial Intelligence Shows Promise but Limited Real-World Healthcare Infection Surveillance - Bioengineer.org",
@@ -8,7 +8,7 @@
       "category": "AI",
       "publishedAt": "2026-11-12T20:35:47.000Z",
       "summary": "Review Finds Artificial Intelligence Shows Promise but Limited Real-World Healthcare Infection Surveillance Bioengineer.org",
-      "fullStory": "Review Finds Artificial Intelligence Shows Promise but Limited Real-World Healthcare Infection Surveillance Bioengineer.org",
+      "fullStory": "Review Finds Artificial Intelligence Shows Promise but Limited Real-World Healthcare Infection Surveillance Bioengineer.",
       "whyItMatters": "Tracks fast-moving capabilities, product launches, and industry shifts shaping how AI is built and deployed.",
       "whoIsAffected": "AI Builders, Engineering Leaders, and Product Teams evaluating new tools and workflows."
     },
@@ -63,7 +63,7 @@
       "category": "AI",
       "publishedAt": "2026-11-12T19:51:06.000Z",
       "summary": "A.I., the Incarnation and the true source of human dignity America Magazine",
-      "fullStory": "A.I., the Incarnation and the true source of human dignity America Magazine",
+      "fullStory": "",
       "whyItMatters": "Tracks fast-moving capabilities, product launches, and industry shifts shaping how AI is built and deployed.",
       "whoIsAffected": "AI Builders, Engineering Leaders, and Product Teams evaluating new tools and workflows."
     },
@@ -107,7 +107,7 @@
       "category": "Databricks",
       "publishedAt": "2026-11-12T19:21:00.000Z",
       "summary": "Constellation operates the largest nuclear fleet in the United States. For them,...",
-      "fullStory": "Constellation operates the largest nuclear fleet in the United States. For them,...",
+      "fullStory": "Constellation operates the largest nuclear fleet in the United States.",
       "whyItMatters": "Highlights architectural patterns, benchmarks, and engineering practices for scaling data and AI workloads on the Lakehouse.",
       "whoIsAffected": "Data Platform Teams, Analytics Engineers, and ML Engineers building on Databricks."
     },
@@ -129,7 +129,7 @@
       "category": "AI",
       "publishedAt": "2026-11-12T19:16:26.000Z",
       "summary": "Jensen Huang built the company that powers AI. Now Nvidia must find a way forward without him The Seattle Times",
-      "fullStory": "Jensen Huang built the company that powers AI. Now Nvidia must find a way forward without him The Seattle Times",
+      "fullStory": "Jensen Huang built the company that powers AI.",
       "whyItMatters": "Tracks fast-moving capabilities, product launches, and industry shifts shaping how AI is built and deployed.",
       "whoIsAffected": "AI Builders, Engineering Leaders, and Product Teams evaluating new tools and workflows."
     },
@@ -173,18 +173,7 @@
       "category": "AI",
       "publishedAt": "2026-11-12T19:07:35.000Z",
       "summary": "",
-      "fullStory": "Open the original article below to read the full story.",
-      "whyItMatters": "Tracks fast-moving capabilities, product launches, and industry shifts shaping how AI is built and deployed.",
-      "whoIsAffected": "AI Builders, Engineering Leaders, and Product Teams evaluating new tools and workflows."
-    },
-    {
-      "title": "AI industry reassesses future without Jensen Huang at Nvidia - Yahoo News Singapore",
-      "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxOLTNCUmJZWEpfTHN5TnpvNXZQdDlNcjRrWHdXLXdHazRPbEU4R3hqazdtYURHRDNlY1pOdHM1Wi1lMzhHcWZGZUpLeVlwZVFOUFBuMlA3dzdRNGZPX2kyVlBNbGFka0Q5b1Zwcy1zb1Z3NXVVYTkwcnJZbDhsazdBUFlQT3o?oc=5",
-      "source": "Google News AI",
-      "category": "AI",
-      "publishedAt": "2026-11-12T19:05:20.000Z",
-      "summary": "AI industry reassesses future without Jensen Huang at Nvidia Yahoo News Singapore",
-      "fullStory": "AI industry reassesses future without Jensen Huang at Nvidia Yahoo News Singapore",
+      "fullStory": "LLMON: An LLM-Native Markup Language, now in Granite 4.1 3B and 8B.\n\nOpen the original article below for the full coverage.",
       "whyItMatters": "Tracks fast-moving capabilities, product launches, and industry shifts shaping how AI is built and deployed.",
       "whoIsAffected": "AI Builders, Engineering Leaders, and Product Teams evaluating new tools and workflows."
     },
@@ -261,7 +250,7 @@
       "category": "AI",
       "publishedAt": "2026-11-12T18:35:59.000Z",
       "summary": "Primary Care Patients Report Cautious Perceptions Toward Portal Artificial Intelligence Chatbots Bioengineer.org",
-      "fullStory": "Primary Care Patients Report Cautious Perceptions Toward Portal Artificial Intelligence Chatbots Bioengineer.org",
+      "fullStory": "Primary Care Patients Report Cautious Perceptions Toward Portal Artificial Intelligence Chatbots Bioengineer.",
       "whyItMatters": "Tracks fast-moving capabilities, product launches, and industry shifts shaping how AI is built and deployed.",
       "whoIsAffected": "AI Builders, Engineering Leaders, and Product Teams evaluating new tools and workflows."
     },
@@ -283,7 +272,7 @@
       "category": "AI",
       "publishedAt": "2026-11-12T18:27:06.000Z",
       "summary": "Artificial intelligence lets companies check every transaction instead of a handful. It can also reach where the law forbids. Adamo Brunetti, founder…",
-      "fullStory": "Artificial intelligence lets companies check every transaction instead of a handful. It can also reach where the law forbids. Adamo Brunetti, founder of CODE, explains why the real competitive advantage lies in knowing the difference. Leaders League",
+      "fullStory": "Artificial intelligence lets companies check every transaction instead of a handful. It can also reach where the law forbids.\n\nAdamo Brunetti, founder of CODE, explains why the real competitive advantage lies in knowing the difference.",
       "whyItMatters": "Regulatory and policy shifts can create new compliance requirements, data-usage rules, and vendor risk considerations.",
       "whoIsAffected": "Legal & Compliance Teams, CISOs, and Enterprise AI Governance Leaders."
     },
@@ -294,7 +283,7 @@
       "category": "AI",
       "publishedAt": "2026-11-12T18:04:51.000Z",
       "summary": "DOJ AI Task Force Puts Business Users in Enforcement Spotlight PYMNTS.com",
-      "fullStory": "DOJ AI Task Force Puts Business Users in Enforcement Spotlight PYMNTS.com",
+      "fullStory": "DOJ AI Task Force Puts Business Users in Enforcement Spotlight PYMNTS.",
       "whyItMatters": "Tracks fast-moving capabilities, product launches, and industry shifts shaping how AI is built and deployed.",
       "whoIsAffected": "AI Builders, Engineering Leaders, and Product Teams evaluating new tools and workflows."
     },
@@ -305,7 +294,7 @@
       "category": "AI",
       "publishedAt": "2026-11-12T18:04:04.000Z",
       "summary": "Introducing Gemini 4 Hydrogen for Agentic Workflows blog.google",
-      "fullStory": "Introducing Gemini 4 Hydrogen for Agentic Workflows blog.google",
+      "fullStory": "Introducing Gemini 4 Hydrogen for Agentic Workflows blog.",
       "whyItMatters": "Tracks fast-moving capabilities, product launches, and industry shifts shaping how AI is built and deployed.",
       "whoIsAffected": "AI Builders, Engineering Leaders, and Product Teams evaluating new tools and workflows."
     },
@@ -338,7 +327,7 @@
       "category": "AI",
       "publishedAt": "2026-11-12T17:36:40.000Z",
       "summary": "Hugging Face's CEO pledged to keep fighting for open source AI after Huang's exit, raising questions about Nvidia's $12.9 billion acquisition.",
-      "fullStory": "Hugging Face's CEO pledged to keep fighting for open source AI after Huang's exit, raising questions about Nvidia's $12.9 billion acquisition.",
+      "fullStory": "Hugging Face's CEO pledged to keep fighting for open source AI after Huang's exit, raising questions about Nvidia's $12. 9 billion acquisition.",
       "whyItMatters": "New open-weights models and tooling lower inference costs and give teams full control over privacy, customization, and self-hosting.",
       "whoIsAffected": "ML Engineers, AI App Developers, and Infrastructure Teams evaluating self-hosted or fine-tuned models."
     },
@@ -350,6 +339,17 @@
       "publishedAt": "2026-11-12T17:30:00.000Z",
       "summary": "Artificial intelligence in the classroom Tri-Cities Area Journal of Business",
       "fullStory": "Artificial intelligence in the classroom Tri-Cities Area Journal of Business",
+      "whyItMatters": "Tracks fast-moving capabilities, product launches, and industry shifts shaping how AI is built and deployed.",
+      "whoIsAffected": "AI Builders, Engineering Leaders, and Product Teams evaluating new tools and workflows."
+    },
+    {
+      "title": "Jensen Huang, a global salesman for artificial intelligence, resigns from Nvidia after affair - WSMV",
+      "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxOaWdYM0NMQTJ6VzItbmRMVVFkaGVOakFxSlR4MVR1ZUxLVDVEclhjU1o4N2ZWVjJvd0dObVNUeldXQlFWVHdKMk93dC05ZXJuWGc0VGlROExXUXE2X0NqZnVMa1YzLU5UM1NqNTVkdjluWEFoRmcwWGlyZmVQLWVRc3dnb1U2SWdQM1QteFRvMVZra2hRbk1RNnRZTFpnVHJWckVmdlhDdEk4QWxZT0s4QVRVTVVhSkY2ZHhB?oc=5",
+      "source": "Google News AI",
+      "category": "AI",
+      "publishedAt": "2026-11-12T17:30:00.000Z",
+      "summary": "Jensen Huang, a global salesman for artificial intelligence, resigns from Nvidia after affair WSMV",
+      "fullStory": "Jensen Huang, a global salesman for artificial intelligence, resigns from Nvidia after affair WSMV",
       "whyItMatters": "Tracks fast-moving capabilities, product launches, and industry shifts shaping how AI is built and deployed.",
       "whoIsAffected": "AI Builders, Engineering Leaders, and Product Teams evaluating new tools and workflows."
     },
@@ -470,7 +470,7 @@
       "category": "AI",
       "publishedAt": "2026-11-12T14:30:01.000Z",
       "summary": "Jensen Huang has resigned from Nvidia following an affair, which could have ramifications for national security as the U.S. and China race to develop…",
-      "fullStory": "Jensen Huang has resigned from Nvidia following an affair, which could have ramifications for national security as the U.S. and China race to develop the most advanced AI infrastructure.",
+      "fullStory": "Jensen Huang has resigned from Nvidia following an affair, which could have ramifications for national security as the U. and China race to develop the most advanced AI infrastructure.",
       "whyItMatters": "Tracks fast-moving capabilities, product launches, and industry shifts shaping how AI is built and deployed.",
       "whoIsAffected": "AI Builders, Engineering Leaders, and Product Teams evaluating new tools and workflows."
     },
@@ -481,7 +481,7 @@
       "category": "AI",
       "publishedAt": "2026-11-12T13:26:25.000Z",
       "summary": "The startups work across the deep tech sector, including healthcare, fintech, energy, semiconductors, and AI. All nine are looking to enter the U.S.",
-      "fullStory": "The startups work across the deep tech sector, including healthcare, fintech, energy, semiconductors, and AI. All nine are looking to enter the U.S.",
+      "fullStory": "The startups work across the deep tech sector, including healthcare, fintech, energy, semiconductors, and AI. All nine are looking to enter the U.",
       "whyItMatters": "Tracks fast-moving capabilities, product launches, and industry shifts shaping how AI is built and deployed.",
       "whoIsAffected": "AI Builders, Engineering Leaders, and Product Teams evaluating new tools and workflows."
     },
@@ -503,7 +503,7 @@
       "category": "Databricks",
       "publishedAt": "2026-11-12T00:00:00.000Z",
       "summary": "Expanded FOR clause support: DENY policies can now apply to model services, model provider services, MCP services, agent services, and skills. Expand…",
-      "fullStory": "Expanded FOR clause support: DENY policies can now apply to model services, model provider services, MCP services, agent services, and skills. Expanded ON clause support: DENY policies can now be attached directly on tables, volumes, functions, models, secrets, model services, model provider services, MCP services, agent services, and skills. See Supported securable types and privileges .",
+      "fullStory": "Expanded FOR clause support: DENY policies can now apply to model services, model provider services, MCP services, agent services, and skills. Expanded ON clause support: DENY policies can now be attached directly on tables, volumes, functions, models, secrets, model services, model provider services, MCP services, ag…\n\nSee Supported securable types and privileges .",
       "whyItMatters": "Platform updates and release notes often introduce performance improvements, new SQL/Spark capabilities, or deprecations that impact production pipelines.",
       "whoIsAffected": "Databricks Data Engineers, Lakehouse Architects, and Workspace Admins managing clusters, jobs, and governance."
     },
@@ -514,7 +514,7 @@
       "category": "Databricks",
       "publishedAt": "2026-11-12T00:00:00.000Z",
       "summary": "Genie ZeroOps is now available in Beta . It monitors jobs, pipelines, and tables in the background, detects failures and data quality issues, investi…",
-      "fullStory": "Genie ZeroOps is now available in Beta . It monitors jobs, pipelines, and tables in the background, detects failures and data quality issues, investigates the root cause, and proposes a fix. See Get started with Genie ZeroOps .",
+      "fullStory": "Genie ZeroOps is now available in Beta . It monitors jobs, pipelines, and tables in the background, detects failures and data quality issues, investigates the root cause, and proposes a fix.\n\nSee Get started with Genie ZeroOps .",
       "whyItMatters": "Platform updates and release notes often introduce performance improvements, new SQL/Spark capabilities, or deprecations that impact production pipelines.",
       "whoIsAffected": "Databricks Data Engineers, Lakehouse Architects, and Workspace Admins managing clusters, jobs, and governance."
     },
@@ -525,7 +525,7 @@
       "category": "AI",
       "publishedAt": "2026-11-12T00:00:00.000Z",
       "summary": "",
-      "fullStory": "Open the original article below to read the full story.",
+      "fullStory": "The Definitive Fine-Tuning Guide for 3D Generation Models.\n\nOpen the original article below for the full coverage.",
       "whyItMatters": "New open-weights models and tooling lower inference costs and give teams full control over privacy, customization, and self-hosting.",
       "whoIsAffected": "ML Engineers, AI App Developers, and Infrastructure Teams evaluating self-hosted or fine-tuned models."
     },
@@ -569,7 +569,7 @@
       "category": "AI",
       "publishedAt": "2026-11-11T20:15:15.000Z",
       "summary": "The data center boom is running into serious real-world obstacles, from widespread local opposition and permitting delays to a scramble for electrici…",
-      "fullStory": "The data center boom is running into serious real-world obstacles, from widespread local opposition and permitting delays to a scramble for electricity.&#160;Before those challenges even come into play, though, there&#8217;s a more basic problem: A lot of the projects being announced may never get built in the first place.&#160;With billions of dollars in AI infrastructure [&#8230;]",
+      "fullStory": "The data center boom is running into serious real-world obstacles, from widespread local opposition and permitting delays to a scramble for electricity. &#160;Before those challenges even come into play, though, there&#8217;s a more basic problem: A lot of the projects being announced may never get built in the first place.",
       "whyItMatters": "Major funding, M&A, and enterprise partnerships signal where capital and ecosystem momentum are consolidating.",
       "whoIsAffected": "Technology Executives, Product Leaders, Vendors, and Investors tracking the AI market."
     },
@@ -580,7 +580,7 @@
       "category": "AI",
       "publishedAt": "2026-11-11T05:01:16.000Z",
       "summary": "",
-      "fullStory": "Open the original article below to read the full story.",
+      "fullStory": "BotPsy: On-Device Personal Assistant with a Sub-Billion-Parameter Agentic Language Model.\n\nOpen the original article below for the full coverage.",
       "whyItMatters": "Major funding, M&A, and enterprise partnerships signal where capital and ecosystem momentum are consolidating.",
       "whoIsAffected": "Technology Executives, Product Leaders, Vendors, and Investors tracking the AI market."
     },
@@ -591,7 +591,7 @@
       "category": "Databricks",
       "publishedAt": "2026-11-11T00:00:00.000Z",
       "summary": "You can now use your own ChatGPT Go, Plus, Pro, or Enterprise subscription with Codex and ChatGPT desktop through Unity Gateway. Requests are billed…",
-      "fullStory": "You can now use your own ChatGPT Go, Plus, Pro, or Enterprise subscription with Codex and ChatGPT desktop through Unity Gateway. Requests are billed to your subscription, and Unity Gateway governs access and usage. See ChatGPT subscription support .",
+      "fullStory": "You can now use your own ChatGPT Go, Plus, Pro, or Enterprise subscription with Codex and ChatGPT desktop through Unity Gateway. Requests are billed to your subscription, and Unity Gateway governs access and usage.\n\nSee ChatGPT subscription support .",
       "whyItMatters": "Platform updates and release notes often introduce performance improvements, new SQL/Spark capabilities, or deprecations that impact production pipelines.",
       "whoIsAffected": "Databricks Data Engineers, Lakehouse Architects, and Workspace Admins managing clusters, jobs, and governance."
     },
@@ -602,7 +602,7 @@
       "category": "Databricks",
       "publishedAt": "2026-11-11T00:00:00.000Z",
       "summary": "The Databricks Genie plugin connects ChatGPT to the Genie One MCP, so users can ask questions about their data from ChatGPT. A ChatGPT admin sets up…",
-      "fullStory": "The Databricks Genie plugin connects ChatGPT to the Genie One MCP, so users can ask questions about their data from ChatGPT. A ChatGPT admin sets up the plugin for the ChatGPT workspace, and each user connects by signing in with their Databricks account. See Databricks Genie plugins for ChatGPT, Claude, and Grok Bot/Cursor .",
+      "fullStory": "The Databricks Genie plugin connects ChatGPT to the Genie One MCP, so users can ask questions about their data from ChatGPT. A ChatGPT admin sets up the plugin for the ChatGPT workspace, and each user connects by signing in with their Databricks account.\n\nSee Databricks Genie plugins for ChatGPT, Claude, and Grok Bot/Cursor .",
       "whyItMatters": "Platform updates and release notes often introduce performance improvements, new SQL/Spark capabilities, or deprecations that impact production pipelines.",
       "whoIsAffected": "Databricks Data Engineers, Lakehouse Architects, and Workspace Admins managing clusters, jobs, and governance."
     },
@@ -613,7 +613,7 @@
       "category": "Databricks",
       "publishedAt": "2026-11-11T00:00:00.000Z",
       "summary": "The Databricks Genie connector connects Claude to the Genie One MCP, so users can ask questions about their data from Claude. A Claude admin connects…",
-      "fullStory": "The Databricks Genie connector connects Claude to the Genie One MCP, so users can ask questions about their data from Claude. A Claude admin connects it for the team, and each user connects by signing in with their Databricks account. See Databricks Genie plugins for ChatGPT, Claude, and Grok Bot/Cursor .",
+      "fullStory": "The Databricks Genie connector connects Claude to the Genie One MCP, so users can ask questions about their data from Claude. A Claude admin connects it for the team, and each user connects by signing in with their Databricks account.\n\nSee Databricks Genie plugins for ChatGPT, Claude, and Grok Bot/Cursor .",
       "whyItMatters": "Platform updates and release notes often introduce performance improvements, new SQL/Spark capabilities, or deprecations that impact production pipelines.",
       "whoIsAffected": "Databricks Data Engineers, Lakehouse Architects, and Workspace Admins managing clusters, jobs, and governance."
     },
@@ -624,7 +624,7 @@
       "category": "Databricks",
       "publishedAt": "2026-11-11T00:00:00.000Z",
       "summary": "ug configure --agents copilot now sets up GitHub Copilot in Visual Studio Code alongside GitHub Copilot CLI, with Claude, GPT, and open-source models…",
-      "fullStory": "ug configure --agents copilot now sets up GitHub Copilot in Visual Studio Code alongside GitHub Copilot CLI, with Claude, GPT, and open-source models. Admins can add GitHub Copilot to the coding agent configuration to set its models, default model, HTTP headers, and tracing for both Copilot CLI and Copilot in Visual Studio Code, and turn Copilot in Visual Studio Code on or off. Developers must use the latest ug . See Connect GitHub Copilot .",
+      "fullStory": "ug configure --agents copilot now sets up GitHub Copilot in Visual Studio Code alongside GitHub Copilot CLI, with Claude, GPT, and open-source models. Admins can add GitHub Copilot to the coding agent configuration to set its models, default model, HTTP headers, and tracing for both Copilot CLI and Copilot in Visual S…\n\nDevelopers must use the latest ug . See Connect GitHub Copilot .",
       "whyItMatters": "Platform updates and release notes often introduce performance improvements, new SQL/Spark capabilities, or deprecations that impact production pipelines.",
       "whoIsAffected": "Databricks Data Engineers, Lakehouse Architects, and Workspace Admins managing clusters, jobs, and governance."
     },
@@ -635,7 +635,7 @@
       "category": "Databricks",
       "publishedAt": "2026-11-11T00:00:00.000Z",
       "summary": "The Databricks Genie plugin connects Grok Bot/Cursor to the Genie One MCP, so users can ask questions about their data from Grok Bot/Cursor. A Cursor…",
-      "fullStory": "The Databricks Genie plugin connects Grok Bot/Cursor to the Genie One MCP, so users can ask questions about their data from Grok Bot/Cursor. A Cursor team admin publishes the plugin for the team, and each user connects by signing in with their Databricks account. See Databricks Genie plugins for ChatGPT, Claude, and Grok Bot/Cursor .",
+      "fullStory": "The Databricks Genie plugin connects Grok Bot/Cursor to the Genie One MCP, so users can ask questions about their data from Grok Bot/Cursor. A Cursor team admin publishes the plugin for the team, and each user connects by signing in with their Databricks account.\n\nSee Databricks Genie plugins for ChatGPT, Claude, and Grok Bot/Cursor .",
       "whyItMatters": "Platform updates and release notes often introduce performance improvements, new SQL/Spark capabilities, or deprecations that impact production pipelines.",
       "whoIsAffected": "Databricks Data Engineers, Lakehouse Architects, and Workspace Admins managing clusters, jobs, and governance."
     },
@@ -646,7 +646,7 @@
       "category": "Databricks",
       "publishedAt": "2026-11-11T00:00:00.000Z",
       "summary": "Feature Views are now available by default for workspaces with the compliance security profile enabled. See Feature Views .",
-      "fullStory": "Feature Views are now available by default for workspaces with the compliance security profile enabled. See Feature Views .",
+      "fullStory": "Feature Views are now available by default for workspaces with the compliance security profile enabled.",
       "whyItMatters": "Platform updates and release notes often introduce performance improvements, new SQL/Spark capabilities, or deprecations that impact production pipelines.",
       "whoIsAffected": "Databricks Data Engineers, Lakehouse Architects, and Workspace Admins managing clusters, jobs, and governance."
     },
@@ -657,7 +657,7 @@
       "category": "Databricks",
       "publishedAt": "2026-11-11T00:00:00.000Z",
       "summary": "Pages, governed definitions of business concepts organized by domain on the Discover page, are generally available. Curators can certify and deprecat…",
-      "fullStory": "Pages, governed definitions of business concepts organized by domain on the Discover page, are generally available. Curators can certify and deprecate Pages, and the new MANAGE PAGES permission controls who can publish and manage Pages in a domain. You can also manage Pages with the REST API. See Pages .",
+      "fullStory": "Pages, governed definitions of business concepts organized by domain on the Discover page, are generally available. Curators can certify and deprecate Pages, and the new MANAGE PAGES permission controls who can publish and manage Pages in a domain.\n\nYou can also manage Pages with the REST API.",
       "whyItMatters": "Platform updates and release notes often introduce performance improvements, new SQL/Spark capabilities, or deprecations that impact production pipelines.",
       "whoIsAffected": "Databricks Data Engineers, Lakehouse Architects, and Workspace Admins managing clusters, jobs, and governance."
     },
@@ -668,7 +668,7 @@
       "category": "Databricks",
       "publishedAt": "2026-11-11T00:00:00.000Z",
       "summary": "Creating and refreshing standalone materialized views and streaming tables from a notebook on serverless general compute is now generally available.…",
-      "fullStory": "Creating and refreshing standalone materialized views and streaming tables from a notebook on serverless general compute is now generally available. You can define them with SQL through spark.sql() or with the Python pipelines decorators. See Notebooks and Use Python with standalone pipelines .",
+      "fullStory": "Creating and refreshing standalone materialized views and streaming tables from a notebook on serverless general compute is now generally available. You can define them with SQL through spark.\n\nsql() or with the Python pipelines decorators. See Notebooks and Use Python with standalone pipelines .",
       "whyItMatters": "Platform updates and release notes often introduce performance improvements, new SQL/Spark capabilities, or deprecations that impact production pipelines.",
       "whoIsAffected": "Databricks Data Engineers, Lakehouse Architects, and Workspace Admins managing clusters, jobs, and governance."
     },
@@ -679,7 +679,7 @@
       "category": "Databricks",
       "publishedAt": "2026-11-11T00:00:00.000Z",
       "summary": "The Genie One desktop app is now available for Windows in Beta , in addition to macOS. The native app opens Genie One on your desktop instead of in a…",
-      "fullStory": "The Genie One desktop app is now available for Windows in Beta , in addition to macOS. The native app opens Genie One on your desktop instead of in a browser tab, so business users can chat with data in natural language, work with their threads and documents, and use Genie Agents without a browser. See Windows .",
+      "fullStory": "The Genie One desktop app is now available for Windows in Beta , in addition to macOS. The native app opens Genie One on your desktop instead of in a browser tab, so business users can chat with data in natural language, work with their threads and documents, and use Genie Agents without a browser.",
       "whyItMatters": "Platform updates and release notes often introduce performance improvements, new SQL/Spark capabilities, or deprecations that impact production pipelines.",
       "whoIsAffected": "Databricks Data Engineers, Lakehouse Architects, and Workspace Admins managing clusters, jobs, and governance."
     },
@@ -690,7 +690,7 @@
       "category": "Databricks",
       "publishedAt": "2026-11-11T00:00:00.000Z",
       "summary": "You can now write a custom service policy as a Python function in Unity Catalog. Use it for rules that SQL can't express, such as regular expressions…",
-      "fullStory": "You can now write a custom service policy as a Python function in Unity Catalog. Use it for rules that SQL can't express, such as regular expressions, Python packages, or calls to an external guardrail through a service credential. It's available in select regions. See Write a custom Python service policy .",
+      "fullStory": "You can now write a custom service policy as a Python function in Unity Catalog. Use it for rules that SQL can't express, such as regular expressions, Python packages, or calls to an external guardrail through a service credential.\n\nIt's available in select regions. See Write a custom Python service policy .",
       "whyItMatters": "Platform updates and release notes often introduce performance improvements, new SQL/Spark capabilities, or deprecations that impact production pipelines.",
       "whoIsAffected": "Databricks Data Engineers, Lakehouse Architects, and Workspace Admins managing clusters, jobs, and governance."
     },
@@ -701,7 +701,7 @@
       "category": "Databricks",
       "publishedAt": "2026-11-11T00:00:00.000Z",
       "summary": "You can now use your own ChatGPT Go, Plus, Pro, or Enterprise subscription with Codex and ChatGPT desktop through Unity Gateway. Requests are billed…",
-      "fullStory": "You can now use your own ChatGPT Go, Plus, Pro, or Enterprise subscription with Codex and ChatGPT desktop through Unity Gateway. Requests are billed to your subscription, and Unity Gateway governs access and usage. See ChatGPT subscription support .",
+      "fullStory": "You can now use your own ChatGPT Go, Plus, Pro, or Enterprise subscription with Codex and ChatGPT desktop through Unity Gateway. Requests are billed to your subscription, and Unity Gateway governs access and usage.\n\nSee ChatGPT subscription support .",
       "whyItMatters": "Platform updates and release notes often introduce performance improvements, new SQL/Spark capabilities, or deprecations that impact production pipelines.",
       "whoIsAffected": "Databricks Data Engineers, Lakehouse Architects, and Workspace Admins managing clusters, jobs, and governance."
     },
@@ -712,7 +712,7 @@
       "category": "Databricks",
       "publishedAt": "2026-11-11T00:00:00.000Z",
       "summary": "ug configure --agents copilot now sets up GitHub Copilot in Visual Studio Code alongside GitHub Copilot CLI, with Claude, GPT, and open-source models…",
-      "fullStory": "ug configure --agents copilot now sets up GitHub Copilot in Visual Studio Code alongside GitHub Copilot CLI, with Claude, GPT, and open-source models. Admins can add GitHub Copilot to the coding agent configuration to set its models, default model, HTTP headers, and tracing for both Copilot CLI and Copilot in Visual Studio Code, and turn Copilot in Visual Studio Code on or off. Developers must use the latest ug . See Connect GitHub Copilot .",
+      "fullStory": "ug configure --agents copilot now sets up GitHub Copilot in Visual Studio Code alongside GitHub Copilot CLI, with Claude, GPT, and open-source models. Admins can add GitHub Copilot to the coding agent configuration to set its models, default model, HTTP headers, and tracing for both Copilot CLI and Copilot in Visual S…\n\nDevelopers must use the latest ug . See Connect GitHub Copilot .",
       "whyItMatters": "Platform updates and release notes often introduce performance improvements, new SQL/Spark capabilities, or deprecations that impact production pipelines.",
       "whoIsAffected": "Databricks Data Engineers, Lakehouse Architects, and Workspace Admins managing clusters, jobs, and governance."
     },
@@ -723,7 +723,7 @@
       "category": "Databricks",
       "publishedAt": "2026-11-11T00:00:00.000Z",
       "summary": "You can now write a custom service policy as a Python function in Unity Catalog. Use it for rules that SQL can't express, such as regular expressions…",
-      "fullStory": "You can now write a custom service policy as a Python function in Unity Catalog. Use it for rules that SQL can't express, such as regular expressions, Python packages, or calls to an external guardrail through a service credential. It's available in select regions. See Write a custom Python service policy .",
+      "fullStory": "You can now write a custom service policy as a Python function in Unity Catalog. Use it for rules that SQL can't express, such as regular expressions, Python packages, or calls to an external guardrail through a service credential.\n\nIt's available in select regions. See Write a custom Python service policy .",
       "whyItMatters": "Platform updates and release notes often introduce performance improvements, new SQL/Spark capabilities, or deprecations that impact production pipelines.",
       "whoIsAffected": "Databricks Data Engineers, Lakehouse Architects, and Workspace Admins managing clusters, jobs, and governance."
     },
@@ -734,7 +734,7 @@
       "category": "Databricks",
       "publishedAt": "2026-11-11T00:00:00.000Z",
       "summary": "In an upcoming release, Python Lakeflow pipelines will support partial schema inference in Beta. You will be able to use the override_schema argument…",
-      "fullStory": "In an upcoming release, Python Lakeflow pipelines will support partial schema inference in Beta. You will be able to use the override_schema argument of table , materialized_view , or create_streaming_table to declare only the columns whose type, constraint, or comment you want to control. The pipeline infers the remaining columns from the query output. See Develop pipeline code with Python .",
+      "fullStory": "In an upcoming release, Python Lakeflow pipelines will support partial schema inference in Beta. You will be able to use the override_schema argument of table , materialized_view , or create_streaming_table to declare only the columns whose type, constraint, or comment you want to control.\n\nThe pipeline infers the remaining columns from the query output. See Develop pipeline code with Python .",
       "whyItMatters": "Platform updates and release notes often introduce performance improvements, new SQL/Spark capabilities, or deprecations that impact production pipelines.",
       "whoIsAffected": "Databricks Data Engineers, Lakehouse Architects, and Workspace Admins managing clusters, jobs, and governance."
     },
@@ -745,7 +745,7 @@
       "category": "AI",
       "publishedAt": "2026-11-11T00:00:00.000Z",
       "summary": "",
-      "fullStory": "Open the original article below to read the full story.",
+      "fullStory": "Token Pooling-Aware Training for Multi-Vector Embedding Models.\n\nOpen the original article below for the full coverage.",
       "whyItMatters": "Tracks fast-moving capabilities, product launches, and industry shifts shaping how AI is built and deployed.",
       "whoIsAffected": "AI Builders, Engineering Leaders, and Product Teams evaluating new tools and workflows."
     },
@@ -756,7 +756,7 @@
       "category": "Databricks",
       "publishedAt": "2026-11-10T00:00:00.000Z",
       "summary": "Context-based ingress policies can now allow traffic from ChatGPT and Claude as partner platforms. Databricks keeps their published IP ranges current…",
-      "fullStory": "Context-based ingress policies can now allow traffic from ChatGPT and Claude as partner platforms. Databricks keeps their published IP ranges current, so you don't track the IPs yourself. Use these rules to allow hosted Model Context Protocol (MCP) clients, such as the Databricks Genie plugins for ChatGPT and Claude, to reach your workspace. See Allow partner platforms in context-based ingress policies .",
+      "fullStory": "Context-based ingress policies can now allow traffic from ChatGPT and Claude as partner platforms. Databricks keeps their published IP ranges current, so you don't track the IPs yourself.\n\nUse these rules to allow hosted Model Context Protocol (MCP) clients, such as the Databricks Genie plugins for ChatGPT and Claude, to reach your workspace. See Allow partner platforms in context-based ingress policies .",
       "whyItMatters": "Platform updates and release notes often introduce performance improvements, new SQL/Spark capabilities, or deprecations that impact production pipelines.",
       "whoIsAffected": "Databricks Data Engineers, Lakehouse Architects, and Workspace Admins managing clusters, jobs, and governance."
     },
@@ -778,7 +778,7 @@
       "category": "Databricks",
       "publishedAt": "2026-11-10T00:00:00.000Z",
       "summary": "Google Gemini 4 Carbon is now available on Unity Gateway. You can access this model using Foundation Model APIs . Customers are responsible for ensur…",
-      "fullStory": "Google Gemini 4 Carbon is now available on Unity Gateway. You can access this model using Foundation Model APIs . Customers are responsible for ensuring their compliance with applicable terms .",
+      "fullStory": "Google Gemini 4 Carbon is now available on Unity Gateway. You can access this model using Foundation Model APIs .\n\nCustomers are responsible for ensuring their compliance with applicable terms .",
       "whyItMatters": "Platform updates and release notes often introduce performance improvements, new SQL/Spark capabilities, or deprecations that impact production pipelines.",
       "whoIsAffected": "Databricks Data Engineers, Lakehouse Architects, and Workspace Admins managing clusters, jobs, and governance."
     },
@@ -789,7 +789,7 @@
       "category": "Databricks",
       "publishedAt": "2026-11-10T00:00:00.000Z",
       "summary": "Protobuf requests to custom model serving endpoints can now carry text and binary data, such as titles, images, audio, and documents, as KServe v2 BY…",
-      "fullStory": "Protobuf requests to custom model serving endpoints can now carry text and binary data, such as titles, images, audio, and documents, as KServe v2 BYTES tensors alongside numeric tensors in the same request. Text and binary model outputs are returned as BYTES tensors. This feature is in Public Preview and is only available on endpoints deployed after November 10, 2026. See Protobuf tensor input .",
+      "fullStory": "Protobuf requests to custom model serving endpoints can now carry text and binary data, such as titles, images, audio, and documents, as KServe v2 BYTES tensors alongside numeric tensors in the same request. Text and binary model outputs are returned as BYTES tensors.\n\nThis feature is in Public Preview and is only available on endpoints deployed after November 10, 2026. See Protobuf tensor input .",
       "whyItMatters": "Platform updates and release notes often introduce performance improvements, new SQL/Spark capabilities, or deprecations that impact production pipelines.",
       "whoIsAffected": "Databricks Data Engineers, Lakehouse Architects, and Workspace Admins managing clusters, jobs, and governance."
     },
@@ -800,7 +800,7 @@
       "category": "Databricks",
       "publishedAt": "2026-11-10T00:00:00.000Z",
       "summary": "The Genie One Chrome extension is now available in Beta . The extension makes every new Chrome tab open Genie One in your workspace, so asking a ques…",
-      "fullStory": "The Genie One Chrome extension is now available in Beta . The extension makes every new Chrome tab open Genie One in your workspace, so asking a question, searching across your tools, or opening a dashboard takes one click. Install it from the Chrome Web Store. See Use Genie One as your Chrome new tab page .",
+      "fullStory": "The Genie One Chrome extension is now available in Beta . The extension makes every new Chrome tab open Genie One in your workspace, so asking a question, searching across your tools, or opening a dashboard takes one click.\n\nInstall it from the Chrome Web Store. See Use Genie One as your Chrome new tab page .",
       "whyItMatters": "Platform updates and release notes often introduce performance improvements, new SQL/Spark capabilities, or deprecations that impact production pipelines.",
       "whoIsAffected": "Databricks Data Engineers, Lakehouse Architects, and Workspace Admins managing clusters, jobs, and governance."
     },
@@ -822,7 +822,7 @@
       "category": "Databricks",
       "publishedAt": "2026-11-10T00:00:00.000Z",
       "summary": "Google Gemini 4 Carbon is now available on Unity Gateway. You can access this model using Foundation Model APIs . Customers are responsible for ensur…",
-      "fullStory": "Google Gemini 4 Carbon is now available on Unity Gateway. You can access this model using Foundation Model APIs . Customers are responsible for ensuring their compliance with applicable terms .",
+      "fullStory": "Google Gemini 4 Carbon is now available on Unity Gateway. You can access this model using Foundation Model APIs .\n\nCustomers are responsible for ensuring their compliance with applicable terms .",
       "whyItMatters": "Platform updates and release notes often introduce performance improvements, new SQL/Spark capabilities, or deprecations that impact production pipelines.",
       "whoIsAffected": "Databricks Data Engineers, Lakehouse Architects, and Workspace Admins managing clusters, jobs, and governance."
     },
@@ -833,7 +833,7 @@
       "category": "Databricks",
       "publishedAt": "2026-11-10T00:00:00.000Z",
       "summary": "Starting on or after December 10, 2026, external access to Unity Catalog managed Delta tables will be available by default for eligible workspaces wi…",
-      "fullStory": "Starting on or after December 10, 2026, external access to Unity Catalog managed Delta tables will be available by default for eligible workspaces with the compliance security profile enabled. Supported external Delta clients can create, read, and write Unity Catalog managed Delta tables. Creating and writing managed Delta tables requires catalog commits . Metastore external data access settings and Unity Catalog privileges continue to control access. See Access Databricks tables from Delta clients .",
+      "fullStory": "Starting on or after December 10, 2026, external access to Unity Catalog managed Delta tables will be available by default for eligible workspaces with the compliance security profile enabled. Supported external Delta clients can create, read, and write Unity Catalog managed Delta tables. Creating and writing managed…\n\nMetastore external data access settings and Unity Catalog privileges continue to control access. See Access Databricks tables from Delta clients .",
       "whyItMatters": "Platform updates and release notes often introduce performance improvements, new SQL/Spark capabilities, or deprecations that impact production pipelines.",
       "whoIsAffected": "Databricks Data Engineers, Lakehouse Architects, and Workspace Admins managing clusters, jobs, and governance."
     },
@@ -844,7 +844,7 @@
       "category": "AI",
       "publishedAt": "2026-11-10T00:00:00.000Z",
       "summary": "",
-      "fullStory": "Open the original article below to read the full story.",
+      "fullStory": "Pay for Hugging Face Hub with your Google Cloud Account.\n\nOpen the original article below for the full coverage.",
       "whyItMatters": "New open-weights models and tooling lower inference costs and give teams full control over privacy, customization, and self-hosting.",
       "whoIsAffected": "ML Engineers, AI App Developers, and Infrastructure Teams evaluating self-hosted or fine-tuned models."
     },
@@ -855,7 +855,7 @@
       "category": "AI",
       "publishedAt": "2026-11-10T00:00:00.000Z",
       "summary": "",
-      "fullStory": "Open the original article below to read the full story.",
+      "fullStory": "Decision Models in Hugging Face.\n\nOpen the original article below for the full coverage.",
       "whyItMatters": "New open-weights models and tooling lower inference costs and give teams full control over privacy, customization, and self-hosting.",
       "whoIsAffected": "ML Engineers, AI App Developers, and Infrastructure Teams evaluating self-hosted or fine-tuned models."
     },
@@ -877,7 +877,7 @@
       "category": "AI",
       "publishedAt": "2026-11-09T15:05:57.000Z",
       "summary": "",
-      "fullStory": "Open the original article below to read the full story.",
+      "fullStory": "Nemotron-Personas-Finance-Japan: A Synthetic Dataset Capturing Japan's Demographics and Financial Context.\n\nOpen the original article below for the full coverage.",
       "whyItMatters": "Tracks fast-moving capabilities, product launches, and industry shifts shaping how AI is built and deployed.",
       "whoIsAffected": "AI Builders, Engineering Leaders, and Product Teams evaluating new tools and workflows."
     },
@@ -888,7 +888,7 @@
       "category": "AI",
       "publishedAt": "2026-11-09T12:34:29.000Z",
       "summary": "",
-      "fullStory": "Open the original article below to read the full story.",
+      "fullStory": "Your Experts Have Partners. There's HOPE for Keeping Them Together.\n\nOpen the original article below for the full coverage.",
       "whyItMatters": "Tracks fast-moving capabilities, product launches, and industry shifts shaping how AI is built and deployed.",
       "whoIsAffected": "AI Builders, Engineering Leaders, and Product Teams evaluating new tools and workflows."
     },
@@ -899,7 +899,7 @@
       "category": "Databricks",
       "publishedAt": "2026-11-09T00:00:00.000Z",
       "summary": "You can now use the AI Functions Asynchronous API to run ai_parse_document , ai_extract , or ai_classify asynchronously on up to 50,000 requests from…",
-      "fullStory": "You can now use the AI Functions Asynchronous API to run ai_parse_document , ai_extract , or ai_classify asynchronously on up to 50,000 requests from a JSONL file in a Unity Catalog volume. The batch writes one result for each request to a file in a volume. Workspace admins can turn on the AI Functions Asynchronous API preview from the Previews page . This feature is in Beta . See the Asynchronous API reference . For examples, see document parsing , information extraction , and classification .",
+      "fullStory": "You can now use the AI Functions Asynchronous API to run ai_parse_document , ai_extract , or ai_classify asynchronously on up to 50,000 requests from a JSONL file in a Unity Catalog volume. The batch writes one result for each request to a file in a volume. Workspace admins can turn on the AI Functions Asynchronous AP…\n\nThis feature is in Beta . See the Asynchronous API reference . For examples, see document parsing , information extraction , and classification .",
       "whyItMatters": "Platform updates and release notes often introduce performance improvements, new SQL/Spark capabilities, or deprecations that impact production pipelines.",
       "whoIsAffected": "Databricks Data Engineers, Lakehouse Architects, and Workspace Admins managing clusters, jobs, and governance."
     },
@@ -921,7 +921,7 @@
       "category": "AI",
       "publishedAt": "2026-11-06T14:00:48.000Z",
       "summary": "",
-      "fullStory": "Open the original article below to read the full story.",
+      "fullStory": "ToyBlocks: A controlled world for robot learning and evaluation.\n\nOpen the original article below for the full coverage.",
       "whyItMatters": "Major funding, M&A, and enterprise partnerships signal where capital and ecosystem momentum are consolidating.",
       "whoIsAffected": "Technology Executives, Product Leaders, Vendors, and Investors tracking the AI market."
     },
@@ -932,7 +932,7 @@
       "category": "AI",
       "publishedAt": "2026-11-06T00:00:00.000Z",
       "summary": "",
-      "fullStory": "Open the original article below to read the full story.",
+      "fullStory": "Egyptian and Nigerian English join the Open ASR Leaderboard.\n\nOpen the original article below for the full coverage.",
       "whyItMatters": "Tracks fast-moving capabilities, product launches, and industry shifts shaping how AI is built and deployed.",
       "whoIsAffected": "AI Builders, Engineering Leaders, and Product Teams evaluating new tools and workflows."
     },
@@ -954,7 +954,7 @@
         "id": "xtools-at/DeepSeek-V4-Pro-Qwen3.5-9B-UNCENSORED-heretic",
         "url": "https://huggingface.co/xtools-at/DeepSeek-V4-Pro-Qwen3.5-9B-UNCENSORED-heretic",
         "tag": "text-generation",
-        "likes": 4684,
+        "likes": 4685,
         "downloads": 18933
       },
       {
@@ -975,7 +975,7 @@
         "id": "Qwen/Qwen3.8-27B",
         "url": "https://huggingface.co/Qwen/Qwen3.8-27B",
         "tag": "image-text-to-text",
-        "likes": 19726,
+        "likes": 19727,
         "downloads": 7094218
       },
       {
@@ -1012,7 +1012,7 @@
         "category": "LLM",
         "publishedAt": "2026-11-10T16:05:31.000Z",
         "summary": "Gemini 4 Carbon is now available for developers. blog.google",
-        "fullStory": "Gemini 4 Carbon is now available for developers. blog.google",
+        "fullStory": "Gemini 4 Carbon is now available for developers.",
         "whyItMatters": "Tracks fast-moving capabilities, product launches, and industry shifts shaping how AI is built and deployed.",
         "whoIsAffected": "AI Builders, Engineering Leaders, and Product Teams evaluating new tools and workflows."
       },
@@ -1023,7 +1023,7 @@
         "category": "LLM",
         "publishedAt": "2026-11-10T11:37:14.000Z",
         "summary": "Claude Fable and Mythos 5.2 explained: Anthropic’s new model that wrote an entire operating system Digit",
-        "fullStory": "Claude Fable and Mythos 5.2 explained: Anthropic’s new model that wrote an entire operating system Digit",
+        "fullStory": "Claude Fable and Mythos 5.",
         "whyItMatters": "Tracks fast-moving capabilities, product launches, and industry shifts shaping how AI is built and deployed.",
         "whoIsAffected": "AI Builders, Engineering Leaders, and Product Teams evaluating new tools and workflows."
       }
