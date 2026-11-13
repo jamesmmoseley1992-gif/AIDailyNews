@@ -6,12 +6,12 @@
   <title>AI &amp; Databricks Daily</title>
   <style>
     :root {
-      --bg: #ffffff;
+      --bg: #f0f4fa;
       --surface: #ffffff;
       --surface-alt: #f4f7fb;
       --text: #0f172a;
       --muted: #475569;
-      --border: #dce4f0;
+      --border: #d5dfec;
       --accent: #00448e;
       --accent-dark: #003166;
       --gold: #d5ad36;
@@ -115,7 +115,7 @@
     }
 
     .toolbar {
-      background: var(--surface-alt);
+      background: var(--surface);
       border: 1px solid var(--border);
       border-radius: 12px;
       padding: 0.85rem 1rem;
@@ -125,6 +125,7 @@
       gap: 0.75rem;
       align-items: center;
       justify-content: space-between;
+      box-shadow: var(--shadow);
     }
 
     .tabs {
@@ -136,7 +137,7 @@
     .tab {
       padding: 0.4rem 0.9rem;
       border: 1px solid var(--border);
-      background: var(--surface);
+      background: var(--surface-alt);
       color: var(--text);
       border-radius: 999px;
       cursor: pointer;
@@ -162,7 +163,7 @@
       padding: 0.45rem 0.75rem;
       border: 1px solid var(--border);
       border-radius: 8px;
-      background: var(--surface);
+      background: var(--surface-alt);
       color: var(--text);
       font-size: 0.85rem;
     }
@@ -237,9 +238,9 @@
 
     .feed-list {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
       grid-auto-flow: dense;
-      gap: 0.9rem;
+      gap: 1rem;
     }
 
     @media (max-width: 680px) {
@@ -266,11 +267,19 @@
       box-shadow: 0 8px 20px rgba(0, 68, 142, 0.12);
     }
 
+    .card.cat-Databricks { border-top: 3px solid #be123c; }
+    .card.cat-AI { border-top: 3px solid var(--accent); }
+    .card.cat-LLM { border-top: 3px solid var(--gold); }
+
     .card.bento-wide {
       grid-column: span 2;
       min-height: 195px;
+      background: linear-gradient(135deg, #ffffff 0%, #e9f0fa 100%);
+      border-top: 4px solid var(--gold);
+    }
+
+    [data-theme="dark"] .card.bento-wide {
       background: linear-gradient(135deg, var(--surface) 0%, var(--surface-alt) 100%);
-      border-top: 3px solid var(--gold);
     }
 
     @media (max-width: 680px) {
@@ -415,7 +424,14 @@
     .llm-name {
       font-weight: 700;
       font-size: 0.94rem;
-      margin-bottom: 0.2rem;
+      margin-bottom: 0.15rem;
+    }
+
+    .llm-date {
+      font-size: 0.72rem;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 0.3rem;
     }
 
     .llm-desc {
@@ -781,7 +797,7 @@
       badge.className = 'badge LLM';
       badge.textContent = m.company || 'AI Lab';
 
-      metaEl.append(badge, `Version: ${m.version || 'Latest'}`);
+      metaEl.append(badge, `Version: ${m.version || 'Latest'} • Released: ${m.releaseDate || 'Past 7 days'}`);
 
       document.getElementById('modal-title').textContent = m.name || 'Model';
       document.getElementById('modal-story').previousElementSibling.textContent = 'Model Description';
@@ -868,7 +884,7 @@
         dayItems.forEach((item) => {
           const card = document.createElement('article');
           const isWide = item === topItem && (dayItems.length === 1 || dayItems.length % 2 === 1);
-          card.className = isWide ? 'card bento-wide' : 'card';
+          card.className = `${isWide ? 'card bento-wide' : 'card'} cat-${item.category}`;
           card.tabIndex = 0;
           card.addEventListener('click', () => openModal(item));
           card.addEventListener('keydown', (e) => {
@@ -964,11 +980,15 @@
         name.className = 'llm-name';
         name.textContent = m.name || 'Model';
 
+        const dateEl = document.createElement('div');
+        dateEl.className = 'llm-date';
+        dateEl.textContent = `Released: ${m.releaseDate || 'Past 7 days'}`;
+
         const desc = document.createElement('p');
         desc.className = 'llm-desc';
         desc.textContent = m.description || '';
 
-        card.append(top, name, desc);
+        card.append(top, name, dateEl, desc);
         modelsEl.appendChild(card);
       }
     }
