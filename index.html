@@ -810,9 +810,11 @@
         const list = document.createElement('div');
         list.className = 'feed-list';
 
-        dayItems.forEach((item, idx) => {
+        const topItem = [...dayItems].sort((a, b) => (b.importance || 5) - (a.importance || 5))[0];
+
+        dayItems.forEach((item) => {
           const card = document.createElement('article');
-          const isWide = idx === 0 && (dayItems.length === 1 || dayItems.length % 2 === 1);
+          const isWide = item === topItem && (dayItems.length === 1 || dayItems.length % 2 === 1);
           card.className = isWide ? 'card bento-wide' : 'card';
           card.tabIndex = 0;
           card.addEventListener('click', () => openModal(item));
