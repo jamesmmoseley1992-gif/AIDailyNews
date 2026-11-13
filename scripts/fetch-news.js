@@ -534,15 +534,20 @@ async function main() {
 
   const seenUrls = new Set();
   const items = [];
+  const sourceStats = [];
 
   for (let i = 0; i < feedResults.length; i++) {
     const result = feedResults[i];
     const feed = FEEDS[i];
+    const host = new URL(feed.url).hostname.replace(/^www\./, '');
 
     if (result.status === 'rejected') {
       console.warn(`Warning: Failed to fetch ${feed.name}: ${result.reason?.message || result.reason}`);
+      sourceStats.push({ name: feed.name, origin: host, type: 'RSS', count: 0, status: 'Unavailable' });
       continue;
     }
+
+    sourceStats.push({ name: feed.name, origin: host, type: 'RSS', count: result.value.length, status: 'Live' });
 
     for (const item of result.value) {
       if (!seenUrls.has(item.url)) {
@@ -551,6 +556,12 @@ async function main() {
       }
     }
   }
+
+  sourceStats.push(
+    { name: 'LLM Releases News', origin: 'news.google.com', type: 'RSS', count: modelNewsRaw.length, status: modelNewsRaw.length ? 'Live' : 'Empty' },
+    { name: 'OpenRouter Models', origin: 'openrouter.ai', type: 'API', count: openRouterModels.length, status: openRouterModels.length ? 'Live' : 'Empty' },
+    { name: 'Hugging Face Trending', origin: 'huggingface.co', type: 'API', count: trendingModels.length, status: trendingModels.length ? 'Live' : 'Empty' }
+  );
 
   items.sort((a, b) => Date.parse(b.publishedAt) - Date.parse(a.publishedAt));
 
@@ -564,6 +575,12 @@ async function main() {
 
   const output = {
     lastUpdated: new Date().toISOString(),
+    meta: {
+      schedule: 'Twice daily at 8:00 AM & 2:00 PM US Central (CST)',
+      windowDays: DAYS_BACK,
+      aiSummarizer: GEMINI_API_KEY ? 'Gemini 2.5 Flash (cached)' : 'Built-in fallback',
+      sources: sourceStats
+    },
     items: enrichedItems,
     llmTracker: {
       recentModels,
