@@ -104,6 +104,7 @@ function deriveInsights(title, text, source, category) {
   if (source === 'Databricks Release Notes' || /release|runtime|delta|unity catalog|photon|sql/.test(combined)) {
     return {
       topic: null,
+      importance: 7,
       whyItMatters:
         'Platform updates and release notes often introduce performance improvements, new SQL/Spark capabilities, or deprecations that impact production pipelines.',
       whoIsAffected:
@@ -114,6 +115,7 @@ function deriveInsights(title, text, source, category) {
   if (category === 'Databricks') {
     return {
       topic: null,
+      importance: 6,
       whyItMatters:
         'Highlights architectural patterns, benchmarks, and engineering practices for scaling data and AI workloads on the Lakehouse.',
       whoIsAffected:
@@ -124,6 +126,7 @@ function deriveInsights(title, text, source, category) {
   if (/agent|coding|copilot|mcp|tool[- ]use|developer|ide/.test(combined)) {
     return {
       topic: 'Agents & Coding',
+      importance: 6,
       whyItMatters:
         'Advances in AI agents and coding tools directly accelerate software delivery and automate multi-step workflows.',
       whoIsAffected:
@@ -134,6 +137,7 @@ function deriveInsights(title, text, source, category) {
   if (/gpu|inference|mlops|kubernetes|safetensors|quantiz|latency|cluster|vram/.test(combined)) {
     return {
       topic: 'Infrastructure & MLOps',
+      importance: 5,
       whyItMatters:
         'Infrastructure and serving improvements lower compute costs and improve reliability for production AI workloads.',
       whoIsAffected:
@@ -144,6 +148,7 @@ function deriveInsights(title, text, source, category) {
   if (/regulat|law|policy|copyright|antitrust|senate|eu ai act|safety/.test(combined)) {
     return {
       topic: 'Policy & Safety',
+      importance: 6,
       whyItMatters:
         'Regulatory and policy shifts can create new compliance requirements, data-usage rules, and vendor risk considerations.',
       whoIsAffected:
@@ -154,6 +159,7 @@ function deriveInsights(title, text, source, category) {
   if (/fund|raise|acqui|valuation|billion|million|partnership|enterprise|pricing/.test(combined)) {
     return {
       topic: 'Enterprise & Strategy',
+      importance: 6,
       whyItMatters:
         'Major funding, M&A, and enterprise partnerships signal where capital and ecosystem momentum are consolidating.',
       whoIsAffected:
@@ -163,6 +169,7 @@ function deriveInsights(title, text, source, category) {
 
   return {
     topic: 'Models & Research',
+    importance: 5,
     whyItMatters:
       'Tracks fast-moving model capabilities, releases, and research shaping how AI is built and deployed.',
     whoIsAffected:
@@ -172,19 +179,41 @@ function deriveInsights(title, text, source, category) {
 
 async function loadExistingCache(outPath) {
   const cache = new Map();
+  const isBroken = (it) =>
+    /incomplete news item|insufficient|no excerpt/i.test(it.fullStory || '');
+
   try {
     const raw = await fs.readFile(outPath, 'utf8');
     const existing = JSON.parse(raw);
     for (const item of existing.items || []) {
-      if (item.url && item.aiAnalyzed) cache.set(item.url, item);
+      if (item.url && item.aiAnalyzed && !isBroken(item)) cache.set(item.url, item);
     }
     for (const item of existing.llmTracker?.modelNews || []) {
-      if (item.url && item.aiAnalyzed) cache.set(item.url, item);
+      if (item.url && item.aiAnalyzed && !isBroken(item)) cache.set(item.url, item);
     }
   } catch {
     // No existing cache yet
   }
   return cache;
+}
+
+async function fetchArticleText(url) {
+  try {
+    const res = await fetch(url, {
+      signal: AbortSignal.timeout(8000),
+      headers: { 'User-Agent': 'Mozilla/5.0 (compatible; ai-databricks-daily-bot/1.0)' }
+    });
+    if (!res.ok) return '';
+    const html = await res.text();
+    const cleaned = html
+      .replace(/<script[\s\S]*?<\/script>/gi, ' ')
+      .replace(/<style[\s\S]*?<\/style>/gi, ' ')
+      .replace(/<nav[\s\S]*?<\/nav>/gi, ' ')
+      .replace(/<footer[\s\S]*?<\/footer>/gi, ' ');
+    return truncate(stripHtml(cleaned), 3000);
+  } catch {
+    return '';
+  }
 }
 
 async function callGeminiJson(prompt) {
@@ -218,21 +247,32 @@ async function callGeminiJson(prompt) {
 }
 
 async function analyzeWithGemini(item) {
+  let contextText = item.rawText || '';
+  if (contextText.length < 250 && item.url) {
+    const pageText = await fetchArticleText(item.url);
+    if (pageText.length > contextText.length) contextText = pageText;
+  }
+
+  if (contextText.length < 120) {
+    throw new Error('Not enough article text to summarize');
+  }
+
   const topicInstruction =
     item.category === 'Databricks'
       ? '- "topic": null'
       : `- "topic": Exactly one of: ${AI_TOPICS.map((t) => `"${t}"`).join(', ')}`;
 
-  const prompt = `Analyze this tech/AI news item and return ONLY valid JSON with four keys:
-- "fullStory": A clear 2-paragraph (or 1 short paragraph if limited info) summary of what happened, separated by "\\n\\n". Do not invent facts beyond the provided text.
+  const prompt = `Analyze this tech/AI news item and return ONLY valid JSON with five keys:
+- "fullStory": A clear 2-paragraph summary of what happened, separated by "\\n\\n". Never complain about missing text.
 - "whyItMatters": 1-2 concise sentences explaining why this specific news matters.
 - "whoIsAffected": 1 concise sentence naming the specific roles, teams, or users affected.
+- "importance": Integer 1-10 (10 = major model release, Databricks LTS/platform launch, or industry-wide shift; 1-4 = minor blog post or niche benchmark).
 ${topicInstruction}
 
 Source: ${item.source}
 Category: ${item.category}
 Title: ${item.title}
-Excerpt: ${item.rawText || item.summary}`;
+Article Text: ${contextText}`;
 
   const parsed = await callGeminiJson(prompt);
   if (!parsed.fullStory || !parsed.whyItMatters || !parsed.whoIsAffected) {
@@ -250,7 +290,9 @@ Excerpt: ${item.rawText || item.summary}`;
     fullStory: parsed.fullStory.trim(),
     whyItMatters: parsed.whyItMatters.trim(),
     whoIsAffected: parsed.whoIsAffected.trim(),
-    topic: validTopic
+    importance: Number(parsed.importance) || 5,
+    topic: validTopic,
+    summary: truncate(parsed.fullStory.replace(/\s+/g, ' '), 180)
   };
 }
 
@@ -270,9 +312,11 @@ async function enrichItems(items, cache) {
       const { rawText, ...rest } = item;
       enriched.push({
         ...rest,
+        summary: cached.summary || rest.summary,
         fullStory: cached.fullStory,
         whyItMatters: cached.whyItMatters,
         whoIsAffected: cached.whoIsAffected,
+        importance: cached.importance ?? rest.importance ?? 5,
         topic: cached.topic ?? rest.topic,
         aiAnalyzed: true
       });
@@ -322,6 +366,7 @@ async function fetchFeed(feed, maxItems = MAX_PER_SOURCE) {
         source: feed.name,
         category: feed.category,
         topic: insights.topic,
+        importance: insights.importance,
         publishedAt: new Date(publishedMs).toISOString(),
         summary: truncate(cleanLong, 180),
         rawText: truncate(cleanLong, 1800),
@@ -365,8 +410,45 @@ async function fetchTrendingModels() {
   }
 }
 
-async function buildRecentModelsList(modelNews, trendingModels) {
-  const fallback = trendingModels.slice(0, 8).map((m) => {
+async function fetchOpenRouterRecentModels() {
+  try {
+    const res = await fetch('https://openrouter.ai/api/v1/models', {
+      headers: { 'User-Agent': 'ai-databricks-daily-bot/1.0' }
+    });
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const json = await res.json();
+
+    const cutoffSec = Math.floor((Date.now() - DAYS_BACK * 24 * 60 * 60 * 1000) / 1000);
+    return (json.data || [])
+      .filter((m) => typeof m.created === 'number' && m.created >= cutoffSec)
+      .sort((a, b) => b.created - a.created)
+      .slice(0, 15)
+      .map((m) => ({
+        id: m.id || '',
+        name: m.name || m.id || '',
+        created: m.created,
+        description: truncate(stripHtml(m.description || ''), 320)
+      }));
+  } catch (err) {
+    console.warn(`Warning: Failed to fetch OpenRouter models: ${err.message}`);
+    return [];
+  }
+}
+
+async function buildRecentModelsList(modelNews, trendingModels, openRouterModels) {
+  const orFallback = openRouterModels.slice(0, 8).map((m) => {
+    const [company, ...rest] = (m.id || '').split('/');
+    return {
+      company: company ? company.toUpperCase() : 'AI Lab',
+      name: m.name || rest.join('/') || m.id,
+      version: new Date(m.created * 1000).toLocaleDateString('en-US', { month: 'short', day: 'numeric' }),
+      description: truncate(m.description || 'Newly released LLM added in the past 7 days.', 130),
+      fullDescription: m.description || 'Newly released LLM added in the past 7 days.',
+      howItIsDifferent: 'Newly launched model available across major AI providers.'
+    };
+  });
+
+  const hfFallback = trendingModels.slice(0, 8).map((m) => {
     const [company, ...rest] = m.id.split('/');
     return {
       company: company || 'Hugging Face',
@@ -378,33 +460,45 @@ async function buildRecentModelsList(modelNews, trendingModels) {
     };
   });
 
-  if (!GEMINI_API_KEY || (modelNews.length === 0 && trendingModels.length === 0)) {
+  const fallback = orFallback.length > 0 ? orFallback : hfFallback;
+
+  if (
+    !GEMINI_API_KEY ||
+    (openRouterModels.length === 0 && modelNews.length === 0 && trendingModels.length === 0)
+  ) {
     return fallback;
   }
 
   try {
+    const orContext = openRouterModels
+      .slice(0, 12)
+      .map((m) => `- ${m.name} (${m.id}): ${m.description}`)
+      .join('\n');
     const newsContext = modelNews
-      .slice(0, 10)
+      .slice(0, 8)
       .map((n) => `- ${n.title}: ${n.summary}`)
       .join('\n');
     const hfContext = trendingModels
-      .slice(0, 8)
+      .slice(0, 6)
       .map((m) => `- ${m.id} (${m.tag || 'LLM'})`)
       .join('\n');
 
-    const prompt = `From these recent AI news items and trending Hugging Face models from the past 7 days, extract up to 8 notable LLM models. Return ONLY a JSON array of objects, each with:
-- "company": Organization or lab name (e.g., OpenAI, Anthropic, Google, Meta, Mistral, Qwen, DeepSeek)
+    const prompt = `From these newly released models (past 7 days), AI news items, and trending Hugging Face models, select up to 8 notable LLM models (prioritize newly released proprietary and major open-weights models). Return ONLY a JSON array of objects, each with:
+- "company": Organization or lab name (e.g., Google, OpenAI, Anthropic, Meta, Mistral, Qwen, DeepSeek)
 - "name": Model name
-- "version": Version, size, or release tag (e.g., "2.5 Flash", "70B", "v3", or "Latest")
+- "version": Version, size, or release tag (e.g., "4 Hydrogen", "2.5 Flash", "70B", or "Latest")
 - "description": 1 concise sentence describing what the model is for
 - "fullDescription": 2-3 sentences explaining the model's capabilities and intended use cases
 - "howItIsDifferent": 1-2 sentences explaining how this model differs from alternatives (speed, cost, size, reasoning, open-weights, etc.)
 
+New OpenRouter models (past 7 days):
+${orContext || 'None'}
+
 News headlines:
-${newsContext}
+${newsContext || 'None'}
 
 Trending Hugging Face models:
-${hfContext}`;
+${hfContext || 'None'}`;
 
     const parsed = await callGeminiJson(prompt);
     if (Array.isArray(parsed) && parsed.length > 0) {
@@ -428,9 +522,10 @@ async function main() {
   const outPath = path.resolve('data/news.json');
   const cache = await loadExistingCache(outPath);
 
-  const [feedResults, trendingModels, modelNewsRaw] = await Promise.all([
+  const [feedResults, trendingModels, openRouterModels, modelNewsRaw] = await Promise.all([
     Promise.allSettled(FEEDS.map((f) => fetchFeed(f, MAX_PER_SOURCE))),
     fetchTrendingModels(),
+    fetchOpenRouterRecentModels(),
     fetchFeed(MODEL_NEWS_FEED, 10).catch((err) => {
       console.warn(`Warning: Failed to fetch LLM release news: ${err.message}`);
       return [];
@@ -461,7 +556,11 @@ async function main() {
 
   const enrichedItems = await enrichItems(items.slice(0, MAX_TOTAL_ITEMS), cache);
   const enrichedModelNews = await enrichItems(modelNewsRaw, cache);
-  const recentModels = await buildRecentModelsList(enrichedModelNews, trendingModels);
+  const recentModels = await buildRecentModelsList(
+    enrichedModelNews,
+    trendingModels,
+    openRouterModels
+  );
 
   const output = {
     lastUpdated: new Date().toISOString(),
