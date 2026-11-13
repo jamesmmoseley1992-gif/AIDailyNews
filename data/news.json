@@ -1,6 +1,125 @@
 {
-  "lastUpdated": "2026-11-13T17:55:25.320Z",
+  "lastUpdated": "2026-11-13T18:11:54.021Z",
+  "meta": {
+    "schedule": "Twice daily at 8:00 AM & 2:00 PM US Central (CST)",
+    "windowDays": 7,
+    "aiSummarizer": "Gemini 2.5 Flash (cached)",
+    "sources": [
+      {
+        "name": "Databricks Engineering",
+        "origin": "databricks.com",
+        "type": "RSS",
+        "count": 6,
+        "status": "Live"
+      },
+      {
+        "name": "Databricks Release Notes",
+        "origin": "docs.databricks.com",
+        "type": "RSS",
+        "count": 25,
+        "status": "Live"
+      },
+      {
+        "name": "Hugging Face",
+        "origin": "huggingface.co",
+        "type": "RSS",
+        "count": 10,
+        "status": "Live"
+      },
+      {
+        "name": "TechCrunch AI",
+        "origin": "techcrunch.com",
+        "type": "RSS",
+        "count": 20,
+        "status": "Live"
+      },
+      {
+        "name": "Google News AI",
+        "origin": "news.google.com",
+        "type": "RSS",
+        "count": 25,
+        "status": "Live"
+      },
+      {
+        "name": "LLM Releases News",
+        "origin": "news.google.com",
+        "type": "RSS",
+        "count": 6,
+        "status": "Live"
+      },
+      {
+        "name": "OpenRouter Models",
+        "origin": "openrouter.ai",
+        "type": "API",
+        "count": 14,
+        "status": "Live"
+      },
+      {
+        "name": "Hugging Face Trending",
+        "origin": "huggingface.co",
+        "type": "API",
+        "count": 6,
+        "status": "Live"
+      }
+    ]
+  },
   "items": [
+    {
+      "title": "With Mythos, a Fable as Old as Time - Lawfare",
+      "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE8zeWx1V0FMYW1sM2JDRXhYNVp3QTBDc2YwaE44QTlOLVM3V2xxRmNtSXNvSEdGNGxQcTNQcTNGbnlnMGlnTEdXOHB2WWdDVnNfMWlyNm8xMjltb1d3bHQxdzFSbDJla0tOSEx5QnJKenpnTTExLWJqekEtLXc?oc=5",
+      "source": "Google News AI",
+      "category": "AI",
+      "topic": "Policy & Safety",
+      "importance": 6,
+      "publishedAt": "2026-11-13T18:02:21.000Z",
+      "summary": "With Mythos, a Fable as Old as Time Lawfare",
+      "fullStory": "With Mythos, a Fable as Old as Time Lawfare",
+      "whyItMatters": "Regulatory and policy shifts can create new compliance requirements, data-usage rules, and vendor risk considerations.",
+      "whoIsAffected": "Legal & Compliance Teams, CISOs, and Enterprise AI Governance Leaders.",
+      "aiAnalyzed": false
+    },
+    {
+      "title": "How it feels to battle with a flood of AI-generated complaints - The Guardian",
+      "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPaENNUVFZRTcxQUI3bzQ0RmFwaEpRbDdkSTZhYVdlZTJkTTZuMFhVWjVram5uWEw3RWhkek1iYXpaZV9EZ25qZFIydWVjSFhRY1h2M1ZsMi1vNHVDaXg5YllfeW95bU5QWGs1M2lyVTN6V1k1SGxYUm9xQXNJZURaVFdQUG5SM3FGVDdrRTdCNjI0aWZHV1lSVl9WZklYOWwyNjF3VmROaXp1UGFYYWI2Yzl0RQ?oc=5",
+      "source": "Google News AI",
+      "category": "AI",
+      "topic": "Models & Research",
+      "importance": 5,
+      "publishedAt": "2026-11-13T18:01:00.000Z",
+      "summary": "How it feels to battle with a flood of AI-generated complaints The Guardian",
+      "fullStory": "How it feels to battle with a flood of AI-generated complaints The Guardian",
+      "whyItMatters": "Tracks fast-moving model capabilities, releases, and research shaping how AI is built and deployed.",
+      "whoIsAffected": "AI Builders, ML Engineers, and Product Teams evaluating new models and workflows.",
+      "aiAnalyzed": false
+    },
+    {
+      "title": "Build a Robot Pick-and-Place Simulation with SimReady Assets",
+      "url": "https://huggingface.co/blog/nvidia/simready-assets-robot-pick-and-place",
+      "source": "Hugging Face",
+      "category": "AI",
+      "topic": "Infrastructure & MLOps",
+      "importance": 7,
+      "publishedAt": "2026-11-13T18:00:39.000Z",
+      "summary": "Hugging Face, in collaboration with NVIDIA, has published a walkthrough demonstrating how to build a robot pick-and-place simulation using \"SimReady\" assets within NVIDIA Isaac Si…",
+      "fullStory": "Hugging Face, in collaboration with NVIDIA, has published a walkthrough demonstrating how to build a robot pick-and-place simulation using \"SimReady\" assets within NVIDIA Isaac Sim. The tutorial focuses on a beverage can pick-and-place task, utilizing a UR17G arm and Robotiq 2F-140 gripper. SimReady assets are OpenUSD assets pre-configured with essential simulation properties like collisions, mass, and joint drives, available through SimReady Central, an open asset library on Hugging Face.\n\nThe process involves assembling the scene with these pre-configured assets, adding custom task code to define the robot's actions, and performing crucial validation checks. These checks ensure correct joint settings, movement, and contact behavior before running the full pick-and-place simulation. This initiative aims to standardize and streamline the creation of realistic robotics simulations for development and testing.",
+      "whyItMatters": "This initiative provides a standardized and reusable framework for robotics simulation, accelerating development cycles and reducing the effort required to create realistic virtual environments for training and validating robot behaviors. It democratizes access to high-quality simulation assets for the robotics community.",
+      "whoIsAffected": "Robotics engineers, simulation developers, AI researchers working on embodied AI, and industrial automation teams are directly affected.",
+      "aiAnalyzed": true
+    },
+    {
+      "title": "How to 'really harness the potential' of AI: Local leaders sound off - Milwaukee Business Journal - The Business Journals",
+      "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxPeDFQRDN0SnBrN0tjWVhOckVncGtra09xalBTNnM1ZFlJMjdacjRvN05BNFB3dmprcDRodWlPTkY5TG1HVVNLcnJmaURycEtJbU56RC1VdGdYZFVqSHF4RWl5dnVlYkVGZ3dqaF81TldrSXZVdThPQkxkcUZfY2tSVGFBdHBqV1BIWnhpTjVkNzZNY0cyOGw0VWYzUQ?oc=5",
+      "source": "Google News AI",
+      "category": "AI",
+      "topic": "Models & Research",
+      "importance": 5,
+      "publishedAt": "2026-11-13T17:49:00.000Z",
+      "summary": "How to 'really harness the potential' of AI: Local leaders sound off - Milwaukee Business Journal The Business Journals",
+      "fullStory": "How to 'really harness the potential' of AI: Local leaders sound off - Milwaukee Business Journal The Business Journals",
+      "whyItMatters": "Tracks fast-moving model capabilities, releases, and research shaping how AI is built and deployed.",
+      "whoIsAffected": "AI Builders, ML Engineers, and Product Teams evaluating new models and workflows.",
+      "aiAnalyzed": false
+    },
     {
       "title": "AI’s Productivity Boom Needs a Worker Dividend - Politico",
       "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNMkNjSDBXYV82Sl9aT0ZnMXdoZEJmU01UX0NmMEtCc0dzZWdHV09IUHBlX2VqMF85UHNiWEpob2VzcElzdHg3R1Q0ZWhjZ1NKMmFoSXNnQTBhTVFTeHVrZVVPaHJpR3hVeXBBWnlydkQ0cGIxamFqbXhqUjFCVTVZT0RYWHRZdzBGYjdxemlEWVZsMGRHY09IVlhlZlVJS0FvalJudnRtTQ?oc=5",
@@ -25,20 +144,6 @@
       "publishedAt": "2026-11-13T17:40:07.000Z",
       "summary": "Self-learning AI separates particle jets from background noise in simulated heavy-ion collisions Phys.org",
       "fullStory": "Self-learning AI separates particle jets from background noise in simulated heavy-ion collisions Phys.",
-      "whyItMatters": "Tracks fast-moving model capabilities, releases, and research shaping how AI is built and deployed.",
-      "whoIsAffected": "AI Builders, ML Engineers, and Product Teams evaluating new models and workflows.",
-      "aiAnalyzed": false
-    },
-    {
-      "title": "Fallout from the Nvidia scandal may dampen the exuberance around the AI boom - NBC Bay Area",
-      "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxQaEFGWnJSY2E3ejVtMXpsM1Jvei1EWEswRU52RXpnb2NzNWxnMEFNNDRraXozZVk0WWVXeU9wYkVlc3ZkdVF3cXJTZXVtUUhCY0h6Q3VCUVROT0dwNHd0WktaNTdVallSeTVHUlNHVHdMQzljRmp0YmNsanloTHVNSlVRZ9IBiwFBVV95cUxQdUFQVmxrRGUtZ1BxeDllYmNQbTA5bW1GVkNxNXVCV3JXaHZjRWdLdGROM1hCRTBzZ3FMeVVDOGwwb3paSEZ5MEFmMVlObW1kM3A5UzhKOElNNWVDa05lVVJGMkR1M2hlbHRlQjZoX0swSkhVZW54Qlk5cWY4RnhMVGhjc1cwX1h5aGhV?oc=5",
-      "source": "Google News AI",
-      "category": "AI",
-      "topic": "Models & Research",
-      "importance": 5,
-      "publishedAt": "2026-11-13T17:38:08.000Z",
-      "summary": "Fallout from the Nvidia scandal may dampen the exuberance around the AI boom NBC Bay Area",
-      "fullStory": "Fallout from the Nvidia scandal may dampen the exuberance around the AI boom NBC Bay Area",
       "whyItMatters": "Tracks fast-moving model capabilities, releases, and research shaping how AI is built and deployed.",
       "whoIsAffected": "AI Builders, ML Engineers, and Product Teams evaluating new models and workflows.",
       "aiAnalyzed": false
@@ -226,20 +331,6 @@
       "aiAnalyzed": true
     },
     {
-      "title": "Why Anthropic’s Dario Amodei Has Angered OpenAI and Other A.I. Peers - The New York Times",
-      "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxPUWxHUTR3T2hmZ0hnbEpjd1VtQUpIS3V4MjY5LUhvQzhTS1BaMEVwVEg5bVFnTlp1dGc3SEZrdG55VDByX1lXbVhxdTFLUlp4NklDXzFWZ1FOa2U0OFZlc1JsUi0zWXFXYXkxMVJHdU50X1psazB4SzZzZmVDNVJsdjRlSGdVdDJjRmQ0?oc=5",
-      "source": "Google News AI",
-      "category": "AI",
-      "topic": "Models & Research",
-      "importance": 5,
-      "publishedAt": "2026-11-13T16:11:41.000Z",
-      "summary": "Why Anthropic’s Dario Amodei Has Angered OpenAI and Other A.I. Peers The New York Times",
-      "fullStory": "Why Anthropic’s Dario Amodei Has Angered OpenAI and Other A.",
-      "whyItMatters": "Tracks fast-moving model capabilities, releases, and research shaping how AI is built and deployed.",
-      "whoIsAffected": "AI Builders, ML Engineers, and Product Teams evaluating new models and workflows.",
-      "aiAnalyzed": false
-    },
-    {
       "title": "42Gears Achieves ISO/IEC3 Certification for Artificial Intelligence Management Systems - markets.businessinsider.com",
       "url": "https://news.google.com/rss/articles/CBMi6wFBVV95cUxNVjI1U3dSaHFoOURhMk9scF9ibUtvNHhkSkk4LU5mT2NNT201VWtGVFh2Wk5TNWhONzJ1cnhhTDAtbDhMaWRWdmY3dnMyYzFscG9PdVhCYndKNk1adjAxSXpBZDd1aEN0UG82TDczbzI2Zjk4OWxsOGl3UmxOM0ZmQWxaVXVHSUlOLXhPTzFCdjlUOUE5SVpKY3dZajRCMmtGTGNTdEZ1cEdDY3pwbzhJUFo3WHlTa1RHNkVMN0dZTW1XNUZ6UU5IUHJyN18xM3NLWVluZGRrbjVaWE1YZ0NuVGc4Y082Y1FoZmRV?oc=5",
       "source": "Google News AI",
@@ -392,20 +483,6 @@
       "whyItMatters": "ElevenLabs is expanding beyond its core voice AI into the competitive enterprise productivity space with a comprehensive team-focused AI assistant. This strategic move leverages their advanced models to automate knowledge management and integrate deeply into business workflows, positioning them as a broader AI platform provider.",
       "whoIsAffected": "Teams, enterprise users, meeting participants, and professionals requiring automated note-taking or dictation solutions are affected.",
       "aiAnalyzed": true
-    },
-    {
-      "title": "SMX Brings American Ingenuity to the Next Frontier of Artificial Intelligence - Corsicana Daily Sun",
-      "url": "https://news.google.com/rss/articles/CBMi_wFBVV95cUxQWU9NVU1ldHVTMFNPWjRFSW9HUXNKaXV5WUFVYjZSWUc5Z3RNd2I2RnlYck1FWGN6MzBmT2VnTFJMYml1OU9IZC1pZG5pMkVFUDhHTVhOX2htdndMUV9tYlNzYURyZ0JWRjRxbFlKVk5ZMWJwQTlkeUNYMWEwYXZZRnkweHdzVEQyeTN4WkY2ZjFlYXV3MnFkeTQwYXRiZkFaempvRjA0d2V2QXZuWWpPWV9FbFdybEVCNzRaaHVRTUpQTThsRUNfdEJGNnFTblFxVmdPMlNzQjF2ZEh1eU0zTG1zUFk4TTBFZzRjNlByOHhLcjhNcmpiTWZCdXNRU3M?oc=5",
-      "source": "Google News AI",
-      "category": "AI",
-      "topic": "Models & Research",
-      "importance": 5,
-      "publishedAt": "2026-11-13T14:31:46.000Z",
-      "summary": "SMX Brings American Ingenuity to the Next Frontier of Artificial Intelligence Corsicana Daily Sun",
-      "fullStory": "SMX Brings American Ingenuity to the Next Frontier of Artificial Intelligence Corsicana Daily Sun",
-      "whyItMatters": "Tracks fast-moving model capabilities, releases, and research shaping how AI is built and deployed.",
-      "whoIsAffected": "AI Builders, ML Engineers, and Product Teams evaluating new models and workflows.",
-      "aiAnalyzed": false
     },
     {
       "title": "llama.cpp v1.0.0 : A stronger foundation for the local AI ecosystem",
@@ -1164,20 +1241,6 @@
       "aiAnalyzed": false
     },
     {
-      "title": "Nemotron-Personas-Finance-Japan: A Synthetic Dataset Capturing Japan's Demographics and Financial Context",
-      "url": "https://huggingface.co/blog/nvidia/nemotron-personas-finance-japan",
-      "source": "Hugging Face",
-      "category": "AI",
-      "topic": "Models & Research",
-      "importance": 5,
-      "publishedAt": "2026-11-09T15:05:57.000Z",
-      "summary": "",
-      "fullStory": "Nemotron-Personas-Finance-Japan: A Synthetic Dataset Capturing Japan's Demographics and Financial Context.\n\nOpen the original article below for the full coverage.",
-      "whyItMatters": "Tracks fast-moving model capabilities, releases, and research shaping how AI is built and deployed.",
-      "whoIsAffected": "AI Builders, ML Engineers, and Product Teams evaluating new models and workflows.",
-      "aiAnalyzed": false
-    },
-    {
       "title": "Your Experts Have Partners. There's HOPE for Keeping Them Together",
       "url": "https://huggingface.co/blog/amazon/higher-order-pruning-experts",
       "source": "Hugging Face",
@@ -1209,68 +1272,76 @@
   "llmTracker": {
     "recentModels": [
       {
-        "company": "Google",
-        "name": "Gemini",
-        "version": "4 Hydrogen",
-        "description": "A high-efficiency workhorse model from the Gemini 4 family, optimized for high-throughput agentic workflows and coding.",
-        "fullDescription": "Gemini 4 Hydrogen is designed for demanding agentic tasks, coding, and multi-model routing. It is part of Google's Gemini 4 family, providing robust performance for various applications.",
-        "howItIsDifferent": "This model offers lower cost and latency compared to other Gemini 4 models, making it ideal for high-volume, cost-sensitive operations and faster AI execution."
+        "company": "GOOGLE",
+        "name": "Google: Gemini 4 Hydrogen",
+        "version": "Release",
+        "releaseDate": "Nov 12, 2026",
+        "description": "Gemini 4 Hydrogen is the high-efficiency workhorse model of the Gemini 4 family from Google, built for high-throughput agentic wo…",
+        "fullDescription": "Gemini 4 Hydrogen is the high-efficiency workhorse model of the Gemini 4 family from Google, built for high-throughput agentic workflows, coding and multi-model routing at lower cost and latency than...",
+        "howItIsDifferent": "Newly launched model available across major AI providers."
       },
       {
-        "company": "Google",
-        "name": "Gemini",
-        "version": "4 Carbon",
-        "description": "A frontier Gemini 4 model from Google for complex coding, agentic, and advanced reasoning tasks.",
-        "fullDescription": "Gemini 4 Carbon excels in sophisticated coding, agentic workflows, and intricate reasoning. It supports a wide range of inputs including text, image, audio, video, and files, and can handle long decode sequences.",
-        "howItIsDifferent": "As a frontier model, it represents the highest capability within the Gemini 4 family for complex tasks, distinguished by its extensive multimodal input support and advanced reasoning."
+        "company": "GOOGLE",
+        "name": "Google: Gemini 4 Hydrogen (batch)",
+        "version": "Release",
+        "releaseDate": "Nov 12, 2026",
+        "description": "Gemini 4 Hydrogen is the high-efficiency workhorse model of the Gemini 4 family from Google, built for high-throughput agentic wo…",
+        "fullDescription": "Gemini 4 Hydrogen is the high-efficiency workhorse model of the Gemini 4 family from Google, built for high-throughput agentic workflows, coding and multi-model routing at lower cost and latency than...",
+        "howItIsDifferent": "Newly launched model available across major AI providers."
       },
       {
-        "company": "Anthropic",
-        "name": "Claude Fable",
-        "version": "5.2",
-        "description": "Anthropic's most capable model for demanding technical work, with significant gains in coding, reasoning, and vision.",
-        "fullDescription": "Claude Fable 5.2 offers substantial improvements over its predecessor, Fable 5.1, across coding, reasoning, and vision tasks. Pre-release testing demonstrated its ability to complete highly complex and previously infeasible technical challenges.",
-        "howItIsDifferent": "It is positioned as Anthropic's top-tier model for the most challenging technical problems, notably demonstrating the ability to write an entire operating system, showcasing its advanced problem-solving and generative capabilities."
+        "company": "BAIDU",
+        "name": "Baidu: ERNIE-5.5-Flash-Preview (free)",
+        "version": "Release",
+        "releaseDate": "Nov 10, 2026",
+        "description": "ERNIE 5.5 Flash Preview is the latest foundation model in the ERNIE family, with comprehensive improvements in coding, agentic ca…",
+        "fullDescription": "ERNIE 5.5 Flash Preview is the latest foundation model in the ERNIE family, with comprehensive improvements in coding, agentic capabilities, knowledge work, and deep research. It has 280 billion total...",
+        "howItIsDifferent": "Newly launched model available across major AI providers."
       },
       {
-        "company": "Meta",
-        "name": "Muse Ember",
-        "version": "Latest",
-        "description": "Meta's smallest and most efficient model, designed for complex reasoning execution and repetitive agentic tasks.",
-        "fullDescription": "Muse Ember is optimized for high-frequency agentic workflows, including tool calls, coding agent subtasks, and routing. It focuses on efficient execution of complex reasoning.",
-        "howItIsDifferent": "This model stands out as Meta's most efficient option for agentic work, prioritizing cost-effectiveness and speed for tasks that agents perform repeatedly, such as tool integration and subtask management."
+        "company": "BAIDU",
+        "name": "Baidu: ERNIE-Light-DT-1.0",
+        "version": "Release",
+        "releaseDate": "Nov 10, 2026",
+        "description": "ERNIE-Light-DT-1.0 is based on open-source GLM models and includes research findings from Baidu Search's Lightning large model. I…",
+        "fullDescription": "ERNIE-Light-DT-1.0 is based on open-source GLM models and includes research findings from Baidu Search's Lightning large model. It features Baidu Sparse Attention (BSA), a unique sparse attention mechanism developed by...",
+        "howItIsDifferent": "Newly launched model available across major AI providers."
       },
       {
-        "company": "Baidu",
-        "name": "ERNIE",
-        "version": "5.5 Flash Preview",
-        "description": "The latest foundation model in the ERNIE family, featuring comprehensive improvements in coding, agentic capabilities, knowledge work, and deep research.",
-        "fullDescription": "ERNIE 5.5 Flash Preview is a large-scale foundation model with 280 billion parameters, offering enhanced performance across a broad spectrum of AI applications, from complex coding to advanced research.",
-        "howItIsDifferent": "As a major foundation model from Baidu, its significant parameter count (280B) and broad improvements across multiple domains position it as a powerful and versatile general-purpose AI."
+        "company": "GOOGLE",
+        "name": "Google: Gemini 4 Carbon",
+        "version": "Release",
+        "releaseDate": "Nov 10, 2026",
+        "description": "Gemini 4 Carbon is a frontier Gemini 4 model from Google for coding, agentic and complex reasoning work. It takes text, image, au…",
+        "fullDescription": "Gemini 4 Carbon is a frontier Gemini 4 model from Google for coding, agentic and complex reasoning work. It takes text, image, audio, video and file input, supports long decode...",
+        "howItIsDifferent": "Newly launched model available across major AI providers."
       },
       {
-        "company": "Thinking Machines",
-        "name": "Inkling",
-        "version": "2 Small",
-        "description": "An open-weight multimodal mixture-of-experts reasoning model, the first in its second generation.",
-        "fullDescription": "Inkling 2 Small is an open-source model designed for multimodal reasoning, featuring 17B active parameters within a 594B total parameter mixture-of-experts architecture. It represents a new generation of Inkling models.",
-        "howItIsDifferent": "Its open-weight status, multimodal capabilities, and efficient mixture-of-experts (MoE) architecture (17B active parameters) make it a notable release for researchers and developers seeking powerful yet resource-conscious models."
+        "company": "GOOGLE",
+        "name": "Google: Gemini 4 Carbon (batch)",
+        "version": "Release",
+        "releaseDate": "Nov 10, 2026",
+        "description": "Gemini 4 Carbon is a frontier Gemini 4 model from Google for coding, agentic and complex reasoning work. It takes text, image, au…",
+        "fullDescription": "Gemini 4 Carbon is a frontier Gemini 4 model from Google for coding, agentic and complex reasoning work. It takes text, image, audio, video and file input, supports long decode...",
+        "howItIsDifferent": "Newly launched model available across major AI providers."
       },
       {
-        "company": "Qwen",
-        "name": "Qwen",
-        "version": "3.8-27B",
-        "description": "A new, larger version of the Qwen model, offering enhanced capabilities, particularly in multimodal image-text-to-text generation.",
-        "fullDescription": "Qwen3.8-27B is an iteration from the prominent Qwen series, known for strong performance. This 27 billion parameter version is designed to improve upon previous models, especially in tasks involving both image and text inputs.",
-        "howItIsDifferent": "As a major open-weight model from a leading developer, this version provides a significant step up in scale (27B) and multimodal performance, making it a strong contender for various applications requiring image and text understanding."
+        "company": "NEX-AGI",
+        "name": "Nex AGI: Nex-N2.6",
+        "version": "Release",
+        "releaseDate": "Nov 10, 2026",
+        "description": "Nex-N2.6 is an agentic model from Nex AGI, built on [GLM-5.3-Flash](https://huggingface.co/zai-org/GLM-5.3-Flash-BF16) with about…",
+        "fullDescription": "Nex-N2.6 is an agentic model from Nex AGI, built on [GLM-5.3-Flash](https://huggingface.co/zai-org/GLM-5.3-Flash-BF16) with about 321B parameters. It is suited for computer use, coding, and long-horizon tasks that involve tools. Compared with...",
+        "howItIsDifferent": "Newly launched model available across major AI providers."
       },
       {
-        "company": "Nex AGI",
-        "name": "Nex-N2.6",
-        "version": "N2.6",
-        "description": "An agentic model built on GLM-5.3-Flash, optimized for computer use, coding, and long-horizon tasks requiring tool integration.",
-        "fullDescription": "Nex-N2.6 is a 321B parameter model specifically engineered for agentic workflows, enabling it to interact with computers, assist in coding, and manage complex, multi-step tasks that involve using external tools.",
-        "howItIsDifferent": "This model is distinguished by its strong focus on agentic capabilities and long-horizon task execution, leveraging a very large parameter count (321B) to handle intricate, tool-augmented workflows effectively."
+        "company": "THINKINGMACHINES",
+        "name": "Thinking Machines: Inkling 2 Small",
+        "version": "Release",
+        "releaseDate": "Nov 9, 2026",
+        "description": "Inkling 2 Small is an open-weight multimodal mixture-of-experts reasoning model from Thinking Machines Lab, with 17B active param…",
+        "fullDescription": "Inkling 2 Small is an open-weight multimodal mixture-of-experts reasoning model from Thinking Machines Lab, with 17B active parameters out of 594B total. It is the first model in the second...",
+        "howItIsDifferent": "Newly launched model available across major AI providers."
       }
     ],
     "modelNews": [
