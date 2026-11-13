@@ -2,8 +2,10 @@ name: Daily AI & Databricks News
 
 on:
   schedule:
-    # Runs daily around 12:15 UTC (6:15 AM CST / 7:15 AM CDT)
-    - cron: '15 12 * * *'
+    # 8:00 AM CST (14:00 UTC) and 2:00 PM CST (20:00 UTC)
+    # Using :05 instead of :00 helps avoid top-of-the-hour GitHub queue delays
+    - cron: '5 14 * * *'
+    - cron: '5 20 * * *'
   workflow_dispatch:
     # Adds a manual "Run workflow" button in the GitHub Actions tab
 
