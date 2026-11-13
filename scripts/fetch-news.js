@@ -43,6 +43,14 @@ const MODEL_NEWS_FEED = {
   url: 'https://news.google.com/rss/search?q=%22new+model%22+OR+%22LLM%22+release+OR+OpenAI+OR+Anthropic+OR+Gemini+OR+Llama&hl=en-US&gl=US&ceid=US:en'
 };
 
+const AI_TOPICS = [
+  'Models & Research',
+  'Agents & Coding',
+  'Enterprise & Strategy',
+  'Infrastructure & MLOps',
+  'Policy & Safety'
+];
+
 const DAYS_BACK = 7;
 const MAX_PER_SOURCE = 25;
 const MAX_TOTAL_ITEMS = 120;
@@ -95,6 +103,7 @@ function deriveInsights(title, text, source, category) {
 
   if (source === 'Databricks Release Notes' || /release|runtime|delta|unity catalog|photon|sql/.test(combined)) {
     return {
+      topic: null,
       whyItMatters:
         'Platform updates and release notes often introduce performance improvements, new SQL/Spark capabilities, or deprecations that impact production pipelines.',
       whoIsAffected:
@@ -104,6 +113,7 @@ function deriveInsights(title, text, source, category) {
 
   if (category === 'Databricks') {
     return {
+      topic: null,
       whyItMatters:
         'Highlights architectural patterns, benchmarks, and engineering practices for scaling data and AI workloads on the Lakehouse.',
       whoIsAffected:
@@ -111,17 +121,29 @@ function deriveInsights(title, text, source, category) {
     };
   }
 
-  if (/open[- ]source|weights|hugging face|llama|mistral|qwen|deepseek|fine-tun|gguf/.test(combined)) {
+  if (/agent|coding|copilot|mcp|tool[- ]use|developer|ide/.test(combined)) {
     return {
+      topic: 'Agents & Coding',
       whyItMatters:
-        'New open-weights models and tooling lower inference costs and give teams full control over privacy, customization, and self-hosting.',
+        'Advances in AI agents and coding tools directly accelerate software delivery and automate multi-step workflows.',
       whoIsAffected:
-        'ML Engineers, AI App Developers, and Infrastructure Teams evaluating self-hosted or fine-tuned models.'
+        'Software Engineers, AI App Developers, and Engineering Managers.'
+    };
+  }
+
+  if (/gpu|inference|mlops|kubernetes|safetensors|quantiz|latency|cluster|vram/.test(combined)) {
+    return {
+      topic: 'Infrastructure & MLOps',
+      whyItMatters:
+        'Infrastructure and serving improvements lower compute costs and improve reliability for production AI workloads.',
+      whoIsAffected:
+        'MLOps Engineers, Cloud Architects, and Platform Teams.'
     };
   }
 
   if (/regulat|law|policy|copyright|antitrust|senate|eu ai act|safety/.test(combined)) {
     return {
+      topic: 'Policy & Safety',
       whyItMatters:
         'Regulatory and policy shifts can create new compliance requirements, data-usage rules, and vendor risk considerations.',
       whoIsAffected:
@@ -129,8 +151,9 @@ function deriveInsights(title, text, source, category) {
     };
   }
 
-  if (/fund|raise|acqui|valuation|billion|million|partnership|enterprise/.test(combined)) {
+  if (/fund|raise|acqui|valuation|billion|million|partnership|enterprise|pricing/.test(combined)) {
     return {
+      topic: 'Enterprise & Strategy',
       whyItMatters:
         'Major funding, M&A, and enterprise partnerships signal where capital and ecosystem momentum are consolidating.',
       whoIsAffected:
@@ -139,10 +162,11 @@ function deriveInsights(title, text, source, category) {
   }
 
   return {
+    topic: 'Models & Research',
     whyItMatters:
-      'Tracks fast-moving capabilities, product launches, and industry shifts shaping how AI is built and deployed.',
+      'Tracks fast-moving model capabilities, releases, and research shaping how AI is built and deployed.',
     whoIsAffected:
-      'AI Builders, Engineering Leaders, and Product Teams evaluating new tools and workflows.'
+      'AI Builders, ML Engineers, and Product Teams evaluating new models and workflows.'
   };
 }
 
@@ -163,17 +187,7 @@ async function loadExistingCache(outPath) {
   return cache;
 }
 
-async function analyzeWithGemini(item) {
-  const prompt = `Analyze this tech/AI news item and return ONLY valid JSON with three keys:
-- "fullStory": A clear 2-paragraph (or 1 short paragraph if limited info) summary of what happened, separated by "\\n\\n". Do not invent facts beyond the provided text.
-- "whyItMatters": 1-2 concise sentences explaining why this specific news matters.
-- "whoIsAffected": 1 concise sentence naming the specific roles, teams, or users affected.
-
-Source: ${item.source}
-Category: ${item.category}
-Title: ${item.title}
-Excerpt: ${item.rawText || item.summary}`;
-
+async function callGeminiJson(prompt) {
   const res = await fetch(
     'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent',
     {
@@ -186,7 +200,7 @@ Excerpt: ${item.rawText || item.summary}`;
         contents: [{ parts: [{ text: prompt }] }],
         generationConfig: {
           responseMimeType: 'application/json',
-          temperature: 0.3
+          temperature: 0.2
         }
       })
     }
@@ -200,16 +214,43 @@ Excerpt: ${item.rawText || item.summary}`;
 
   const data = await res.json();
   const text = data.candidates?.[0]?.content?.parts?.[0]?.text || '';
-  const parsed = JSON.parse(text);
+  return JSON.parse(text);
+}
 
+async function analyzeWithGemini(item) {
+  const topicInstruction =
+    item.category === 'Databricks'
+      ? '- "topic": null'
+      : `- "topic": Exactly one of: ${AI_TOPICS.map((t) => `"${t}"`).join(', ')}`;
+
+  const prompt = `Analyze this tech/AI news item and return ONLY valid JSON with four keys:
+- "fullStory": A clear 2-paragraph (or 1 short paragraph if limited info) summary of what happened, separated by "\\n\\n". Do not invent facts beyond the provided text.
+- "whyItMatters": 1-2 concise sentences explaining why this specific news matters.
+- "whoIsAffected": 1 concise sentence naming the specific roles, teams, or users affected.
+${topicInstruction}
+
+Source: ${item.source}
+Category: ${item.category}
+Title: ${item.title}
+Excerpt: ${item.rawText || item.summary}`;
+
+  const parsed = await callGeminiJson(prompt);
   if (!parsed.fullStory || !parsed.whyItMatters || !parsed.whoIsAffected) {
     throw new Error('Incomplete JSON from Gemini');
   }
 
+  const validTopic =
+    item.category === 'Databricks'
+      ? null
+      : AI_TOPICS.includes(parsed.topic)
+        ? parsed.topic
+        : item.topic;
+
   return {
     fullStory: parsed.fullStory.trim(),
     whyItMatters: parsed.whyItMatters.trim(),
-    whoIsAffected: parsed.whoIsAffected.trim()
+    whoIsAffected: parsed.whoIsAffected.trim(),
+    topic: validTopic
   };
 }
 
@@ -221,8 +262,8 @@ async function enrichItems(items, cache) {
 
   let aiCalls = 0;
   let rateLimited = false;
-
   const enriched = [];
+
   for (const item of items) {
     const cached = cache.get(item.url);
     if (cached) {
@@ -232,6 +273,7 @@ async function enrichItems(items, cache) {
         fullStory: cached.fullStory,
         whyItMatters: cached.whyItMatters,
         whoIsAffected: cached.whoIsAffected,
+        topic: cached.topic ?? rest.topic,
         aiAnalyzed: true
       });
       continue;
@@ -242,11 +284,7 @@ async function enrichItems(items, cache) {
         const analysis = await analyzeWithGemini(item);
         aiCalls++;
         const { rawText, ...rest } = item;
-        enriched.push({
-          ...rest,
-          ...analysis,
-          aiAnalyzed: true
-        });
+        enriched.push({ ...rest, ...analysis, aiAnalyzed: true });
         await sleep(AI_DELAY_MS);
         continue;
       } catch (err) {
@@ -283,8 +321,9 @@ async function fetchFeed(feed, maxItems = MAX_PER_SOURCE) {
         url: item.link || '',
         source: feed.name,
         category: feed.category,
+        topic: insights.topic,
         publishedAt: new Date(publishedMs).toISOString(),
-        summary: truncate(cleanLong, 150),
+        summary: truncate(cleanLong, 180),
         rawText: truncate(cleanLong, 1800),
         fullStory: summarizeToTwoParagraphs(cleanLong, cleanTitle),
         whyItMatters: insights.whyItMatters,
@@ -313,18 +352,76 @@ async function fetchTrendingModels() {
         const tag = repo.pipeline_tag || '';
         return {
           id,
-          url: id ? `https://huggingface.co/${id}` : '',
           tag,
           likes: repo.likes ?? null,
           downloads: repo.downloads ?? null
         };
       })
       .filter((m) => m.id && (!m.tag || m.tag === 'text-generation' || m.tag === 'image-text-to-text'))
-      .slice(0, 12);
+      .slice(0, 10);
   } catch (err) {
     console.warn(`Warning: Failed to fetch Hugging Face trending models: ${err.message}`);
     return [];
   }
+}
+
+async function buildRecentModelsList(modelNews, trendingModels) {
+  const fallback = trendingModels.slice(0, 8).map((m) => {
+    const [company, ...rest] = m.id.split('/');
+    return {
+      company: company || 'Hugging Face',
+      name: rest.join('/') || m.id,
+      version: m.tag || 'Open Weights',
+      description: `Trending ${m.tag || 'LLM'} repository from the past 7 days.`,
+      fullDescription: `Open-weights ${m.tag || 'language'} model published by ${company || 'the community'}, trending among enterprise and developer builders.`,
+      howItIsDifferent: 'Available as open weights for private VPC or self-hosted inference rather than closed API-only access.'
+    };
+  });
+
+  if (!GEMINI_API_KEY || (modelNews.length === 0 && trendingModels.length === 0)) {
+    return fallback;
+  }
+
+  try {
+    const newsContext = modelNews
+      .slice(0, 10)
+      .map((n) => `- ${n.title}: ${n.summary}`)
+      .join('\n');
+    const hfContext = trendingModels
+      .slice(0, 8)
+      .map((m) => `- ${m.id} (${m.tag || 'LLM'})`)
+      .join('\n');
+
+    const prompt = `From these recent AI news items and trending Hugging Face models from the past 7 days, extract up to 8 notable LLM models. Return ONLY a JSON array of objects, each with:
+- "company": Organization or lab name (e.g., OpenAI, Anthropic, Google, Meta, Mistral, Qwen, DeepSeek)
+- "name": Model name
+- "version": Version, size, or release tag (e.g., "2.5 Flash", "70B", "v3", or "Latest")
+- "description": 1 concise sentence describing what the model is for
+- "fullDescription": 2-3 sentences explaining the model's capabilities and intended use cases
+- "howItIsDifferent": 1-2 sentences explaining how this model differs from alternatives (speed, cost, size, reasoning, open-weights, etc.)
+
+News headlines:
+${newsContext}
+
+Trending Hugging Face models:
+${hfContext}`;
+
+    const parsed = await callGeminiJson(prompt);
+    if (Array.isArray(parsed) && parsed.length > 0) {
+      return parsed.slice(0, 8).map((m) => ({
+        company: String(m.company || 'AI Lab'),
+        name: String(m.name || 'Model'),
+        version: String(m.version || 'Latest'),
+        description: String(m.description || ''),
+        fullDescription: String(m.fullDescription || m.description || ''),
+        howItIsDifferent: String(m.howItIsDifferent || '')
+      }));
+    }
+  } catch (err) {
+    console.warn(`Could not extract recent models via Gemini: ${err.message}`);
+  }
+
+  return fallback;
 }
 
 async function main() {
@@ -364,12 +461,13 @@ async function main() {
 
   const enrichedItems = await enrichItems(items.slice(0, MAX_TOTAL_ITEMS), cache);
   const enrichedModelNews = await enrichItems(modelNewsRaw, cache);
+  const recentModels = await buildRecentModelsList(enrichedModelNews, trendingModels);
 
   const output = {
     lastUpdated: new Date().toISOString(),
     items: enrichedItems,
     llmTracker: {
-      trendingModels,
+      recentModels,
       modelNews: enrichedModelNews
     }
   };
@@ -378,7 +476,7 @@ async function main() {
   await fs.writeFile(outPath, JSON.stringify(output, null, 2) + '\n', 'utf8');
 
   console.log(
-    `Saved ${output.items.length} news items and ${trendingModels.length} trending models to data/news.json`
+    `Saved ${output.items.length} news items and ${recentModels.length} recent LLM models to data/news.json`
   );
 }
 
