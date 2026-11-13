@@ -436,12 +436,16 @@ async function fetchOpenRouterRecentModels() {
 }
 
 async function buildRecentModelsList(modelNews, trendingModels, openRouterModels) {
+  const fmtDate = (ms) =>
+    new Date(ms).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+
   const orFallback = openRouterModels.slice(0, 8).map((m) => {
     const [company, ...rest] = (m.id || '').split('/');
     return {
       company: company ? company.toUpperCase() : 'AI Lab',
       name: m.name || rest.join('/') || m.id,
-      version: new Date(m.created * 1000).toLocaleDateString('en-US', { month: 'short', day: 'numeric' }),
+      version: 'Release',
+      releaseDate: fmtDate(m.created * 1000),
       description: truncate(m.description || 'Newly released LLM added in the past 7 days.', 130),
       fullDescription: m.description || 'Newly released LLM added in the past 7 days.',
       howItIsDifferent: 'Newly launched model available across major AI providers.'
@@ -454,6 +458,7 @@ async function buildRecentModelsList(modelNews, trendingModels, openRouterModels
       company: company || 'Hugging Face',
       name: rest.join('/') || m.id,
       version: m.tag || 'Open Weights',
+      releaseDate: 'Past 7 days',
       description: `Trending ${m.tag || 'LLM'} repository from the past 7 days.`,
       fullDescription: `Open-weights ${m.tag || 'language'} model published by ${company || 'the community'}, trending among enterprise and developer builders.`,
       howItIsDifferent: 'Available as open weights for private VPC or self-hosted inference rather than closed API-only access.'
@@ -472,11 +477,11 @@ async function buildRecentModelsList(modelNews, trendingModels, openRouterModels
   try {
     const orContext = openRouterModels
       .slice(0, 12)
-      .map((m) => `- ${m.name} (${m.id}): ${m.description}`)
+      .map((m) => `- ${m.name} (${m.id}) [Released: ${fmtDate(m.created * 1000)}]: ${m.description}`)
       .join('\n');
     const newsContext = modelNews
       .slice(0, 8)
-      .map((n) => `- ${n.title}: ${n.summary}`)
+      .map((n) => `- ${n.title} [${fmtDate(Date.parse(n.publishedAt))}]: ${n.summary}`)
       .join('\n');
     const hfContext = trendingModels
       .slice(0, 6)
@@ -487,6 +492,7 @@ async function buildRecentModelsList(modelNews, trendingModels, openRouterModels
 - "company": Organization or lab name (e.g., Google, OpenAI, Anthropic, Meta, Mistral, Qwen, DeepSeek)
 - "name": Model name
 - "version": Version, size, or release tag (e.g., "4 Hydrogen", "2.5 Flash", "70B", or "Latest")
+- "releaseDate": Release date string from the source (e.g., "Nov 12, 2026", or "Past 7 days" if unknown)
 - "description": 1 concise sentence describing what the model is for
 - "fullDescription": 2-3 sentences explaining the model's capabilities and intended use cases
 - "howItIsDifferent": 1-2 sentences explaining how this model differs from alternatives (speed, cost, size, reasoning, open-weights, etc.)
@@ -506,6 +512,7 @@ ${hfContext || 'None'}`;
         company: String(m.company || 'AI Lab'),
         name: String(m.name || 'Model'),
         version: String(m.version || 'Latest'),
+        releaseDate: String(m.releaseDate || 'Past 7 days'),
         description: String(m.description || ''),
         fullDescription: String(m.fullDescription || m.description || ''),
         howItIsDifferent: String(m.howItIsDifferent || '')
