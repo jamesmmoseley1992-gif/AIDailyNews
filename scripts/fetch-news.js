@@ -450,10 +450,17 @@ async function fetchOpenRouterRecentModels() {
     const json = await res.json();
 
     const cutoffSec = Math.floor((Date.now() - DAYS_BACK * 24 * 60 * 60 * 1000) / 1000);
+    const seenBase = new Set();
     return (json.data || [])
       .filter((m) => typeof m.created === 'number' && m.created >= cutoffSec)
+      // Variants like ":batch" or ":free" are the same model; keep one entry per base model.
       .sort((a, b) => b.created - a.created)
-      .slice(0, 15)
+      .filter((m) => {
+        const base = (m.id || '').split(':')[0];
+        if (seenBase.has(base)) return false;
+        seenBase.add(base);
+        return true;
+      })
       .map((m) => ({
         id: m.id || '',
         name: m.name || m.id || '',
@@ -470,7 +477,7 @@ async function buildRecentModelsList(modelNews, trendingModels, openRouterModels
   const fmtDate = (ms) =>
     new Date(ms).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
 
-  const orFallback = openRouterModels.slice(0, 8).map((m) => {
+  const toEntry = (m) => {
     const [company, ...rest] = (m.id || '').split('/');
     return {
       company: company ? company.toUpperCase() : 'AI Lab',
@@ -481,7 +488,8 @@ async function buildRecentModelsList(modelNews, trendingModels, openRouterModels
       fullDescription: m.description || 'Newly released LLM added in the past 7 days.',
       howItIsDifferent: 'Newly launched model available across major AI providers.'
     };
-  });
+  };
+  const orFallback = openRouterModels.map(toEntry);
 
   const hfFallback = trendingModels.slice(0, 8).map((m) => {
     const [company, ...rest] = m.id.split('/');
@@ -507,7 +515,6 @@ async function buildRecentModelsList(modelNews, trendingModels, openRouterModels
 
   try {
     const orContext = openRouterModels
-      .slice(0, 12)
       .map((m) => `- ${m.name} (${m.id}) [Released: ${fmtDate(m.created * 1000)}]: ${m.description}`)
       .join('\n');
     const newsContext = modelNews
@@ -519,7 +526,7 @@ async function buildRecentModelsList(modelNews, trendingModels, openRouterModels
       .map((m) => `- ${m.id} (${m.tag || 'LLM'})`)
       .join('\n');
 
-    const prompt = `From these newly released models (past 7 days), AI news items, and trending Hugging Face models, select up to 8 notable LLM models (prioritize newly released proprietary and major open-weights models). Return ONLY a JSON array of objects, each with:
+    const prompt = `From these newly released models (past 7 days), AI news items, and trending Hugging Face models, include EVERY new LLM listed in the OpenRouter list (do not skip or merge any), plus any other notable newly released model mentioned in the news or Hugging Face lists that is not already covered. Return ONLY a JSON array of objects, each with:
 - "company": Organization or lab name (e.g., Google, OpenAI, Anthropic, Meta, Mistral, Qwen, DeepSeek)
 - "name": Model name
 - "version": Version, size, or release tag (e.g., "4 Hydrogen", "2.5 Flash", "70B", or "Latest")
@@ -539,7 +546,7 @@ ${hfContext || 'None'}`;
 
     const parsed = await callGeminiJson(prompt);
     if (Array.isArray(parsed) && parsed.length > 0) {
-      return parsed.slice(0, 8).map((m) => ({
+      const models = parsed.map((m) => ({
         company: String(m.company || 'AI Lab'),
         name: String(m.name || 'Model'),
         version: String(m.version || 'Latest'),
@@ -548,6 +555,16 @@ ${hfContext || 'None'}`;
         fullDescription: String(m.fullDescription || m.description || ''),
         howItIsDifferent: String(m.howItIsDifferent || '')
       }));
+
+      // Safety net: never drop a model that Gemini overlooked; the 7-day window is the only limit.
+      const norm = (t) => String(t).toLowerCase().replace(/[^a-z0-9]/g, '');
+      for (const m of openRouterModels) {
+        const bare = norm((m.name || '').split(':').pop());
+        if (bare && !models.some((x) => norm(x.name).includes(bare) || bare.includes(norm(x.name)))) {
+          models.push(toEntry(m));
+        }
+      }
+      return models;
     }
   } catch (err) {
     console.warn(`Could not extract recent models via Gemini: ${err.message}`);
