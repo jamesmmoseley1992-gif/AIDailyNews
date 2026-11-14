@@ -281,31 +281,30 @@ async function fetchArticleText(url) {
   }
 }
 
-async function callGemini(model, prompt) {
+async function callGemini(model, prompt, grounded = false) {
   return fetch(`https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`, {
     method: 'POST',
     headers: {
       'x-goog-api-key': GEMINI_API_KEY,
       'Content-Type': 'application/json'
     },
+    // Grounded calls use Google Search, which cannot be combined with JSON mode, so JSON is parsed from text.
     body: JSON.stringify({
       contents: [{ parts: [{ text: prompt }] }],
-      generationConfig: {
-        responseMimeType: 'application/json',
-        temperature: 0.2
-      }
+      ...(grounded ? { tools: [{ google_search: {} }] } : {}),
+      generationConfig: grounded ? { temperature: 0.2 } : { responseMimeType: 'application/json', temperature: 0.2 }
     })
   });
 }
 
-async function callGeminiJson(prompt) {
-  let res = await callGemini(activeModel, prompt);
+async function callGeminiJson(prompt, grounded = false) {
+  let res = await callGemini(activeModel, prompt, grounded);
 
   // A 404 means the model ID is unknown to the API; fall back once so summaries keep working.
   if (res.status === 404 && activeModel !== GEMINI_FALLBACK_MODEL) {
     console.warn(`Model "${activeModel}" not found; falling back to ${GEMINI_FALLBACK_MODEL}.`);
     activeModel = GEMINI_FALLBACK_MODEL;
-    res = await callGemini(activeModel, prompt);
+    res = await callGemini(activeModel, prompt, grounded);
   }
 
   if (!res.ok) {
@@ -315,6 +314,13 @@ async function callGeminiJson(prompt) {
   }
 
   const data = await res.json();
+  if (grounded) {
+    const all = (data.candidates?.[0]?.content?.parts || []).map((p) => p.text || '').join('');
+    const start = all.indexOf('{');
+    const end = all.lastIndexOf('}');
+    if (start < 0 || end <= start) throw new Error('No JSON in grounded response');
+    return JSON.parse(all.slice(start, end + 1));
+  }
   const text = data.candidates?.[0]?.content?.parts?.[0]?.text || '';
   return JSON.parse(text);
 }
@@ -483,6 +489,8 @@ async function fetchTrendingModels() {
   }
 }
 
+let orCatalog = []; // every OpenRouter model, used to find each new model's previous version
+
 async function fetchOpenRouterRecentModels() {
   try {
     const res = await fetch('https://openrouter.ai/api/v1/models', {
@@ -493,6 +501,16 @@ async function fetchOpenRouterRecentModels() {
 
     const cutoffSec = Math.floor((Date.now() - DAYS_BACK * 24 * 60 * 60 * 1000) / 1000);
     const seenBase = new Set();
+    const shape = (m) => ({
+      id: m.id || '',
+      name: m.name || m.id || '',
+      created: m.created,
+      description: stripHtml(m.description || ''),
+      contextLength: m.context_length || null,
+      promptPrice: m.pricing?.prompt ?? null,
+      completionPrice: m.pricing?.completion ?? null
+    });
+    orCatalog = (json.data || []).filter((m) => typeof m.created === 'number').map(shape);
     return (json.data || [])
       .filter((m) => typeof m.created === 'number' && m.created >= cutoffSec)
       // Variants like ":batch" or ":free" are the same model; keep one entry per base model.
@@ -503,12 +521,7 @@ async function fetchOpenRouterRecentModels() {
         seenBase.add(base);
         return true;
       })
-      .map((m) => ({
-        id: m.id || '',
-        name: m.name || m.id || '',
-        created: m.created,
-        description: truncate(stripHtml(m.description || ''), 320)
-      }));
+      .map(shape);
   } catch (err) {
     console.warn(`Warning: Failed to fetch OpenRouter models: ${err.message}`);
     return [];
@@ -615,6 +628,175 @@ ${hfContext || 'None'}`;
   return fallback;
 }
 
+// ---------- Model comparison vs. the direct previous version ----------
+const COMPARE_VERSION = 1; // bump to force re-writing cached comparisons
+
+const normName = (t) => String(t || '').toLowerCase().replace(/[^a-z0-9]/g, '');
+const baseId = (id = '') => id.split(':')[0];
+const authorOf = (id = '') => id.split('/')[0];
+
+function fmtTokens(n) {
+  if (!n) return null;
+  if (n >= 1000000) return `${+(n / 1000000).toFixed(2)}M`;
+  if (n >= 1000) return `${Math.round(n / 1000)}K`;
+  return String(n);
+}
+const perMillion = (v) => {
+  const n = Number(v) * 1000000;
+  return Number.isFinite(n) && n > 0 ? `$${n < 1 ? n.toFixed(3) : n.toFixed(2)}` : null;
+};
+
+// Same lab, released earlier, one entry per base model (":free"/":batch" variants collapse).
+function predecessorCandidates(model) {
+  const seen = new Set([baseId(model.id)]);
+  return orCatalog
+    .filter((c) => authorOf(c.id) === authorOf(model.id) && c.created < model.created)
+    .sort((a, b) => b.created - a.created)
+    .filter((c) => {
+      const b = baseId(c.id);
+      if (seen.has(b)) return false;
+      seen.add(b);
+      return true;
+    })
+    .slice(0, 14);
+}
+
+// Used when Gemini is unavailable. Only accepts an earlier model with the SAME line and tier
+// (identical name words once version numbers are ignored); otherwise it is better to say none was found.
+function guessPredecessor(model, candidates) {
+  const words = (m) => [...new Set((baseId(m.id).split('/')[1] || '').split(/[^a-z]+/).filter((w) => w.length > 1))].sort().join(' ');
+  const mine = words(model);
+  return mine ? candidates.find((c) => words(c) === mine) || null : null;
+}
+
+function specDeltas(model, prev) {
+  const bits = [];
+  const ctxNew = fmtTokens(model.contextLength);
+  const ctxOld = fmtTokens(prev.contextLength);
+  if (ctxNew && ctxOld) {
+    bits.push(ctxNew === ctxOld ? `context window unchanged at ${ctxNew} tokens` : `context window ${ctxNew} tokens (was ${ctxOld})`);
+  }
+  const inNew = perMillion(model.promptPrice);
+  const inOld = perMillion(prev.promptPrice);
+  if (inNew && inOld) bits.push(inNew === inOld ? `input price unchanged at ${inNew} per 1M tokens` : `input ${inNew} per 1M tokens (was ${inOld})`);
+  const outNew = perMillion(model.completionPrice);
+  const outOld = perMillion(prev.completionPrice);
+  if (outNew && outOld) bits.push(outNew === outOld ? `output price unchanged at ${outNew} per 1M tokens` : `output ${outNew} per 1M tokens (was ${outOld})`);
+  return bits.length ? bits.join('; ') + '.' : '';
+}
+
+async function compareWithGemini(model, candidates, grounded = false) {
+  const list = candidates
+    .map((c) => `- id: ${c.id} | ${c.name} | released ${new Date(c.created * 1000).toISOString().slice(0, 10)} | ${truncate(c.description, 450)}`)
+    .join('\n');
+  const source = grounded
+    ? 'Use Google Search to find the official announcement or model card, and rely only on facts from reliable sources. Do not invent numbers.'
+    : 'Use ONLY facts stated in the descriptions below. Do not invent numbers.';
+  const descKey = grounded
+    ? '- "description": 4-6 sentences describing what the model is, its main capabilities, intended uses, and key specifications.\n'
+    : '';
+  const prompt = `Describe a newly released AI model and compare it with its DIRECT previous version. ${source} Return ONLY a JSON object with these keys:
+${descKey}- "previousModelId": the id of the candidate that is the direct previous version of the SAME model line and tier (for example Claude Fable 5.2 -> Claude Fable 5.1, or Gemini 3.8 Flash -> Gemini 3.7 Flash). Must be copied exactly from the candidate list, or null if no candidate is clearly the direct predecessor.
+- "comparison": 2-3 sentences stating concretely what changed versus that predecessor (capabilities, benchmarks, size, context, speed, cost). If previousModelId is null, say that no direct earlier version was found and describe what is new about this model.
+
+New model: ${model.name} (${model.id}), released ${new Date(model.created * 1000).toISOString().slice(0, 10)}
+Short description (abbreviated by the source): ${truncate(model.description, 1800)}
+
+Candidate earlier models from the same lab:
+${list || 'None'}`;
+  const parsed = await callGeminiJson(prompt, grounded);
+  const prev = candidates.find((c) => c.id === parsed.previousModelId) || null;
+  return {
+    prev,
+    comparison: String(parsed.comparison || '').trim(),
+    description: String(parsed.description || '').trim()
+  };
+}
+
+async function addComparisons(models, recentOr, previousModels) {
+  const cachedById = new Map(previousModels.filter((m) => m.id).map((m) => [m.id, m]));
+  const fmt = (sec) => new Date(sec * 1000).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+  let calls = 0;
+
+  for (const m of models) {
+    // Match this entry to its OpenRouter record so we can use the full description and specs.
+    const key = normName(String(m.name).split(':').pop());
+    const match = recentOr.find((o) => {
+      const on = normName(String(o.name).split(':').pop());
+      return key && on && (on.includes(key) || key.includes(on) || normName(baseId(o.id).split('/')[1]).includes(key));
+    });
+    if (!match) {
+      if (!m.howItIsDifferent || /newly launched model available/i.test(m.howItIsDifferent)) {
+        m.howItIsDifferent = 'No earlier version of this model was found to compare against.';
+      }
+      continue;
+    }
+
+    m.id = match.id;
+    if (match.description && match.description.length > (m.fullDescription || '').length) {
+      m.fullDescription = match.description;
+    }
+
+    const cached = cachedById.get(match.id);
+    if (cached && cached.comparisonVersion === COMPARE_VERSION && cached.howItIsDifferent) {
+      m.howItIsDifferent = cached.howItIsDifferent;
+      m.previousModel = cached.previousModel;
+      m.comparisonVersion = COMPARE_VERSION;
+      continue;
+    }
+
+    const candidates = predecessorCandidates(match);
+    let prev = null;
+    let comparison = '';
+    let description = '';
+
+    if (GEMINI_API_KEY && calls < 20) {
+      try {
+        ({ prev, comparison, description } = await compareWithGemini(match, candidates, true));
+      } catch (err) {
+        console.warn(`Web-grounded comparison unavailable for ${match.id} (${err.message}); using listing text only.`);
+        try {
+          ({ prev, comparison } = await compareWithGemini(match, candidates, false));
+        } catch (err2) {
+          console.warn(`Comparison skipped for ${match.id}: ${err2.message}`);
+        }
+      }
+      calls++;
+      await sleep(AI_DELAY_MS);
+    }
+    // OpenRouter abbreviates its descriptions (about 200 characters), so prefer the fuller web-grounded text.
+    if (description.length >= 300 && description.length > (m.fullDescription || '').length) {
+      m.fullDescription = description;
+    }
+    if (!prev && !comparison) prev = guessPredecessor(match, candidates);
+
+    const deltas = prev ? specDeltas(match, prev) : '';
+    if (prev) {
+      const prevName = String(prev.name).replace(/^[^:]+:\s*/, '');
+      m.previousModel = { id: prev.id, name: prevName, releaseDate: fmt(prev.created) };
+      m.howItIsDifferent = [
+        `Compared with its previous version, ${prevName} (released ${fmt(prev.created)}):`,
+        comparison || 'no written comparison was available, so only the specification changes are shown.',
+        deltas
+      ].filter(Boolean).join(' ');
+    } else {
+      m.previousModel = null;
+      m.howItIsDifferent = comparison || 'No earlier version of this model was found to compare against.';
+    }
+    m.comparisonVersion = COMPARE_VERSION;
+  }
+  return models;
+}
+
+async function loadPreviousModels(outPath) {
+  try {
+    const existing = JSON.parse(await fs.readFile(outPath, 'utf8'));
+    return existing.llmTracker?.recentModels || [];
+  } catch {
+    return [];
+  }
+}
+
 async function main() {
   const outPath = path.resolve('data/news.json');
   const cache = await loadExistingCache(outPath);
@@ -664,10 +846,10 @@ async function main() {
 
   const enrichedItems = await enrichItems(items.slice(0, MAX_TOTAL_ITEMS), cache);
   const enrichedModelNews = await enrichItems(modelNewsRaw, cache);
-  const recentModels = await buildRecentModelsList(
-    enrichedModelNews,
-    trendingModels,
-    openRouterModels
+  const recentModels = await addComparisons(
+    await buildRecentModelsList(enrichedModelNews, trendingModels, openRouterModels),
+    openRouterModels,
+    await loadPreviousModels(outPath)
   );
 
   const output = {
