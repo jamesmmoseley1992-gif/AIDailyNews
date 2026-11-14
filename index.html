@@ -54,7 +54,7 @@
   .stat b { display: block; font-size: 28px; line-height: 1.05; letter-spacing: -.02em; color: var(--blue); }
   .stat span { font-size: 12.5px; color: var(--muted); }
   .stat small { display: block; margin-top: 6px; font-size: 12px; color: var(--ink); font-weight: 600; }
-  .hero { display: grid; grid-template-columns: minmax(0, 1.75fr) minmax(0, 1fr); gap: clamp(14px, 1.3vw, 26px); margin-bottom: 28px; }
+  .hero { align-items: start; display: grid; grid-template-columns: minmax(0, 1.75fr) minmax(0, 1fr); gap: clamp(14px, 1.3vw, 26px); margin-bottom: 28px; }
   .lead { background: linear-gradient(160deg, #00366f 0%, #00448e 60%, #1560b3 100%); color: #fff; border-radius: 18px; padding: 28px 32px; box-shadow: var(--shadow); display: flex; flex-direction: column; }
   .lead .tag { align-self: flex-start; background: rgba(255,255,255,.16); border-radius: 999px; padding: 3px 11px; font-size: 12px; font-weight: 700; letter-spacing: .04em; }
   .lead h2 { margin: 14px 0 12px; max-width: 36ch; font-size: clamp(22px, 1.7vw, 34px); line-height: 1.2; letter-spacing: -.015em; }
@@ -70,6 +70,17 @@
   .top5 li::before { content: counter(n); font-weight: 800; font-size: 20px; color: var(--gold); line-height: 1.1; }
   .top5 a { color: var(--ink); text-decoration: none; font-weight: 600; font-size: 14.5px; line-height: 1.35; }
   .top5 a:hover { color: var(--blue); }
+  .also > summary { list-style: none; cursor: pointer; }
+  .also > summary::-webkit-details-marker { display: none; }
+  .also .t { font-weight: 600; font-size: 14.5px; line-height: 1.35; display: block; }
+  .also > summary:hover .t { color: var(--blue); }
+  .also[open] > summary .t { color: var(--blue); }
+  .also > summary::after { content: 'Show summary'; display: inline-block; margin-top: 3px; font-size: 12px; font-weight: 600; color: var(--blue); }
+  .also[open] > summary::after { content: 'Hide summary'; }
+  .also-body { margin-top: 10px; padding: 12px 14px; background: var(--bg); border-radius: 10px; }
+  .also-body p { margin: 0 0 8px; font-size: 13.5px; line-height: 1.55; color: var(--body); }
+  .also-body p.none { color: var(--muted); font-style: italic; }
+  .also-body .story-why { margin: 8px 0 10px; }
   .top5 small { display: block; color: var(--muted); font-size: 12px; margin-top: 2px; }
 
   .models-strip, .models-grid { display: grid; gap: 12px; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); }
@@ -129,7 +140,21 @@
   .daygroup > summary::before { content: '\25BE'; font-size: 11px; transition: transform .12s; }
   .daygroup:not([open]) > summary::before { transform: rotate(-90deg); }
   .daygroup > summary span { margin-left: auto; color: var(--muted); font-weight: 600; letter-spacing: 0; text-transform: none; }
-  .daygroup .cols { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 420px), 1fr)); gap: 0 clamp(18px, 2vw, 44px); padding: 8px 16px 0; background: var(--surface); border-radius: 0 0 12px 12px; margin-top: -6px; padding-top: 14px; }
+  .daygroup > summary { margin-bottom: 12px; }
+  .stories { columns: 480px; column-gap: clamp(14px, 1.2vw, 22px); margin-bottom: 22px; }
+  .story { break-inside: avoid; margin: 0 0 clamp(14px, 1.2vw, 22px); background: var(--surface); border-radius: 16px; padding: 20px 22px 18px; box-shadow: var(--shadow); border-left: 4px solid var(--accent); }
+  .story-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; font-size: 12px; color: var(--muted); margin-bottom: 8px; }
+  .story-meta .tag { background: var(--blue-soft); color: var(--accent); font-weight: 700; border-radius: 999px; padding: 2px 10px; }
+  body.db .story-meta .tag { background: var(--db-soft); }
+  .story h3 { margin: 0 0 10px; font-size: 18px; line-height: 1.3; letter-spacing: -.01em; }
+  .story h3 a { color: var(--ink); text-decoration: none; }
+  .story h3 a:hover { color: var(--accent); text-decoration: underline; }
+  .story-sum p { margin: 0 0 10px; font-size: 14.5px; line-height: 1.6; color: var(--body); }
+  .story-sum .none { color: var(--muted); font-style: italic; }
+  .story-why { background: var(--gold-soft); border-radius: 10px; padding: 10px 13px; margin: 4px 0 12px; font-size: 13.5px; color: var(--body); }
+  .story-why b { display: block; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--gold-ink); margin-bottom: 2px; }
+  .story-link { font-size: 13px; font-weight: 600; color: var(--accent); text-decoration: none; }
+  .story-link:hover { text-decoration: underline; }
   .empty { background: var(--surface); border: 1px dashed var(--line); border-radius: 12px; padding: 28px; text-align: center; color: var(--muted); }
 
   /* ---------- sources ---------- */
@@ -290,6 +315,17 @@ function renderTabs() {
 
 const matches = (i) => !state.q || [i.title, i.summary, i.source, i.topic].some((t) => String(t || '').toLowerCase().includes(state.q.toLowerCase()));
 
+const storyCard = (i) => {
+  const paras = body(i) ? body(i).split(/\n\n/).filter(Boolean) : [];
+  return `<article class="story">
+    <div class="story-meta"><span class="tag">${esc(i.topic || i.category)}</span><span>${esc(publisher(i))}</span><span>${esc(dateOf(i.publishedAt))}, ${esc(timeOf(i.publishedAt))}</span>${i.aiAnalyzed ? '' : '<span class="flag">headline only</span>'}</div>
+    <h3><a href="${esc(i.url)}" target="_blank" rel="noopener">${esc(headline(i))}</a></h3>
+    <div class="story-sum">${paras.length ? paras.map((t) => `<p>${esc(t)}</p>`).join('') : '<p class="none">A full summary is not available for this story yet. Open the original for the details.</p>'}</div>
+    ${i.whyItMatters && i.aiAnalyzed ? `<div class="story-why"><b>Why it matters</b>${esc(i.whyItMatters)}</div>` : ''}
+    <a class="story-link" href="${esc(i.url)}" target="_blank" rel="noopener">Read original &#8599;</a>
+  </article>`;
+};
+
 const row = (i) => `
   <details class="row">
     <summary><span><b>${esc(headline(i))}</b>${i.aiAnalyzed ? '' : '<span class="flag">headline only</span>'}<span class="src">${esc(publisher(i))}</span></span><time>${esc(dateOf(i.publishedAt))}</time></summary>
@@ -303,10 +339,21 @@ const row = (i) => `
 function modelCard(m, full) {
   const b = brand(companyOf(m));
   return `<div class="model" style="--c:${b.bg};--f:${b.fg}"><span class="co">${esc(companyOf(m))}</span><b>${esc(nameOf(m))}</b><small>Released ${esc(m.releaseDate)}</small>
-    ${full ? `${m.fullDescription || m.description ? `<p>${esc(m.fullDescription || m.description)}</p>` : ''}${m.howItIsDifferent ? `<div class="diff"><b>How it is different</b>${esc(m.howItIsDifferent)}</div>` : ''}` : ''}</div>`;
+    ${full ? `${m.fullDescription || m.description ? `<p>${esc(m.fullDescription || m.description)}</p>` : ''}${m.howItIsDifferent ? `<div class="diff"><b>${m.previousModel ? 'Versus previous version: ' + esc(nameOf(m.previousModel)) : 'How it is different'}</b>${esc(m.howItIsDifferent)}</div>` : ''}` : ''}</div>`;
 }
 
 /* ---------- Overview ---------- */
+function alsoItem(i) {
+  const paras = body(i) ? body(i).split(/\n\n/).filter(Boolean) : [];
+  return `<details class="also">
+    <summary><span class="t">${esc(headline(i))}</span><small>${esc(i.topic || i.category)} &middot; ${esc(publisher(i))}${i.aiAnalyzed ? '' : ' &middot; headline only'}</small></summary>
+    <div class="also-body">
+      ${paras.length ? paras.map((t) => `<p>${esc(t)}</p>`).join('') : '<p class="none">A full summary is not available for this story yet. Open the original for the details.</p>'}
+      ${i.whyItMatters && i.aiAnalyzed ? `<div class="story-why"><b>Why it matters</b>${esc(i.whyItMatters)}</div>` : ''}
+      <a class="story-link" href="${esc(i.url)}" target="_blank" rel="noopener">Read original &#8599;</a>
+    </div></details>`;
+}
+
 function overview() {
   if (!ALL.length) return '<div class="empty">No stories yet. Run the workflow to populate the briefing.</div>';
   const topTopic = Object.entries(countBy(ai.filter((i) => i.topic), 'topic')).sort((a, b) => b[1] - a[1])[0];
@@ -332,7 +379,7 @@ function overview() {
       <p style="margin:12px 0 0"><a href="${esc(lead.url)}" target="_blank" rel="noopener">${esc(publisher(lead))} &#8599;</a></p>
     </article>
     <aside class="top5"><h3 class="mini">Also making news today</h3>
-      <ol>${also.map((i) => `<li><span><a href="${esc(i.url)}" target="_blank" rel="noopener">${esc(headline(i))}</a><small>${esc(i.topic || i.category)} &middot; ${esc(publisher(i))}</small></span></li>`).join('')}</ol>
+      <ol>${also.map((i) => `<li>${alsoItem(i)}</li>`).join('')}</ol>
     </aside>
   </section>
   <section class="block"><h2 class="sec">New LLM models<a data-go="models">View all ${MODELS.length} &rarr;</a></h2>
@@ -374,7 +421,7 @@ function newsResults(kind) {
   for (const i of items) { const k = dayLabel(i.publishedAt); if (!groups.has(k)) groups.set(k, []); groups.get(k).push(i); }
   const first = groups.keys().next().value;
   return [...groups].map(([label, g]) => `<details class="daygroup" ${(state.q || label === 'Today' || (!groups.has('Today') && label === first)) ? 'open' : ''}>
-    <summary>${esc(label)}<span>${g.length} ${g.length === 1 ? 'story' : 'stories'}</span></summary><div class="cols">${g.map(row).join('')}</div></details>`).join('');
+    <summary>${esc(label)}<span>${g.length} ${g.length === 1 ? 'story' : 'stories'}</span></summary><div class="stories">${g.map(storyCard).join('')}</div></details>`).join('');
 }
 
 /* ---------- Models + Sources ---------- */
@@ -406,6 +453,13 @@ function go(tab, topic) {
   state.tab = tab; state.q = '';
   render();
 }
+
+// Only one "also making news" summary open at a time keeps the overview layout steady.
+$('view').addEventListener('toggle', (e) => {
+  const d = e.target;
+  if (!d.classList || !d.classList.contains('also') || !d.open) return;
+  $('view').querySelectorAll('details.also[open]').forEach((o) => { if (o !== d) o.open = false; });
+}, true);
 
 $('tabs').addEventListener('click', (e) => { const b = e.target.closest('.tab'); if (b) go(b.dataset.tab); });
 $('view').addEventListener('click', (e) => {
