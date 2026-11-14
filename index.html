@@ -1,1288 +1,433 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AI &amp; Databricks Daily</title>
-  <style>
-    :root {
-      --bg: #f0f4fa;
-      --surface: #ffffff;
-      --surface-alt: #f4f7fb;
-      --text: #0f172a;
-      --muted: #475569;
-      --border: #d5dfec;
-      --accent: #00448e;
-      --accent-dark: #003166;
-      --gold: #d5ad36;
-      --gold-soft: #fdf8e6;
-      --db-bg: #fff1f2;
-      --db-text: #be123c;
-      --ai-bg: #e6effa;
-      --ai-text: #00448e;
-      --llm-bg: #fdf8e6;
-      --llm-text: #8a690a;
-      --shadow: 0 2px 6px rgba(0, 68, 142, 0.06);
-    }
-
-    [data-theme="dark"] {
-      --bg: #081221;
-      --surface: #0e1c33;
-      --surface-alt: #152744;
-      --text: #f8fafc;
-      --muted: #a5b4cb;
-      --border: #1e3557;
-      --accent: #4d94e6;
-      --accent-dark: #3b82f6;
-      --gold: #e8b00f;
-      --gold-soft: #2b230a;
-      --db-bg: #4c0519;
-      --db-text: #fda4af;
-      --ai-bg: #122c54;
-      --ai-text: #93c5fd;
-      --llm-bg: #332707;
-      --llm-text: #fcd34d;
-      --shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
-    }
-
-    * { box-sizing: border-box; }
-
-    body {
-      margin: 0;
-      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.55;
-    }
-
-    .topbar {
-      background: var(--surface);
-      border-top: 4px solid var(--gold);
-      border-bottom: 2px solid var(--accent);
-      position: sticky;
-      top: 0;
-      z-index: 20;
-    }
-
-    .topbar-inner {
-      width: 100%;
-      padding: 0.9rem 2rem;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      gap: 0.75rem;
-    }
-
-    .brand h1 {
-      margin: 0;
-      font-size: 1.35rem;
-      letter-spacing: -0.02em;
-      color: var(--accent);
-    }
-
-    .updated {
-      font-size: 0.8rem;
-      color: var(--muted);
-    }
-
-    .theme-btn {
-      border: 1px solid var(--border);
-      background: var(--surface-alt);
-      color: var(--text);
-      padding: 0.45rem 0.85rem;
-      border-radius: 8px;
-      cursor: pointer;
-      font-size: 0.84rem;
-      font-weight: 500;
-    }
-
-    .container {
-      width: 100%;
-      padding: 1.5rem 2rem 4rem;
-    }
-
-    .layout {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) 380px;
-      gap: 1.75rem;
-      align-items: start;
-    }
-
-    @media (max-width: 1024px) {
-      .layout { grid-template-columns: 1fr; }
-      .container, .topbar-inner { padding-left: 1rem; padding-right: 1rem; }
-    }
-
-    .toolbar {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 0.85rem 1rem;
-      margin-bottom: 1.25rem;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-      align-items: center;
-      justify-content: space-between;
-      box-shadow: var(--shadow);
-    }
-
-    .tabs {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-    }
-
-    .tab {
-      padding: 0.4rem 0.9rem;
-      border: 1px solid var(--border);
-      background: var(--surface-alt);
-      color: var(--text);
-      border-radius: 999px;
-      cursor: pointer;
-      font-size: 0.83rem;
-      font-weight: 600;
-    }
-
-    .tab.active {
-      background: var(--accent);
-      border-color: var(--accent);
-      color: #fff;
-    }
-
-    .filters-right {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      flex: 1;
-      justify-content: flex-end;
-    }
-
-    .select, .search {
-      padding: 0.45rem 0.75rem;
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      background: var(--surface-alt);
-      color: var(--text);
-      font-size: 0.85rem;
-    }
-
-    .search { min-width: 220px; }
-
-    .sub-toolbar {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 0.4rem;
-      margin: -0.65rem 0 1.25rem;
-      padding: 0 0.25rem;
-    }
-
-    .sub-toolbar.hidden { display: none; }
-
-    .sub-label {
-      font-size: 0.76rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      color: var(--muted);
-      margin-right: 0.25rem;
-    }
-
-    .topic-pill {
-      padding: 0.28rem 0.7rem;
-      border: 1px solid var(--border);
-      background: var(--surface);
-      color: var(--muted);
-      border-radius: 999px;
-      cursor: pointer;
-      font-size: 0.78rem;
-      font-weight: 500;
-    }
-
-    .topic-pill:hover {
-      border-color: var(--accent);
-      color: var(--text);
-    }
-
-    .topic-pill.active {
-      background: var(--ai-bg);
-      border-color: var(--accent);
-      color: var(--accent);
-      font-weight: 700;
-    }
-
-    .topic-tag {
-      font-size: 0.72rem;
-      color: var(--muted);
-      background: var(--surface-alt);
-      border: 1px solid var(--border);
-      padding: 0.1rem 0.45rem;
-      border-radius: 6px;
-      font-weight: 500;
-    }
-
-    .day-group { margin-bottom: 2rem; }
-
-    .day-heading {
-      margin: 0 0 0.8rem;
-      font-size: inherit;
-    }
-
-    .day-toggle {
-      width: 100%;
-      display: flex;
-      align-items: center;
-      gap: 0.55rem;
-      padding: 0.45rem 0.1rem;
-      background: none;
-      border: 0;
-      border-bottom: 2px solid var(--border);
-      cursor: pointer;
-      font: inherit;
-      font-size: 0.78rem;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      color: var(--accent);
-      font-weight: 700;
-      text-align: left;
-    }
-
-    .day-toggle:hover { border-bottom-color: var(--accent); }
-
-    .day-chevron {
-      display: inline-block;
-      transition: transform 0.15s ease;
-      font-size: 0.7rem;
-    }
-
-    .day-group.collapsed .day-chevron { transform: rotate(-90deg); }
-    .day-group.collapsed .feed-list { display: none; }
-    .day-group.collapsed .day-heading { margin-bottom: 0; }
-
-    .day-hint {
-      margin-left: auto;
-      font-size: 0.72rem;
-      font-weight: 500;
-      text-transform: none;
-      letter-spacing: 0;
-      color: var(--muted);
-    }
-
-    .headline-only {
-      font-size: 0.7rem;
-      font-weight: 600;
-      color: var(--muted);
-      border: 1px dashed var(--border);
-      border-radius: 6px;
-      padding: 0.05rem 0.4rem;
-    }
-
-    .modal-note {
-      display: none;
-      font-size: 0.8rem;
-      color: var(--text);
-      background: var(--gold-soft);
-      border: 1px solid var(--gold);
-      border-radius: 6px;
-      padding: 0.55rem 0.8rem;
-      margin-bottom: 0.9rem;
-    }
-
-    .feed-list {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-      grid-auto-flow: dense;
-      gap: 1rem;
-    }
-
-    @media (max-width: 680px) {
-      .feed-list { grid-template-columns: 1fr; }
-    }
-
-    .card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 1.1rem 1.2rem;
-      cursor: pointer;
-      box-shadow: var(--shadow);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      min-height: 180px;
-      transition: border-color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
-    }
-
-    .card:hover {
-      border-color: var(--accent);
-      transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba(0, 68, 142, 0.12);
-    }
-
-    .card.cat-Databricks { border-top: 3px solid #be123c; }
-    .card.cat-AI { border-top: 3px solid var(--accent); }
-    .card.cat-LLM { border-top: 3px solid var(--gold); }
-
-    .card.bento-wide {
-      grid-column: span 2;
-      min-height: 195px;
-      background: linear-gradient(135deg, #ffffff 0%, #e9f0fa 100%);
-      border-top: 4px solid var(--gold);
-    }
-
-    [data-theme="dark"] .card.bento-wide {
-      background: linear-gradient(135deg, var(--surface) 0%, var(--surface-alt) 100%);
-    }
-
-    @media (max-width: 680px) {
-      .card.bento-wide { grid-column: span 1; }
-    }
-
-    .card-meta {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      gap: 0.5rem;
-      font-size: 0.76rem;
-      color: var(--muted);
-      margin-bottom: 0.55rem;
-    }
-
-    .card-meta-left {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 0.45rem;
-    }
-
-    .badge {
-      font-weight: 700;
-      padding: 0.14rem 0.55rem;
-      border-radius: 999px;
-      font-size: 0.7rem;
-      letter-spacing: 0.02em;
-    }
-
-    .badge.Databricks { background: var(--db-bg); color: var(--db-text); }
-    .badge.AI { background: var(--ai-bg); color: var(--ai-text); }
-    .badge.LLM { background: var(--llm-bg); color: var(--llm-text); }
-
-    .card h2 {
-      margin: 0 0 0.45rem;
-      font-size: 1.02rem;
-      line-height: 1.35;
-    }
-
-    .card.bento-wide h2 { font-size: 1.2rem; }
-
-    .card-summary {
-      margin: 0;
-      font-size: 0.86rem;
-      color: var(--muted);
-      display: -webkit-box;
-      -webkit-line-clamp: 3;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
-    }
-
-    .card-cta {
-      margin-top: 0.85rem;
-      padding-top: 0.6rem;
-      border-top: 1px solid var(--border);
-      font-size: 0.78rem;
-      font-weight: 600;
-      color: var(--accent);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .sidebar {
-      position: sticky;
-      top: 5rem;
-      display: grid;
-      gap: 1rem;
-      align-content: start;
-      max-height: calc(100vh - 6rem);
-      overflow-y: auto;
-      overscroll-behavior: contain;
-      padding-right: 0.35rem;
-      scrollbar-width: thin;
-      scrollbar-color: var(--border) transparent;
-    }
-
-    @media (max-width: 1024px) {
-      .sidebar { position: static; max-height: none; overflow: visible; padding-right: 0; }
-    }
-
-    .panel {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-top: 3px solid var(--accent);
-      border-radius: 12px;
-      padding: 1.1rem;
-      box-shadow: var(--shadow);
-    }
-
-    .panel h3 {
-      margin: 0 0 0.2rem;
-      font-size: 1.02rem;
-    }
-
-    .panel-sub {
-      margin: 0 0 0.9rem;
-      font-size: 0.8rem;
-      color: var(--muted);
-    }
-
-    .llm-list {
-      display: grid;
-      gap: 0.7rem;
-    }
-
-    .llm-card {
-      --brand: var(--accent);
-      --brand-fg: #fff;
-      border-left: 5px solid var(--brand);
-      display: block;
-      width: 100%;
-      text-align: left;
-      cursor: pointer;
-      color: var(--text);
-      background: var(--surface-alt);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 0.75rem 0.85rem;
-      transition: border-color 0.15s ease, transform 0.1s ease;
-    }
-
-    .llm-card:hover {
-      border-color: var(--brand);
-      transform: translateY(-1px);
-    }
-
-    .llm-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 0.5rem;
-      margin-bottom: 0.25rem;
-    }
-
-    .llm-company {
-      font-size: 0.74rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-      color: var(--brand-fg);
-      background: var(--brand);
-      padding: 0.1rem 0.5rem;
-      border-radius: 4px;
-    }
-
-    .llm-version {
-      font-size: 0.75rem;
-      color: var(--muted);
-      font-weight: 600;
-    }
-
-    .llm-name {
-      font-weight: 700;
-      font-size: 0.94rem;
-      margin-bottom: 0.15rem;
-    }
-
-    .llm-date {
-      font-size: 0.72rem;
-      color: var(--accent);
-      font-weight: 600;
-      margin-bottom: 0.3rem;
-    }
-
-    .llm-desc {
-      margin: 0;
-      font-size: 0.82rem;
-      color: var(--muted);
-      line-height: 1.45;
-    }
-
-    .meta-kv {
-      display: grid;
-      gap: 0.4rem;
-      font-size: 0.8rem;
-      margin-bottom: 0.85rem;
-      padding: 0.65rem 0.75rem;
-      background: var(--surface-alt);
-      border-radius: 8px;
-      border: 1px solid var(--border);
-    }
-
-    .meta-kv div { color: var(--muted); }
-    .meta-kv strong { color: var(--text); }
-
-    .source-list {
-      display: grid;
-      gap: 0.45rem;
-    }
-
-    .source-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 0.5rem;
-      font-size: 0.8rem;
-      padding: 0.4rem 0.55rem;
-      border-radius: 6px;
-      background: var(--surface-alt);
-      border: 1px solid var(--border);
-    }
-
-    .source-origin {
-      font-size: 0.72rem;
-      color: var(--muted);
-    }
-
-    .source-badge {
-      font-size: 0.7rem;
-      font-weight: 700;
-      padding: 0.1rem 0.45rem;
-      border-radius: 999px;
-      background: var(--ai-bg);
-      color: var(--ai-text);
-      white-space: nowrap;
-    }
-
-    .modal-backdrop {
-      position: fixed;
-      inset: 0;
-      background: rgba(15, 23, 42, 0.72);
-      backdrop-filter: blur(3px);
-      display: none;
-      align-items: center;
-      justify-content: center;
-      padding: 1rem;
-      z-index: 100;
-    }
-
-    .modal-backdrop.open { display: flex; }
-
-    .modal {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      max-width: 700px;
-      width: 100%;
-      max-height: 90vh;
-      overflow-y: auto;
-      padding: 1.6rem;
-      position: relative;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
-    }
-
-    .modal-close {
-      position: absolute;
-      top: 1rem;
-      right: 1rem;
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      border: 1px solid var(--border);
-      background: var(--surface-alt);
-      color: var(--text);
-      font-size: 1.15rem;
-      cursor: pointer;
-    }
-
-    .modal-meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      align-items: center;
-      font-size: 0.82rem;
-      color: var(--muted);
-      margin-bottom: 0.65rem;
-      padding-right: 2.5rem;
-    }
-
-    .modal h2 {
-      margin: 0 0 1.15rem;
-      font-size: 1.35rem;
-      line-height: 1.3;
-    }
-
-    .modal-block {
-      background: var(--surface-alt);
-      border-left: 3px solid var(--accent);
-      border-radius: 6px;
-      padding: 0.85rem 1rem;
-      margin-bottom: 0.9rem;
-    }
-
-    .modal-block.matters { border-left-color: #10b981; }
-    .modal-block.affected { border-left-color: var(--gold); }
-
-    .modal-block h4 {
-      margin: 0 0 0.35rem;
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      color: var(--muted);
-    }
-
-    .modal-block p {
-      margin: 0;
-      font-size: 0.92rem;
-      line-height: 1.55;
-      white-space: pre-line;
-    }
-
-    .modal-actions {
-      margin-top: 1.2rem;
-      display: flex;
-      gap: 0.65rem;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      border: none;
-      border-radius: 8px;
-      padding: 0.6rem 1.1rem;
-      font-size: 0.88rem;
-      font-weight: 600;
-      cursor: pointer;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-    }
-
-    .btn-primary { background: var(--accent); color: #fff; }
-    .btn-secondary { background: var(--surface-alt); color: var(--text); border: 1px solid var(--border); }
-
-    .empty {
-      padding: 2rem;
-      text-align: center;
-      color: var(--muted);
-      background: var(--surface);
-      border: 1px dashed var(--border);
-      border-radius: 10px;
-      font-size: 0.9rem;
-    }
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>AI &amp; Databricks Daily</title>
+<style>
+  :root {
+    --bg: #f5f7fb; --surface: #ffffff; --ink: #0f172a; --muted: #5b6b82; --line: #e3e9f2;
+    --blue: #00448e; --blue-soft: #e8f0fb; --gold: #d5ad36; --gold-soft: #fbf5e0;
+    --db: #d6301b; --accent: var(--blue);
+    --shadow: 0 1px 2px rgba(15,23,42,.05), 0 8px 24px rgba(15,23,42,.05);
+    --pad: clamp(16px, 2.4vw, 56px);
+  }
+  :root { --body: #334155; --gold-ink: #8a690a; --db-soft: #fde7e3; --hover: #ffffff; }
+  [data-theme="dark"] {
+    --bg: #081221; --surface: #0e1c33; --ink: #f1f5f9; --muted: #9fb0c9; --line: #1e3557;
+    --blue: #6aa9f0; --blue-soft: #14305c; --gold-soft: #2b230a; --db: #ff6b57; --db-soft: #4a1a15;
+    --body: #c5d1e3; --gold-ink: #f0c75a; --hover: #152744;
+    --shadow: 0 1px 2px rgba(0,0,0,.4), 0 8px 24px rgba(0,0,0,.25);
+  }
+  body.db { --accent: var(--db); }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 15px/1.55 Inter, system-ui, -apple-system, 'Segoe UI', sans-serif; }
+
+  /* ---------- header + tabs ---------- */
+  .top { background: var(--surface); border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 20; }
+  .top-in { padding: 14px var(--pad) 0; }
+  .brand-row { display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+  .eyebrow { font-size: 11.5px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--gold); }
+  h1 { margin: 0; font-size: clamp(24px, 1.8vw, 34px); letter-spacing: -.02em; color: var(--blue); line-height: 1.15; }
+.head-right { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; justify-content: flex-end; }
+  .theme-btn { border: 1px solid var(--line); background: var(--bg); color: var(--ink); border-radius: 8px; padding: 7px 12px; font: 600 13px/1 inherit; cursor: pointer; }
+  .stamp { color: var(--muted); font-size: 13px; text-align: right; padding-bottom: 4px; }
+  .tabs { display: flex; gap: 4px; margin-top: 10px; overflow-x: auto; }
+  .tab { appearance: none; border: 0; background: none; cursor: pointer; padding: 11px 18px 12px; font: 600 14.5px/1 inherit; color: var(--muted); border-bottom: 3px solid transparent; white-space: nowrap; border-radius: 8px 8px 0 0; }
+  .tab:hover { color: var(--ink); background: var(--bg); }
+  .tab.on { color: var(--blue); border-bottom-color: var(--gold); }
+  .tab.on.db { color: var(--db); }
+  .tab .n { margin-left: 7px; font-size: 11.5px; font-weight: 700; background: var(--bg); color: var(--muted); padding: 2px 7px; border-radius: 999px; }
+  .tab.on .n { background: var(--blue-soft); color: var(--blue); }
+  .tab.on.db .n { background: var(--db-soft); color: var(--db); }
+
+  main { padding: 22px var(--pad) 56px; }
+  h2.sec { margin: 0 0 12px; font-size: 19px; letter-spacing: -.01em; display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
+  h2.sec span, h2.sec a { font-size: 13px; font-weight: 500; color: var(--muted); }
+  h2.sec a { color: var(--blue); font-weight: 600; cursor: pointer; text-decoration: none; }
+  .block { margin-bottom: 28px; }
+
+  /* ---------- overview ---------- */
+  .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(12px, 1.2vw, 24px); margin-bottom: 18px; }
+  .stat { background: var(--surface); border-radius: 14px; padding: 12px 18px; box-shadow: var(--shadow); cursor: pointer; border: 0; text-align: left; font: inherit; color: inherit; }
+  .stat:hover { outline: 2px solid var(--blue-soft); }
+  .stat b { display: block; font-size: 28px; line-height: 1.05; letter-spacing: -.02em; color: var(--blue); }
+  .stat span { font-size: 12.5px; color: var(--muted); }
+  .stat small { display: block; margin-top: 6px; font-size: 12px; color: var(--ink); font-weight: 600; }
+  .hero { display: grid; grid-template-columns: minmax(0, 1.75fr) minmax(0, 1fr); gap: clamp(14px, 1.3vw, 26px); margin-bottom: 28px; }
+  .lead { background: linear-gradient(160deg, #00366f 0%, #00448e 60%, #1560b3 100%); color: #fff; border-radius: 18px; padding: 28px 32px; box-shadow: var(--shadow); display: flex; flex-direction: column; }
+  .lead .tag { align-self: flex-start; background: rgba(255,255,255,.16); border-radius: 999px; padding: 3px 11px; font-size: 12px; font-weight: 700; letter-spacing: .04em; }
+  .lead h2 { margin: 14px 0 12px; max-width: 36ch; font-size: clamp(22px, 1.7vw, 34px); line-height: 1.2; letter-spacing: -.015em; }
+  .lead p { margin: 0 0 14px; max-width: 72ch; color: #dbe7f7; font-size: clamp(15px, 1vw, 18px); }
+  .lead .why { margin-top: auto; border-top: 1px solid rgba(255,255,255,.2); padding-top: 14px; font-size: 14px; }
+  .lead .why b { color: var(--gold); font-size: 11.5px; letter-spacing: .1em; text-transform: uppercase; display: block; margin-bottom: 2px; }
+  .lead a { color: #fff; font-weight: 600; font-size: 13.5px; }
+  .top5 { background: var(--surface); border-radius: 18px; padding: 20px 22px; box-shadow: var(--shadow); }
+  h3.mini { margin: 0 0 12px; font-size: 12px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+  .top5 ol { list-style: none; margin: 0; padding: 0; counter-reset: n; }
+  .top5 li { counter-increment: n; display: grid; grid-template-columns: 28px 1fr; gap: 6px; padding: 10px 0; border-top: 1px solid var(--line); }
+  .top5 li:first-child { border-top: 0; padding-top: 0; }
+  .top5 li::before { content: counter(n); font-weight: 800; font-size: 20px; color: var(--gold); line-height: 1.1; }
+  .top5 a { color: var(--ink); text-decoration: none; font-weight: 600; font-size: 14.5px; line-height: 1.35; }
+  .top5 a:hover { color: var(--blue); }
+  .top5 small { display: block; color: var(--muted); font-size: 12px; margin-top: 2px; }
+
+  .models-strip, .models-grid { display: grid; gap: 12px; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); }
+  .model { background: var(--surface); border-radius: 12px; padding: 14px 16px; box-shadow: var(--shadow); border-top: 4px solid var(--c); }
+  .model .co { display: inline-block; background: var(--c); color: var(--f); font-size: 11px; font-weight: 800; letter-spacing: .05em; text-transform: uppercase; border-radius: 4px; padding: 1px 7px; }
+  .model b { display: block; margin: 8px 0 2px; font-size: 15px; }
+  .model small { color: var(--muted); font-size: 12px; }
+  .models-grid { grid-template-columns: repeat(auto-fill, minmax(min(100%, 420px), 1fr)); gap: clamp(14px, 1.2vw, 22px); align-items: start; }
+  .models-grid .model { padding: 18px 20px; }
+  .models-grid .model p { margin: 8px 0 0; font-size: 14px; color: var(--body); }
+  .models-grid .model .diff { margin-top: 10px; background: var(--gold-soft); border-radius: 8px; padding: 8px 10px; font-size: 13px; }
+  .models-grid .model .diff b { display: block; margin: 0; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--gold-ink); }
+
+  .snap { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(14px, 1.3vw, 26px); }
+  .snap-card { background: var(--surface); border-radius: 16px; padding: 18px 20px; box-shadow: var(--shadow); }
+  .snap-card.db { border-top: 4px solid var(--db); }
+  .snap-card.ai { border-top: 4px solid var(--blue); }
+  .tiles { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 8px; }
+  .tile { appearance: none; border: 1px solid var(--line); background: var(--bg); border-radius: 10px; padding: 10px 12px; text-align: left; cursor: pointer; font: inherit; color: inherit; display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+  .tile:hover { border-color: var(--blue); background: var(--hover); }
+  .tile span { font-size: 13.5px; font-weight: 600; line-height: 1.25; }
+  .tile b { font-size: 18px; color: var(--blue); }
+  .snap-card.db .tile b { color: var(--db); }
+  .tile.zero { opacity: .5; }
+
+  /* ---------- news tabs ---------- */
+  .toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; margin-bottom: 18px; }
+  .chips { display: flex; flex-wrap: wrap; gap: 6px; flex: 1; }
+  .chip { appearance: none; border: 1px solid var(--line); background: var(--surface); border-radius: 999px; padding: 6px 13px; font: 600 13px/1.2 inherit; color: var(--muted); cursor: pointer; }
+  .chip:hover { border-color: var(--accent); color: var(--ink); }
+  .chip.on { background: var(--accent); border-color: var(--accent); color: #fff; }
+  .chip .n { opacity: .7; font-weight: 500; margin-left: 4px; }
+  .search { min-width: 260px; padding: 8px 13px; border: 1px solid var(--line); border-radius: 10px; font: inherit; background: var(--surface); color: var(--ink); }
+  .topics { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 380px), 1fr)); gap: clamp(14px, 1.2vw, 24px); align-items: start; }
+  .panel { background: var(--surface); border-radius: 16px; padding: 18px 20px 12px; box-shadow: var(--shadow); }
+  .panel h4 { margin: 0 0 8px; display: flex; align-items: center; gap: 8px; font-size: 15px; }
+  .panel h4 i { width: 9px; height: 9px; border-radius: 50%; background: var(--dot, var(--blue)); }
+  .panel h4 em { margin-left: auto; font-style: normal; font-size: 12px; color: var(--muted); font-weight: 600; }
+  .panel .all { display: block; padding: 8px 0 6px; border: 0; border-top: 1px solid var(--line); color: var(--accent); font: 600 13px/1.4 inherit; cursor: pointer; background: none; width: 100%; text-align: left; }
+  details.row { border-top: 1px solid var(--line); }
+  details.row > summary { list-style: none; cursor: pointer; padding: 9px 0; display: grid; grid-template-columns: 1fr auto; gap: 10px; font-size: 14px; line-height: 1.4; }
+  details.row > summary::-webkit-details-marker { display: none; }
+  details.row > summary:hover b { color: var(--accent); }
+  details.row b { font-weight: 600; }
+  details.row time { color: var(--muted); font-size: 12px; white-space: nowrap; }
+  details.row .src { color: var(--muted); font-size: 12px; display: block; font-weight: 400; }
+  .detail { padding: 0 0 12px; font-size: 13.5px; color: var(--body); }
+  .detail p { margin: 0 0 8px; }
+  .detail .why { background: var(--gold-soft); border-radius: 8px; padding: 8px 10px; }
+  .detail .why b { font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--gold-ink); display: block; }
+  .detail a { font-weight: 600; color: var(--accent); font-size: 13px; }
+  .flag { font-size: 11px; color: var(--muted); border: 1px dashed var(--line); border-radius: 5px; padding: 0 5px; margin-left: 4px; }
+
+  .daygroup { margin-bottom: 14px; }
+  .daygroup > summary { cursor: pointer; list-style: none; background: var(--surface); border-radius: 10px; padding: 10px 16px; font-weight: 800; font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); box-shadow: var(--shadow); display: flex; gap: 8px; align-items: center; }
+  .daygroup > summary::-webkit-details-marker { display: none; }
+  .daygroup > summary::before { content: '\25BE'; font-size: 11px; transition: transform .12s; }
+  .daygroup:not([open]) > summary::before { transform: rotate(-90deg); }
+  .daygroup > summary span { margin-left: auto; color: var(--muted); font-weight: 600; letter-spacing: 0; text-transform: none; }
+  .daygroup .cols { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 420px), 1fr)); gap: 0 clamp(18px, 2vw, 44px); padding: 8px 16px 0; background: var(--surface); border-radius: 0 0 12px 12px; margin-top: -6px; padding-top: 14px; }
+  .empty { background: var(--surface); border: 1px dashed var(--line); border-radius: 12px; padding: 28px; text-align: center; color: var(--muted); }
+
+  /* ---------- sources ---------- */
+  .srcgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 360px), 1fr)); gap: 14px; }
+  .srcrow { background: var(--surface); border-radius: 12px; padding: 14px 16px; box-shadow: var(--shadow); display: flex; justify-content: space-between; gap: 10px; align-items: center; }
+  .srcrow small { display: block; color: var(--muted); font-size: 12px; }
+  .srcrow .cnt { background: var(--blue-soft); color: var(--blue); font-weight: 700; font-size: 12px; border-radius: 999px; padding: 3px 10px; white-space: nowrap; }
+  .kv { background: var(--surface); border-radius: 12px; padding: 16px 18px; box-shadow: var(--shadow); margin-bottom: 18px; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
+  .kv div small { display: block; color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: .08em; }
+  .kv div b { font-size: 15px; }
+
+  @media (max-width: 980px) { .stats { grid-template-columns: repeat(2, 1fr); } .hero, .snap { grid-template-columns: 1fr; } .search { min-width: 0; width: 100%; } }
+</style>
 </head>
 <body>
-  <header class="topbar">
-    <div class="topbar-inner">
-      <div class="brand">
-        <h1>AI &amp; Databricks Daily</h1>
-        <div class="updated" id="last-updated">Loading latest briefing…</div>
-      </div>
-      <button class="theme-btn" id="theme-toggle" type="button">🌙 Dark Mode</button>
-    </div>
-  </header>
-
-  <div class="container">
-    <div class="layout">
-      <section>
-        <div class="toolbar">
-          <div class="tabs" id="tabs">
-            <button class="tab active" data-category="All">All</button>
-            <button class="tab" data-category="Databricks">Databricks</button>
-            <button class="tab" data-category="AI">AI News</button>
-            <button class="tab" data-category="LLM">LLM Releases</button>
-          </div>
-          <div class="filters-right">
-            <select id="source-filter" class="select" aria-label="Filter by source">
-              <option value="All">All Sources</option>
-            </select>
-            <input
-              type="search"
-              id="search"
-              class="search"
-              placeholder="Search 7-day news..."
-              aria-label="Search articles"
-            />
-          </div>
-        </div>
-        <div class="sub-toolbar" id="topic-bar"></div>
-        <main id="news-feed"></main>
-      </section>
-
-      <aside class="sidebar">
-        <div class="panel">
-          <h3>🚀 New LLM Models (7 Days)</h3>
-          <p class="panel-sub">Click any model to view capabilities &amp; differences</p>
-          <div class="llm-list" id="recent-models"></div>
-        </div>
-
-        <div class="panel">
-          <h3>📡 Data Sources &amp; Refresh</h3>
-          <p class="panel-sub">Automated cloud collection &amp; rolling 7-day window</p>
-          <div class="meta-kv" id="refresh-meta"></div>
-          <div class="source-list" id="source-pool"></div>
-        </div>
-      </aside>
-    </div>
+<header class="top"><div class="top-in">
+  <div class="brand-row">
+    <div><div class="eyebrow">Daily briefing</div><h1>AI &amp; Databricks Daily</h1></div>
+    <div class="head-right"><div class="stamp" id="stamp">Loading latest briefing&hellip;</div><button class="theme-btn" id="theme-toggle" type="button">Dark mode</button></div>
   </div>
+  <nav class="tabs" id="tabs" role="tablist" aria-label="Sections"></nav>
+</div></header>
+<main id="view"></main>
 
-  <!-- Story & Model Breakdown Modal -->
-  <div class="modal-backdrop" id="modal-backdrop" role="dialog" aria-modal="true">
-    <div class="modal">
-      <button class="modal-close" id="modal-close" aria-label="Close">&times;</button>
-      <div class="modal-meta" id="modal-meta"></div>
-      <h2 id="modal-title"></h2>
+<script>
+(function () {
+  const btn = document.getElementById('theme-toggle');
+  const apply = (t) => { document.documentElement.setAttribute('data-theme', t); btn.textContent = t === 'dark' ? 'Light mode' : 'Dark mode'; };
+  let saved = 'light';
+  try { saved = localStorage.getItem('theme') || 'light'; } catch (e) {}
+  apply(saved);
+  btn.addEventListener('click', () => {
+    const next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    try { localStorage.setItem('theme', next); } catch (e) {}
+    apply(next);
+  });
+})();
+</script>
+<script>
+(async () => {
+let DATA;
+try {
+  const res = await fetch('./data/news.json', { cache: 'no-store' });
+  if (!res.ok) throw new Error('HTTP ' + res.status);
+  DATA = await res.json();
+} catch (err) {
+  document.getElementById('view').innerHTML = '<div class="empty">Could not load news.json</div>';
+  document.getElementById('stamp').textContent = 'Could not load the latest briefing';
+  console.error(err);
+  return;
+}
 
-      <div class="modal-note" id="modal-note">
-        Headline-level summary only: the full article text was not available to analyze, so this may not cover the whole story. Use &ldquo;Read Original Article&rdquo; for complete details.
-      </div>
-      <div class="modal-block">
-        <h4>Full Story</h4>
-        <p id="modal-story"></p>
-      </div>
-      <div class="modal-block matters">
-        <h4>Why It Matters</h4>
-        <p id="modal-matters"></p>
-      </div>
-      <div class="modal-block affected">
-        <h4>Who Is Affected</h4>
-        <p id="modal-affected"></p>
-      </div>
+const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 
-      <div class="modal-actions">
-        <a class="btn btn-primary" id="modal-link" href="#" target="_blank" rel="noopener noreferrer">
-          Read Original Article ↗
-        </a>
-        <button class="btn btn-secondary" id="modal-close-btn" type="button">Close</button>
-      </div>
+const LEGACY = {
+  'Models & Research': 'Models, Research & Advancement',
+  'Agents & Coding': 'Agents & Developer Tools',
+  'Enterprise & Strategy': 'Business & Adoption',
+  'Infrastructure & MLOps': 'Infrastructure & Compute',
+  'Policy & Safety': 'AI Governance & Regulation'
+};
+
+const AI_TOPICS = [
+  'Business & Adoption', 'AI Governance & Regulation', 'Models, Research & Advancement',
+  'Agents & Developer Tools', 'Infrastructure & Compute', 'Environment & Sustainability', 'Funding & Markets'
+];
+const DB_TOPICS = [
+  'Genie & AI/BI', 'Unity Catalog & Governance', 'Agent Bricks & Mosaic AI',
+  'Data Engineering & Lakeflow', 'SQL & Warehousing', 'Apps & Lakebase', 'Platform & Administration'
+];
+
+const ALL = [...DATA.items, ...((DATA.llmTracker && DATA.llmTracker.modelNews) || [])]
+  .map((i) => ({ ...i, topic: LEGACY[i.topic] || i.topic }))
+  .sort((a, b) => Date.parse(b.publishedAt) - Date.parse(a.publishedAt));
+
+const MODELS = (DATA.llmTracker && DATA.llmTracker.recentModels) || [];
+const NOW = new Date();
+const TODAY = NOW.toDateString();
+
+const isToday = (i) => new Date(i.publishedAt).toDateString() === TODAY;
+const timeOf = (iso) => new Date(iso).toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' });
+const dateOf = (iso) => new Date(iso).toLocaleDateString([], { month: 'short', day: 'numeric' });
+const longDate = (d) => d.toLocaleDateString([], { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' });
+
+function dayLabel(iso) {
+  const d = new Date(iso).toDateString();
+  const y = new Date(NOW); y.setDate(y.getDate() - 1);
+  if (d === TODAY) return 'Today';
+  if (d === y.toDateString()) return 'Yesterday';
+  return new Date(iso).toLocaleDateString([], { weekday: 'long', month: 'short', day: 'numeric' });
+}
+
+// Google News headlines end with " - Publisher"; split that off for cleaner display.
+function parts(i) {
+  const m = /^(.*\S)\s+[-–—]\s+([^-–—]{2,40})$/.exec(i.title);
+  if (m && /google|llm releases/i.test(i.source)) return { title: m[1], publisher: m[2] };
+  return { title: i.title, publisher: i.source };
+}
+const headline = (i) => parts(i).title;
+const publisher = (i) => parts(i).publisher;
+const body = (i) => (i.aiAnalyzed && i.fullStory ? i.fullStory : '');
+const lede = (i) => {
+  const t = body(i);
+  return t ? t.split(/\n\n/)[0] : '';
+};
+
+const BRANDS = [
+  ['openai', '#10a37f'], ['anthropic', '#d97757'], ['google', '#4285f4'], ['meta', '#0866ff'],
+  ['mistral', '#fa520f'], ['qwen', '#615cef'], ['deepseek', '#4d6bfe'], ['baidu', '#2932e1'],
+  ['x-ai', '#111111'], ['microsoft', '#0078d4'], ['nvidia', '#76b900'], ['amazon', '#ff9900'],
+  ['inclusion', '#1677ff'], ['thinking', '#8b5cf6'], ['nex', '#0ea5a4']
+];
+function brand(company) {
+  const key = String(company || '').toLowerCase();
+  let bg = (BRANDS.find(([k]) => key.includes(k)) || [])[1];
+  if (!bg) {
+    let h = 0;
+    for (const ch of key) h = (h * 31 + ch.charCodeAt(0)) % 360;
+    return { bg: `hsl(${h},60%,40%)`, fg: '#fff' };
+  }
+  const n = parseInt(bg.slice(1), 16);
+  const lin = (v) => { v /= 255; return v <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4; };
+  const L = 0.2126 * lin(n >> 16) + 0.7152 * lin((n >> 8) & 255) + 0.0722 * lin(n & 255);
+  return { bg, fg: L > 0.4 ? '#111827' : '#fff' };
+}
+const companyOf = (m) => String(m.company || 'AI Lab');
+const nameOf = (m) => {
+  const n = String(m.name || '').replace(/^[^:]+:\s*/, '');
+  const v = String(m.version || '');
+  const generic = /^(release|latest|open weights|text-generation|image-text-to-text)?$/i.test(v);
+  return generic || n.toLowerCase().includes(v.toLowerCase()) ? n : `${n} ${v}`;
+};
+
+const ai = ALL.filter((i) => i.category === 'AI' || i.category === 'LLM');
+const db = ALL.filter((i) => i.category === 'Databricks');
+const todays = ALL.filter(isToday);
+const rank = (a, b) => (b.aiAnalyzed ? 1 : 0) - (a.aiAnalyzed ? 1 : 0) || (b.importance || 5) - (a.importance || 5) || Date.parse(b.publishedAt) - Date.parse(a.publishedAt);
+const leadPool = (todays.length ? todays : ALL).filter((i) => i.category !== 'Databricks' || true).slice().sort(rank);
+const lead = leadPool[0];
+const countBy = (arr, key) => arr.reduce((m, i) => (m[i[key]] = (m[i[key]] || 0) + 1, m), {});
+
+
+const TABS = [
+  ['overview', 'Overview'], ['ai', 'AI News'], ['db', 'Databricks'], ['models', 'LLM Models'], ['sources', 'Sources']
+];
+const state = { tab: 'overview', ai: 'All', db: 'All', q: '' };
+const DOTS_AI = ['#00448e', '#7c3aed', '#0ea5a4', '#d97706', '#475569', '#16a34a', '#be185d'];
+const DOTS_DB = ['#ff6a55', '#3b82f6', '#8b5cf6', '#0d9488', '#d97706', '#db2777', '#64748b'];
+const $ = (id) => document.getElementById(id);
+
+$('stamp').innerHTML = `${esc(DATA.lastUpdated ? 'Updated ' + new Date(DATA.lastUpdated).toLocaleString([], { month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' }) : longDate(NOW))}<br>${ALL.length} stories &middot; 7-day window`;
+
+const counts = { ai: ai.length, db: db.length, models: MODELS.length };
+function renderTabs() {
+  $('tabs').innerHTML = TABS.map(([k, label]) => `<button class="tab ${state.tab === k ? 'on' : ''} ${k === 'db' ? 'db' : ''}" role="tab" aria-selected="${state.tab === k}" data-tab="${k}">${label}${counts[k] != null ? `<span class="n">${counts[k]}</span>` : ''}</button>`).join('');
+  document.body.classList.toggle('db', state.tab === 'db');
+}
+
+const matches = (i) => !state.q || [i.title, i.summary, i.source, i.topic].some((t) => String(t || '').toLowerCase().includes(state.q.toLowerCase()));
+
+const row = (i) => `
+  <details class="row">
+    <summary><span><b>${esc(headline(i))}</b>${i.aiAnalyzed ? '' : '<span class="flag">headline only</span>'}<span class="src">${esc(publisher(i))}</span></span><time>${esc(dateOf(i.publishedAt))}</time></summary>
+    <div class="detail">
+      ${lede(i) ? `<p>${esc(lede(i))}</p>` : '<p style="color:var(--muted)">Full article summary unavailable. Open the original for details.</p>'}
+      ${i.whyItMatters ? `<div class="why"><b>Why it matters</b>${esc(i.whyItMatters)}</div>` : ''}
+      <p style="margin-top:8px"><a href="${esc(i.url)}" target="_blank" rel="noopener">Read original &#8599;</a></p>
     </div>
-  </div>
-
-  <script>
-    let allItems = [];
-    let activeCategory = 'All';
-    let activeTopic = 'All';
-    let activeSource = 'All';
-    let searchQuery = '';
-    const dayOpenState = new Map(); // dayLabel -> the user's explicit open/closed choice
-
-    const AI_TOPIC_LIST = [
-      ['Business & Adoption', 'How companies and industries are using AI: deployments, ROI, workforce impact'],
-      ['AI Governance & Regulation', 'Laws, policy, export controls, lawsuits, copyright, safety rules'],
-      ['Models, Research & Advancement', 'New models, benchmarks, research and capability breakthroughs'],
-      ['Agents & Developer Tools', 'AI agents, coding assistants, SDKs and tools for building AI apps'],
-      ['Infrastructure & Compute', 'Chips, GPUs, data centers, inference serving and MLOps'],
-      ['Environment & Sustainability', 'Energy and water use, emissions, data-center power demand, climate applications'],
-      ['Funding & Markets', 'Funding rounds, valuations, acquisitions and vendor partnerships']
-    ];
-    const DB_TOPIC_LIST = [
-      ['Genie & AI/BI', 'Genie Agents, Genie One, Genie Code, Genie spaces and AI/BI dashboards'],
-      ['Unity Catalog & Governance', 'Unity Catalog, lineage, access control, sharing and data governance'],
-      ['Agent Bricks & Mosaic AI', 'Agent Bricks, Mosaic AI, Model Serving, Vector Search, MLflow and building AI on Databricks'],
-      ['Data Engineering & Lakeflow', 'Lakeflow, pipelines, Jobs, Delta Lake, ingestion and streaming'],
-      ['SQL & Warehousing', 'Databricks SQL, SQL warehouses, serverless, Photon and query performance'],
-      ['Apps & Lakebase', 'Databricks Apps, Lakebase (managed Postgres) and building apps on the platform'],
-      ['Platform & Administration', 'Runtime releases, compute, security, networking, admin and general platform updates']
-    ];
-
-    const feedEl = document.getElementById('news-feed');
-    const updatedEl = document.getElementById('last-updated');
-    const sourceEl = document.getElementById('source-filter');
-    const searchEl = document.getElementById('search');
-    const tabsEl = document.getElementById('tabs');
-    const topicBarEl = document.getElementById('topic-bar');
-    const modelsEl = document.getElementById('recent-models');
-    const backdropEl = document.getElementById('modal-backdrop');
-    const themeBtn = document.getElementById('theme-toggle');
-
-    function applyTheme(theme) {
-      document.documentElement.setAttribute('data-theme', theme);
-      themeBtn.textContent = theme === 'dark' ? '☀️ Light Mode' : '🌙 Dark Mode';
-    }
-
-    applyTheme(localStorage.getItem('theme') || 'light');
-    themeBtn.addEventListener('click', () => {
-      const next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-      localStorage.setItem('theme', next);
-      applyTheme(next);
-    });
-
-    const BRAND_COLORS = [
-      ['openai', '#10a37f'], ['anthropic', '#d97757'], ['google', '#4285f4'], ['deepmind', '#4285f4'],
-      ['meta', '#0866ff'], ['mistral', '#fa520f'], ['qwen', '#615cef'], ['alibaba', '#ff6a00'],
-      ['deepseek', '#4d6bfe'], ['baidu', '#2932e1'], ['x-ai', '#111111'], ['xai', '#111111'],
-      ['microsoft', '#0078d4'], ['nvidia', '#76b900'], ['amazon', '#ff9900'], ['aws', '#ff9900'],
-      ['apple', '#555555'], ['cohere', '#39594d'], ['hugging', '#ffd21e'], ['databricks', '#ff3621'],
-      ['moonshot', '#16a1ff'], ['kimi', '#16a1ff'], ['z-ai', '#2b59ff'], ['zhipu', '#2b59ff'],
-      ['minimax', '#e73562'], ['tencent', '#0052d9'], ['bytedance', '#325ab4'], ['inclusion', '#1677ff'],
-      ['perplexity', '#20808d'], ['ai21', '#e91e63'], ['stability', '#7c3aed'],
-      ['ibm', '#0f62fe'], ['snowflake', '#29b5e8'], ['nous', '#8b5cf6']
-    ];
-
-    function readableOn(color) {
-      const ctx = document.createElement('canvas').getContext('2d');
-      ctx.fillStyle = color;
-      const n = parseInt(ctx.fillStyle.slice(1), 16);
-      const lin = (v) => { v /= 255; return v <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4; };
-      const lum = 0.2126 * lin(n >> 16) + 0.7152 * lin((n >> 8) & 255) + 0.0722 * lin(n & 255);
-      return lum > 0.4 ? '#111827' : '#ffffff';
-    }
-
-    function applyBrand(el, company) {
-      const key = String(company || '').toLowerCase();
-      let color = (BRAND_COLORS.find(([k]) => key.includes(k)) || [])[1];
-      if (!color) {
-        // Unknown company: stable colour derived from its name so it stays distinct.
-        let h = 0;
-        for (const ch of key) h = (h * 31 + ch.charCodeAt(0)) % 360;
-        const ctx = document.createElement('canvas').getContext('2d');
-        ctx.fillStyle = `hsl(${h}, 62%, 40%)`;
-        color = ctx.fillStyle;
-      }
-      el.style.setProperty('--brand', color);
-      el.style.setProperty('--brand-fg', readableOn(color));
-    }
-
-    function formatRelative(iso) {
-      const diffMs = Date.now() - Date.parse(iso);
-      const mins = Math.floor(diffMs / 60000);
-      if (mins < 60) return `${Math.max(1, mins)}m ago`;
-      const hrs = Math.floor(mins / 60);
-      if (hrs < 24) return `${hrs}h ago`;
-      return `${Math.floor(hrs / 24)}d ago`;
-    }
-
-    function formatExact(iso) {
-      return new Date(iso).toLocaleString(undefined, {
-        month: 'short',
-        day: 'numeric',
-        year: 'numeric',
-        hour: 'numeric',
-        minute: '2-digit'
-      });
-    }
-
-    function getDayLabel(iso) {
-      const d = new Date(iso);
-      const today = new Date();
-      const yesterday = new Date();
-      yesterday.setDate(today.getDate() - 1);
-
-      if (d.toDateString() === today.toDateString()) return 'Today';
-      if (d.toDateString() === yesterday.toDateString()) return 'Yesterday';
-      return d.toLocaleDateString(undefined, { weekday: 'short', month: 'short', day: 'numeric' });
-    }
-
-    function openModal(item) {
-      const metaEl = document.getElementById('modal-meta');
-      metaEl.replaceChildren();
-
-      const badge = document.createElement('span');
-      badge.className = `badge ${item.category}`;
-      badge.textContent = item.category;
-
-      metaEl.append(badge);
-      if (item.topic) {
-        const topicTag = document.createElement('span');
-        topicTag.className = 'topic-tag';
-        topicTag.textContent = item.topic;
-        metaEl.append(topicTag);
-      }
-      metaEl.append(`${item.source} • ${formatExact(item.publishedAt)}`);
-
-      document.getElementById('modal-title').textContent = item.title;
-      document.getElementById('modal-story').previousElementSibling.textContent = 'Full Story';
-      document.getElementById('modal-story').textContent = item.fullStory || item.summary || '';
-      document.getElementById('modal-note').style.display = item.aiAnalyzed ? 'none' : 'block';
-      document.getElementById('modal-matters').previousElementSibling.textContent = 'Why It Matters';
-      document.getElementById('modal-matters').textContent = item.whyItMatters || '';
-      document.getElementById('modal-affected').parentElement.style.display = 'block';
-      document.getElementById('modal-affected').textContent = item.whoIsAffected || '';
-
-      const linkEl = document.getElementById('modal-link');
-      linkEl.style.display = 'inline-flex';
-      linkEl.href = item.url;
-
-      backdropEl.classList.add('open');
-      document.body.style.overflow = 'hidden';
-    }
-
-    function openModelModal(m) {
-      const metaEl = document.getElementById('modal-meta');
-      metaEl.replaceChildren();
-
-      const badge = document.createElement('span');
-      badge.className = 'badge';
-      applyBrand(badge, m.company);
-      badge.style.background = 'var(--brand)';
-      badge.style.color = 'var(--brand-fg)';
-      badge.textContent = m.company || 'AI Lab';
-
-      metaEl.append(badge, `Version: ${m.version || 'Latest'} • Released: ${m.releaseDate || 'Past 7 days'}`);
-
-      document.getElementById('modal-title').textContent = m.name || 'Model';
-      document.getElementById('modal-note').style.display = 'none';
-      document.getElementById('modal-story').previousElementSibling.textContent = 'Model Description';
-      document.getElementById('modal-story').textContent = m.fullDescription || m.description || '';
-      document.getElementById('modal-matters').previousElementSibling.textContent = "How It's Different";
-      document.getElementById('modal-matters').textContent = m.howItIsDifferent || '';
-      document.getElementById('modal-affected').parentElement.style.display = 'none';
-      document.getElementById('modal-link').style.display = 'none';
-
-      backdropEl.classList.add('open');
-      document.body.style.overflow = 'hidden';
-    }
-
-    function closeModal() {
-      backdropEl.classList.remove('open');
-      document.body.style.overflow = '';
-    }
-
-    document.getElementById('modal-close').addEventListener('click', closeModal);
-    document.getElementById('modal-close-btn').addEventListener('click', closeModal);
-    backdropEl.addEventListener('click', (e) => {
-      if (e.target === backdropEl) closeModal();
-    });
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') closeModal();
-    });
-
-    function populateSources() {
-      const sources = [...new Set(allItems.map((i) => i.source))].sort();
-      sourceEl.replaceChildren(new Option('All Sources', 'All'));
-      for (const s of sources) {
-        sourceEl.appendChild(new Option(s, s));
-      }
-    }
-
-    function renderFeed() {
-      const q = searchQuery.trim().toLowerCase();
-      const filtered = allItems
-        .filter((item) => {
-          const matchesCat = activeCategory === 'All' || item.category === activeCategory;
-          const matchesTopic = activeTopic === 'All' || item.topic === activeTopic;
-          const matchesSrc = activeSource === 'All' || item.source === activeSource;
-          const matchesQuery =
-            !q ||
-            item.title.toLowerCase().includes(q) ||
-            (item.summary || '').toLowerCase().includes(q) ||
-            (item.source || '').toLowerCase().includes(q) ||
-            (item.topic || '').toLowerCase().includes(q);
-          return matchesCat && matchesTopic && matchesSrc && matchesQuery;
-        })
-        .sort((a, b) => Date.parse(b.publishedAt) - Date.parse(a.publishedAt));
-
-      feedEl.replaceChildren();
-
-      if (filtered.length === 0) {
-        const empty = document.createElement('div');
-        empty.className = 'empty';
-        empty.textContent = 'No matching articles in the past 7 days.';
-        feedEl.appendChild(empty);
-        return;
-      }
-
-      const groups = new Map();
-      for (const item of filtered) {
-        const label = getDayLabel(item.publishedAt);
-        if (!groups.has(label)) groups.set(label, []);
-        groups.get(label).push(item);
-      }
-
-      const firstLabel = groups.keys().next().value;
-      const searching = q.length > 0;
-
-      for (const [dayLabel, dayItems] of groups) {
-        const section = document.createElement('div');
-        section.className = 'day-group';
-
-        // Today is open; older days are collapsed unless the user opened them (or a search is active).
-        // If nothing is from today, the newest day stays open so the page is never fully collapsed.
-        const defaultOpen = dayLabel === 'Today' || (!groups.has('Today') && dayLabel === firstLabel);
-        const isOpen = searching || (dayOpenState.has(dayLabel) ? dayOpenState.get(dayLabel) : defaultOpen);
-        section.classList.toggle('collapsed', !isOpen);
-
-        const heading = document.createElement('h2');
-        heading.className = 'day-heading';
-        const toggle = document.createElement('button');
-        toggle.type = 'button';
-        toggle.className = 'day-toggle';
-        toggle.setAttribute('aria-expanded', String(isOpen));
-        const chevron = document.createElement('span');
-        chevron.className = 'day-chevron';
-        chevron.textContent = '\u25BC';
-        const hint = document.createElement('span');
-        hint.className = 'day-hint';
-        hint.textContent = isOpen ? 'Click to collapse' : 'Click to expand';
-        toggle.append(chevron, `${dayLabel} (${dayItems.length})`, hint);
-        toggle.addEventListener('click', () => {
-          const nowOpen = section.classList.contains('collapsed');
-          section.classList.toggle('collapsed', !nowOpen);
-          toggle.setAttribute('aria-expanded', String(nowOpen));
-          hint.textContent = nowOpen ? 'Click to collapse' : 'Click to expand';
-          dayOpenState.set(dayLabel, nowOpen);
-        });
-        heading.appendChild(toggle);
-        section.appendChild(heading);
-
-        const list = document.createElement('div');
-        list.className = 'feed-list';
-
-        const topItem = [...dayItems].sort((a, b) => (b.importance || 5) - (a.importance || 5))[0];
-
-        dayItems.forEach((item) => {
-          const card = document.createElement('article');
-          const isWide = item === topItem && (dayItems.length === 1 || dayItems.length % 2 === 1);
-          card.className = `${isWide ? 'card bento-wide' : 'card'} cat-${item.category}`;
-          card.tabIndex = 0;
-          card.addEventListener('click', () => openModal(item));
-          card.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter' || e.key === ' ') {
-              e.preventDefault();
-              openModal(item);
-            }
-          });
-
-          const top = document.createElement('div');
-          const meta = document.createElement('div');
-          meta.className = 'card-meta';
-
-          const metaLeft = document.createElement('div');
-          metaLeft.className = 'card-meta-left';
-
-          const badge = document.createElement('span');
-          badge.className = `badge ${item.category}`;
-          badge.textContent = item.category;
-          metaLeft.append(badge);
-
-          if (item.topic) {
-            const topicTag = document.createElement('span');
-            topicTag.className = 'topic-tag';
-            topicTag.textContent = item.topic;
-            metaLeft.append(topicTag);
-          }
-
-          const source = document.createElement('span');
-          source.textContent = item.source;
-          metaLeft.append(source);
-
-          if (!item.aiAnalyzed) {
-            const flag = document.createElement('span');
-            flag.className = 'headline-only';
-            flag.textContent = 'Headline only';
-            flag.title = 'Full article text was not available to summarize';
-            metaLeft.append(flag);
-          }
-
-          const time = document.createElement('span');
-          time.textContent = formatRelative(item.publishedAt);
-          time.title = formatExact(item.publishedAt);
-
-          meta.append(metaLeft, time);
-
-          const title = document.createElement('h2');
-          title.textContent = item.title;
-
-          const summary = document.createElement('p');
-          summary.className = 'card-summary';
-          summary.textContent = item.summary || '';
-
-          top.append(meta, title, summary);
-
-          const cta = document.createElement('div');
-          cta.className = 'card-cta';
-          cta.innerHTML = '<span>Read summary &amp; impact</span><span>→</span>';
-
-          card.append(top, cta);
-          list.appendChild(card);
-        });
-
-        section.appendChild(list);
-        feedEl.appendChild(section);
-      }
-    }
-
-    function renderModels(tracker = {}) {
-      const models = tracker.recentModels || [];
-      modelsEl.replaceChildren();
-
-      if (models.length === 0) {
-        const empty = document.createElement('div');
-        empty.className = 'empty';
-        empty.textContent = 'Run the workflow to populate recent LLM models.';
-        modelsEl.appendChild(empty);
-        return;
-      }
-
-      for (const m of models) {
-        const card = document.createElement('button');
-        card.type = 'button';
-        card.className = 'llm-card';
-        applyBrand(card, m.company);
-        card.addEventListener('click', () => openModelModal(m));
-
-        const top = document.createElement('div');
-        top.className = 'llm-top';
-
-        const company = document.createElement('span');
-        company.className = 'llm-company';
-        company.textContent = m.company || 'AI Lab';
-
-        const version = document.createElement('span');
-        version.className = 'llm-version';
-        version.textContent = m.version || '';
-
-        top.append(company, version);
-
-        const name = document.createElement('div');
-        name.className = 'llm-name';
-        name.textContent = m.name || 'Model';
-
-        const dateEl = document.createElement('div');
-        dateEl.className = 'llm-date';
-        dateEl.textContent = `Released: ${m.releaseDate || 'Past 7 days'}`;
-
-        const desc = document.createElement('p');
-        desc.className = 'llm-desc';
-        desc.textContent = m.description || '';
-
-        card.append(top, name, dateEl, desc);
-        modelsEl.appendChild(card);
-      }
-    }
-
-    function renderSources(data) {
-      const metaEl = document.getElementById('refresh-meta');
-      const poolEl = document.getElementById('source-pool');
-      const meta = data.meta || {};
-
-      metaEl.replaceChildren();
-      const rows = [
-        ['Last Refreshed', data.lastUpdated ? `${formatExact(data.lastUpdated)} (${formatRelative(data.lastUpdated)})` : 'Pending'],
-        ['Schedule', meta.schedule || 'Twice daily (8:00 AM & 2:00 PM CST)'],
-        ['Coverage', `Past ${meta.windowDays || 7} days`],
-        ['Analysis', meta.aiSummarizer || 'Gemini']
-      ];
-      for (const [k, v] of rows) {
-        const div = document.createElement('div');
-        const strong = document.createElement('strong');
-        strong.textContent = `${k}: `;
-        div.append(strong, v);
-        metaEl.appendChild(div);
-      }
-
-      poolEl.replaceChildren();
-      for (const s of meta.sources || []) {
-        const row = document.createElement('div');
-        row.className = 'source-row';
-
-        const left = document.createElement('div');
-        const name = document.createElement('div');
-        name.style.fontWeight = '600';
-        name.textContent = s.name;
-        const origin = document.createElement('div');
-        origin.className = 'source-origin';
-        origin.textContent = `${s.origin} • ${s.type}`;
-        left.append(name, origin);
-
-        const badge = document.createElement('span');
-        badge.className = 'source-badge';
-        badge.textContent = `${s.count} items`;
-
-        row.append(left, badge);
-        poolEl.appendChild(row);
-      }
-    }
-
-    function buildTopicBar() {
-      const isDb = activeCategory === 'Databricks';
-      const list = isDb ? DB_TOPIC_LIST : AI_TOPIC_LIST;
-      topicBarEl.replaceChildren();
-
-      const label = document.createElement('span');
-      label.className = 'sub-label';
-      label.textContent = isDb ? 'Databricks Topics:' : 'AI Topics:';
-      topicBarEl.appendChild(label);
-
-      for (const [topic, hint] of [['All', ''], ...list]) {
-        const pill = document.createElement('button');
-        pill.type = 'button';
-        pill.className = 'topic-pill' + (topic === activeTopic ? ' active' : '');
-        pill.dataset.topic = topic;
-        pill.textContent = topic === 'All' ? 'All Topics' : topic;
-        if (hint) pill.title = hint;
-        topicBarEl.appendChild(pill);
-      }
-    }
-
-    tabsEl.addEventListener('click', (e) => {
-      const btn = e.target.closest('.tab');
-      if (!btn) return;
-      const prevIsDb = activeCategory === 'Databricks';
-      activeCategory = btn.dataset.category;
-      for (const tab of tabsEl.querySelectorAll('.tab')) {
-        tab.classList.toggle('active', tab === btn);
-      }
-      // Databricks and AI use different topic sets, so reset the topic when switching between them.
-      if (prevIsDb !== (activeCategory === 'Databricks')) activeTopic = 'All';
-      buildTopicBar();
-      renderFeed();
-    });
-
-    topicBarEl.addEventListener('click', (e) => {
-      const pill = e.target.closest('.topic-pill');
-      if (!pill) return;
-      activeTopic = pill.dataset.topic;
-      for (const p of topicBarEl.querySelectorAll('.topic-pill')) {
-        p.classList.toggle('active', p === pill);
-      }
-      renderFeed();
-    });
-
-    sourceEl.addEventListener('change', (e) => {
-      activeSource = e.target.value;
-      renderFeed();
-    });
-
-    searchEl.addEventListener('input', (e) => {
-      searchQuery = e.target.value;
-      renderFeed();
-    });
-
-    async function init() {
-      try {
-        const res = await fetch('./data/news.json', { cache: 'no-store' });
-        if (!res.ok) throw new Error(`HTTP ${res.status}`);
-        const data = await res.json();
-        const tracker = data.llmTracker || {};
-        // Older data files used previous topic names; map them onto the current topics.
-        const LEGACY_TOPICS = {
-          'Models & Research': 'Models, Research & Advancement',
-          'Agents & Coding': 'Agents & Developer Tools',
-          'Enterprise & Strategy': 'Business & Adoption',
-          'Infrastructure & MLOps': 'Infrastructure & Compute',
-          'Policy & Safety': 'AI Governance & Regulation'
-        };
-        allItems = [...(data.items || []), ...(tracker.modelNews || [])].map((i) =>
-          i.topic && LEGACY_TOPICS[i.topic] ? { ...i, topic: LEGACY_TOPICS[i.topic] } : i
-        );
-        updatedEl.textContent = data.lastUpdated
-          ? `Last updated: ${formatExact(data.lastUpdated)} (${allItems.length} articles)`
-          : 'Waiting for first run';
-        populateSources();
-        renderFeed();
-        renderModels(tracker);
-        renderSources(data);
-      } catch (err) {
-        updatedEl.textContent = 'Could not load news.json';
-        console.error(err);
-      }
-    }
-
-    buildTopicBar();
-    init();
-  </script>
+  </details>`;
+
+function modelCard(m, full) {
+  const b = brand(companyOf(m));
+  return `<div class="model" style="--c:${b.bg};--f:${b.fg}"><span class="co">${esc(companyOf(m))}</span><b>${esc(nameOf(m))}</b><small>Released ${esc(m.releaseDate)}</small>
+    ${full ? `${m.fullDescription || m.description ? `<p>${esc(m.fullDescription || m.description)}</p>` : ''}${m.howItIsDifferent ? `<div class="diff"><b>How it is different</b>${esc(m.howItIsDifferent)}</div>` : ''}` : ''}</div>`;
+}
+
+/* ---------- Overview ---------- */
+function overview() {
+  if (!ALL.length) return '<div class="empty">No stories yet. Run the workflow to populate the briefing.</div>';
+  const topTopic = Object.entries(countBy(ai.filter((i) => i.topic), 'topic')).sort((a, b) => b[1] - a[1])[0];
+  const stats = [
+    ['ai', todays.length, 'Stories today', `${todays.filter((i) => i.aiAnalyzed).length} fully summarized`],
+    ['db', db.length, 'Databricks updates', 'this week'],
+    ['models', MODELS.length, 'New LLM models', MODELS.slice(0, 2).map(nameOf).join(', ')],
+    ['ai', topTopic ? topTopic[1] : 0, 'Top AI topic', topTopic ? topTopic[0] : '']
+  ].map(([t, n, l, s]) => `<button class="stat" data-go="${t}"><b>${esc(n)}</b><span>${esc(l)}</span><small>${esc(s)}</small></button>`).join('');
+
+  const also = leadPool.filter((i) => i !== lead).slice(0, 5);
+  const aiC = countBy(ai, 'topic'), dbC = countBy(db, 'topic');
+  const tiles = (topics, kind, c) => topics.map((t) => `<button class="tile ${c[t] ? '' : 'zero'}" data-go="${kind}" data-topic="${esc(t)}"><span>${esc(t)}</span><b>${c[t] || 0}</b></button>`).join('');
+
+  return `
+  <div class="stats">${stats}</div>
+  <section class="hero">
+    <article class="lead">
+      <span class="tag">LEAD STORY &middot; ${esc(lead.topic || lead.category)}</span>
+      <h2>${esc(headline(lead))}</h2>
+      <p>${esc(lede(lead) || 'Headline-level item: the full article text was not available to summarize.')}</p>
+      <div class="why"><b>Why it matters</b>${esc(lead.whyItMatters || '')}</div>
+      <p style="margin:12px 0 0"><a href="${esc(lead.url)}" target="_blank" rel="noopener">${esc(publisher(lead))} &#8599;</a></p>
+    </article>
+    <aside class="top5"><h3 class="mini">Also making news today</h3>
+      <ol>${also.map((i) => `<li><span><a href="${esc(i.url)}" target="_blank" rel="noopener">${esc(headline(i))}</a><small>${esc(i.topic || i.category)} &middot; ${esc(publisher(i))}</small></span></li>`).join('')}</ol>
+    </aside>
+  </section>
+  <section class="block"><h2 class="sec">New LLM models<a data-go="models">View all ${MODELS.length} &rarr;</a></h2>
+    <div class="models-strip">${MODELS.slice(0, 6).map((m) => modelCard(m, false)).join('')}</div></section>
+  <section class="snap block">
+    <div class="snap-card ai"><h2 class="sec">AI news by topic<span>jump to a topic</span></h2><div class="tiles">${tiles(AI_TOPICS, 'ai', aiC)}</div></div>
+    <div class="snap-card db"><h2 class="sec">Databricks by topic<span>jump to a topic</span></h2><div class="tiles">${tiles(DB_TOPICS, 'db', dbC)}</div></div>
+  </section>`;
+}
+
+/* ---------- AI / Databricks tabs ---------- */
+function newsShell(kind) {
+  const list = kind === 'ai' ? ai : db, topics = kind === 'ai' ? AI_TOPICS : DB_TOPICS;
+  const c = countBy(list, 'topic');
+  const chips = `<button class="chip ${state[kind] === 'All' ? 'on' : ''}" data-topic="All">All topics<span class="n">${list.length}</span></button>` +
+    topics.filter((t) => c[t]).map((t) => `<button class="chip ${state[kind] === t ? 'on' : ''}" data-topic="${esc(t)}">${esc(t)}<span class="n">${c[t]}</span></button>`).join('');
+  return `<div class="toolbar"><div class="chips" id="chips">${chips}</div>
+    <input class="search" id="q" type="search" placeholder="Search ${kind === 'ai' ? 'AI news' : 'Databricks'}..." value="${esc(state.q)}" aria-label="Search" /></div>
+    <div id="results"></div>`;
+}
+
+function newsResults(kind) {
+  const list = (kind === 'ai' ? ai : db).filter(matches), topics = kind === 'ai' ? AI_TOPICS : DB_TOPICS;
+  const dots = kind === 'ai' ? DOTS_AI : DOTS_DB, sel = state[kind];
+  if (!list.length) return '<div class="empty">No stories match.</div>';
+
+  if (sel === 'All') {
+    return `<div class="topics">${topics.map((t, idx) => {
+      const items = list.filter((i) => i.topic === t);
+      if (!items.length) return '';
+      return `<div class="panel" style="--dot:${dots[idx % dots.length]}"><h4><i></i>${esc(t)}<em>${items.length}</em></h4>
+        ${items.slice(0, 3).map(row).join('')}
+        ${items.length > 3 ? `<button class="all" data-topic="${esc(t)}">See all ${items.length} in ${esc(t)} &rarr;</button>` : ''}</div>`;
+    }).join('')}</div>`;
+  }
+  const items = list.filter((i) => i.topic === sel);
+  if (!items.length) return '<div class="empty">No stories match.</div>';
+  const groups = new Map();
+  for (const i of items) { const k = dayLabel(i.publishedAt); if (!groups.has(k)) groups.set(k, []); groups.get(k).push(i); }
+  const first = groups.keys().next().value;
+  return [...groups].map(([label, g]) => `<details class="daygroup" ${(state.q || label === 'Today' || (!groups.has('Today') && label === first)) ? 'open' : ''}>
+    <summary>${esc(label)}<span>${g.length} ${g.length === 1 ? 'story' : 'stories'}</span></summary><div class="cols">${g.map(row).join('')}</div></details>`).join('');
+}
+
+/* ---------- Models + Sources ---------- */
+const modelsView = () => `<h2 class="sec">New LLM models<span>${MODELS.length} released in the past 7 days</span></h2><div class="models-grid">${MODELS.map((m) => modelCard(m, true)).join('')}</div>`;
+function sourcesView() {
+  const meta = DATA.meta || {};
+  const rows = (meta.sources || []).map((s) => `<div class="srcrow"><div><b>${esc(s.name)}</b><small>${esc(s.origin || '')}${s.type ? ' &middot; ' + esc(s.type) : ''}</small></div><span class="cnt">${esc(s.count ?? '')} items</span></div>`).join('');
+  return `<div class="kv">
+    <div><small>Last refreshed</small><b>${esc(longDate(new Date(DATA.lastUpdated || NOW)))}</b></div>
+    <div><small>Schedule</small><b>${esc(meta.schedule || 'Twice daily')}</b></div>
+    <div><small>Coverage</small><b>Past ${esc(meta.windowDays || 7)} days</b></div>
+    <div><small>Analysis</small><b>${esc(meta.aiSummarizer || 'Gemini')}</b></div></div>
+    <h2 class="sec">Data sources</h2><div class="srcgrid">${rows}</div>`;
+}
+
+/* ---------- routing ---------- */
+function render(keepScroll) {
+  renderTabs();
+  const v = $('view');
+  if (state.tab === 'overview') v.innerHTML = overview();
+  else if (state.tab === 'models') v.innerHTML = modelsView();
+  else if (state.tab === 'sources') v.innerHTML = sourcesView();
+  else { v.innerHTML = newsShell(state.tab); $('results').innerHTML = newsResults(state.tab); }
+  try { history.replaceState(null, '', '#' + state.tab); } catch (e) {}
+  if (!keepScroll) window.scrollTo({ top: 0 });
+}
+function go(tab, topic) {
+  if (tab === 'ai' || tab === 'db') state[tab] = topic || 'All';
+  state.tab = tab; state.q = '';
+  render();
+}
+
+$('tabs').addEventListener('click', (e) => { const b = e.target.closest('.tab'); if (b) go(b.dataset.tab); });
+$('view').addEventListener('click', (e) => {
+  const g = e.target.closest('[data-go]');
+  if (g) { go(g.dataset.go, g.dataset.topic); return; }
+  const t = e.target.closest('[data-topic]');
+  if (t && (state.tab === 'ai' || state.tab === 'db')) { state[state.tab] = t.dataset.topic; render(); }
+});
+$('view').addEventListener('input', (e) => {
+  if (e.target.id !== 'q') return;
+  state.q = e.target.value;
+  $('results').innerHTML = newsResults(state.tab);
+});
+
+const hashVal = decodeURIComponent((location.hash || '').slice(1));
+const cut = hashVal.indexOf('/');
+const initial = cut < 0 ? hashVal : hashVal.slice(0, cut);
+const initialTopic = cut < 0 ? '' : hashVal.slice(cut + 1);
+if (TABS.some(([k]) => k === initial)) state.tab = initial;
+if ((initial === 'ai' || initial === 'db') && initialTopic) state[initial] = initialTopic;
+render(true);
+})();
+</script>
 </body>
 </html>
