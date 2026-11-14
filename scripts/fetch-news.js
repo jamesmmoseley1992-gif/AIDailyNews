@@ -172,7 +172,7 @@ const TOPIC_INSIGHTS = {
 // Ordered: first match wins. Specific/high-signal topics go before broad ones.
 const TOPIC_RULES = [
   ['AI Governance & Regulation', /\b(regulat\w*|legislat\w*|lawmakers?|senate|congress|eu ai act|export controls?|lawsuit|sues?|sued|copyright|antitrust|privacy|ai safety|safety|policy|policies|ban|banned|compliance|governance|executive order)\b/],
-  ['Environment & Sustainability', /\b(environment\w*|sustainab\w*|climate|carbon|emissions?|net[- ]zero|renewables?|water use|energy (use|consumption|demand)|power (demand|consumption|grid)|electricity|nuclear|esg|green|greenhouse|e-waste)\b/],
+  ['Environment & Sustainability', /\b(environment\w*|sustainab\w*|climate|carbon (footprint|neutral|capture|credits|dioxide|emissions?|removal)|emissions?|net[- ]zero|renewables?|water use|energy (use|consumption|demand)|power (demand|consumption|grid)|electricity|nuclear|esg|green|greenhouse|e-waste)\b/],
   ['Funding & Markets', /\b(raises?|raised|funding|series [a-e]|valuation|acqui\w*|merger|ipo|invest\w*|backed|billion|million|partnership)\b/],
   ['Infrastructure & Compute', /\b(gpus?|chips?|data cent\w+|datacenters?|inference|mlops|kubernetes|safetensors|quantiz\w*|latency|clusters?|vram|compute|semiconductors?|tpus?)\b/],
   ['Agents & Developer Tools', /\b(agents?|agentic|coding|copilot|mcp|tool[- ]use|developers?|sdk|api|ide|cursor|codex)\b/],
