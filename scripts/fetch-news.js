@@ -54,7 +54,9 @@ const AI_TOPICS = [
 const DAYS_BACK = 7;
 const MAX_PER_SOURCE = 25;
 const MAX_TOTAL_ITEMS = 120;
-const MAX_AI_PER_RUN = 15;
+const MAX_AI_PER_RUN = 40;
+const SUMMARY_VERSION = 2; // bump to force re-analysis of cached summaries
+const ARTICLE_CHARS = 12000;
 const AI_DELAY_MS = 1500;
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY || '';
 
@@ -185,11 +187,13 @@ async function loadExistingCache(outPath) {
   try {
     const raw = await fs.readFile(outPath, 'utf8');
     const existing = JSON.parse(raw);
+    const usable = (it) =>
+      it.url && it.aiAnalyzed && it.summaryVersion === SUMMARY_VERSION && !isBroken(it);
     for (const item of existing.items || []) {
-      if (item.url && item.aiAnalyzed && !isBroken(item)) cache.set(item.url, item);
+      if (usable(item)) cache.set(item.url, item);
     }
     for (const item of existing.llmTracker?.modelNews || []) {
-      if (item.url && item.aiAnalyzed && !isBroken(item)) cache.set(item.url, item);
+      if (usable(item)) cache.set(item.url, item);
     }
   } catch {
     // No existing cache yet
@@ -198,6 +202,8 @@ async function loadExistingCache(outPath) {
 }
 
 async function fetchArticleText(url) {
+  // Google News links are redirect stubs; fetching them never returns the article body.
+  if (new URL(url).hostname === 'news.google.com') return '';
   try {
     const res = await fetch(url, {
       signal: AbortSignal.timeout(8000),
@@ -210,7 +216,7 @@ async function fetchArticleText(url) {
       .replace(/<style[\s\S]*?<\/style>/gi, ' ')
       .replace(/<nav[\s\S]*?<\/nav>/gi, ' ')
       .replace(/<footer[\s\S]*?<\/footer>/gi, ' ');
-    return truncate(stripHtml(cleaned), 3000);
+    return truncate(stripHtml(cleaned), ARTICLE_CHARS);
   } catch {
     return '';
   }
@@ -263,7 +269,7 @@ async function analyzeWithGemini(item) {
       : `- "topic": Exactly one of: ${AI_TOPICS.map((t) => `"${t}"`).join(', ')}`;
 
   const prompt = `Analyze this tech/AI news item and return ONLY valid JSON with five keys:
-- "fullStory": A clear 2-paragraph summary of what happened, separated by "\\n\\n". Never complain about missing text.
+- "fullStory": A thorough 3-4 paragraph summary separated by "\\n\\n". Cover who did what and when, the key facts, figures, names and quotes, the context, and any stated consequences or next steps. Use ONLY facts present in the article text; do not speculate or write "likely" or "may have". Never complain about missing text.
 - "whyItMatters": 1-2 concise sentences explaining why this specific news matters.
 - "whoIsAffected": 1 concise sentence naming the specific roles, teams, or users affected.
 - "importance": Integer 1-10 (10 = major model release, Databricks LTS/platform launch, or industry-wide shift; 1-4 = minor blog post or niche benchmark).
@@ -292,7 +298,8 @@ Article Text: ${contextText}`;
     whoIsAffected: parsed.whoIsAffected.trim(),
     importance: Number(parsed.importance) || 5,
     topic: validTopic,
-    summary: truncate(parsed.fullStory.replace(/\s+/g, ' '), 180)
+    summaryVersion: SUMMARY_VERSION,
+    summary: truncate(parsed.fullStory.split(/\n\n/)[0].replace(/\s+/g, ' '), 260)
   };
 }
 
@@ -318,6 +325,7 @@ async function enrichItems(items, cache) {
         whoIsAffected: cached.whoIsAffected,
         importance: cached.importance ?? rest.importance ?? 5,
         topic: cached.topic ?? rest.topic,
+        summaryVersion: SUMMARY_VERSION,
         aiAnalyzed: true
       });
       continue;
@@ -369,7 +377,7 @@ async function fetchFeed(feed, maxItems = MAX_PER_SOURCE) {
         importance: insights.importance,
         publishedAt: new Date(publishedMs).toISOString(),
         summary: truncate(cleanLong, 180),
-        rawText: truncate(cleanLong, 1800),
+        rawText: truncate(cleanLong, 6000),
         fullStory: summarizeToTwoParagraphs(cleanLong, cleanTitle),
         whyItMatters: insights.whyItMatters,
         whoIsAffected: insights.whoIsAffected,

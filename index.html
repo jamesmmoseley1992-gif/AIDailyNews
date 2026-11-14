@@ -226,14 +226,68 @@
     .day-group { margin-bottom: 2rem; }
 
     .day-heading {
+      margin: 0 0 0.8rem;
+      font-size: inherit;
+    }
+
+    .day-toggle {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+      padding: 0.45rem 0.1rem;
+      background: none;
+      border: 0;
+      border-bottom: 2px solid var(--border);
+      cursor: pointer;
+      font: inherit;
       font-size: 0.78rem;
       text-transform: uppercase;
       letter-spacing: 0.06em;
       color: var(--accent);
       font-weight: 700;
-      margin: 0 0 0.8rem;
-      padding-bottom: 0.35rem;
-      border-bottom: 2px solid var(--border);
+      text-align: left;
+    }
+
+    .day-toggle:hover { border-bottom-color: var(--accent); }
+
+    .day-chevron {
+      display: inline-block;
+      transition: transform 0.15s ease;
+      font-size: 0.7rem;
+    }
+
+    .day-group.collapsed .day-chevron { transform: rotate(-90deg); }
+    .day-group.collapsed .feed-list { display: none; }
+    .day-group.collapsed .day-heading { margin-bottom: 0; }
+
+    .day-hint {
+      margin-left: auto;
+      font-size: 0.72rem;
+      font-weight: 500;
+      text-transform: none;
+      letter-spacing: 0;
+      color: var(--muted);
+    }
+
+    .headline-only {
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--muted);
+      border: 1px dashed var(--border);
+      border-radius: 6px;
+      padding: 0.05rem 0.4rem;
+    }
+
+    .modal-note {
+      display: none;
+      font-size: 0.8rem;
+      color: var(--text);
+      background: var(--gold-soft);
+      border: 1px solid var(--gold);
+      border-radius: 6px;
+      padding: 0.55rem 0.8rem;
+      margin-bottom: 0.9rem;
     }
 
     .feed-list {
@@ -351,6 +405,17 @@
       top: 5rem;
       display: grid;
       gap: 1rem;
+      align-content: start;
+      max-height: calc(100vh - 6rem);
+      overflow-y: auto;
+      overscroll-behavior: contain;
+      padding-right: 0.35rem;
+      scrollbar-width: thin;
+      scrollbar-color: var(--border) transparent;
+    }
+
+    @media (max-width: 1024px) {
+      .sidebar { position: static; max-height: none; overflow: visible; padding-right: 0; }
     }
 
     .panel {
@@ -379,6 +444,9 @@
     }
 
     .llm-card {
+      --brand: var(--accent);
+      --brand-fg: #fff;
+      border-left: 5px solid var(--brand);
       display: block;
       width: 100%;
       text-align: left;
@@ -392,7 +460,7 @@
     }
 
     .llm-card:hover {
-      border-color: var(--accent);
+      border-color: var(--brand);
       transform: translateY(-1px);
     }
 
@@ -409,9 +477,9 @@
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.04em;
-      color: var(--llm-text);
-      background: var(--llm-bg);
-      padding: 0.1rem 0.45rem;
+      color: var(--brand-fg);
+      background: var(--brand);
+      padding: 0.1rem 0.5rem;
       border-radius: 4px;
     }
 
@@ -675,6 +743,9 @@
       <div class="modal-meta" id="modal-meta"></div>
       <h2 id="modal-title"></h2>
 
+      <div class="modal-note" id="modal-note">
+        Headline-level summary only: the full article text was not available to analyze, so this may not cover the whole story. Use &ldquo;Read Original Article&rdquo; for complete details.
+      </div>
       <div class="modal-block">
         <h4>Full Story</h4>
         <p id="modal-story"></p>
@@ -703,6 +774,7 @@
     let activeTopic = 'All';
     let activeSource = 'All';
     let searchQuery = '';
+    const dayOpenState = new Map(); // dayLabel -> the user's explicit open/closed choice
 
     const feedEl = document.getElementById('news-feed');
     const updatedEl = document.getElementById('last-updated');
@@ -725,6 +797,42 @@
       localStorage.setItem('theme', next);
       applyTheme(next);
     });
+
+    const BRAND_COLORS = [
+      ['openai', '#10a37f'], ['anthropic', '#d97757'], ['google', '#4285f4'], ['deepmind', '#4285f4'],
+      ['meta', '#0866ff'], ['mistral', '#fa520f'], ['qwen', '#615cef'], ['alibaba', '#ff6a00'],
+      ['deepseek', '#4d6bfe'], ['baidu', '#2932e1'], ['x-ai', '#111111'], ['xai', '#111111'],
+      ['microsoft', '#0078d4'], ['nvidia', '#76b900'], ['amazon', '#ff9900'], ['aws', '#ff9900'],
+      ['apple', '#555555'], ['cohere', '#39594d'], ['hugging', '#ffd21e'], ['databricks', '#ff3621'],
+      ['moonshot', '#16a1ff'], ['kimi', '#16a1ff'], ['z-ai', '#2b59ff'], ['zhipu', '#2b59ff'],
+      ['minimax', '#e73562'], ['tencent', '#0052d9'], ['bytedance', '#325ab4'], ['inclusion', '#1677ff'],
+      ['perplexity', '#20808d'], ['ai21', '#e91e63'], ['stability', '#7c3aed'],
+      ['ibm', '#0f62fe'], ['snowflake', '#29b5e8'], ['nous', '#8b5cf6']
+    ];
+
+    function readableOn(color) {
+      const ctx = document.createElement('canvas').getContext('2d');
+      ctx.fillStyle = color;
+      const n = parseInt(ctx.fillStyle.slice(1), 16);
+      const lin = (v) => { v /= 255; return v <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4; };
+      const lum = 0.2126 * lin(n >> 16) + 0.7152 * lin((n >> 8) & 255) + 0.0722 * lin(n & 255);
+      return lum > 0.4 ? '#111827' : '#ffffff';
+    }
+
+    function applyBrand(el, company) {
+      const key = String(company || '').toLowerCase();
+      let color = (BRAND_COLORS.find(([k]) => key.includes(k)) || [])[1];
+      if (!color) {
+        // Unknown company: stable colour derived from its name so it stays distinct.
+        let h = 0;
+        for (const ch of key) h = (h * 31 + ch.charCodeAt(0)) % 360;
+        const ctx = document.createElement('canvas').getContext('2d');
+        ctx.fillStyle = `hsl(${h}, 62%, 40%)`;
+        color = ctx.fillStyle;
+      }
+      el.style.setProperty('--brand', color);
+      el.style.setProperty('--brand-fg', readableOn(color));
+    }
 
     function formatRelative(iso) {
       const diffMs = Date.now() - Date.parse(iso);
@@ -776,6 +884,7 @@
       document.getElementById('modal-title').textContent = item.title;
       document.getElementById('modal-story').previousElementSibling.textContent = 'Full Story';
       document.getElementById('modal-story').textContent = item.fullStory || item.summary || '';
+      document.getElementById('modal-note').style.display = item.aiAnalyzed ? 'none' : 'block';
       document.getElementById('modal-matters').previousElementSibling.textContent = 'Why It Matters';
       document.getElementById('modal-matters').textContent = item.whyItMatters || '';
       document.getElementById('modal-affected').parentElement.style.display = 'block';
@@ -794,12 +903,16 @@
       metaEl.replaceChildren();
 
       const badge = document.createElement('span');
-      badge.className = 'badge LLM';
+      badge.className = 'badge';
+      applyBrand(badge, m.company);
+      badge.style.background = 'var(--brand)';
+      badge.style.color = 'var(--brand-fg)';
       badge.textContent = m.company || 'AI Lab';
 
       metaEl.append(badge, `Version: ${m.version || 'Latest'} • Released: ${m.releaseDate || 'Past 7 days'}`);
 
       document.getElementById('modal-title').textContent = m.name || 'Model';
+      document.getElementById('modal-note').style.display = 'none';
       document.getElementById('modal-story').previousElementSibling.textContent = 'Model Description';
       document.getElementById('modal-story').textContent = m.fullDescription || m.description || '';
       document.getElementById('modal-matters').previousElementSibling.textContent = "How It's Different";
@@ -867,13 +980,40 @@
         groups.get(label).push(item);
       }
 
+      const firstLabel = groups.keys().next().value;
+      const searching = q.length > 0;
+
       for (const [dayLabel, dayItems] of groups) {
         const section = document.createElement('div');
         section.className = 'day-group';
 
+        // Today is open; older days are collapsed unless the user opened them (or a search is active).
+        // If nothing is from today, the newest day stays open so the page is never fully collapsed.
+        const defaultOpen = dayLabel === 'Today' || (!groups.has('Today') && dayLabel === firstLabel);
+        const isOpen = searching || (dayOpenState.has(dayLabel) ? dayOpenState.get(dayLabel) : defaultOpen);
+        section.classList.toggle('collapsed', !isOpen);
+
         const heading = document.createElement('h2');
         heading.className = 'day-heading';
-        heading.textContent = `${dayLabel} (${dayItems.length})`;
+        const toggle = document.createElement('button');
+        toggle.type = 'button';
+        toggle.className = 'day-toggle';
+        toggle.setAttribute('aria-expanded', String(isOpen));
+        const chevron = document.createElement('span');
+        chevron.className = 'day-chevron';
+        chevron.textContent = '\u25BC';
+        const hint = document.createElement('span');
+        hint.className = 'day-hint';
+        hint.textContent = isOpen ? 'Click to collapse' : 'Click to expand';
+        toggle.append(chevron, `${dayLabel} (${dayItems.length})`, hint);
+        toggle.addEventListener('click', () => {
+          const nowOpen = section.classList.contains('collapsed');
+          section.classList.toggle('collapsed', !nowOpen);
+          toggle.setAttribute('aria-expanded', String(nowOpen));
+          hint.textContent = nowOpen ? 'Click to collapse' : 'Click to expand';
+          dayOpenState.set(dayLabel, nowOpen);
+        });
+        heading.appendChild(toggle);
         section.appendChild(heading);
 
         const list = document.createElement('div');
@@ -916,6 +1056,14 @@
           const source = document.createElement('span');
           source.textContent = item.source;
           metaLeft.append(source);
+
+          if (!item.aiAnalyzed) {
+            const flag = document.createElement('span');
+            flag.className = 'headline-only';
+            flag.textContent = 'Headline only';
+            flag.title = 'Full article text was not available to summarize';
+            metaLeft.append(flag);
+          }
 
           const time = document.createElement('span');
           time.textContent = formatRelative(item.publishedAt);
@@ -961,6 +1109,7 @@
         const card = document.createElement('button');
         card.type = 'button';
         card.className = 'llm-card';
+        applyBrand(card, m.company);
         card.addEventListener('click', () => openModelModal(m));
 
         const top = document.createElement('div');
