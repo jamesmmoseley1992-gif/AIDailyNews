@@ -31,6 +31,8 @@ jobs:
       - name: Fetch latest news
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          # Change this one line to switch Gemini models.
+          GEMINI_MODEL: gemini-3.5-flash-lite
         run: npm run fetch
 
       - name: Commit and push updated news.json

@@ -51,6 +51,10 @@ const SUMMARY_VERSION = 2; // bump to force re-analysis of cached summaries
 const ARTICLE_CHARS = 12000;
 const AI_DELAY_MS = 1500;
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY || '';
+// Set GEMINI_MODEL in the workflow to switch models without editing code.
+const GEMINI_MODEL = process.env.GEMINI_MODEL || 'gemini-3.5-flash-lite';
+const GEMINI_FALLBACK_MODEL = 'gemini-2.5-flash'; // used only if the primary model ID is rejected (404)
+let activeModel = GEMINI_MODEL;
 
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
@@ -277,27 +281,35 @@ async function fetchArticleText(url) {
   }
 }
 
+async function callGemini(model, prompt) {
+  return fetch(`https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`, {
+    method: 'POST',
+    headers: {
+      'x-goog-api-key': GEMINI_API_KEY,
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      contents: [{ parts: [{ text: prompt }] }],
+      generationConfig: {
+        responseMimeType: 'application/json',
+        temperature: 0.2
+      }
+    })
+  });
+}
+
 async function callGeminiJson(prompt) {
-  const res = await fetch(
-    'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent',
-    {
-      method: 'POST',
-      headers: {
-        'x-goog-api-key': GEMINI_API_KEY,
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        contents: [{ parts: [{ text: prompt }] }],
-        generationConfig: {
-          responseMimeType: 'application/json',
-          temperature: 0.2
-        }
-      })
-    }
-  );
+  let res = await callGemini(activeModel, prompt);
+
+  // A 404 means the model ID is unknown to the API; fall back once so summaries keep working.
+  if (res.status === 404 && activeModel !== GEMINI_FALLBACK_MODEL) {
+    console.warn(`Model "${activeModel}" not found; falling back to ${GEMINI_FALLBACK_MODEL}.`);
+    activeModel = GEMINI_FALLBACK_MODEL;
+    res = await callGemini(activeModel, prompt);
+  }
 
   if (!res.ok) {
-    const err = new Error(`Gemini HTTP ${res.status}`);
+    const err = new Error(`Gemini HTTP ${res.status} (${activeModel})`);
     err.status = res.status;
     throw err;
   }
@@ -663,7 +675,7 @@ async function main() {
     meta: {
       schedule: 'Twice daily at 8:00 AM & 2:00 PM US Central (CST)',
       windowDays: DAYS_BACK,
-      aiSummarizer: GEMINI_API_KEY ? 'Gemini 2.5 Flash (cached)' : 'Built-in fallback',
+      aiSummarizer: GEMINI_API_KEY ? `${activeModel} (cached)` : 'Built-in fallback',
       sources: sourceStats
     },
     items: enrichedItems,
