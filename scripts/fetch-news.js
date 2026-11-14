@@ -175,13 +175,45 @@ const TOPIC_RULES = [
   ['Business & Adoption', /\b(enterprise|adopt\w*|deploy\w*|rollout|customers?|workforce|jobs?|layoffs?|roi|productivity|bank|banks|healthcare|retail|insurers?|companies|businesses|employees|survey|pilot|purchases?|shopping|e-?commerce|marketing|advertisw*|hospitals?|clinical|clinics?|education|educators?|students?|schools?|legal|law firms?|financial|industry|industries|workers?|hiring|interviews?)\b/]
 ];
 
+const DB_TOPIC_DEFS = {
+  'Genie & AI/BI':
+    'Databricks Genie products (Genie Agents, Genie One, Genie Code, Genie spaces), AI/BI dashboards, and conversational analytics.',
+  'Unity Catalog & Governance':
+    'Unity Catalog, data and AI governance, lineage, access control, permissions, audit, sharing, and metadata management.',
+  'Agent Bricks & Mosaic AI':
+    'Agent Bricks, Mosaic AI, agent frameworks, Model Serving, Vector Search, Foundation Model APIs, MLflow, and building or evaluating AI/ML on Databricks.',
+  'Data Engineering & Lakeflow':
+    'Lakeflow, Delta Live Tables / declarative pipelines, Jobs, Auto Loader, Delta Lake, ingestion, streaming, and ETL.',
+  'SQL & Warehousing':
+    'Databricks SQL, SQL warehouses, serverless SQL, Photon, query performance, and BI connectivity.',
+  'Apps & Lakebase':
+    'Databricks Apps, Lakebase (managed Postgres), and building applications on the platform.',
+  'Platform & Administration':
+    'Runtime releases, compute and clusters, security, networking, workspace administration, cost, and general platform updates.'
+};
+
+const DB_TOPICS = Object.keys(DB_TOPIC_DEFS);
+
+// Ordered: first match wins.
+const DB_TOPIC_RULES = [
+  ['Genie & AI/BI', /\b(genie|ai\/bi|dashboards?|conversational analytics)\b/],
+  ['Unity Catalog & Governance', /\b(unity catalog|governance|governed|lineage|access control|permissions?|delta sharing|metastore|audit|abac|row filters?|column masks?)\b/],
+  ['Agent Bricks & Mosaic AI', /\b(agent bricks|mosaic|agents?|agentic|model serving|vector search|foundation model|mlflow|llms?|genai|rag|fine-tun\w*|ai gateway|unity gateway|gateway|gemini|gpt|claude|llama|machine learning)\b/],
+  ['Data Engineering & Lakeflow', /\b(lakeflow|delta live tables|dlt|pipelines?|jobs?|auto loader|delta lake|delta|streaming|ingest\w*|etl|spark|workflows?|connectors?)\b/],
+  ['Apps & Lakebase', /\b(lakebase|postgres\w*|databricks apps?|apps)\b/],
+  ['SQL & Warehousing', /\b(sql|warehouses?|photon|serverless|query|queries)\b/]
+];
+
+const DB_FALLBACK_TOPIC = 'Platform & Administration';
+
 function deriveInsights(title, text, source, category) {
   const combined = `${title} ${text}`.toLowerCase();
 
   if (category === 'Databricks') {
+    const dbTopic = (DB_TOPIC_RULES.find(([, re]) => re.test(combined)) || [])[0] || DB_FALLBACK_TOPIC;
     if (source === 'Databricks Release Notes' || /release|runtime|delta|unity catalog|photon|sql/.test(combined)) {
       return {
-        topic: null,
+        topic: dbTopic,
         importance: 7,
         whyItMatters:
           'Platform updates and release notes often introduce performance improvements, new SQL/Spark capabilities, or deprecations that impact production pipelines.',
@@ -190,7 +222,7 @@ function deriveInsights(title, text, source, category) {
       };
     }
     return {
-      topic: null,
+      topic: dbTopic,
       importance: 6,
       whyItMatters:
         'Highlights architectural patterns, benchmarks, and engineering practices for scaling data and AI workloads on the Lakehouse.',
@@ -288,7 +320,7 @@ async function analyzeWithGemini(item) {
 
   const topicInstruction =
     item.category === 'Databricks'
-      ? '- "topic": null'
+      ? `- "topic": Exactly one of the following (pick the single best fit for the MAIN point of the story):\n${DB_TOPICS.map((t) => `    "${t}": ${DB_TOPIC_DEFS[t]}`).join('\n')}`
       : `- "topic": Exactly one of the following (pick the single best fit for the MAIN point of the story):\n${AI_TOPICS.map((t) => `    "${t}": ${TOPIC_DEFS[t]}`).join('\n')}`;
 
   const prompt = `Analyze this tech/AI news item and return ONLY valid JSON with five keys:
@@ -309,9 +341,7 @@ Article Text: ${contextText}`;
   }
 
   const validTopic =
-    item.category === 'Databricks'
-      ? null
-      : AI_TOPICS.includes(parsed.topic)
+    (item.category === 'Databricks' ? DB_TOPICS : AI_TOPICS).includes(parsed.topic)
         ? parsed.topic
         : item.topic;
 

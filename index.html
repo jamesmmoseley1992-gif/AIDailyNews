@@ -707,17 +707,7 @@
             />
           </div>
         </div>
-        <div class="sub-toolbar" id="topic-bar">
-          <span class="sub-label">AI Topics:</span>
-          <button class="topic-pill active" data-topic="All">All Topics</button>
-          <button class="topic-pill" data-topic="Business & Adoption" title="How companies and industries are using AI: deployments, ROI, workforce impact">Business &amp; Adoption</button>
-          <button class="topic-pill" data-topic="AI Governance & Regulation" title="Laws, policy, export controls, lawsuits, copyright, safety rules">AI Governance &amp; Regulation</button>
-          <button class="topic-pill" data-topic="Models, Research & Advancement" title="New models, benchmarks, research and capability breakthroughs">Models, Research &amp; Advancement</button>
-          <button class="topic-pill" data-topic="Agents & Developer Tools" title="AI agents, coding assistants, SDKs and tools for building AI apps">Agents &amp; Developer Tools</button>
-          <button class="topic-pill" data-topic="Infrastructure & Compute" title="Chips, GPUs, data centers, inference serving and MLOps">Infrastructure &amp; Compute</button>
-          <button class="topic-pill" data-topic="Environment & Sustainability" title="Energy and water use, emissions, data-center power demand, climate applications">Environment &amp; Sustainability</button>
-          <button class="topic-pill" data-topic="Funding & Markets" title="Funding rounds, valuations, acquisitions and vendor partnerships">Funding &amp; Markets</button>
-        </div>
+        <div class="sub-toolbar" id="topic-bar"></div>
         <main id="news-feed"></main>
       </section>
 
@@ -777,6 +767,25 @@
     let activeSource = 'All';
     let searchQuery = '';
     const dayOpenState = new Map(); // dayLabel -> the user's explicit open/closed choice
+
+    const AI_TOPIC_LIST = [
+      ['Business & Adoption', 'How companies and industries are using AI: deployments, ROI, workforce impact'],
+      ['AI Governance & Regulation', 'Laws, policy, export controls, lawsuits, copyright, safety rules'],
+      ['Models, Research & Advancement', 'New models, benchmarks, research and capability breakthroughs'],
+      ['Agents & Developer Tools', 'AI agents, coding assistants, SDKs and tools for building AI apps'],
+      ['Infrastructure & Compute', 'Chips, GPUs, data centers, inference serving and MLOps'],
+      ['Environment & Sustainability', 'Energy and water use, emissions, data-center power demand, climate applications'],
+      ['Funding & Markets', 'Funding rounds, valuations, acquisitions and vendor partnerships']
+    ];
+    const DB_TOPIC_LIST = [
+      ['Genie & AI/BI', 'Genie Agents, Genie One, Genie Code, Genie spaces and AI/BI dashboards'],
+      ['Unity Catalog & Governance', 'Unity Catalog, lineage, access control, sharing and data governance'],
+      ['Agent Bricks & Mosaic AI', 'Agent Bricks, Mosaic AI, Model Serving, Vector Search, MLflow and building AI on Databricks'],
+      ['Data Engineering & Lakeflow', 'Lakeflow, pipelines, Jobs, Delta Lake, ingestion and streaming'],
+      ['SQL & Warehousing', 'Databricks SQL, SQL warehouses, serverless, Photon and query performance'],
+      ['Apps & Lakebase', 'Databricks Apps, Lakebase (managed Postgres) and building apps on the platform'],
+      ['Platform & Administration', 'Runtime releases, compute, security, networking, admin and general platform updates']
+    ];
 
     const feedEl = document.getElementById('news-feed');
     const updatedEl = document.getElementById('last-updated');
@@ -1187,21 +1196,38 @@
       }
     }
 
+    function buildTopicBar() {
+      const isDb = activeCategory === 'Databricks';
+      const list = isDb ? DB_TOPIC_LIST : AI_TOPIC_LIST;
+      topicBarEl.replaceChildren();
+
+      const label = document.createElement('span');
+      label.className = 'sub-label';
+      label.textContent = isDb ? 'Databricks Topics:' : 'AI Topics:';
+      topicBarEl.appendChild(label);
+
+      for (const [topic, hint] of [['All', ''], ...list]) {
+        const pill = document.createElement('button');
+        pill.type = 'button';
+        pill.className = 'topic-pill' + (topic === activeTopic ? ' active' : '');
+        pill.dataset.topic = topic;
+        pill.textContent = topic === 'All' ? 'All Topics' : topic;
+        if (hint) pill.title = hint;
+        topicBarEl.appendChild(pill);
+      }
+    }
+
     tabsEl.addEventListener('click', (e) => {
       const btn = e.target.closest('.tab');
       if (!btn) return;
+      const prevIsDb = activeCategory === 'Databricks';
       activeCategory = btn.dataset.category;
       for (const tab of tabsEl.querySelectorAll('.tab')) {
         tab.classList.toggle('active', tab === btn);
       }
-      const hideTopics = activeCategory === 'Databricks';
-      topicBarEl.classList.toggle('hidden', hideTopics);
-      if (hideTopics) {
-        activeTopic = 'All';
-        for (const pill of topicBarEl.querySelectorAll('.topic-pill')) {
-          pill.classList.toggle('active', pill.dataset.topic === 'All');
-        }
-      }
+      // Databricks and AI use different topic sets, so reset the topic when switching between them.
+      if (prevIsDb !== (activeCategory === 'Databricks')) activeTopic = 'All';
+      buildTopicBar();
       renderFeed();
     });
 
@@ -1255,6 +1281,7 @@
       }
     }
 
+    buildTopicBar();
     init();
   </script>
 </body>
