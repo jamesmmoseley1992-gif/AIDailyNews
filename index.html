@@ -710,11 +710,13 @@
         <div class="sub-toolbar" id="topic-bar">
           <span class="sub-label">AI Topics:</span>
           <button class="topic-pill active" data-topic="All">All Topics</button>
-          <button class="topic-pill" data-topic="Models & Research">Models &amp; Research</button>
-          <button class="topic-pill" data-topic="Agents & Coding">Agents &amp; Coding</button>
-          <button class="topic-pill" data-topic="Enterprise & Strategy">Enterprise &amp; Strategy</button>
-          <button class="topic-pill" data-topic="Infrastructure & MLOps">Infrastructure &amp; MLOps</button>
-          <button class="topic-pill" data-topic="Policy & Safety">Policy &amp; Safety</button>
+          <button class="topic-pill" data-topic="Business & Adoption" title="How companies and industries are using AI: deployments, ROI, workforce impact">Business &amp; Adoption</button>
+          <button class="topic-pill" data-topic="AI Governance & Regulation" title="Laws, policy, export controls, lawsuits, copyright, safety rules">AI Governance &amp; Regulation</button>
+          <button class="topic-pill" data-topic="Models, Research & Advancement" title="New models, benchmarks, research and capability breakthroughs">Models, Research &amp; Advancement</button>
+          <button class="topic-pill" data-topic="Agents & Developer Tools" title="AI agents, coding assistants, SDKs and tools for building AI apps">Agents &amp; Developer Tools</button>
+          <button class="topic-pill" data-topic="Infrastructure & Compute" title="Chips, GPUs, data centers, inference serving and MLOps">Infrastructure &amp; Compute</button>
+          <button class="topic-pill" data-topic="Environment & Sustainability" title="Energy and water use, emissions, data-center power demand, climate applications">Environment &amp; Sustainability</button>
+          <button class="topic-pill" data-topic="Funding & Markets" title="Funding rounds, valuations, acquisitions and vendor partnerships">Funding &amp; Markets</button>
         </div>
         <main id="news-feed"></main>
       </section>
@@ -1229,7 +1231,17 @@
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         const data = await res.json();
         const tracker = data.llmTracker || {};
-        allItems = [...(data.items || []), ...(tracker.modelNews || [])];
+        // Older data files used previous topic names; map them onto the current topics.
+        const LEGACY_TOPICS = {
+          'Models & Research': 'Models, Research & Advancement',
+          'Agents & Coding': 'Agents & Developer Tools',
+          'Enterprise & Strategy': 'Business & Adoption',
+          'Infrastructure & MLOps': 'Infrastructure & Compute',
+          'Policy & Safety': 'AI Governance & Regulation'
+        };
+        allItems = [...(data.items || []), ...(tracker.modelNews || [])].map((i) =>
+          i.topic && LEGACY_TOPICS[i.topic] ? { ...i, topic: LEGACY_TOPICS[i.topic] } : i
+        );
         updatedEl.textContent = data.lastUpdated
           ? `Last updated: ${formatExact(data.lastUpdated)} (${allItems.length} articles)`
           : 'Waiting for first run';

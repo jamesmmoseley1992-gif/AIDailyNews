@@ -43,14 +43,6 @@ const MODEL_NEWS_FEED = {
   url: 'https://news.google.com/rss/search?q=%22new+model%22+OR+%22LLM%22+release+OR+OpenAI+OR+Anthropic+OR+Gemini+OR+Llama&hl=en-US&gl=US&ceid=US:en'
 };
 
-const AI_TOPICS = [
-  'Models & Research',
-  'Agents & Coding',
-  'Enterprise & Strategy',
-  'Infrastructure & MLOps',
-  'Policy & Safety'
-];
-
 const DAYS_BACK = 7;
 const MAX_PER_SOURCE = 25;
 const MAX_TOTAL_ITEMS = 120;
@@ -100,83 +92,114 @@ function summarizeToTwoParagraphs(text, title) {
   return `${truncate(p1, 320)}\n\n${truncate(p2, 320)}`;
 }
 
+const TOPIC_DEFS = {
+  'Business & Adoption':
+    'How companies, governments, and industries are actually USING AI: deployments, case studies, rollouts, ROI, workforce and job impact, customer adoption.',
+  'AI Governance & Regulation':
+    'Laws, regulation, government policy, export controls, lawsuits, copyright, privacy, AI safety rules, standards, and responsible-AI oversight.',
+  'Models, Research & Advancement':
+    'New models, benchmarks, scientific research papers, capability breakthroughs, and technical advances in how AI works.',
+  'Agents & Developer Tools':
+    'AI agents, coding assistants, MCP/tool use, SDKs, APIs, and tools for building AI applications.',
+  'Infrastructure & Compute':
+    'Chips, GPUs, data centers, cloud capacity, energy, inference serving, MLOps, and the hardware/software stack AI runs on.',
+  'Environment & Sustainability':
+    'The environmental footprint and impact of AI: energy and water use, carbon emissions, data-center power demand, climate applications of AI, and sustainability efforts.',
+  'Funding & Markets':
+    'Funding rounds, valuations, acquisitions, IPOs, partnerships between vendors, pricing, and competitive market moves.'
+};
+
+const AI_TOPICS = Object.keys(TOPIC_DEFS);
+
+// Older runs used different topic names; map them so cached/existing data stays valid.
+const LEGACY_TOPICS = {
+  'Models & Research': 'Models, Research & Advancement',
+  'Agents & Coding': 'Agents & Developer Tools',
+  'Enterprise & Strategy': 'Business & Adoption',
+  'Infrastructure & MLOps': 'Infrastructure & Compute',
+  'Policy & Safety': 'AI Governance & Regulation'
+};
+
+const TOPIC_INSIGHTS = {
+  'Business & Adoption': {
+    importance: 6,
+    whyItMatters:
+      'Shows where AI is delivering real results in organizations, and what it means for jobs, operations, and competitive position.',
+    whoIsAffected: 'Business Leaders, Operations and Transformation Teams, and Workers in affected roles.'
+  },
+  'AI Governance & Regulation': {
+    importance: 6,
+    whyItMatters:
+      'Regulatory and policy shifts can create new compliance requirements, data-usage rules, and vendor risk considerations.',
+    whoIsAffected: 'Legal & Compliance Teams, CISOs, Policy Makers, and Enterprise AI Governance Leaders.'
+  },
+  'Models, Research & Advancement': {
+    importance: 5,
+    whyItMatters:
+      'Tracks fast-moving model capabilities, releases, and research shaping how AI is built and deployed.',
+    whoIsAffected: 'AI Builders, ML Engineers, Researchers, and Product Teams evaluating new models.'
+  },
+  'Agents & Developer Tools': {
+    importance: 6,
+    whyItMatters:
+      'Advances in AI agents and coding tools directly accelerate software delivery and automate multi-step workflows.',
+    whoIsAffected: 'Software Engineers, AI App Developers, and Engineering Managers.'
+  },
+  'Infrastructure & Compute': {
+    importance: 5,
+    whyItMatters:
+      'Chip, data-center, and serving improvements shape the cost, availability, and reliability of AI workloads.',
+    whoIsAffected: 'MLOps Engineers, Cloud Architects, Platform Teams, and Infrastructure Buyers.'
+  },
+  'Environment & Sustainability': {
+    importance: 6,
+    whyItMatters:
+      'AI growth is driving large increases in electricity, water, and carbon demand, affecting sustainability targets, costs, and community and regulatory scrutiny.',
+    whoIsAffected: 'Sustainability and ESG Leaders, Data Center and Facilities Teams, Executives, and Policy Makers.'
+  },
+  'Funding & Markets': {
+    importance: 6,
+    whyItMatters:
+      'Funding, M&A, and partnerships signal where capital and ecosystem momentum are consolidating.',
+    whoIsAffected: 'Technology Executives, Product Leaders, Vendors, and Investors tracking the AI market.'
+  }
+};
+
+// Ordered: first match wins. Specific/high-signal topics go before broad ones.
+const TOPIC_RULES = [
+  ['AI Governance & Regulation', /\b(regulat\w*|legislat\w*|lawmakers?|senate|congress|eu ai act|export controls?|lawsuit|sues?|sued|copyright|antitrust|privacy|ai safety|safety|policy|policies|ban|banned|compliance|governance|executive order)\b/],
+  ['Environment & Sustainability', /\b(environment\w*|sustainab\w*|climate|carbon|emissions?|net[- ]zero|renewables?|water use|energy (use|consumption|demand)|power (demand|consumption|grid)|electricity|nuclear|esg|green|greenhouse|e-waste)\b/],
+  ['Funding & Markets', /\b(raises?|raised|funding|series [a-e]|valuation|acqui\w*|merger|ipo|invest\w*|backed|billion|million|partnership)\b/],
+  ['Infrastructure & Compute', /\b(gpus?|chips?|data cent\w+|datacenters?|inference|mlops|kubernetes|safetensors|quantiz\w*|latency|clusters?|vram|compute|semiconductors?|tpus?)\b/],
+  ['Agents & Developer Tools', /\b(agents?|agentic|coding|copilot|mcp|tool[- ]use|developers?|sdk|api|ide|cursor|codex)\b/],
+  ['Business & Adoption', /\b(enterprise|adopt\w*|deploy\w*|rollout|customers?|workforce|jobs?|layoffs?|roi|productivity|bank|banks|healthcare|retail|insurers?|companies|businesses|employees|survey|pilot|purchases?|shopping|e-?commerce|marketing|advertisw*|hospitals?|clinical|clinics?|education|educators?|students?|schools?|legal|law firms?|financial|industry|industries|workers?|hiring|interviews?)\b/]
+];
+
 function deriveInsights(title, text, source, category) {
   const combined = `${title} ${text}`.toLowerCase();
 
-  if (source === 'Databricks Release Notes' || /release|runtime|delta|unity catalog|photon|sql/.test(combined)) {
-    return {
-      topic: null,
-      importance: 7,
-      whyItMatters:
-        'Platform updates and release notes often introduce performance improvements, new SQL/Spark capabilities, or deprecations that impact production pipelines.',
-      whoIsAffected:
-        'Databricks Data Engineers, Lakehouse Architects, and Workspace Admins managing clusters, jobs, and governance.'
-    };
-  }
-
   if (category === 'Databricks') {
+    if (source === 'Databricks Release Notes' || /release|runtime|delta|unity catalog|photon|sql/.test(combined)) {
+      return {
+        topic: null,
+        importance: 7,
+        whyItMatters:
+          'Platform updates and release notes often introduce performance improvements, new SQL/Spark capabilities, or deprecations that impact production pipelines.',
+        whoIsAffected:
+          'Databricks Data Engineers, Lakehouse Architects, and Workspace Admins managing clusters, jobs, and governance.'
+      };
+    }
     return {
       topic: null,
       importance: 6,
       whyItMatters:
         'Highlights architectural patterns, benchmarks, and engineering practices for scaling data and AI workloads on the Lakehouse.',
-      whoIsAffected:
-        'Data Platform Teams, Analytics Engineers, and ML Engineers building on Databricks.'
+      whoIsAffected: 'Data Platform Teams, Analytics Engineers, and ML Engineers building on Databricks.'
     };
   }
 
-  if (/agent|coding|copilot|mcp|tool[- ]use|developer|ide/.test(combined)) {
-    return {
-      topic: 'Agents & Coding',
-      importance: 6,
-      whyItMatters:
-        'Advances in AI agents and coding tools directly accelerate software delivery and automate multi-step workflows.',
-      whoIsAffected:
-        'Software Engineers, AI App Developers, and Engineering Managers.'
-    };
-  }
-
-  if (/gpu|inference|mlops|kubernetes|safetensors|quantiz|latency|cluster|vram/.test(combined)) {
-    return {
-      topic: 'Infrastructure & MLOps',
-      importance: 5,
-      whyItMatters:
-        'Infrastructure and serving improvements lower compute costs and improve reliability for production AI workloads.',
-      whoIsAffected:
-        'MLOps Engineers, Cloud Architects, and Platform Teams.'
-    };
-  }
-
-  if (/regulat|law|policy|copyright|antitrust|senate|eu ai act|safety/.test(combined)) {
-    return {
-      topic: 'Policy & Safety',
-      importance: 6,
-      whyItMatters:
-        'Regulatory and policy shifts can create new compliance requirements, data-usage rules, and vendor risk considerations.',
-      whoIsAffected:
-        'Legal & Compliance Teams, CISOs, and Enterprise AI Governance Leaders.'
-    };
-  }
-
-  if (/fund|raise|acqui|valuation|billion|million|partnership|enterprise|pricing/.test(combined)) {
-    return {
-      topic: 'Enterprise & Strategy',
-      importance: 6,
-      whyItMatters:
-        'Major funding, M&A, and enterprise partnerships signal where capital and ecosystem momentum are consolidating.',
-      whoIsAffected:
-        'Technology Executives, Product Leaders, Vendors, and Investors tracking the AI market.'
-    };
-  }
-
-  return {
-    topic: 'Models & Research',
-    importance: 5,
-    whyItMatters:
-      'Tracks fast-moving model capabilities, releases, and research shaping how AI is built and deployed.',
-    whoIsAffected:
-      'AI Builders, ML Engineers, and Product Teams evaluating new models and workflows.'
-  };
+  const topic = (TOPIC_RULES.find(([, re]) => re.test(combined)) || [])[0] || 'Models, Research & Advancement';
+  return { topic, ...TOPIC_INSIGHTS[topic] };
 }
 
 async function loadExistingCache(outPath) {
@@ -266,7 +289,7 @@ async function analyzeWithGemini(item) {
   const topicInstruction =
     item.category === 'Databricks'
       ? '- "topic": null'
-      : `- "topic": Exactly one of: ${AI_TOPICS.map((t) => `"${t}"`).join(', ')}`;
+      : `- "topic": Exactly one of the following (pick the single best fit for the MAIN point of the story):\n${AI_TOPICS.map((t) => `    "${t}": ${TOPIC_DEFS[t]}`).join('\n')}`;
 
   const prompt = `Analyze this tech/AI news item and return ONLY valid JSON with five keys:
 - "fullStory": A thorough 3-4 paragraph summary separated by "\\n\\n". Cover who did what and when, the key facts, figures, names and quotes, the context, and any stated consequences or next steps. Use ONLY facts present in the article text; do not speculate or write "likely" or "may have". Never complain about missing text.
@@ -324,7 +347,7 @@ async function enrichItems(items, cache) {
         whyItMatters: cached.whyItMatters,
         whoIsAffected: cached.whoIsAffected,
         importance: cached.importance ?? rest.importance ?? 5,
-        topic: cached.topic ?? rest.topic,
+        topic: LEGACY_TOPICS[cached.topic] ?? cached.topic ?? rest.topic,
         summaryVersion: SUMMARY_VERSION,
         aiAnalyzed: true
       });
