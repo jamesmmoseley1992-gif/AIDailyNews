@@ -1,0 +1,2539 @@
+{
+  "generatedAt": "2026-11-18T21:19:13.891Z",
+  "windowMonths": 12,
+  "providers": [
+    {
+      "key": "openai",
+      "label": "OpenAI",
+      "color": "#10a37f"
+    },
+    {
+      "key": "anthropic",
+      "label": "Anthropic",
+      "color": "#d97757"
+    },
+    {
+      "key": "google",
+      "label": "Google",
+      "color": "#4285f4"
+    },
+    {
+      "key": "x-ai",
+      "label": "xAI",
+      "color": "#2b2b2b"
+    },
+    {
+      "key": "deepseek",
+      "label": "DeepSeek",
+      "color": "#4d6bfe"
+    },
+    {
+      "key": "qwen",
+      "label": "Alibaba Qwen",
+      "color": "#615cef"
+    },
+    {
+      "key": "mistralai",
+      "label": "Mistral",
+      "color": "#fa520f"
+    },
+    {
+      "key": "nvidia",
+      "label": "NVIDIA",
+      "color": "#76b900"
+    },
+    {
+      "key": "amazon",
+      "label": "Amazon",
+      "color": "#ff9900"
+    }
+  ],
+  "models": [
+    {
+      "id": "anthropic/claude-opus-4.5",
+      "provider": "anthropic",
+      "line": "opus",
+      "name": "Claude Opus 4.5",
+      "releaseDate": "2025-11-24",
+      "description": "Claude Opus 4.5 is Anthropic’s frontier reasoning model optimized for complex software engineering, agentic workflows, and long-horizon computer use. It offers strong multimodal capabilities, competitive performance across real-world coding and reasoning benchmarks, and improved robustness to prompt injection. The model is designed to operate efficiently across varied effort levels, enabling developers to trade off speed, depth, and token usage depending on task requirements. It comes with a new parameter to control token efficiency, which can be accessed using the OpenRouter Verbosity parameter with low, medium, or high.\n\nOpus 4.5 supports advanced tool use, extended context management, and coordinated multi-agent setups, making it well-suited for autonomous research, debugging, multi-step planning, and spreadsheet/browser manipulation. It delivers substantial gains in structured reasoning, execution reliability, and alignment compared to prior Opus generations, while reducing token overhead and improving performance on long-running tasks.",
+      "descriptionFull": true,
+      "contextLength": 200000,
+      "inputPerM": 5,
+      "outputPerM": 25,
+      "previous": {
+        "id": "anthropic/claude-opus-4.1",
+        "name": "Claude Opus 4.1",
+        "releaseDate": "2025-08-05"
+      },
+      "jump": "Anthropic's frontier reasoning model, pitched at complex software engineering, long-horizon computer use and multi-agent setups, with better prompt-injection robustness and a new verbosity control for token efficiency. The biggest value jump versus Opus 4.1 is price: $5/$25 per million tokens, down from $15/$75, at the same 200K context.",
+      "summary": "Claude Opus 4.5 is Anthropic’s frontier reasoning model optimized for complex software engineering, agentic workflows, and long-horizon computer use.",
+      "deltas": {
+        "daysSince": 111,
+        "context": {
+          "from": 200000,
+          "to": 200000
+        },
+        "input": {
+          "from": 15,
+          "to": 5
+        },
+        "output": {
+          "from": 75,
+          "to": 25
+        }
+      }
+    },
+    {
+      "id": "deepseek/deepseek-v3.2",
+      "provider": "deepseek",
+      "line": "chat",
+      "name": "DeepSeek V3.2",
+      "releaseDate": "2025-12-01",
+      "description": "DeepSeek-V3.2 is a large language model designed to harmonize high computational efficiency with strong reasoning and agentic tool-use performance. It introduces DeepSeek Sparse Attention (DSA), a fine-grained sparse attention mechanism that reduces training and inference cost while preserving quality in long-context scenarios. A scalable reinforcement learning post-training framework further improves reasoning, with reported performance in the GPT-5 class, and the model has demonstrated gold-medal results on the 2025 IMO and IOI. V3.2 also uses a large-scale agentic task synthesis pipeline to better integrate reasoning into tool-use settings, boosting compliance and generalization in interactive environments.\n\nUsers can control the reasoning behaviour with the `reasoning` `enabled` boolean. [Learn more in our docs](https://openrouter.ai/docs/use-cases/reasoning-tokens#enable-reasoning-with-default-config)",
+      "descriptionFull": true,
+      "contextLength": 163840,
+      "inputPerM": 0.26,
+      "outputPerM": 0.38,
+      "previous": null,
+      "jump": "Debut of this window for DeepSeek. Adds DeepSeek Sparse Attention to cut long-context cost, plus RL post-training that reaches GPT-5-class reasoning and gold-medal IMO/IOI results, at roughly $0.26/$0.38 per million tokens.",
+      "summary": "DeepSeek-V3.2 is a large language model designed to harmonize high computational efficiency with strong reasoning and agentic tool-use performance.",
+      "deltas": null
+    },
+    {
+      "id": "mistralai/mistral-large-2512",
+      "provider": "mistralai",
+      "line": "mistral-large",
+      "name": "Mistral Large 3 2512",
+      "releaseDate": "2025-12-01",
+      "description": "Mistral Large 3 2512 is Mistral’s most capable model to date, featuring a sparse mixture-of-experts architecture with 41B active parameters (675B total), and released under the Apache 2.0 license.",
+      "descriptionFull": false,
+      "contextLength": 262144,
+      "inputPerM": 0.5,
+      "outputPerM": 1.5,
+      "previous": {
+        "id": "mistralai/mistral-large-2407",
+        "name": "Mistral Large 2407",
+        "releaseDate": "2024-11-19"
+      },
+      "jump": "A full generational leap over Mistral Large 2 (2407): a sparse mixture-of-experts design with 41B active of 675B total parameters, released under Apache 2.0. Context doubles from 131K to 262K tokens while price falls by 75%, from $2/$6 to $0.50/$1.50 per million.",
+      "summary": "Mistral Large 3 2512 is Mistral’s most capable model to date, featuring a sparse mixture-of-experts architecture with 41B active parameters (675B total), and released under the Apache 2.0 license.",
+      "deltas": {
+        "daysSince": 377,
+        "context": {
+          "from": 131072,
+          "to": 262144
+        },
+        "input": {
+          "from": 2,
+          "to": 0.5
+        },
+        "output": {
+          "from": 6,
+          "to": 1.5
+        }
+      }
+    },
+    {
+      "id": "amazon/nova-2-lite-v1",
+      "provider": "amazon",
+      "line": "nova",
+      "name": "Nova 2 Lite",
+      "releaseDate": "2025-12-02",
+      "description": "Nova 2 Lite is a fast, cost-effective reasoning model for everyday workloads that can process text, images, and videos to generate text. \n\nNova 2 Lite demonstrates standout capabilities in processing documents, extracting information from videos, generating code, providing accurate grounded answers, and automating multi-step agentic workflows.",
+      "descriptionFull": true,
+      "contextLength": 1000000,
+      "inputPerM": 0.3,
+      "outputPerM": 2.5,
+      "previous": null,
+      "jump": "Amazon's Nova 2 generation entry: a fast, low-cost reasoning model that reads text, images and video and handles document extraction, code and multi-step agent workflows. It starts with a 1M-token context at $0.30/$2.50 per million.",
+      "summary": "Nova 2 Lite is a fast, cost-effective reasoning model for everyday workloads that can process text, images, and videos to generate text.",
+      "deltas": null
+    },
+    {
+      "id": "mistralai/devstral-2512",
+      "provider": "mistralai",
+      "line": "devstral",
+      "name": "Devstral 2 2512",
+      "releaseDate": "2025-12-09",
+      "description": "Devstral 2 is a state-of-the-art open-source model by Mistral AI specializing in agentic coding. It is a 123B-parameter dense transformer model supporting a 256K context window.\n\nDevstral 2 supports exploring codebases and orchestrating changes across multiple files while maintaining architecture-level context. It tracks framework dependencies, detects failures, and retries with corrections—solving challenges like bug fixing and modernizing legacy systems. The model can be fine-tuned to prioritize specific languages or optimize for large enterprise codebases. It is available under a modified MIT license.",
+      "descriptionFull": true,
+      "contextLength": 262144,
+      "inputPerM": 0.4,
+      "outputPerM": 2,
+      "previous": null,
+      "jump": "Debut of Mistral's second-generation coding line: a 123B dense open model with a 256K window built to explore whole codebases, track dependencies, detect failures and retry with fixes.",
+      "summary": "Devstral 2 is a state-of-the-art open-source model by Mistral AI specializing in agentic coding.",
+      "deltas": null
+    },
+    {
+      "id": "openai/gpt-5.2",
+      "provider": "openai",
+      "line": "core",
+      "name": "GPT-5.2",
+      "releaseDate": "2025-12-10",
+      "description": "GPT-5.2 is the latest frontier-grade model in the GPT-5 series, offering stronger agentic and long context perfomance compared to GPT-5.1. It uses adaptive reasoning to allocate computation dynamically, responding quickly to simple queries while spending more depth on complex tasks.\n\nBuilt for broad task coverage, GPT-5.2 delivers consistent gains across math, coding, sciende, and tool calling workloads, with more coherent long-form answers and improved tool-use reliability.",
+      "descriptionFull": true,
+      "contextLength": 400000,
+      "inputPerM": 1.75,
+      "outputPerM": 14,
+      "previous": {
+        "id": "openai/gpt-5.1",
+        "name": "GPT-5.1",
+        "releaseDate": "2025-11-13"
+      },
+      "jump": "Stronger agentic and long-context behaviour than GPT-5.1, with adaptive reasoning that spends more compute only on hard tasks. Gains across math, coding, science and tool calling come with a price rise from $1.25/$10 to $1.75/$14 per million tokens.",
+      "summary": "GPT-5.2 is the latest frontier-grade model in the GPT-5 series, offering stronger agentic and long context perfomance compared to GPT-5.1.",
+      "deltas": {
+        "daysSince": 27,
+        "context": {
+          "from": 400000,
+          "to": 400000
+        },
+        "input": {
+          "from": 1.25,
+          "to": 1.75
+        },
+        "output": {
+          "from": 10,
+          "to": 14
+        }
+      }
+    },
+    {
+      "id": "nvidia/nemotron-3-nano-30b-a3b",
+      "provider": "nvidia",
+      "line": "nano",
+      "name": "Nemotron 3 Nano 30B A3B",
+      "releaseDate": "2025-12-14",
+      "description": "NVIDIA Nemotron 3 Nano 30B A3B is a small language MoE model with highest compute efficiency and accuracy for developers to build specialized agentic AI systems.\n\nThe model is fully open with open-weights, datasets and recipes so developers can easily\ncustomize, optimize, and deploy the model on their infrastructure for maximum privacy and\nsecurity.",
+      "descriptionFull": true,
+      "contextLength": 262144,
+      "inputPerM": 0.06,
+      "outputPerM": 0.24,
+      "previous": null,
+      "jump": "Debut of NVIDIA's Nemotron 3 family: a small 30B mixture-of-experts model that activates only 3B parameters, released with open weights, datasets and recipes for private agentic deployments.",
+      "summary": "NVIDIA Nemotron 3 Nano 30B A3B is a small language MoE model with highest compute efficiency and accuracy for developers to build specialized agentic AI systems.",
+      "deltas": null
+    },
+    {
+      "id": "google/gemini-3-flash-preview",
+      "provider": "google",
+      "line": "flash",
+      "name": "Gemini 3 Flash Preview",
+      "releaseDate": "2025-12-17",
+      "description": "Gemini 3 Flash Preview is a high speed, high value thinking model designed for agentic workflows, multi turn chat, and coding assistance. It delivers near Pro level reasoning and tool use performance with substantially lower latency than larger Gemini variants, making it well suited for interactive development, long running agent loops, and collaborative coding tasks. Compared to Gemini 2.5 Flash, it provides broad quality improvements across reasoning, multimodal understanding, and reliability.\n\nThe model supports a 1M token context window and multimodal inputs including text, images, audio, video, and PDFs, with text output. It includes configurable reasoning via thinking levels (minimal, low, medium, high), structured output, tool use, and automatic context caching. Gemini 3 Flash Preview is optimized for users who want strong reasoning and agentic behavior without the cost or latency of full scale frontier models.",
+      "descriptionFull": true,
+      "contextLength": 1048576,
+      "inputPerM": 0.5,
+      "outputPerM": 3,
+      "previous": {
+        "id": "google/gemini-2.5-flash",
+        "name": "Gemini 2.5 Flash",
+        "releaseDate": "2025-06-17"
+      },
+      "jump": "Near-Pro reasoning and tool use at much lower latency than larger Gemini models, with broad quality gains over Gemini 2.5 Flash in reasoning, multimodal understanding and reliability. Adds selectable thinking levels, and costs more at $0.50/$3.00 per million (up from $0.30/$2.50).",
+      "summary": "Gemini 3 Flash Preview is a high speed, high value thinking model designed for agentic workflows, multi turn chat, and coding assistance.",
+      "deltas": {
+        "daysSince": 183,
+        "context": {
+          "from": 1048576,
+          "to": 1048576
+        },
+        "input": {
+          "from": 0.3,
+          "to": 0.5
+        },
+        "output": {
+          "from": 2.5,
+          "to": 3
+        }
+      }
+    },
+    {
+      "id": "anthropic/claude-opus-4.6",
+      "provider": "anthropic",
+      "line": "opus",
+      "name": "Claude Opus 4.6",
+      "releaseDate": "2026-02-04",
+      "description": "Opus 4.6 is Anthropic’s strongest model for coding and long-running professional tasks. It is built for agents that operate across entire workflows rather than single prompts, making it especially effective for large codebases, complex refactors, and multi-step debugging that unfolds over time. The model shows deeper contextual understanding, stronger problem decomposition, and greater reliability on hard engineering tasks than prior generations.\n\nBeyond coding, Opus 4.6 excels at sustained knowledge work. It produces near-production-ready documents, plans, and analyses in a single pass, and maintains coherence across very long outputs and extended sessions. This makes it a strong default for tasks that require persistence, judgment, and follow-through, such as technical design, migration planning, and end-to-end project execution.\n\nFor users upgrading from earlier Opus versions, see our [official migration guide here](https://openrouter.ai/docs/guides/guides/model-migrations/claude-4-6-opus)",
+      "descriptionFull": true,
+      "contextLength": 1000000,
+      "inputPerM": 5,
+      "outputPerM": 25,
+      "previous": {
+        "id": "anthropic/claude-opus-4.5",
+        "name": "Claude Opus 4.5",
+        "releaseDate": "2025-11-24"
+      },
+      "jump": "Built for agents that run across whole workflows: better problem decomposition and reliability on large codebases, refactors and multi-step debugging. The headline spec jump is context, from 200K to 1M tokens at unchanged $5/$25 pricing.",
+      "summary": "Opus 4.6 is Anthropic’s strongest model for coding and long-running professional tasks.",
+      "deltas": {
+        "daysSince": 72,
+        "context": {
+          "from": 200000,
+          "to": 1000000
+        },
+        "input": {
+          "from": 5,
+          "to": 5
+        },
+        "output": {
+          "from": 25,
+          "to": 25
+        }
+      }
+    },
+    {
+      "id": "qwen/qwen3.5-397b-a17b",
+      "provider": "qwen",
+      "line": "flagship",
+      "name": "Qwen3.5 397B A17B",
+      "releaseDate": "2026-02-16",
+      "description": "The Qwen3.5 series 397B-A17B native vision-language model is built on a hybrid architecture that integrates a linear attention mechanism with a sparse mixture-of-experts model, achieving higher inference efficiency. It delivers state-of-the-art performance comparable to leading-edge models across a wide range of tasks, including language understanding, logical reasoning, code generation, agent-based tasks, image understanding, video understanding, and graphical user interface (GUI) interactions. With its robust code-generation and agent capabilities, the model exhibits strong generalization across diverse agent.",
+      "descriptionFull": true,
+      "contextLength": 262144,
+      "inputPerM": 0.45,
+      "outputPerM": 3,
+      "previous": null,
+      "jump": "Debut of Qwen3.5: a native vision-language mixture-of-experts model (397B total, 17B active) combining linear attention with sparse experts for higher inference efficiency, aimed at reasoning, coding, agents and GUI interaction.",
+      "summary": "The Qwen3.5 series 397B-A17B native vision-language model is built on a hybrid architecture that integrates a linear attention mechanism with a sparse mixture-of-experts model, achieving higher inference efficiency.",
+      "deltas": null
+    },
+    {
+      "id": "qwen/qwen3.5-plus-02-15",
+      "provider": "qwen",
+      "line": "plus",
+      "name": "Qwen3.5 Plus",
+      "releaseDate": "2026-02-16",
+      "description": "The Qwen3.5 native vision-language series Plus models are built on a hybrid architecture that integrates linear attention mechanisms with sparse mixture-of-experts models, achieving higher inference efficiency. In a variety of task evaluations, the 3.5 series consistently demonstrates performance on par with state-of-the-art leading models. Compared to the 3 series, these models show a leap forward in both pure-text and multimodal capabilities.",
+      "descriptionFull": true,
+      "contextLength": 1000000,
+      "inputPerM": 0.26,
+      "outputPerM": 1.56,
+      "previous": null,
+      "jump": "Debut of the Qwen3.5 Plus tier, a hosted version of the hybrid linear-attention MoE design. Alibaba describes a leap over the Qwen3 series in both text and multimodal ability, with a 1M-token window at $0.26/$1.56 per million.",
+      "summary": "The Qwen3.5 native vision-language series Plus models are built on a hybrid architecture that integrates linear attention mechanisms with sparse mixture-of-experts models, achieving higher inference efficiency.",
+      "deltas": null
+    },
+    {
+      "id": "anthropic/claude-sonnet-4.6",
+      "provider": "anthropic",
+      "line": "sonnet",
+      "name": "Claude Sonnet 4.6",
+      "releaseDate": "2026-02-17",
+      "description": "Sonnet 4.6 is Anthropic's most capable Sonnet-class model yet, with frontier performance across coding, agents, and professional work. It excels at iterative development, complex codebase navigation, end-to-end project management with memory, polished document creation, and confident computer use for web QA and workflow automation.",
+      "descriptionFull": true,
+      "contextLength": 1000000,
+      "inputPerM": 3,
+      "outputPerM": 15,
+      "previous": {
+        "id": "anthropic/claude-sonnet-4.5",
+        "name": "Claude Sonnet 4.5",
+        "releaseDate": "2025-09-29"
+      },
+      "jump": "The most capable Sonnet yet, with frontier-level coding, agent and professional-work performance, stronger codebase navigation, polished document creation and confident computer use for web QA. Price ($3/$15) and 1M context are unchanged from Sonnet 4.5.",
+      "summary": "Sonnet 4.6 is Anthropic's most capable Sonnet-class model yet, with frontier performance across coding, agents, and professional work.",
+      "deltas": {
+        "daysSince": 141,
+        "context": {
+          "from": 1000000,
+          "to": 1000000
+        },
+        "input": {
+          "from": 3,
+          "to": 3
+        },
+        "output": {
+          "from": 15,
+          "to": 15
+        }
+      }
+    },
+    {
+      "id": "google/gemini-3.1-pro-preview",
+      "provider": "google",
+      "line": "pro",
+      "name": "Gemini 3.1 Pro Preview",
+      "releaseDate": "2026-02-19",
+      "description": "Gemini 3.1 Pro Preview is Google’s frontier reasoning model, delivering enhanced software engineering performance, improved agentic reliability, and more efficient token usage across complex workflows. Building on the multimodal foundation of the Gemini 3 series, it combines high-precision reasoning across text, image, video, audio, and code with a 1M-token context window. Reasoning Details must be preserved when using multi-turn tool calling, see our docs here: https://openrouter.ai/docs/use-cases/reasoning-tokens#preserving-reasoning. The 3.1 update introduces measurable gains in SWE benchmarks and real-world coding environments, along with stronger autonomous task execution in structured domains such as finance and spreadsheet-based workflows.\n\nDesigned for advanced development and agentic systems, Gemini 3.1 Pro Preview improves long-horizon stability and tool orchestration while increasing token efficiency. It introduces a new medium thinking level to better balance cost, speed, and performance. The model excels in agentic coding, structured planning, multimodal analysis, and workflow automation, making it well-suited for autonomous agents, financial modeling, spreadsheet automation, and high-context enterprise tasks.",
+      "descriptionFull": true,
+      "contextLength": 1048576,
+      "inputPerM": 2,
+      "outputPerM": 12,
+      "previous": {
+        "id": "google/gemini-2.5-pro",
+        "name": "Gemini 2.5 Pro",
+        "releaseDate": "2025-06-17"
+      },
+      "jump": "Measurable gains on software-engineering benchmarks, more reliable autonomous task execution (finance and spreadsheet work) and better token efficiency, plus a new medium thinking level. Price rises from $1.25/$10 (Gemini 2.5 Pro) to $2/$12 per million. Note: the Gemini 3 Pro preview is no longer in the catalog, so the comparison is with 2.5 Pro.",
+      "summary": "Gemini 3.1 Pro Preview is Google’s frontier reasoning model, delivering enhanced software engineering performance, improved agentic reliability, and more efficient token usage across complex workflows.",
+      "deltas": {
+        "daysSince": 247,
+        "context": {
+          "from": 1048576,
+          "to": 1048576
+        },
+        "input": {
+          "from": 1.25,
+          "to": 2
+        },
+        "output": {
+          "from": 10,
+          "to": 12
+        }
+      }
+    },
+    {
+      "id": "qwen/qwen3.5-flash-02-23",
+      "provider": "qwen",
+      "line": "flash",
+      "name": "Qwen3.5-Flash",
+      "releaseDate": "2026-02-25",
+      "description": "The Qwen3.5 native vision-language Flash models are built on a hybrid architecture that integrates a linear attention mechanism with a sparse mixture-of-experts model, achieving higher inference efficiency. Compared to the 3 series, these models deliver a leap forward in performance for both pure text and multimodal tasks, offering fast response times while balancing inference speed and overall performance.",
+      "descriptionFull": true,
+      "contextLength": 1000000,
+      "inputPerM": 0.065,
+      "outputPerM": 0.26,
+      "previous": null,
+      "jump": "Debut of the Qwen3.5 Flash tier: fast hybrid-architecture vision-language model that Alibaba says leaps ahead of the Qwen3 series, at a very low $0.065/$0.26 per million with a 1M-token window.",
+      "summary": "The Qwen3.5 native vision-language Flash models are built on a hybrid architecture that integrates a linear attention mechanism with a sparse mixture-of-experts model, achieving higher inference efficiency.",
+      "deltas": null
+    },
+    {
+      "id": "google/gemini-3.1-flash-lite-preview",
+      "provider": "google",
+      "line": "flash-lite",
+      "name": "Gemini 3.1 Flash Lite Preview",
+      "releaseDate": "2026-03-03",
+      "description": "Gemini 3.1 Flash Lite Preview is Google's high-efficiency model optimized for high-volume use cases. It outperforms Gemini 2.5 Flash Lite on overall quality and approaches Gemini 2.5 Flash performance across key capabilities. Improvements span audio input/ASR, RAG snippet ranking, translation, data extraction, and code completion. Supports full thinking levels (minimal, low, medium, high) for fine-grained cost/performance trade-offs. Priced at half the cost of Gemini 3 Flash.",
+      "descriptionFull": true,
+      "contextLength": 1048576,
+      "inputPerM": 0.25,
+      "outputPerM": 1.5,
+      "previous": {
+        "id": "google/gemini-2.5-flash-lite",
+        "name": "Gemini 2.5 Flash Lite",
+        "releaseDate": "2025-07-22"
+      },
+      "jump": "Outperforms Gemini 2.5 Flash Lite on overall quality and approaches Gemini 2.5 Flash on key capabilities, with improvements in audio/ASR, RAG ranking, translation, data extraction and code completion. Gains full thinking levels; price rises from $0.10/$0.40 to $0.25/$1.50, half the cost of Gemini 3 Flash.",
+      "summary": "Gemini 3.1 Flash Lite Preview is Google's high-efficiency model optimized for high-volume use cases.",
+      "deltas": {
+        "daysSince": 224,
+        "context": {
+          "from": 1048576,
+          "to": 1048576
+        },
+        "input": {
+          "from": 0.1,
+          "to": 0.25
+        },
+        "output": {
+          "from": 0.4,
+          "to": 1.5
+        }
+      }
+    },
+    {
+      "id": "openai/gpt-5.4",
+      "provider": "openai",
+      "line": "core",
+      "name": "GPT-5.4",
+      "releaseDate": "2026-03-05",
+      "description": "GPT-5.4 is OpenAI’s latest frontier model, unifying the Codex and GPT lines into a single system. It features a 1M+ token context window (922K input, 128K output) with support for text and image inputs, enabling high-context reasoning, coding, and multimodal analysis within the same workflow.\n\nThe model delivers improved performance in coding, document understanding, tool use, and instruction following. It is designed as a strong default for both general-purpose tasks and software engineering, capable of generating production-quality code, synthesizing information across multiple sources, and executing complex multi-step workflows with fewer iterations and greater token efficiency.",
+      "descriptionFull": true,
+      "contextLength": 1050000,
+      "inputPerM": 2.5,
+      "outputPerM": 15,
+      "previous": {
+        "id": "openai/gpt-5.2",
+        "name": "GPT-5.2",
+        "releaseDate": "2025-12-10"
+      },
+      "jump": "Unifies the Codex and GPT lines into one system and adds a 1M+ token context window. Better coding, document understanding, tool use and instruction following; context grows from 400K to 1.05M while price moves from $1.75/$14 to $2.50/$15.",
+      "summary": "GPT-5.4 is OpenAI’s latest frontier model, unifying the Codex and GPT lines into a single system.",
+      "deltas": {
+        "daysSince": 85,
+        "context": {
+          "from": 400000,
+          "to": 1050000
+        },
+        "input": {
+          "from": 1.75,
+          "to": 2.5
+        },
+        "output": {
+          "from": 14,
+          "to": 15
+        }
+      }
+    },
+    {
+      "id": "nvidia/nemotron-3-super-120b-a12b",
+      "provider": "nvidia",
+      "line": "super",
+      "name": "Nemotron 3 Super",
+      "releaseDate": "2026-03-11",
+      "description": "NVIDIA Nemotron 3 Super is a 120B-parameter open hybrid MoE model, activating just 12B parameters for maximum compute efficiency and accuracy in complex multi-agent applications. Built on a hybrid Mamba-Transformer Mixture-of-Experts architecture with multi-token prediction (MTP), it delivers over 50% higher token generation compared to leading open models.\n \nThe model features a 1M token context window for long-term agent coherence, cross-document reasoning, and multi-step task planning. Latent MoE enables calling 4 experts for the inference cost of only one, improving intelligence and generalization. Multi-environment RL training across 10+ environments delivers leading accuracy on benchmarks including AIME 2025, TerminalBench, and SWE-Bench Verified.\n \nFully open with weights, datasets, and recipes under the NVIDIA Open License, Nemotron 3 Super allows easy customization and secure deployment anywhere — from workstation to cloud.",
+      "descriptionFull": true,
+      "contextLength": 262144,
+      "inputPerM": 0.075,
+      "outputPerM": 0.4,
+      "previous": null,
+      "jump": "Scales Nemotron 3 from Nano to a 120B hybrid Mamba-Transformer MoE with 12B active parameters, a 1M-token context and over 50% higher token generation than leading open models. Strong on AIME 2025, TerminalBench and SWE-Bench Verified, fully open.",
+      "summary": "NVIDIA Nemotron 3 Super is a 120B-parameter open hybrid MoE model, activating just 12B parameters for maximum compute efficiency and accuracy in complex multi-agent applications.",
+      "deltas": null
+    },
+    {
+      "id": "mistralai/mistral-small-2603",
+      "provider": "mistralai",
+      "line": "mistral-small",
+      "name": "Mistral Small 4",
+      "releaseDate": "2026-03-16",
+      "description": "Mistral Small 4 is the next major release in the Mistral Small family, unifying the capabilities of several flagship Mistral models into a single system. It combines strong reasoning from Magistral, multimodal understanding from Pixtral, and agentic coding capabilities from Devstral, enabling one model to handle complex analysis, software development, and visual tasks within the same workflow.",
+      "descriptionFull": true,
+      "contextLength": 262144,
+      "inputPerM": 0.15,
+      "outputPerM": 0.6,
+      "previous": {
+        "id": "mistralai/mistral-small-3.2-24b-instruct",
+        "name": "Mistral Small 3.2 24B",
+        "releaseDate": "2025-06-20"
+      },
+      "jump": "Mistral Small 4 merges several previously separate lines into one model: Magistral reasoning, Pixtral vision and Devstral agentic coding. Context is about the same (256K to 262K); price rises from $0.075/$0.20 to $0.15/$0.60 per million.",
+      "summary": "Mistral Small 4 is the next major release in the Mistral Small family, unifying the capabilities of several flagship Mistral models into a single system.",
+      "deltas": {
+        "daysSince": 269,
+        "context": {
+          "from": 256000,
+          "to": 262144
+        },
+        "input": {
+          "from": 0.075,
+          "to": 0.15
+        },
+        "output": {
+          "from": 0.2,
+          "to": 0.6
+        }
+      }
+    },
+    {
+      "id": "openai/gpt-5.4-mini",
+      "provider": "openai",
+      "line": "mini",
+      "name": "GPT-5.4 Mini",
+      "releaseDate": "2026-03-17",
+      "description": "GPT-5.4 mini brings the core capabilities of GPT-5.4 to a faster, more efficient model optimized for high-throughput workloads. It supports text and image inputs with strong performance across reasoning, coding, and tool use, while reducing latency and cost for large-scale deployments.\n\nThe model is designed for production environments that require a balance of capability and efficiency, making it well suited for chat applications, coding assistants, and agent workflows that operate at scale. GPT-5.4 mini delivers reliable instruction following, solid multi-step reasoning, and consistent performance across diverse tasks with improved cost efficiency.",
+      "descriptionFull": true,
+      "contextLength": 400000,
+      "inputPerM": 0.75,
+      "outputPerM": 4.5,
+      "previous": {
+        "id": "openai/gpt-5-mini",
+        "name": "GPT-5 Mini",
+        "releaseDate": "2025-08-07"
+      },
+      "jump": "Brings GPT-5.4's core capabilities to a faster, cheaper tier for high-throughput work. Compared with GPT-5 mini it adds stronger reasoning, coding and tool use, and costs more per token ($0.75/$4.50 versus $0.25/$2.00).",
+      "summary": "GPT-5.4 mini brings the core capabilities of GPT-5.4 to a faster, more efficient model optimized for high-throughput workloads.",
+      "deltas": {
+        "daysSince": 222,
+        "context": {
+          "from": 400000,
+          "to": 400000
+        },
+        "input": {
+          "from": 0.25,
+          "to": 0.75
+        },
+        "output": {
+          "from": 2,
+          "to": 4.5
+        }
+      }
+    },
+    {
+      "id": "openai/gpt-5.4-nano",
+      "provider": "openai",
+      "line": "nano",
+      "name": "GPT-5.4 Nano",
+      "releaseDate": "2026-03-17",
+      "description": "GPT-5.4 nano is the most lightweight and cost-efficient variant of the GPT-5.4 family, optimized for speed-critical and high-volume tasks. It supports text and image inputs and is designed for low-latency use cases such as classification, data extraction, ranking, and sub-agent execution.\n\nThe model prioritizes responsiveness and efficiency over deep reasoning, making it ideal for pipelines that require fast, reliable outputs at scale. GPT-5.4 nano is well suited for background tasks, real-time systems, and distributed agent architectures where minimizing cost and latency is essential.",
+      "descriptionFull": true,
+      "contextLength": 400000,
+      "inputPerM": 0.2,
+      "outputPerM": 1.25,
+      "previous": {
+        "id": "openai/gpt-5-nano",
+        "name": "GPT-5 Nano",
+        "releaseDate": "2025-08-07"
+      },
+      "jump": "The lightest GPT-5.4 tier, for classification, extraction, ranking and sub-agents, prioritising responsiveness over deep reasoning. Price rises from $0.05/$0.40 (GPT-5 nano) to $0.20/$1.25 per million; context stays at 400K.",
+      "summary": "GPT-5.4 nano is the most lightweight and cost-efficient variant of the GPT-5.4 family, optimized for speed-critical and high-volume tasks.",
+      "deltas": {
+        "daysSince": 222,
+        "context": {
+          "from": 400000,
+          "to": 400000
+        },
+        "input": {
+          "from": 0.05,
+          "to": 0.2
+        },
+        "output": {
+          "from": 0.4,
+          "to": 1.25
+        }
+      }
+    },
+    {
+      "id": "x-ai/grok-4.20",
+      "provider": "x-ai",
+      "line": "grok",
+      "name": "Grok 4.20",
+      "releaseDate": "2026-03-31",
+      "description": "Grok 4.20 is a reasoning model from SpaceXAI with industry-leading speed and agentic tool calling capabilities. It combines the lowest hallucination rate on the market with strict prompt adherance, delivering consistently precise and truthful responses.\n\nReasoning can be enabled/disabled using the `reasoning` `enabled` parameter in the API. [Learn more in our docs](https://openrouter.ai/docs/use-cases/reasoning-tokens#controlling-reasoning-tokens)",
+      "descriptionFull": true,
+      "contextLength": 2000000,
+      "inputPerM": 1.25,
+      "outputPerM": 2.5,
+      "previous": null,
+      "jump": "Debut of this window for xAI (SpaceXAI): a reasoning model with a 2M-token window, fast agentic tool calling and, according to xAI, the lowest hallucination rate on the market, at a low $1.25/$2.50 per million.",
+      "summary": "Grok 4.20 is a reasoning model from SpaceXAI with industry-leading speed and agentic tool calling capabilities.",
+      "deltas": null
+    },
+    {
+      "id": "google/gemma-4-31b-it",
+      "provider": "google",
+      "line": "gemma",
+      "name": "Gemma 4 31B",
+      "releaseDate": "2026-04-02",
+      "description": "Gemma 4 31B Instruct is Google DeepMind's 30.7B dense multimodal model supporting text and image input with text output. Features a 256K token context window, configurable thinking/reasoning mode, native function calling, and multilingual support across 140+ languages. Strong on coding, reasoning, and document understanding tasks. Apache 2.0 license.",
+      "descriptionFull": true,
+      "contextLength": 262144,
+      "inputPerM": 0.2,
+      "outputPerM": 0.4,
+      "previous": null,
+      "jump": "Debut of Gemma 4 in this window: a 30.7B dense open-weights (Apache 2.0) multimodal model with a 256K window, configurable thinking, native function calling and 140+ languages.",
+      "summary": "Gemma 4 31B Instruct is Google DeepMind's 30.7B dense multimodal model supporting text and image input with text output.",
+      "deltas": null
+    },
+    {
+      "id": "qwen/qwen3.6-plus",
+      "provider": "qwen",
+      "line": "plus",
+      "name": "Qwen3.6 Plus",
+      "releaseDate": "2026-04-02",
+      "description": "Qwen 3.6 Plus builds on a hybrid architecture that combines efficient linear attention with sparse mixture-of-experts routing, enabling strong scalability and high-performance inference. Compared to the 3.5 series, it delivers major gains in agentic coding, front-end development, and overall reasoning, with a significantly improved “vibe coding” experience. The model excels at complex tasks such as 3D scenes, games, and repository-level problem solving, achieving a 78.8 score on SWE-bench Verified. It represents a substantial leap in both pure-text and multimodal capabilities, performing at the level of leading state-of-the-art models.",
+      "descriptionFull": true,
+      "contextLength": 1000000,
+      "inputPerM": 0.325,
+      "outputPerM": 1.95,
+      "previous": {
+        "id": "qwen/qwen3.5-plus-02-15",
+        "name": "Qwen3.5 Plus",
+        "releaseDate": "2026-02-16"
+      },
+      "jump": "Major gains over 3.5 in agentic coding, front-end development and overall reasoning, scoring 78.8 on SWE-bench Verified, with a much better 'vibe coding' experience (3D scenes, games, repository-level fixes). Price rises from $0.26/$1.56 to $0.33/$1.95.",
+      "summary": "Qwen 3.6 Plus builds on a hybrid architecture that combines efficient linear attention with sparse mixture-of-experts routing, enabling strong scalability and high-performance inference.",
+      "deltas": {
+        "daysSince": 45,
+        "context": {
+          "from": 1000000,
+          "to": 1000000
+        },
+        "input": {
+          "from": 0.26,
+          "to": 0.325
+        },
+        "output": {
+          "from": 1.56,
+          "to": 1.95
+        }
+      }
+    },
+    {
+      "id": "anthropic/claude-opus-4.7",
+      "provider": "anthropic",
+      "line": "opus",
+      "name": "Claude Opus 4.7",
+      "releaseDate": "2026-04-16",
+      "description": "Opus 4.7 is the next generation of Anthropic's Opus family, built for long-running, asynchronous agents. Building on the coding and agentic strengths of Opus 4.6, it delivers stronger performance on complex, multi-step tasks and more reliable agentic execution across extended workflows. It is especially effective for asynchronous agent pipelines where tasks unfold over time - large codebases, multi-stage debugging, and end-to-end project orchestration.\n\nBeyond coding, Opus 4.7 brings improved knowledge work capabilities - from drafting documents and building presentations to analyzing data. It maintains coherence across very long outputs and extended sessions, making it a strong default for tasks that require persistence, judgment, and follow-through.\n\nFor users upgrading from earlier Opus versions, see our [official migration guide here](https://openrouter.ai/docs/guides/evaluate-and-optimize/model-migrations/claude-4-7)",
+      "descriptionFull": true,
+      "contextLength": 1000000,
+      "inputPerM": 5,
+      "outputPerM": 25,
+      "previous": {
+        "id": "anthropic/claude-opus-4.6",
+        "name": "Claude Opus 4.6",
+        "releaseDate": "2026-02-04"
+      },
+      "jump": "Built for long-running asynchronous agents: stronger multi-step execution on large codebases and multi-stage debugging than Opus 4.6, plus better knowledge work such as documents, presentations and data analysis. Context and price unchanged ($5/$25, 1M).",
+      "summary": "Opus 4.7 is the next generation of Anthropic's Opus family, built for long-running, asynchronous agents.",
+      "deltas": {
+        "daysSince": 71,
+        "context": {
+          "from": 1000000,
+          "to": 1000000
+        },
+        "input": {
+          "from": 5,
+          "to": 5
+        },
+        "output": {
+          "from": 25,
+          "to": 25
+        }
+      }
+    },
+    {
+      "id": "deepseek/deepseek-v4-flash",
+      "provider": "deepseek",
+      "line": "flash",
+      "name": "DeepSeek V4 Flash 0423",
+      "releaseDate": "2026-04-24",
+      "description": "DeepSeek V4 Flash is an efficiency-optimized Mixture-of-Experts model from DeepSeek with 284B total parameters and 13B activated parameters, supporting a 1M-token context window. It is designed for fast inference and high-throughput workloads, while maintaining strong reasoning and coding performance.\n\nThe model includes hybrid attention for efficient long-context processing. Reasoning efforts `high` and `xhigh` are supported; `xhigh` maps to max reasoning. It is well suited for applications such as coding assistants, chat systems, and agent workflows where responsiveness and cost efficiency are important.",
+      "descriptionFull": true,
+      "contextLength": 1048576,
+      "inputPerM": 0.09,
+      "outputPerM": 0.18,
+      "previous": {
+        "id": "deepseek/deepseek-v3.2",
+        "name": "DeepSeek V3.2",
+        "releaseDate": "2025-12-01"
+      },
+      "jump": "Next-generation efficiency tier: 284B-parameter MoE with 13B active and a 1M-token context (up from 164K) using hybrid attention. Output cost drops from $0.38 to $0.18 per million versus V3.2.",
+      "summary": "DeepSeek V4 Flash is an efficiency-optimized Mixture-of-Experts model from DeepSeek with 284B total parameters and 13B activated parameters, supporting a 1M-token context window.",
+      "deltas": {
+        "daysSince": 144,
+        "context": {
+          "from": 163840,
+          "to": 1048576
+        },
+        "input": {
+          "from": 0.26,
+          "to": 0.09
+        },
+        "output": {
+          "from": 0.38,
+          "to": 0.18
+        }
+      }
+    },
+    {
+      "id": "deepseek/deepseek-v4-pro",
+      "provider": "deepseek",
+      "line": "pro",
+      "name": "DeepSeek V4 Pro 0423",
+      "releaseDate": "2026-04-24",
+      "description": "DeepSeek V4 Pro is a large-scale Mixture-of-Experts model from DeepSeek with 1.6T total parameters and 49B activated parameters, supporting a 1M-token context window. It is designed for advanced reasoning, coding, and long-horizon agent workflows, with strong performance across knowledge, math, and software engineering benchmarks.\n\nBuilt on the same architecture as DeepSeek V4 Flash, it introduces a hybrid attention system for efficient long-context processing. Reasoning efforts high and xhigh are supported; xhigh maps to max reasoning. It is well suited for complex workloads such as full-codebase analysis, multi-step automation, and large-scale information synthesis, where both capability and efficiency are critical",
+      "descriptionFull": true,
+      "contextLength": 1048576,
+      "inputPerM": 0.9,
+      "outputPerM": 1.5,
+      "previous": {
+        "id": "deepseek/deepseek-v3.2",
+        "name": "DeepSeek V3.2",
+        "releaseDate": "2025-12-01"
+      },
+      "jump": "The big jump from V3.2: 1.6T total parameters with 49B active, a 1M-token context (up from 164K) and hybrid attention, aimed at full-codebase analysis and long-horizon agents. Output price rises from $0.38 to $1.50 per million.",
+      "summary": "DeepSeek V4 Pro is a large-scale Mixture-of-Experts model from DeepSeek with 1.6T total parameters and 49B activated parameters, supporting a 1M-token context window.",
+      "deltas": {
+        "daysSince": 144,
+        "context": {
+          "from": 163840,
+          "to": 1048576
+        },
+        "input": {
+          "from": 0.26,
+          "to": 0.9
+        },
+        "output": {
+          "from": 0.38,
+          "to": 1.5
+        }
+      }
+    },
+    {
+      "id": "openai/gpt-5.5",
+      "provider": "openai",
+      "line": "core",
+      "name": "GPT-5.5",
+      "releaseDate": "2026-04-24",
+      "description": "GPT-5.5 is OpenAI’s frontier model designed for complex professional workloads, building on GPT-5.4 with stronger reasoning, higher reliability, and improved token efficiency on hard tasks. It features a 1M+ token context window (922K input, 128K output) with support for text and image inputs, enabling large-scale reasoning, coding, and multimodal workflows within a single system.",
+      "descriptionFull": true,
+      "contextLength": 1050000,
+      "inputPerM": 5,
+      "outputPerM": 30,
+      "previous": {
+        "id": "openai/gpt-5.4",
+        "name": "GPT-5.4",
+        "releaseDate": "2026-03-05"
+      },
+      "jump": "Stronger reasoning, higher reliability and better token efficiency on hard professional workloads than GPT-5.4, with the same 1M+ context. Price doubles to $5/$30 per million.",
+      "summary": "GPT-5.5 is OpenAI’s frontier model designed for complex professional workloads, building on GPT-5.4 with stronger reasoning, higher reliability, and improved token efficiency on hard tasks.",
+      "deltas": {
+        "daysSince": 50,
+        "context": {
+          "from": 1050000,
+          "to": 1050000
+        },
+        "input": {
+          "from": 2.5,
+          "to": 5
+        },
+        "output": {
+          "from": 15,
+          "to": 30
+        }
+      }
+    },
+    {
+      "id": "qwen/qwen3.6-flash",
+      "provider": "qwen",
+      "line": "flash",
+      "name": "Qwen3.6 Flash",
+      "releaseDate": "2026-04-27",
+      "description": "Qwen3.6 Flash is a fast, efficient language model from Alibaba's Qwen 3.6 series. It supports text, image, and video input with a 1M token context window. Tiered pricing kicks in above 256K tokens. Prompt caching is supported, with both explicit cache read and cache creation pricing.",
+      "descriptionFull": true,
+      "contextLength": 1000000,
+      "inputPerM": 0.188,
+      "outputPerM": 1.125,
+      "previous": {
+        "id": "qwen/qwen3.5-flash-02-23",
+        "name": "Qwen3.5-Flash",
+        "releaseDate": "2026-02-25"
+      },
+      "jump": "Fast Qwen3.6-series multimodal model (text, image, video) with a 1M window and tiered pricing above 256K tokens. Priced near $0.19/$1.13 per million, up from the Qwen3.5 Flash launch price.",
+      "summary": "Qwen3.6 Flash is a fast, efficient language model from Alibaba's Qwen 3.6 series.",
+      "deltas": {
+        "daysSince": 61,
+        "context": {
+          "from": 1000000,
+          "to": 1000000
+        },
+        "input": {
+          "from": 0.065,
+          "to": 0.188
+        },
+        "output": {
+          "from": 0.26,
+          "to": 1.125
+        }
+      }
+    },
+    {
+      "id": "mistralai/mistral-medium-3-5",
+      "provider": "mistralai",
+      "line": "mistral-medium",
+      "name": "Mistral Medium 3.5",
+      "releaseDate": "2026-04-30",
+      "description": "Mistral Medium 3.5 is a dense 128B instruction-following model from Mistral AI. It supports text and image inputs with text output, and is designed for agentic workflows, coding, and complex multi-step reasoning. It is particularly strong at reliable multi-tool calling and long-horizon tasks, with a 256K context window, configurable reasoning effort per request, and a custom vision encoder that handles variable image sizes and aspect ratios. Self-hostable on as few as four GPUs and available under open weights.",
+      "descriptionFull": true,
+      "contextLength": 262144,
+      "inputPerM": 1.5,
+      "outputPerM": 7.5,
+      "previous": {
+        "id": "mistralai/mistral-medium-3.1",
+        "name": "Mistral Medium 3.1",
+        "releaseDate": "2025-08-13"
+      },
+      "jump": "A dense 128B model with a 256K context (up from 131K), configurable reasoning, custom vision encoder and open weights, self-hostable on four GPUs. Strong multi-tool calling; price rises to $1.50/$7.50 per million.",
+      "summary": "Mistral Medium 3.5 is a dense 128B instruction-following model from Mistral AI.",
+      "deltas": {
+        "daysSince": 260,
+        "context": {
+          "from": 131072,
+          "to": 262144
+        },
+        "input": {
+          "from": 0.44,
+          "to": 1.5
+        },
+        "output": {
+          "from": 2.2,
+          "to": 7.5
+        }
+      }
+    },
+    {
+      "id": "x-ai/grok-4.3",
+      "provider": "x-ai",
+      "line": "grok",
+      "name": "Grok 4.3",
+      "releaseDate": "2026-04-30",
+      "description": "Grok 4.3 is a reasoning model from SpaceXAI. It accepts text and image inputs with text output, and is suited for agentic workflows, instruction-following tasks, and applications requiring high factual accuracy. Reasoning can be configured between none/low/medium/high (default low) effort levels.\n\nIt supports a 1 million token context window with no output token limit, making it well-suited for long-document analysis, deep research, and multi-step agentic tasks. Pricing is tiered: requests exceeding 200k total tokens are billed at a higher rate.",
+      "descriptionFull": true,
+      "contextLength": 1000000,
+      "inputPerM": 1.25,
+      "outputPerM": 2.5,
+      "previous": {
+        "id": "x-ai/grok-4.20",
+        "name": "Grok 4.20",
+        "releaseDate": "2026-03-31"
+      },
+      "jump": "Adds configurable reasoning effort (none to high) and a 1M-token window with no output cap, aimed at long-document analysis and agentic work. The 2M window of Grok 4.20 shrinks to 1M, and pricing is tiered above 200K tokens.",
+      "summary": "Grok 4.3 is a reasoning model from SpaceXAI.",
+      "deltas": {
+        "daysSince": 30,
+        "context": {
+          "from": 2000000,
+          "to": 1000000
+        },
+        "input": {
+          "from": 1.25,
+          "to": 1.25
+        },
+        "output": {
+          "from": 2.5,
+          "to": 2.5
+        }
+      }
+    },
+    {
+      "id": "google/gemini-3.1-flash-lite",
+      "provider": "google",
+      "line": "flash-lite",
+      "name": "Gemini 3.1 Flash Lite",
+      "releaseDate": "2026-05-07",
+      "description": "Gemini 3.1 Flash Lite is Google’s GA high-efficiency multimodal model optimized for low-latency, high-volume workloads. It supports text, image, video, audio, and PDF inputs, and is designed for lightweight agentic workflows, simple data extraction, and applications where responsiveness and API cost are the primary constraints.\n\nSupports full thinking levels (minimal, low, medium, high) for fine-grained cost/performance trade-offs. Priced at half the cost of Gemini 3 Flash.",
+      "descriptionFull": true,
+      "contextLength": 1048576,
+      "inputPerM": 0.25,
+      "outputPerM": 1.5,
+      "previous": {
+        "id": "google/gemini-3.1-flash-lite-preview",
+        "name": "Gemini 3.1 Flash Lite Preview",
+        "releaseDate": "2026-03-03"
+      },
+      "jump": "The GA release of Gemini 3.1 Flash Lite after the preview: same 1M window and $0.25/$1.50 price with production stability, full thinking levels and support for text, image, video, audio and PDF input.",
+      "summary": "Gemini 3.1 Flash Lite is Google’s GA high-efficiency multimodal model optimized for low-latency, high-volume workloads.",
+      "deltas": {
+        "daysSince": 65,
+        "context": {
+          "from": 1048576,
+          "to": 1048576
+        },
+        "input": {
+          "from": 0.25,
+          "to": 0.25
+        },
+        "output": {
+          "from": 1.5,
+          "to": 1.5
+        }
+      }
+    },
+    {
+      "id": "google/gemini-3.5-flash",
+      "provider": "google",
+      "line": "flash",
+      "name": "Gemini 3.5 Flash",
+      "releaseDate": "2026-05-19",
+      "description": "Gemini 3.5 Flash is Google's high-efficiency multimodal model, bringing near-Pro level coding and reasoning at Flash-tier cost and speed. It is highly optimized for coding proficiency and parallel agentic execution loops, supporting text, image, video, audio, and PDF inputs.\n\nDefaults to medium thinking effort for faster and more cost-efficient responses, with full support for thinking levels (minimal, low, medium, high) for fine-grained cost/performance trade-offs.",
+      "descriptionFull": true,
+      "contextLength": 1048576,
+      "inputPerM": 1.5,
+      "outputPerM": 9,
+      "previous": {
+        "id": "google/gemini-3-flash-preview",
+        "name": "Gemini 3 Flash Preview",
+        "releaseDate": "2025-12-17"
+      },
+      "jump": "Near-Pro coding and reasoning at Flash cost and speed, optimised for parallel agentic execution loops, with medium thinking effort by default. Price jumps to $1.50/$9.00 per million from $0.50/$3.00.",
+      "summary": "Gemini 3.5 Flash is Google's high-efficiency multimodal model, bringing near-Pro level coding and reasoning at Flash-tier cost and speed.",
+      "deltas": {
+        "daysSince": 153,
+        "context": {
+          "from": 1048576,
+          "to": 1048576
+        },
+        "input": {
+          "from": 0.5,
+          "to": 1.5
+        },
+        "output": {
+          "from": 3,
+          "to": 9
+        }
+      }
+    },
+    {
+      "id": "qwen/qwen3.7-max",
+      "provider": "qwen",
+      "line": "flagship",
+      "name": "Qwen3.7 Max",
+      "releaseDate": "2026-05-21",
+      "description": "Qwen3.7-Max is the flagship model in Alibaba's Qwen3.7 series. It supports text input and output and is designed for agent-centric workloads, with particular strengths in coding, office and productivity tasks, and long-horizon autonomous execution. The model offers notable gains in coding and agentic performance over prior Qwen generations and supports explicit prompt caching for efficient repeated context use.",
+      "descriptionFull": true,
+      "contextLength": 1000000,
+      "inputPerM": 1.475,
+      "outputPerM": 4.425,
+      "previous": {
+        "id": "qwen/qwen3.5-397b-a17b",
+        "name": "Qwen3.5 397B A17B",
+        "releaseDate": "2026-02-16"
+      },
+      "jump": "Flagship of the Qwen3.7 series, built for agent-centric work: coding, office productivity and long-horizon autonomous execution, with explicit prompt caching. Context grows from 262K to 1M tokens versus the Qwen3.5 397B model.",
+      "summary": "Qwen3.7-Max is the flagship model in Alibaba's Qwen3.7 series.",
+      "deltas": {
+        "daysSince": 94,
+        "context": {
+          "from": 262144,
+          "to": 1000000
+        },
+        "input": {
+          "from": 0.45,
+          "to": 1.475
+        },
+        "output": {
+          "from": 3,
+          "to": 4.425
+        }
+      }
+    },
+    {
+      "id": "anthropic/claude-opus-4.8",
+      "provider": "anthropic",
+      "line": "opus",
+      "name": "Claude Opus 4.8",
+      "releaseDate": "2026-05-27",
+      "description": "Claude Opus 4.8 is Anthropic's most capable generally available model in the Opus family. It supports text, image, and file inputs with text output, with reasoning support and a 1M-token context window. It is suited for highly autonomous agents, long-horizon agentic work, knowledge work, and memory-driven tasks where coherence over extended sessions matters.\n\nIt is particularly strong on multi-step reasoning, complex coding, and end-to-end project orchestration - large codebases, multi-stage debugging, and long-running asynchronous agent pipelines. Beyond coding, it handles knowledge work such as drafting documents, building presentations, and analyzing data, maintaining quality across very long outputs.",
+      "descriptionFull": true,
+      "contextLength": 1000000,
+      "inputPerM": 5,
+      "outputPerM": 25,
+      "previous": {
+        "id": "anthropic/claude-opus-4.7",
+        "name": "Claude Opus 4.7",
+        "releaseDate": "2026-04-16"
+      },
+      "jump": "Anthropic's most capable generally available Opus, aimed at highly autonomous long-horizon agents and memory-driven work where coherence over long sessions matters. Same price and 1M context as Opus 4.7.",
+      "summary": "Claude Opus 4.8 is Anthropic's most capable generally available model in the Opus family.",
+      "deltas": {
+        "daysSince": 41,
+        "context": {
+          "from": 1000000,
+          "to": 1000000
+        },
+        "input": {
+          "from": 5,
+          "to": 5
+        },
+        "output": {
+          "from": 25,
+          "to": 25
+        }
+      }
+    },
+    {
+      "id": "qwen/qwen3.7-plus",
+      "provider": "qwen",
+      "line": "plus",
+      "name": "Qwen3.7 Plus",
+      "releaseDate": "2026-06-03",
+      "description": "Qwen3.7-Plus is a cost-effective model in Alibaba's Qwen3.7 series. It supports text and image input with text output, building on the series' text capabilities with a comprehensive upgrade to its vision-language abilities while retaining full-stack, agent-level intelligence for coding, tool use, and productivity workflows. Its distinguishing trait is multi-modal interactive hybrid agent capability: it can perceive real-world scenes, read screens and interact with GUIs, generate code from visual references, and perform end-to-end navigation within mobile apps.",
+      "descriptionFull": true,
+      "contextLength": 1000000,
+      "inputPerM": 0.32,
+      "outputPerM": 1.28,
+      "previous": {
+        "id": "qwen/qwen3.6-plus",
+        "name": "Qwen3.6 Plus",
+        "releaseDate": "2026-04-02"
+      },
+      "jump": "Cost-effective Plus tier with a comprehensive vision-language upgrade: it can read screens, operate GUIs, generate code from visual references and navigate mobile apps, while keeping agent-level coding and tool use. Price falls slightly to $0.32/$1.28.",
+      "summary": "Qwen3.7-Plus is a cost-effective model in Alibaba's Qwen3.7 series.",
+      "deltas": {
+        "daysSince": 62,
+        "context": {
+          "from": 1000000,
+          "to": 1000000
+        },
+        "input": {
+          "from": 0.325,
+          "to": 0.32
+        },
+        "output": {
+          "from": 1.95,
+          "to": 1.28
+        }
+      }
+    },
+    {
+      "id": "nvidia/nemotron-3-ultra-550b-a55b",
+      "provider": "nvidia",
+      "line": "ultra",
+      "name": "Nemotron 3 Ultra",
+      "releaseDate": "2026-06-04",
+      "description": "NVIDIA Nemotron 3 Ultra is an open frontier-reasoning and orchestration model from NVIDIA, with 55B active parameters out of 550B total (MoE). Built on a hybrid Transformer-Mamba mixture-of-experts architecture, it supports text input and output with a context window of up to 1M tokens. It is suited for long-running agentic workflows, including agent orchestration, coding agents, deep research, and complex enterprise tasks.\n\nIt is particularly strong at multi-step reasoning and planning, with high-throughput inference designed for high-volume agent pipelines. It is part of the NVIDIA Nemotron family of open models for agentic AI.",
+      "descriptionFull": true,
+      "contextLength": 262144,
+      "inputPerM": 0.5,
+      "outputPerM": 2.2,
+      "previous": null,
+      "jump": "Top of the Nemotron 3 line: a 550B hybrid Transformer-Mamba MoE with 55B active parameters, built for agent orchestration, coding agents and deep research, still open.",
+      "summary": "NVIDIA Nemotron 3 Ultra is an open frontier-reasoning and orchestration model from NVIDIA, with 55B active parameters out of 550B total (MoE).",
+      "deltas": null
+    },
+    {
+      "id": "anthropic/claude-fable-5",
+      "provider": "anthropic",
+      "line": "fable",
+      "name": "Claude Fable 5",
+      "releaseDate": "2026-06-09",
+      "description": "Claude Fable 5 is a Mythos-class model from Anthropic, built for autonomous knowledge work and coding. It supports text, image, and file inputs with text output, with reasoning support and a 1M-token context window. It is suited for long-running, complex, and asynchronous tasks that previously required frequent human check-ins.\n\nIt is particularly strong at end-to-end work that would otherwise take a person hours, days, or weeks - taking on problems that are long-running, ambiguous, or highly multi-step. It executes well-scoped tasks with few mistakes, automatically self-correcting through verification loops, and ships with robust safeguards.",
+      "descriptionFull": true,
+      "contextLength": 1000000,
+      "inputPerM": 10,
+      "outputPerM": 50,
+      "previous": {
+        "id": "anthropic/claude-opus-4.8",
+        "name": "Claude Opus 4.8",
+        "releaseDate": "2026-05-27"
+      },
+      "jump": "A new, higher tier above Opus ('Mythos-class') for autonomous work that previously needed frequent human check-ins: long, ambiguous, multi-step tasks with self-correcting verification loops. Price doubles to $10/$50 per million versus Opus 4.8.",
+      "summary": "Claude Fable 5 is a Mythos-class model from Anthropic, built for autonomous knowledge work and coding.",
+      "deltas": {
+        "daysSince": 13,
+        "context": {
+          "from": 1000000,
+          "to": 1000000
+        },
+        "input": {
+          "from": 5,
+          "to": 10
+        },
+        "output": {
+          "from": 25,
+          "to": 50
+        }
+      }
+    },
+    {
+      "id": "anthropic/claude-sonnet-5",
+      "provider": "anthropic",
+      "line": "sonnet",
+      "name": "Claude Sonnet 5",
+      "releaseDate": "2026-06-30",
+      "description": "Sonnet 5 is Anthropic's most capable Sonnet-class model, with frontier performance across coding, agents, and professional work. It supports adaptive thinking with selectable reasoning effort levels (low, medium, high, max, and x-high), a 1M-token context window, and text, image, and file inputs. Sonnet 5 uses an updated tokenizer and includes real-time cyber safeguards that block certain high-risk dual-use activities.",
+      "descriptionFull": true,
+      "contextLength": 1000000,
+      "inputPerM": 2,
+      "outputPerM": 10,
+      "previous": {
+        "id": "anthropic/claude-sonnet-4.6",
+        "name": "Claude Sonnet 4.6",
+        "releaseDate": "2026-02-17"
+      },
+      "jump": "Sonnet-class model with adaptive thinking at five effort levels, an updated tokenizer and real-time cyber safeguards. Price falls from $3/$15 to $2/$10 per million at the same 1M context.",
+      "summary": "Sonnet 5 is Anthropic's most capable Sonnet-class model, with frontier performance across coding, agents, and professional work.",
+      "deltas": {
+        "daysSince": 133,
+        "context": {
+          "from": 1000000,
+          "to": 1000000
+        },
+        "input": {
+          "from": 3,
+          "to": 2
+        },
+        "output": {
+          "from": 15,
+          "to": 10
+        }
+      }
+    },
+    {
+      "id": "x-ai/grok-4.5",
+      "provider": "x-ai",
+      "line": "grok",
+      "name": "Grok 4.5",
+      "releaseDate": "2026-07-08",
+      "description": "Grok 4.5 is a model from SpaceXAI with frontier performance on coding, knowledge work, and STEM.",
+      "descriptionFull": false,
+      "contextLength": 500000,
+      "inputPerM": 2,
+      "outputPerM": 6,
+      "previous": {
+        "id": "x-ai/grok-4.3",
+        "name": "Grok 4.3",
+        "releaseDate": "2026-04-30"
+      },
+      "jump": "Frontier performance on coding, knowledge work and STEM. Context narrows from 1M to 500K tokens, while price rises from $1.25/$2.50 to $2/$6 per million.",
+      "summary": "Grok 4.5 is a model from SpaceXAI with frontier performance on coding, knowledge work, and STEM.",
+      "deltas": {
+        "daysSince": 69,
+        "context": {
+          "from": 1000000,
+          "to": 500000
+        },
+        "input": {
+          "from": 1.25,
+          "to": 2
+        },
+        "output": {
+          "from": 2.5,
+          "to": 6
+        }
+      }
+    },
+    {
+      "id": "openai/gpt-5.6-luna",
+      "provider": "openai",
+      "line": "luna",
+      "name": "GPT-5.6 Luna",
+      "releaseDate": "2026-07-09",
+      "description": "GPT-5.6 Luna is a fast, cost-efficient model in OpenAI's GPT-5.6 series. It is suited for high-volume, latency-sensitive tasks such as chat, classification, and lightweight agentic workflows, providing capable reasoning for its price tier.",
+      "descriptionFull": true,
+      "contextLength": 1050000,
+      "inputPerM": 0.2,
+      "outputPerM": 1.2,
+      "previous": {
+        "id": "openai/gpt-5.5",
+        "name": "GPT-5.5",
+        "releaseDate": "2026-04-24"
+      },
+      "jump": "The new fast, low-cost tier of the GPT-5.6 series for chat, classification and lightweight agents. A 1.05M window and $0.20/$1.20 pricing make it far cheaper than GPT-5.5 ($5/$30).",
+      "summary": "GPT-5.6 Luna is a fast, cost-efficient model in OpenAI's GPT-5.6 series.",
+      "deltas": {
+        "daysSince": 76,
+        "context": {
+          "from": 1050000,
+          "to": 1050000
+        },
+        "input": {
+          "from": 5,
+          "to": 0.2
+        },
+        "output": {
+          "from": 30,
+          "to": 1.2
+        }
+      }
+    },
+    {
+      "id": "openai/gpt-5.6-sol",
+      "provider": "openai",
+      "line": "sol",
+      "name": "GPT-5.6 Sol",
+      "releaseDate": "2026-07-09",
+      "description": "GPT-5.6 Sol is the flagship model in OpenAI's GPT-5.6 series. It is suited for complex reasoning, coding, and agentic workflows, and is particularly strong at command-line and multi-step coding tasks and long-horizon problem solving.",
+      "descriptionFull": true,
+      "contextLength": 1050000,
+      "inputPerM": 4,
+      "outputPerM": 20,
+      "previous": {
+        "id": "openai/gpt-5.5",
+        "name": "GPT-5.5",
+        "releaseDate": "2026-04-24"
+      },
+      "jump": "Flagship of the GPT-5.6 series, strongest at command-line and multi-step coding and long-horizon problem solving. Introduces the Sol/Terra/Luna tier naming and is cheaper than GPT-5.5 at $4/$20 versus $5/$30.",
+      "summary": "GPT-5.6 Sol is the flagship model in OpenAI's GPT-5.6 series.",
+      "deltas": {
+        "daysSince": 76,
+        "context": {
+          "from": 1050000,
+          "to": 1050000
+        },
+        "input": {
+          "from": 5,
+          "to": 4
+        },
+        "output": {
+          "from": 30,
+          "to": 20
+        }
+      }
+    },
+    {
+      "id": "openai/gpt-5.6-terra",
+      "provider": "openai",
+      "line": "terra",
+      "name": "GPT-5.6 Terra",
+      "releaseDate": "2026-07-09",
+      "description": "GPT-5.6 Terra is a balanced model in OpenAI's GPT-5.6 series, positioned between the flagship Sol tier and the cost-efficient Luna tier. It is suited for everyday coding, reasoning, and agentic tasks where capability and cost need to be balanced, offering strong performance at roughly half the cost of Sol.",
+      "descriptionFull": true,
+      "contextLength": 1050000,
+      "inputPerM": 2,
+      "outputPerM": 12,
+      "previous": {
+        "id": "openai/gpt-5.5",
+        "name": "GPT-5.5",
+        "releaseDate": "2026-04-24"
+      },
+      "jump": "Balanced middle tier between Sol and Luna for everyday coding, reasoning and agent work, at roughly half the cost of Sol: $2/$12 per million versus $5/$30 for GPT-5.5.",
+      "summary": "GPT-5.6 Terra is a balanced model in OpenAI's GPT-5.6 series, positioned between the flagship Sol tier and the cost-efficient Luna tier.",
+      "deltas": {
+        "daysSince": 76,
+        "context": {
+          "from": 1050000,
+          "to": 1050000
+        },
+        "input": {
+          "from": 5,
+          "to": 2
+        },
+        "output": {
+          "from": 30,
+          "to": 12
+        }
+      }
+    },
+    {
+      "id": "google/gemini-3.5-flash-lite",
+      "provider": "google",
+      "line": "flash-lite",
+      "name": "Gemini 3.5 Flash Lite",
+      "releaseDate": "2026-07-21",
+      "description": "Gemini 3.5 Flash Lite is a high-efficiency model from Google with upgraded agentic capabilities. It is suited for subagents that execute focused tasks within complex, multi-agent workflows.",
+      "descriptionFull": false,
+      "contextLength": 1048576,
+      "inputPerM": 0.3,
+      "outputPerM": 2.5,
+      "previous": {
+        "id": "google/gemini-3.1-flash-lite",
+        "name": "Gemini 3.1 Flash Lite",
+        "releaseDate": "2026-05-07"
+      },
+      "jump": "Upgraded agentic capability for sub-agents that run focused tasks inside multi-agent workflows. Price rises from $0.25/$1.50 to $0.30/$2.50 per million.",
+      "summary": "Gemini 3.5 Flash Lite is a high-efficiency model from Google with upgraded agentic capabilities.",
+      "deltas": {
+        "daysSince": 75,
+        "context": {
+          "from": 1048576,
+          "to": 1048576
+        },
+        "input": {
+          "from": 0.25,
+          "to": 0.3
+        },
+        "output": {
+          "from": 1.5,
+          "to": 2.5
+        }
+      }
+    },
+    {
+      "id": "google/gemini-3.6-flash",
+      "provider": "google",
+      "line": "flash",
+      "name": "Gemini 3.6 Flash",
+      "releaseDate": "2026-07-21",
+      "description": "Gemini 3.6 Flash is a high-efficiency model from Google for coding, agentic workflows, and web and app development. It is designed to produce polished outputs with fewer unnecessary edits and less hedging, while reducing token use and the number of model calls needed to complete a task.",
+      "descriptionFull": true,
+      "contextLength": 1048576,
+      "inputPerM": 0.75,
+      "outputPerM": 3.75,
+      "previous": {
+        "id": "google/gemini-3.5-flash",
+        "name": "Gemini 3.5 Flash",
+        "releaseDate": "2026-05-19"
+      },
+      "jump": "Tuned for coding and web/app development: more polished output with fewer edits and less hedging, using fewer tokens and fewer model calls per task. Price falls 50% from Gemini 3.5 Flash, from $1.50/$9.00 to $0.75/$3.75.",
+      "summary": "Gemini 3.6 Flash is a high-efficiency model from Google for coding, agentic workflows, and web and app development.",
+      "deltas": {
+        "daysSince": 63,
+        "context": {
+          "from": 1048576,
+          "to": 1048576
+        },
+        "input": {
+          "from": 1.5,
+          "to": 0.75
+        },
+        "output": {
+          "from": 9,
+          "to": 3.75
+        }
+      }
+    },
+    {
+      "id": "anthropic/claude-opus-5",
+      "provider": "anthropic",
+      "line": "opus",
+      "name": "Claude Opus 5",
+      "releaseDate": "2026-07-24",
+      "description": "Claude Opus 5 is Anthropic’s flagship model for demanding reasoning, coding, and long-horizon agentic work. It is particularly strong at end-to-end software tasks, code review and bug finding, visual analysis of charts and documents, complex office deliverables, and coordinating parallel subagents.\n\nThe model maintains strong instruction following and tool use across extended tasks, while remaining effective at lower effort settings for workloads that prioritize latency and token efficiency.",
+      "descriptionFull": true,
+      "contextLength": 1000000,
+      "inputPerM": 5,
+      "outputPerM": 25,
+      "previous": {
+        "id": "anthropic/claude-opus-4.8",
+        "name": "Claude Opus 4.8",
+        "releaseDate": "2026-05-27"
+      },
+      "jump": "Anthropic's new flagship generation for demanding reasoning and coding, strong at code review and bug finding, chart and document analysis, complex office deliverables and coordinating parallel sub-agents. Price and context are unchanged versus Opus 4.8.",
+      "summary": "Claude Opus 5 is Anthropic’s flagship model for demanding reasoning, coding, and long-horizon agentic work.",
+      "deltas": {
+        "daysSince": 58,
+        "context": {
+          "from": 1000000,
+          "to": 1000000
+        },
+        "input": {
+          "from": 5,
+          "to": 5
+        },
+        "output": {
+          "from": 25,
+          "to": 25
+        }
+      }
+    },
+    {
+      "id": "qwen/qwen3.7-flash",
+      "provider": "qwen",
+      "line": "flash",
+      "name": "Qwen3.7 Flash",
+      "releaseDate": "2026-07-27",
+      "description": "Qwen3.7 Flash is a vision-language reasoning model from Alibaba. It is suited for multimodal agents, visual coding, search, and computer interaction, with strengths in object recognition, spatial understanding, and real-world visual perception.",
+      "descriptionFull": true,
+      "contextLength": 1000000,
+      "inputPerM": 0.03,
+      "outputPerM": 0.13,
+      "previous": {
+        "id": "qwen/qwen3.6-flash",
+        "name": "Qwen3.6 Flash",
+        "releaseDate": "2026-04-27"
+      },
+      "jump": "A vision-language reasoning Flash model for multimodal agents, visual coding, search and computer interaction, with stronger object recognition and spatial understanding. Price falls sharply to $0.03/$0.13 per million.",
+      "summary": "Qwen3.7 Flash is a vision-language reasoning model from Alibaba.",
+      "deltas": {
+        "daysSince": 91,
+        "context": {
+          "from": 1000000,
+          "to": 1000000
+        },
+        "input": {
+          "from": 0.188,
+          "to": 0.03
+        },
+        "output": {
+          "from": 1.125,
+          "to": 0.13
+        }
+      }
+    },
+    {
+      "id": "deepseek/deepseek-v4-flash-0731",
+      "provider": "deepseek",
+      "line": "flash",
+      "name": "DeepSeek V4 Flash 0731",
+      "releaseDate": "2026-07-31",
+      "description": "DeepSeek V4 Flash 0731 is a sparse mixture-of-experts model from DeepSeek, with 13B active parameters out of 284B total. This re-post-trained revision is suited for coding, reasoning, and agent workflows. This is the GA release of DeepSeek V4 Flash.",
+      "descriptionFull": true,
+      "contextLength": 1048576,
+      "inputPerM": 0.06,
+      "outputPerM": 0.18,
+      "previous": {
+        "id": "deepseek/deepseek-v4-flash",
+        "name": "DeepSeek V4 Flash 0423",
+        "releaseDate": "2026-04-24"
+      },
+      "jump": "A re-post-trained revision that serves as the general-availability release of V4 Flash. Input price falls from $0.09 to $0.06 per million at the same 1M context.",
+      "summary": "DeepSeek V4 Flash 0731 is a sparse mixture-of-experts model from DeepSeek, with 13B active parameters out of 284B total.",
+      "deltas": {
+        "daysSince": 98,
+        "context": {
+          "from": 1048576,
+          "to": 1048576
+        },
+        "input": {
+          "from": 0.09,
+          "to": 0.06
+        },
+        "output": {
+          "from": 0.18,
+          "to": 0.18
+        }
+      }
+    },
+    {
+      "id": "nvidia/nemotron-3.5-lightning",
+      "provider": "nvidia",
+      "line": "lightning",
+      "name": "Nemotron 3.5 Lightning",
+      "releaseDate": "2026-08-11",
+      "description": "NVIDIA Nemotron 3.5 Lightning is an open mixture-of-experts model from NVIDIA, with 3B active parameters out of 30B total. It is suited for high-throughput agentic workloads and specialized tasks that benefit from domain-specific customization.",
+      "descriptionFull": true,
+      "contextLength": 1048576,
+      "inputPerM": 0.07,
+      "outputPerM": 0.2,
+      "previous": null,
+      "jump": "New small, fast member of the Nemotron 3.5 generation: 30B total with only 3B active, a 1M-token context and open weights for high-throughput agents and customised domain tasks.",
+      "summary": "NVIDIA Nemotron 3.5 Lightning is an open mixture-of-experts model from NVIDIA, with 3B active parameters out of 30B total.",
+      "deltas": null
+    },
+    {
+      "id": "deepseek/deepseek-v4-pro-0813",
+      "provider": "deepseek",
+      "line": "pro",
+      "name": "DeepSeek V4 Pro 0813",
+      "releaseDate": "2026-08-12",
+      "description": "DeepSeek V4 Pro 0813 is a large-scale mixture-of-experts model from DeepSeek. This is the GA release of DeepSeek V4 Pro.",
+      "descriptionFull": false,
+      "contextLength": 1048576,
+      "inputPerM": 0.111,
+      "outputPerM": 4.44,
+      "previous": {
+        "id": "deepseek/deepseek-v4-pro",
+        "name": "DeepSeek V4 Pro 0423",
+        "releaseDate": "2026-04-24"
+      },
+      "jump": "The general-availability release of V4 Pro. The listing shows a much cheaper input price ($0.11 vs $0.90) but a higher output price ($4.44 vs $1.50) per million tokens, with the same 1M context.",
+      "summary": "DeepSeek V4 Pro 0813 is a large-scale mixture-of-experts model from DeepSeek.",
+      "deltas": {
+        "daysSince": 110,
+        "context": {
+          "from": 1048576,
+          "to": 1048576
+        },
+        "input": {
+          "from": 0.9,
+          "to": 0.111
+        },
+        "output": {
+          "from": 1.5,
+          "to": 4.44
+        }
+      }
+    },
+    {
+      "id": "qwen/qwen3.8-2.4t-a95b",
+      "provider": "qwen",
+      "line": "flagship",
+      "name": "Qwen3.8 2.4T A95B",
+      "releaseDate": "2026-08-12",
+      "description": "Qwen3.8 2.4T A95B is an open-weight sparse mixture-of-experts model from Qwen and the open-weight variant of [Qwen3.8 Max](/qwen/qwen3.8-max), with 95 billion active parameters out of 2.4 trillion total. It is suited for coding, research, complex reasoning, and agentic workflows.",
+      "descriptionFull": true,
+      "contextLength": 1048576,
+      "inputPerM": 2,
+      "outputPerM": 6,
+      "previous": {
+        "id": "qwen/qwen3.7-max",
+        "name": "Qwen3.7 Max",
+        "releaseDate": "2026-05-21"
+      },
+      "jump": "A step up in scale: a 2.4T-parameter open-weight MoE with 95B active parameters (the open variant of Qwen3.8 Max) for coding, research and agentic work. Price rises to $2/$6 per million, and context stays at 1M.",
+      "summary": "Qwen3.8 2.4T A95B is an open-weight sparse mixture-of-experts model from Qwen and the open-weight variant of [Qwen3.8 Max](/qwen/qwen3.8-max), with 95 billion active parameters out of 2.4 trillion total.",
+      "deltas": {
+        "daysSince": 83,
+        "context": {
+          "from": 1000000,
+          "to": 1048576
+        },
+        "input": {
+          "from": 1.475,
+          "to": 2
+        },
+        "output": {
+          "from": 4.425,
+          "to": 6
+        }
+      }
+    },
+    {
+      "id": "x-ai/grok-4.6",
+      "provider": "x-ai",
+      "line": "grok",
+      "name": "Grok 4.6",
+      "releaseDate": "2026-08-12",
+      "description": "Grok 4.6 is a model from SpaceXAI with frontier performance on coding, knowledge work, and STEM. It is succeeded by [Grok 4.7](/x-ai/grok-4.7).",
+      "descriptionFull": false,
+      "contextLength": 500000,
+      "inputPerM": 2,
+      "outputPerM": 6,
+      "previous": {
+        "id": "x-ai/grok-4.5",
+        "name": "Grok 4.5",
+        "releaseDate": "2026-07-08"
+      },
+      "jump": "An incremental update to Grok 4.5 with the same frontier positioning on coding, knowledge work and STEM; context and price are unchanged. It was superseded by Grok 4.7 within about six weeks.",
+      "summary": "Grok 4.6 is a model from SpaceXAI with frontier performance on coding, knowledge work, and STEM.",
+      "deltas": {
+        "daysSince": 35,
+        "context": {
+          "from": 500000,
+          "to": 500000
+        },
+        "input": {
+          "from": 2,
+          "to": 2
+        },
+        "output": {
+          "from": 6,
+          "to": 6
+        }
+      }
+    },
+    {
+      "id": "google/gemini-3.7-flash",
+      "provider": "google",
+      "line": "flash",
+      "name": "Gemini 3.7 Flash",
+      "releaseDate": "2026-08-13",
+      "description": "Gemini 3.7 Flash is a multimodal model from Google for fast agentic workflows, coding, and complex multi-step reasoning. It is designed for tasks that require responsive performance and reliable multi-step problem solving.",
+      "descriptionFull": true,
+      "contextLength": 1048576,
+      "inputPerM": 0.75,
+      "outputPerM": 3.75,
+      "previous": {
+        "id": "google/gemini-3.6-flash",
+        "name": "Gemini 3.6 Flash",
+        "releaseDate": "2026-07-21"
+      },
+      "jump": "A refinement of 3.6 Flash for fast agentic workflows, coding and multi-step reasoning, with responsive performance and more reliable problem solving. Context and price are unchanged.",
+      "summary": "Gemini 3.7 Flash is a multimodal model from Google for fast agentic workflows, coding, and complex multi-step reasoning.",
+      "deltas": {
+        "daysSince": 23,
+        "context": {
+          "from": 1048576,
+          "to": 1048576
+        },
+        "input": {
+          "from": 0.75,
+          "to": 0.75
+        },
+        "output": {
+          "from": 3.75,
+          "to": 3.75
+        }
+      }
+    },
+    {
+      "id": "qwen/qwen3.8-flash",
+      "provider": "qwen",
+      "line": "flash",
+      "name": "Qwen3.8 Flash",
+      "releaseDate": "2026-08-26",
+      "description": "Qwen3.8 Flash is a multimodal reasoning model from Alibaba. It is suited for coding assistance, agentic workflows, visual understanding, document and codebase analysis, desktop interaction, chart analysis, and long-video analysis.",
+      "descriptionFull": false,
+      "contextLength": 1000000,
+      "inputPerM": 0.15,
+      "outputPerM": 0.47,
+      "previous": {
+        "id": "qwen/qwen3.7-flash",
+        "name": "Qwen3.7 Flash",
+        "releaseDate": "2026-07-27"
+      },
+      "jump": "Multimodal Flash model with a wider remit: coding assistance, document and codebase analysis, desktop interaction, chart analysis and long-video analysis. Price rises to $0.15/$0.47 per million from $0.03/$0.13.",
+      "summary": "Qwen3.8 Flash is a multimodal reasoning model from Alibaba.",
+      "deltas": {
+        "daysSince": 30,
+        "context": {
+          "from": 1000000,
+          "to": 1000000
+        },
+        "input": {
+          "from": 0.03,
+          "to": 0.15
+        },
+        "output": {
+          "from": 0.13,
+          "to": 0.47
+        }
+      }
+    },
+    {
+      "id": "anthropic/claude-fable-5.1",
+      "provider": "anthropic",
+      "line": "fable",
+      "name": "Claude Fable 5.1",
+      "releaseDate": "2026-09-01",
+      "description": "Claude Fable 5.1 improves on Claude Fable 5 across the board, with the biggest gains in agentic coding, long-running agentic workflows, and knowledge work: long code refactors, front-end and visual code generation, and finance and analysis tasks in particular. It also tends to be more concise than Fable 5 in its plans and summaries. We recommend testing it as a direct upgrade wherever you use Fable 5 today, and alongside Opus 5 on reasoning-heavy tasks.",
+      "descriptionFull": true,
+      "contextLength": 1000000,
+      "inputPerM": 10,
+      "outputPerM": 50,
+      "previous": {
+        "id": "anthropic/claude-fable-5",
+        "name": "Claude Fable 5",
+        "releaseDate": "2026-06-09"
+      },
+      "jump": "A direct upgrade to Fable 5 with the biggest gains in agentic coding, long-running workflows and knowledge work (long refactors, front-end generation, finance), and more concise plans and summaries. Same $10/$50 price and 1M context.",
+      "summary": "Claude Fable 5.1 improves on Claude Fable 5 across the board, with the biggest gains in agentic coding, long-running agentic workflows, and knowledge work: long code refactors, front-end and visual code generation, and f",
+      "deltas": {
+        "daysSince": 84,
+        "context": {
+          "from": 1000000,
+          "to": 1000000
+        },
+        "input": {
+          "from": 10,
+          "to": 10
+        },
+        "output": {
+          "from": 50,
+          "to": 50
+        }
+      }
+    },
+    {
+      "id": "google/gemini-3.8-flash",
+      "provider": "google",
+      "line": "flash",
+      "name": "Gemini 3.8 Flash",
+      "releaseDate": "2026-09-02",
+      "description": "Gemini 3.8 Flash is Google's most intelligent Flash model with significant gains from 3.7 Flash across software engineering, agentic tasks, and multi-step reasoning.",
+      "descriptionFull": false,
+      "contextLength": 1048576,
+      "inputPerM": 0.825,
+      "outputPerM": 4.125,
+      "previous": {
+        "id": "google/gemini-3.7-flash",
+        "name": "Gemini 3.7 Flash",
+        "releaseDate": "2026-08-13"
+      },
+      "jump": "Google calls it its most intelligent Flash model, with significant gains over 3.7 Flash in software engineering, agentic tasks and multi-step reasoning. Price rises about 10%, to $0.83/$4.13 per million.",
+      "summary": "Gemini 3.8 Flash is Google's most intelligent Flash model with significant gains from 3.7 Flash across software engineering, agentic tasks, and multi-step reasoning.",
+      "deltas": {
+        "daysSince": 20,
+        "context": {
+          "from": 1048576,
+          "to": 1048576
+        },
+        "input": {
+          "from": 0.75,
+          "to": 0.825
+        },
+        "output": {
+          "from": 3.75,
+          "to": 4.125
+        }
+      }
+    },
+    {
+      "id": "qwen/qwen3.8-max-0902",
+      "provider": "qwen",
+      "line": "flagship",
+      "name": "Qwen3.8 Max (0902)",
+      "releaseDate": "2026-09-03",
+      "description": "Qwen3.8 Max 0902 is an updated snapshot of Qwen3.8 Max from Alibaba's Qwen team. It is a 2.4-trillion-parameter mixture-of-experts model that accepts text, image, and video input and returns text, with a 1M-token context window and reasoning enabled by default.\n\nThis snapshot is post-trained for coding and agentic work, including multi-step software projects, multi-tool orchestration, and long-horizon task execution. It also targets chart reasoning, document parsing, and multimodal understanding over long documents and extended video. Tool calling, structured outputs, and configurable reasoning effort are supported.",
+      "descriptionFull": true,
+      "contextLength": 1000000,
+      "inputPerM": 2,
+      "outputPerM": 6,
+      "previous": {
+        "id": "qwen/qwen3.8-2.4t-a95b",
+        "name": "Qwen3.8 2.4T A95B",
+        "releaseDate": "2026-08-12"
+      },
+      "jump": "An updated Qwen3.8 Max snapshot post-trained for coding and agentic work: multi-step software projects, multi-tool orchestration and long-horizon execution, plus better chart reasoning and long-document and video understanding. Same $2/$6 price.",
+      "summary": "Qwen3.8 Max 0902 is an updated snapshot of Qwen3.8 Max from Alibaba's Qwen team.",
+      "deltas": {
+        "daysSince": 22,
+        "context": {
+          "from": 1048576,
+          "to": 1000000
+        },
+        "input": {
+          "from": 2,
+          "to": 2
+        },
+        "output": {
+          "from": 6,
+          "to": 6
+        }
+      }
+    },
+    {
+      "id": "openai/gpt-6-astra",
+      "provider": "openai",
+      "line": "core",
+      "name": "GPT-6 Astra",
+      "releaseDate": "2026-09-04",
+      "description": "GPT-6 Astra is OpenAI's flagship model for demanding end-to-end work. It is suited for advanced analysis, software engineering, deep research, scientific work, and document creation, with particular strengths in long-horizon agentic tasks that involve computer and browser use.",
+      "descriptionFull": true,
+      "contextLength": 1050000,
+      "inputPerM": 10,
+      "outputPerM": 50,
+      "previous": {
+        "id": "openai/gpt-5.5",
+        "name": "GPT-5.5",
+        "releaseDate": "2026-04-24"
+      },
+      "jump": "The new GPT-6 flagship, built for end-to-end work such as advanced analysis, software engineering, deep research and long-horizon computer and browser use. Priced at $10/$50 per million, double GPT-5.5.",
+      "summary": "GPT-6 Astra is OpenAI's flagship model for demanding end-to-end work.",
+      "deltas": {
+        "daysSince": 133,
+        "context": {
+          "from": 1050000,
+          "to": 1050000
+        },
+        "input": {
+          "from": 5,
+          "to": 10
+        },
+        "output": {
+          "from": 30,
+          "to": 50
+        }
+      }
+    },
+    {
+      "id": "deepseek/deepseek-v4.1-flash",
+      "provider": "deepseek",
+      "line": "flash",
+      "name": "DeepSeek V4.1 Flash",
+      "releaseDate": "2026-09-10",
+      "description": "DeepSeek V4.1 Flash is a sparse mixture-of-experts model from DeepSeek, and the first built on the company's Causal Encoder-Decoder (CED) architecture. It activates 8B parameters on input and 16B on output from a 552B-parameter backbone, an asymmetric split that keeps per-token compute low relative to the model's total size. Image understanding is native to the architecture, with visual and text embeddings trained jointly from the start of pre-training rather than added afterward as in the earlier experimental [V4 Flash Vision Exp](https://openrouter.ai/deepseek/deepseek-v4-flash-vision-exp).\n\nIt is suited for coding, terminal, and computer-use agents, along with long-horizon tasks that must run to completion across many steps and long-context analysis. Compressed KV caching cuts cache memory to roughly a quarter of the previous Flash generation, significantly reducing costs on agentic workloads. DeepSeek positions it as the cost-efficient tier of the V4.1 family and reports that it exceeds [V4 Pro](https://openrouter.ai/deepseek/deepseek-v4-pro-0813) on performance, speed, and task completion time.",
+      "descriptionFull": true,
+      "contextLength": 1048576,
+      "inputPerM": 0.051,
+      "outputPerM": 0.203,
+      "previous": {
+        "id": "deepseek/deepseek-v4-flash-0731",
+        "name": "DeepSeek V4 Flash 0731",
+        "releaseDate": "2026-07-31"
+      },
+      "jump": "First DeepSeek model on the Causal Encoder-Decoder architecture (552B backbone, 8B active on input, 16B on output) with native image understanding and compressed KV caching that cuts cache memory to about a quarter of the prior Flash generation.",
+      "summary": "DeepSeek V4.1 Flash is a sparse mixture-of-experts model from DeepSeek, and the first built on the company's Causal Encoder-Decoder (CED) architecture.",
+      "deltas": {
+        "daysSince": 41,
+        "context": {
+          "from": 1048576,
+          "to": 1048576
+        },
+        "input": {
+          "from": 0.06,
+          "to": 0.051
+        },
+        "output": {
+          "from": 0.18,
+          "to": 0.203
+        }
+      }
+    },
+    {
+      "id": "x-ai/grok-4.7",
+      "provider": "x-ai",
+      "line": "grok",
+      "name": "Grok 4.7",
+      "releaseDate": "2026-09-21",
+      "description": "Grok 4.7 is SpaceXAI's flagship model for coding, agentic tasks, and knowledge work, succeeding Grok 4.6. It is particularly strong at long-running software engineering tasks, verifying its own work, and managing long context, and it improves on its predecessor at professional knowledge work such as drafting documents and presentations.\n\nThe model was trained with a longer reinforcement learning run weighted toward problems that take many hours to complete, and natively understands the Grok Bot harness for conversational tasks. It ships with a new safeguard stack that pairs strong jailbreak resistance with low refusal rates for legitimate cybersecurity and biology work. SpaceXAI's reported benchmark results use the xhigh reasoning effort.",
+      "descriptionFull": true,
+      "contextLength": 500000,
+      "inputPerM": 2,
+      "outputPerM": 6,
+      "previous": {
+        "id": "x-ai/grok-4.6",
+        "name": "Grok 4.6",
+        "releaseDate": "2026-08-12"
+      },
+      "jump": "Positioned as xAI's flagship for coding, agentic and knowledge work, trained with a longer RL run on tasks that take many hours. Better at self-verification and long context; adds a new safeguard stack. Context and price unchanged from Grok 4.6.",
+      "summary": "Grok 4.7 is SpaceXAI's flagship model for coding, agentic tasks, and knowledge work, succeeding Grok 4.6.",
+      "deltas": {
+        "daysSince": 40,
+        "context": {
+          "from": 500000,
+          "to": 500000
+        },
+        "input": {
+          "from": 2,
+          "to": 2
+        },
+        "output": {
+          "from": 6,
+          "to": 6
+        }
+      }
+    },
+    {
+      "id": "anthropic/claude-opus-5.5",
+      "provider": "anthropic",
+      "line": "opus",
+      "name": "Claude Opus 5.5",
+      "releaseDate": "2026-09-22",
+      "description": "Claude Opus 5.5 is Anthropic's flagship model for demanding reasoning, coding, and long-horizon agentic work, succeeding Claude Opus 5. It is particularly strong at multi-step changes in large codebases, code review and bug finding, financial and scientific analysis, and reading dense charts, diagrams, and screenshots, and it is more careful than its predecessor about only stating figures and citing sources it can back up.\n\nThe model completes comparable tasks in fewer steps and with fewer tokens than Opus 5, and reports on its work in plainer language, with clear updates on what it did, what it found, and what it needs from the user. Thinking is always adaptive, so effort is the main lever for trading off depth, latency, and cost, and lower effort settings remain effective for latency-sensitive workloads.",
+      "descriptionFull": true,
+      "contextLength": 1000000,
+      "inputPerM": 4,
+      "outputPerM": 20,
+      "previous": {
+        "id": "anthropic/claude-opus-5",
+        "name": "Claude Opus 5",
+        "releaseDate": "2026-07-24"
+      },
+      "jump": "Completes comparable tasks in fewer steps and tokens than Opus 5, reports in plainer language, and is more careful to cite only figures it can back up. Price falls 20% to $4/$20 per million.",
+      "summary": "Claude Opus 5.5 is Anthropic's flagship model for demanding reasoning, coding, and long-horizon agentic work, succeeding Claude Opus 5.",
+      "deltas": {
+        "daysSince": 60,
+        "context": {
+          "from": 1000000,
+          "to": 1000000
+        },
+        "input": {
+          "from": 5,
+          "to": 4
+        },
+        "output": {
+          "from": 25,
+          "to": 20
+        }
+      }
+    },
+    {
+      "id": "openai/gpt-6-luna",
+      "provider": "openai",
+      "line": "luna",
+      "name": "GPT-6 Luna",
+      "releaseDate": "2026-09-22",
+      "description": "GPT-6 Luna is the fast, cost-efficient model in OpenAI's GPT-6 series, positioned below GPT-6 Sol. It is suited for high-volume and latency-sensitive workloads such as chat, classification, and lightweight agentic tasks, and at higher reasoning effort it can take on complex software engineering and computer-use tasks that previously called for a Sol-tier model. It shares the GPT-6 family's gains in factual reliability and its clearer, more concise communication style.",
+      "descriptionFull": true,
+      "contextLength": 1050000,
+      "inputPerM": 0.1,
+      "outputPerM": 0.5,
+      "previous": {
+        "id": "openai/gpt-5.6-luna",
+        "name": "GPT-5.6 Luna",
+        "releaseDate": "2026-07-09"
+      },
+      "jump": "The GPT-6 fast tier: at higher reasoning effort it can take on software engineering and computer-use tasks that previously needed a Sol-tier model, with better factual reliability. Price halves from $0.20/$1.20 to $0.10/$0.50 per million.",
+      "summary": "GPT-6 Luna is the fast, cost-efficient model in OpenAI's GPT-6 series, positioned below GPT-6 Sol.",
+      "deltas": {
+        "daysSince": 75,
+        "context": {
+          "from": 1050000,
+          "to": 1050000
+        },
+        "input": {
+          "from": 0.2,
+          "to": 0.1
+        },
+        "output": {
+          "from": 1.2,
+          "to": 0.5
+        }
+      }
+    },
+    {
+      "id": "openai/gpt-6-sol",
+      "provider": "openai",
+      "line": "sol",
+      "name": "GPT-6 Sol",
+      "releaseDate": "2026-09-22",
+      "description": "GPT-6 Sol is the cost-efficient high-end model in OpenAI's GPT-6 series, positioned below the flagship GPT-6 Astra and above the fast GPT-6 Luna tier. It is suited for demanding professional work, agentic coding, business workflow automation, and computer use, and is particularly strong at long-horizon software engineering tasks in real codebases. It approaches Astra-level factual reliability at a much lower cost and shares Astra's clearer, more concise communication style in technical and coding conversations.",
+      "descriptionFull": true,
+      "contextLength": 1050000,
+      "inputPerM": 2,
+      "outputPerM": 10,
+      "previous": {
+        "id": "openai/gpt-5.6-sol",
+        "name": "GPT-5.6 Sol",
+        "releaseDate": "2026-07-09"
+      },
+      "jump": "A cost-efficient high-end tier that approaches Astra-level factual reliability at much lower cost, strong at long-horizon software work in real codebases. Price falls 50% to $2/$10 per million versus GPT-5.6 Sol.",
+      "summary": "GPT-6 Sol is the cost-efficient high-end model in OpenAI's GPT-6 series, positioned below the flagship GPT-6 Astra and above the fast GPT-6 Luna tier.",
+      "deltas": {
+        "daysSince": 75,
+        "context": {
+          "from": 1050000,
+          "to": 1050000
+        },
+        "input": {
+          "from": 4,
+          "to": 2
+        },
+        "output": {
+          "from": 20,
+          "to": 10
+        }
+      }
+    },
+    {
+      "id": "qwen/qwen3.8-max-prime",
+      "provider": "qwen",
+      "line": "flagship",
+      "name": "Qwen3.8 Max Prime",
+      "releaseDate": "2026-09-23",
+      "description": "Qwen3.8 Max Prime is a higher-throughput variant of Qwen3.8 Max from Alibaba's Qwen team, served as a separate SKU at a higher price point. It accepts text, image, and video input and returns text, with a 1M-token context window and reasoning enabled by default. Tool calling, structured outputs, and configurable reasoning effort are supported, matching Qwen3.8 Max.",
+      "descriptionFull": true,
+      "contextLength": 1000000,
+      "inputPerM": 4,
+      "outputPerM": 12,
+      "previous": {
+        "id": "qwen/qwen3.8-max-0902",
+        "name": "Qwen3.8 Max (0902)",
+        "releaseDate": "2026-09-03"
+      },
+      "jump": "A higher-throughput variant of Qwen3.8 Max sold as a separate SKU, with the same capabilities but a higher price: $4/$12 per million versus $2/$6.",
+      "summary": "Qwen3.8 Max Prime is a higher-throughput variant of Qwen3.8 Max from Alibaba's Qwen team, served as a separate SKU at a higher price point.",
+      "deltas": {
+        "daysSince": 20,
+        "context": {
+          "from": 1000000,
+          "to": 1000000
+        },
+        "input": {
+          "from": 2,
+          "to": 4
+        },
+        "output": {
+          "from": 6,
+          "to": 12
+        }
+      }
+    },
+    {
+      "id": "anthropic/claude-sonnet-5.5",
+      "provider": "anthropic",
+      "line": "sonnet",
+      "name": "Claude Sonnet 5.5",
+      "releaseDate": "2026-09-28",
+      "description": "Claude Sonnet 5.5 is Anthropic's Sonnet-class model for well-scoped everyday work, succeeding Claude Sonnet 5 as a direct upgrade. It is especially strong at building features, fixing bugs, and producing polished documents, slides, and spreadsheets, and it writes and communicates more clearly than its predecessor.\n\nThinking is always on, so effort is the main lever for trading off depth, latency, and cost, and lower effort settings keep it responsive for everyday agentic loops.",
+      "descriptionFull": true,
+      "contextLength": 1000000,
+      "inputPerM": 2,
+      "outputPerM": 10,
+      "previous": {
+        "id": "anthropic/claude-sonnet-5",
+        "name": "Claude Sonnet 5",
+        "releaseDate": "2026-06-30"
+      },
+      "jump": "A direct upgrade for well-scoped everyday work, better at building features, fixing bugs and producing polished documents, slides and spreadsheets, and clearer in how it communicates. Same $2/$10 price and 1M context.",
+      "summary": "Claude Sonnet 5.5 is Anthropic's Sonnet-class model for well-scoped everyday work, succeeding Claude Sonnet 5 as a direct upgrade.",
+      "deltas": {
+        "daysSince": 90,
+        "context": {
+          "from": 1000000,
+          "to": 1000000
+        },
+        "input": {
+          "from": 2,
+          "to": 2
+        },
+        "output": {
+          "from": 10,
+          "to": 10
+        }
+      }
+    },
+    {
+      "id": "openai/gpt-6.1-sol",
+      "provider": "openai",
+      "line": "sol",
+      "name": "GPT-6.1 Sol",
+      "releaseDate": "2026-09-29",
+      "description": "GPT-6.1 Sol is an upgrade to GPT-6 Sol from OpenAI, positioned below the flagship GPT-6 Astra in the GPT-6 series. It is suited for agentic coding, computer use, document-heavy professional work, and multi-step business workflow automation, and approaches Astra-level results on these tasks at a much lower cost. Compared with GPT-6 Sol, it makes fewer factual errors and is more reliable at respecting explicit restrictions and user intent during agentic tasks.",
+      "descriptionFull": true,
+      "contextLength": 1050000,
+      "inputPerM": 2,
+      "outputPerM": 10,
+      "previous": {
+        "id": "openai/gpt-6-sol",
+        "name": "GPT-6 Sol",
+        "releaseDate": "2026-09-22"
+      },
+      "jump": "Fewer factual errors and better respect for explicit restrictions and user intent during agentic tasks than GPT-6 Sol, approaching Astra-level results at the same $2/$10 price.",
+      "summary": "GPT-6.1 Sol is an upgrade to GPT-6 Sol from OpenAI, positioned below the flagship GPT-6 Astra in the GPT-6 series.",
+      "deltas": {
+        "daysSince": 7,
+        "context": {
+          "from": 1050000,
+          "to": 1050000
+        },
+        "input": {
+          "from": 2,
+          "to": 2
+        },
+        "output": {
+          "from": 10,
+          "to": 10
+        }
+      }
+    },
+    {
+      "id": "mistralai/mistral-large-4-0",
+      "provider": "mistralai",
+      "line": "mistral-large",
+      "name": "Mistral Large 4",
+      "releaseDate": "2026-10-06",
+      "description": "Mistral Large 4 is a frontier multimodal (text and image input) model from Mistral AI built for reasoning, coding, and agentic workloads. It offers a 1M-token context window with up to 256K output tokens, and supports tool calling and structured outputs.",
+      "descriptionFull": true,
+      "contextLength": 1048576,
+      "inputPerM": 0.7,
+      "outputPerM": 2.1,
+      "previous": {
+        "id": "mistralai/mistral-large-2512",
+        "name": "Mistral Large 3 2512",
+        "releaseDate": "2025-12-01"
+      },
+      "jump": "A frontier multimodal model with a 1M-token context (up from 262K) and up to 256K output tokens, built for reasoning, coding and agents. Price rises from $0.50/$1.50 to $0.70/$2.10 per million versus Large 3.",
+      "summary": "Mistral Large 4 is a frontier multimodal (text and image input) model from Mistral AI built for reasoning, coding, and agentic workloads.",
+      "deltas": {
+        "daysSince": 309,
+        "context": {
+          "from": 262144,
+          "to": 1048576
+        },
+        "input": {
+          "from": 0.5,
+          "to": 0.7
+        },
+        "output": {
+          "from": 1.5,
+          "to": 2.1
+        }
+      }
+    },
+    {
+      "id": "anthropic/claude-haiku-5.5",
+      "provider": "anthropic",
+      "line": "haiku",
+      "name": "Claude Haiku 5.5",
+      "releaseDate": "2026-10-07",
+      "description": "Claude Haiku 5.5 is Anthropic's small, fast model for high-volume, cost-sensitive work such as summarization, subagents, and browser use. It succeeds Claude Haiku 4.5 with stronger coding, computer use, and knowledge work, and accepts text and image input with a 1M-token context window.\n\nIt is the first Haiku model with adjustable effort. Thinking is adaptive and on by default, with effort as the main lever for trading off depth, latency, and cost; it can be turned off at low, medium, and high effort.",
+      "descriptionFull": true,
+      "contextLength": 1000000,
+      "inputPerM": 0.1,
+      "outputPerM": 0.5,
+      "previous": {
+        "id": "anthropic/claude-haiku-4.5",
+        "name": "Claude Haiku 4.5",
+        "releaseDate": "2025-10-15"
+      },
+      "jump": "Succeeds Haiku 4.5 with stronger coding, computer use and knowledge work, the first Haiku with adjustable effort, and a 1M-token context (up from 200K). Price falls to $0.10/$0.50 per million.",
+      "summary": "Claude Haiku 5.5 is Anthropic's small, fast model for high-volume, cost-sensitive work such as summarization, subagents, and browser use.",
+      "deltas": {
+        "daysSince": 357,
+        "context": {
+          "from": 200000,
+          "to": 1000000
+        },
+        "input": {
+          "from": 1,
+          "to": 0.1
+        },
+        "output": {
+          "from": 5,
+          "to": 0.5
+        }
+      }
+    },
+    {
+      "id": "google/gemini-4-argon",
+      "provider": "google",
+      "line": "gemini4",
+      "name": "Gemini 4 Argon",
+      "releaseDate": "2026-10-13",
+      "description": "Gemini 4 Argon is Google's flagship reasoning model, built for complex software engineering, deep mathematical and scientific problem solving, and autonomous multi-step agents. Google trained it to keep context across long, multi-step tasks and to turn long documents mixing text, tables, charts and images into a single grounded output. It leads the Vals Index across finance, legal, coding and tax work, and supports long decode of up to 1M output tokens in a single response.",
+      "descriptionFull": true,
+      "contextLength": 1048576,
+      "inputPerM": 2,
+      "outputPerM": 10,
+      "previous": {
+        "id": "google/gemini-3.1-pro-preview",
+        "name": "Gemini 3.1 Pro Preview",
+        "releaseDate": "2026-02-19"
+      },
+      "jump": "The first Gemini 4 flagship: built for complex software engineering, deep math and science and autonomous agents, with long-context grounding across text, tables, charts and images and up to 1M output tokens. Output price falls from $12 to $10 per million versus Gemini 3.1 Pro; input stays at $2.",
+      "summary": "Gemini 4 Argon is Google's flagship reasoning model, built for complex software engineering, deep mathematical and scientific problem solving, and autonomous multi-step agents.",
+      "deltas": {
+        "daysSince": 236,
+        "context": {
+          "from": 1048576,
+          "to": 1048576
+        },
+        "input": {
+          "from": 2,
+          "to": 2
+        },
+        "output": {
+          "from": 12,
+          "to": 10
+        }
+      }
+    },
+    {
+      "id": "nvidia/nemotron-3.5-super-vl",
+      "provider": "nvidia",
+      "line": "super",
+      "name": "Nemotron 3.5 Super VL",
+      "releaseDate": "2026-10-15",
+      "description": "NVIDIA Nemotron 3.5 Super VL is an open multimodal mixture-of-experts model from NVIDIA, with 12B active parameters out of 120B total. It takes text, images, documents, GUI screenshots, and video as input and returns text, and is built for long-running agents that combine visual understanding with reasoning and tool use.\n\nIt uses a hybrid Mamba-Transformer architecture with multi-token prediction and supports a 1M-token context. Typical uses include document intelligence, web research, coding validation, customer service, and video understanding. Reasoning is on by default and can be turned off or given a token budget.",
+      "descriptionFull": true,
+      "contextLength": 1048576,
+      "inputPerM": 0.15,
+      "outputPerM": 0.5,
+      "previous": {
+        "id": "nvidia/nemotron-3-super-120b-a12b",
+        "name": "Nemotron 3 Super",
+        "releaseDate": "2026-03-11"
+      },
+      "jump": "Adds vision to the Super tier: an open 120B MoE (12B active) that reads images, documents, GUI screenshots and video, built for agents that combine visual understanding with reasoning, with context growing from 262K to 1M.",
+      "summary": "NVIDIA Nemotron 3.5 Super VL is an open multimodal mixture-of-experts model from NVIDIA, with 12B active parameters out of 120B total.",
+      "deltas": {
+        "daysSince": 218,
+        "context": {
+          "from": 262144,
+          "to": 1048576
+        },
+        "input": {
+          "from": 0.075,
+          "to": 0.15
+        },
+        "output": {
+          "from": 0.4,
+          "to": 0.5
+        }
+      }
+    },
+    {
+      "id": "deepseek/deepseek-v4.1-flash-1017",
+      "provider": "deepseek",
+      "line": "flash",
+      "name": "DeepSeek V4.1 Flash 1017",
+      "releaseDate": "2026-10-17",
+      "description": "DeepSeek V4.1 Flash 1017 is the October 17, 2026 snapshot of DeepSeek V4.1 Flash, served by DeepSeek under the `deepseek-flash` API model name. V4.1 Flash is a sparse mixture-of-experts model from DeepSeek, and the first built on the company's Causal Encoder-Decoder (CED) architecture. It activates 8B parameters on input and 16B on output from a 552B-parameter backbone, an asymmetric split that keeps per-token compute low relative to the model's total size. Image understanding is native to the architecture, with visual and text embeddings trained jointly from the start of pre-training rather than added afterward as in the earlier experimental [V4 Flash Vision Exp](https://openrouter.ai/deepseek/deepseek-v4-flash-vision-exp).\n\nIt is suited for coding, terminal, and computer-use agents, along with long-horizon tasks that must run to completion across many steps and long-context analysis. Compressed KV caching cuts cache memory to roughly a quarter of the previous Flash generation, significantly reducing costs on agentic workloads. DeepSeek positions it as the cost-efficient tier of the V4.1 family and reports that it exceeds [V4 Pro](https://openrouter.ai/deepseek/deepseek-v4-pro-0813) on performance, speed, and task completion time.",
+      "descriptionFull": true,
+      "contextLength": 1048576,
+      "inputPerM": 0.15,
+      "outputPerM": 0.6,
+      "previous": {
+        "id": "deepseek/deepseek-v4.1-flash",
+        "name": "DeepSeek V4.1 Flash",
+        "releaseDate": "2026-09-10"
+      },
+      "jump": "The October snapshot of V4.1 Flash, served under the `deepseek-flash` API name. Same architecture, but the price rises to $0.15/$0.60 per million from $0.05/$0.20.",
+      "summary": "DeepSeek V4.1 Flash 1017 is the October 17, 2026 snapshot of DeepSeek V4.1 Flash, served by DeepSeek under the `deepseek-flash` API model name.",
+      "deltas": {
+        "daysSince": 37,
+        "context": {
+          "from": 1048576,
+          "to": 1048576
+        },
+        "input": {
+          "from": 0.051,
+          "to": 0.15
+        },
+        "output": {
+          "from": 0.203,
+          "to": 0.6
+        }
+      }
+    },
+    {
+      "id": "openai/gpt-6.1-terra",
+      "provider": "openai",
+      "line": "terra",
+      "name": "GPT-6.1 Terra",
+      "releaseDate": "2026-10-26",
+      "description": "GPT-6.1 Terra is the mid-tier model in OpenAI's GPT-6.1 series, priced below GPT-6.1 Sol. It is suited for everyday agentic, coding, and writing work, is particularly strong at understanding screenshots and on-screen content, and is efficient enough for high-volume workloads.",
+      "descriptionFull": true,
+      "contextLength": 1050000,
+      "inputPerM": 1,
+      "outputPerM": 5,
+      "previous": {
+        "id": "openai/gpt-5.6-terra",
+        "name": "GPT-5.6 Terra",
+        "releaseDate": "2026-07-09"
+      },
+      "jump": "A mid-tier model that is particularly strong at understanding screenshots and on-screen content and efficient enough for high-volume work. Price falls from $2/$12 to $1/$5 per million versus GPT-5.6 Terra.",
+      "summary": "GPT-6.1 Terra is the mid-tier model in OpenAI's GPT-6.1 series, priced below GPT-6.1 Sol.",
+      "deltas": {
+        "daysSince": 109,
+        "context": {
+          "from": 1050000,
+          "to": 1050000
+        },
+        "input": {
+          "from": 2,
+          "to": 1
+        },
+        "output": {
+          "from": 12,
+          "to": 5
+        }
+      }
+    },
+    {
+      "id": "google/gemini-omni-1.1-flash",
+      "provider": "google",
+      "line": "omni",
+      "name": "Gemini Omni 1.1 Flash",
+      "releaseDate": "2026-11-04",
+      "description": "Gemini Omni 1.1 Flash is Google's native multimodal video generation and editing model, the generally available successor to Gemini Omni Flash Preview. It is suited for text-to-video, image-to-video, first and last frame interpolation, subject and video references (up to three reference clips), and editing or extending an uploaded video, and generates clips from 360p drafts up to 4K with native audio in 16:9 or 9:16. Multi-turn editing and extension of a prior generation is supported through `previous_job_id`, up to 40 seconds of total video.\n\nNote: video generation is only supported through the Video Generation API. See the guide: https://openrouter.ai/docs/guides/overview/multimodal/video-generation",
+      "descriptionFull": true,
+      "contextLength": 131072,
+      "inputPerM": 1.5,
+      "outputPerM": 9,
+      "previous": null,
+      "jump": "Google's native video generation and editing model (text-to-video, image-to-video, reference clips, up to 4K with native audio), the generally available successor to the Omni Flash preview. A different category from the text LLMs above.",
+      "summary": "Gemini Omni 1.1 Flash is Google's native multimodal video generation and editing model, the generally available successor to Gemini Omni Flash Preview.",
+      "deltas": null
+    },
+    {
+      "id": "google/gemini-omni-1.2-flash",
+      "provider": "google",
+      "line": "omni",
+      "name": "Gemini Omni 1.2 Flash",
+      "releaseDate": "2026-11-05",
+      "description": "Gemini Omni 1.2 Flash is Google's native multimodal video generation and editing model, the successor to Gemini Omni 1.1 Flash. It generates clips up to 15 seconds long with native audio in 16:9 or 9:16, from 360p drafts up to 4K, and supports text-to-video, image-to-video, first and last frame interpolation, subject and video references with improved reference management, and editing or extending an uploaded video. Multi-turn editing and extension of a prior generation is supported through `previous_job_id`.\n\nNote: video generation is only supported through the Video Generation API. See the guide: https://openrouter.ai/docs/guides/overview/multimodal/video-generation",
+      "descriptionFull": true,
+      "contextLength": 131072,
+      "inputPerM": 1.5,
+      "outputPerM": 9,
+      "previous": {
+        "id": "google/gemini-omni-1.1-flash",
+        "name": "Gemini Omni 1.1 Flash",
+        "releaseDate": "2026-11-04"
+      },
+      "jump": "Successor to Omni 1.1 Flash with clips up to 15 seconds and improved reference management for subjects and video references. Price and specs are unchanged.",
+      "summary": "Gemini Omni 1.2 Flash is Google's native multimodal video generation and editing model, the successor to Gemini Omni 1.1 Flash.",
+      "deltas": {
+        "daysSince": 1,
+        "context": {
+          "from": 131072,
+          "to": 131072
+        },
+        "input": {
+          "from": 1.5,
+          "to": 1.5
+        },
+        "output": {
+          "from": 9,
+          "to": 9
+        }
+      }
+    },
+    {
+      "id": "anthropic/claude-fable-5.2",
+      "provider": "anthropic",
+      "line": "fable",
+      "name": "Claude Fable 5.2",
+      "releaseDate": "2026-11-09",
+      "description": "Claude Fable 5.2 is Anthropic's most capable model for the most demanding technical work, with gains over Fable 5.1 in coding, reasoning, and vision. In prerelease testing it completed otherwise-infeasible software migrations, designed working electronic devices from scratch, and made progress on open problems in physics and mathematics. It communicates more clearly than earlier Fable models and generates output up to 30% faster than Fable 5.1. Adaptive extended thinking is always on, with reasoning effort levels from low to max (default high) and preserved thinking across turns. Anthropic recommends Opus 5.5 as the daily driver for most coding and knowledge work, with Fable 5.2 for the most ambitious, open-ended problems.",
+      "descriptionFull": true,
+      "contextLength": 1000000,
+      "inputPerM": 8,
+      "outputPerM": 40,
+      "previous": {
+        "id": "anthropic/claude-fable-5.1",
+        "name": "Claude Fable 5.1",
+        "releaseDate": "2026-09-01"
+      },
+      "jump": "Gains over Fable 5.1 in coding, reasoning and vision; output is up to 30% faster and communication is clearer. Price falls 20% to $8/$40 per million, with Anthropic positioning it for the most ambitious, open-ended problems.",
+      "summary": "Claude Fable 5.2 is Anthropic's most capable model for the most demanding technical work, with gains over Fable 5.1 in coding, reasoning, and vision.",
+      "deltas": {
+        "daysSince": 69,
+        "context": {
+          "from": 1000000,
+          "to": 1000000
+        },
+        "input": {
+          "from": 10,
+          "to": 8
+        },
+        "output": {
+          "from": 50,
+          "to": 40
+        }
+      }
+    },
+    {
+      "id": "google/gemini-4-carbon",
+      "provider": "google",
+      "line": "gemini4",
+      "name": "Gemini 4 Carbon",
+      "releaseDate": "2026-11-10",
+      "description": "Gemini 4 Carbon is a frontier Gemini 4 model from Google for coding, agentic and complex reasoning work. It takes text, image, audio, video and file input, supports long decode of up to 1M output tokens through continuation, and controls thinking depth with low, medium and high reasoning effort.",
+      "descriptionFull": true,
+      "contextLength": 1048576,
+      "inputPerM": 2,
+      "outputPerM": 10,
+      "previous": {
+        "id": "google/gemini-4-argon",
+        "name": "Gemini 4 Argon",
+        "releaseDate": "2026-10-13"
+      },
+      "jump": "A frontier Gemini 4 tier for coding, agentic and complex reasoning, with audio, video and file input and low/medium/high reasoning effort. Same price and context as Argon; the two are sibling tiers rather than strict upgrades.",
+      "summary": "Gemini 4 Carbon is a frontier Gemini 4 model from Google for coding, agentic and complex reasoning work.",
+      "deltas": {
+        "daysSince": 28,
+        "context": {
+          "from": 1048576,
+          "to": 1048576
+        },
+        "input": {
+          "from": 2,
+          "to": 2
+        },
+        "output": {
+          "from": 10,
+          "to": 10
+        }
+      }
+    },
+    {
+      "id": "google/gemini-4-hydrogen",
+      "provider": "google",
+      "line": "gemini4",
+      "name": "Gemini 4 Hydrogen",
+      "releaseDate": "2026-11-12",
+      "description": "Gemini 4 Hydrogen is the high-efficiency workhorse model of the Gemini 4 family from Google, built for high-throughput agentic workflows, coding and multi-model routing at lower cost and latency than Gemini 4 Carbon. It takes text, image, audio, video and file input, supports long decode of up to 1M output tokens through continuation, and controls thinking depth with low, medium, high and xhigh reasoning effort.",
+      "descriptionFull": true,
+      "contextLength": 1048576,
+      "inputPerM": 1.5,
+      "outputPerM": 7.5,
+      "previous": {
+        "id": "google/gemini-4-carbon",
+        "name": "Gemini 4 Carbon",
+        "releaseDate": "2026-11-10"
+      },
+      "jump": "The efficiency workhorse of Gemini 4 for high-throughput agentic work and multi-model routing, with xhigh reasoning effort added. Price is 25% below Carbon at $1.50/$7.50 per million.",
+      "summary": "Gemini 4 Hydrogen is the high-efficiency workhorse model of the Gemini 4 family from Google, built for high-throughput agentic workflows, coding and multi-model routing at lower cost and latency than Gemini 4 Carbon.",
+      "deltas": {
+        "daysSince": 2,
+        "context": {
+          "from": 1048576,
+          "to": 1048576
+        },
+        "input": {
+          "from": 2,
+          "to": 1.5
+        },
+        "output": {
+          "from": 10,
+          "to": 7.5
+        }
+      }
+    },
+    {
+      "id": "qwen/qwen4-max",
+      "provider": "qwen",
+      "line": "flagship",
+      "name": "Qwen4 Max",
+      "releaseDate": "2026-11-16",
+      "description": "Qwen4 Max is the flagship model in Alibaba's Qwen4 series. It accepts text, image, and video input and returns text, with a 1M-token context window and reasoning enabled by default.\n\nReasoning effort can be set to low, high, or xhigh (default high), or reasoning can be turned off. Tool calling and structured outputs are supported.",
+      "descriptionFull": true,
+      "contextLength": 1000000,
+      "inputPerM": 1.425,
+      "outputPerM": 4.275,
+      "previous": {
+        "id": "qwen/qwen3.8-max-prime",
+        "name": "Qwen3.8 Max Prime",
+        "releaseDate": "2026-09-23"
+      },
+      "jump": "The first Qwen4 flagship: text, image and video input with reasoning on by default and effort settings (low, high, xhigh). Price falls to $1.43/$4.28 per million from $4/$12 for Max Prime.",
+      "summary": "Qwen4 Max is the flagship model in Alibaba's Qwen4 series.",
+      "deltas": {
+        "daysSince": 54,
+        "context": {
+          "from": 1000000,
+          "to": 1000000
+        },
+        "input": {
+          "from": 4,
+          "to": 1.425
+        },
+        "output": {
+          "from": 12,
+          "to": 4.275
+        }
+      }
+    },
+    {
+      "id": "openai/gpt-6.2-astra",
+      "provider": "openai",
+      "line": "core",
+      "name": "GPT-6.2 Astra",
+      "releaseDate": "2026-11-17",
+      "description": "GPT-6.2 Astra is the flagship model in the GPT-6.2 series from OpenAI, built for the hardest projects. It is suited for real-world engineering, professional work and scientific research, with stronger visual reasoning for websites, slideshows and 3D designs. OpenAI reports new highs on its evals at less than a third of the cost per task of GPT-6 Astra.",
+      "descriptionFull": true,
+      "contextLength": 1050000,
+      "inputPerM": 8,
+      "outputPerM": 40,
+      "previous": {
+        "id": "openai/gpt-6-astra",
+        "name": "GPT-6 Astra",
+        "releaseDate": "2026-09-04"
+      },
+      "jump": "Stronger visual reasoning for websites, slideshows and 3D designs; OpenAI reports new highs on its evals at less than a third of the cost per task of GPT-6 Astra. List price falls from $10/$50 to $8/$40.",
+      "summary": "GPT-6.2 Astra is the flagship model in the GPT-6.2 series from OpenAI, built for the hardest projects.",
+      "deltas": {
+        "daysSince": 74,
+        "context": {
+          "from": 1050000,
+          "to": 1050000
+        },
+        "input": {
+          "from": 10,
+          "to": 8
+        },
+        "output": {
+          "from": 50,
+          "to": 40
+        }
+      }
+    },
+    {
+      "id": "openai/gpt-6.2-sol",
+      "provider": "openai",
+      "line": "sol",
+      "name": "GPT-6.2 Sol",
+      "releaseDate": "2026-11-17",
+      "description": "GPT-6.2 Sol is an upgrade to GPT-6.1 Sol from OpenAI, positioned below the flagship GPT-6.2 Astra in the GPT-6.2 series. It is an efficient, versatile model for everyday work, suited for multistep agentic workflows and clear, natural writing across technical and non-technical tasks.",
+      "descriptionFull": true,
+      "contextLength": 1050000,
+      "inputPerM": 2,
+      "outputPerM": 10,
+      "previous": {
+        "id": "openai/gpt-6.1-sol",
+        "name": "GPT-6.1 Sol",
+        "releaseDate": "2026-09-29"
+      },
+      "jump": "An upgrade to GPT-6.1 Sol aimed at multi-step agentic workflows and clearer, more natural writing. Same $2/$10 price and 1.05M context.",
+      "summary": "GPT-6.2 Sol is an upgrade to GPT-6.1 Sol from OpenAI, positioned below the flagship GPT-6.2 Astra in the GPT-6.2 series.",
+      "deltas": {
+        "daysSince": 49,
+        "context": {
+          "from": 1050000,
+          "to": 1050000
+        },
+        "input": {
+          "from": 2,
+          "to": 2
+        },
+        "output": {
+          "from": 10,
+          "to": 10
+        }
+      }
+    },
+    {
+      "id": "google/gemini-4-neon",
+      "provider": "google",
+      "line": "gemini4",
+      "name": "Gemini 4 Neon",
+      "releaseDate": "2026-11-18",
+      "description": "Gemini 4 Neon is a fast, mid-priced model in the Gemini 4 family from Google, built for coding and agentic work. It is suited for repository and terminal coding, web builds, multi-turn tool use and multimodal STEM problems, and is positioned as a step up from [Gemini 4 Hydrogen](/google/gemini-4-hydrogen) that targets [Gemini 4 Carbon](/google/gemini-4-carbon) quality at higher speed and lower cost. It supports long decode of up to 1M output tokens through continuation, and controls thinking depth with low, medium, high and xhigh reasoning effort.",
+      "descriptionFull": true,
+      "contextLength": 1048576,
+      "inputPerM": 3,
+      "outputPerM": 15,
+      "previous": {
+        "id": "google/gemini-4-hydrogen",
+        "name": "Gemini 4 Hydrogen",
+        "releaseDate": "2026-11-12"
+      },
+      "jump": "Positioned as a step up from Gemini 4 Hydrogen, aiming for Carbon-level quality at higher speed and lower cost, with repository and terminal coding, web builds and multimodal STEM. Priced at $3/$15 per million, double Hydrogen and 50% above Carbon.",
+      "summary": "Gemini 4 Neon is a fast, mid-priced model in the Gemini 4 family from Google, built for coding and agentic work.",
+      "deltas": {
+        "daysSince": 6,
+        "context": {
+          "from": 1048576,
+          "to": 1048576
+        },
+        "input": {
+          "from": 1.5,
+          "to": 3
+        },
+        "output": {
+          "from": 7.5,
+          "to": 15
+        }
+      }
+    }
+  ]
+}
