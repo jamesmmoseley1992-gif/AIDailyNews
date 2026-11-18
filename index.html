@@ -166,6 +166,62 @@
   .kv div small { display: block; color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: .08em; }
   .kv div b { font-size: 15px; }
 
+  /* ---------- LLM timeline ---------- */
+  :root { --good: #0f7a4a; --good-soft: #e3f5ec; --warn: #9a5b00; --warn-soft: #fdf0d9; }
+  [data-theme="dark"] { --good: #5fd49a; --good-soft: #0f2e22; --warn: #f0b24f; --warn-soft: #33260b; }
+  .seg { display: inline-flex; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 3px; gap: 3px; }
+  .seg button { appearance: none; border: 0; background: none; color: var(--muted); font: 600 13.5px/1 inherit; padding: 8px 14px; border-radius: 8px; cursor: pointer; }
+  .seg button.on { background: var(--blue); color: #fff; }
+  [data-theme="dark"] .seg button.on { color: #081221; }
+  .models-head { display: flex; flex-wrap: wrap; gap: 12px 18px; align-items: center; justify-content: space-between; margin-bottom: 14px; }
+  .models-head p { margin: 0; color: var(--muted); font-size: 13.5px; max-width: 70ch; }
+  .chip i { display: inline-block; width: 9px; height: 9px; border-radius: 50%; margin-right: 6px; background: var(--c); }
+  .chip.on i { box-shadow: 0 0 0 2px #fff; }
+  .tl-chart { background: var(--surface); border-radius: 16px; box-shadow: var(--shadow); padding: 14px 6px 10px 0; overflow-x: auto; margin-bottom: 26px; }
+  .tl-inner { min-width: 1000px; }
+  .tl-row { display: flex; align-items: stretch; }
+  .tl-lab { flex: 0 0 148px; position: sticky; left: 0; z-index: 2; background: var(--surface); padding: 0 10px 0 16px; display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 700; }
+  .tl-lab i { width: 10px; height: 10px; border-radius: 50%; background: var(--c); flex: none; }
+  .tl-lab small { color: var(--muted); font-weight: 600; margin-left: auto; }
+  .tl-plot { flex: 1; position: relative; }
+  .tl-lane { border-top: 1px solid var(--line); }
+  .tl-tick { position: absolute; top: 0; bottom: 0; border-left: 1px dashed var(--line); }
+  .tl-axis .tl-plot { height: 26px; }
+  .tl-axis .tl-tick { border-left-style: solid; }
+  .tl-axis .tl-tick span { position: absolute; top: 3px; left: 5px; font-size: 11.5px; font-weight: 700; color: var(--muted); white-space: nowrap; }
+  .tl-dot { position: absolute; width: 15px; height: 15px; margin: 0 0 0 -7.5px; border-radius: 50%; border: 2px solid var(--surface); background: var(--c); box-shadow: 0 0 0 1px var(--c); cursor: pointer; padding: 0; transition: transform .1s; }
+  .tl-dot:hover, .tl-dot:focus-visible, .tl-dot.sel { transform: scale(1.5); z-index: 3; outline: none; box-shadow: 0 0 0 2px var(--ink); }
+  .tl-prov { margin-bottom: 30px; scroll-margin-top: 130px; }
+  .tl-ph { display: flex; align-items: baseline; gap: 10px; margin: 0 0 12px; font-size: 18px; letter-spacing: -.01em; }
+  .tl-ph i { width: 12px; height: 12px; border-radius: 50%; background: var(--c); align-self: center; }
+  .tl-ph span { font-size: 13px; font-weight: 500; color: var(--muted); }
+  .tl-list { list-style: none; margin: 0; padding: 0 0 0 22px; position: relative; display: grid; gap: 14px; }
+  .tl-list::before { content: ''; position: absolute; left: 6px; top: 8px; bottom: 8px; width: 3px; border-radius: 3px; background: var(--c); opacity: .35; }
+  .tl-item { position: relative; scroll-margin-top: 130px; }
+  .tl-node { position: absolute; left: -22px; top: 18px; width: 15px; height: 15px; border-radius: 50%; background: var(--c); border: 3px solid var(--bg); box-sizing: content-box; margin: -3px 0 0 -3px; }
+  .tl-card { background: var(--surface); border-radius: 14px; padding: 16px 20px; box-shadow: var(--shadow); border-left: 4px solid var(--c); }
+  .tl-item.flash .tl-card { outline: 3px solid var(--gold); }
+  .tl-top { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 4px 12px; }
+  .tl-top b { font-size: 17px; letter-spacing: -.01em; }
+  .tl-top time { font-size: 13px; font-weight: 600; color: var(--muted); }
+  .tl-specs { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0 0; }
+  .tl-specs span { font-size: 12px; font-weight: 600; background: var(--bg); color: var(--body); border-radius: 6px; padding: 2px 8px; }
+  .tl-desc { margin-top: 10px; font-size: 14px; color: var(--body); }
+  .tl-desc p { margin: 0 0 8px; }
+  .tl-desc details summary { cursor: pointer; font-size: 12.5px; font-weight: 600; color: var(--blue); list-style: none; }
+  .tl-desc details summary::-webkit-details-marker { display: none; }
+  .tl-desc details[open] summary { margin-bottom: 8px; }
+  .tl-jump { margin-top: 10px; background: var(--gold-soft); border-radius: 10px; padding: 10px 12px; font-size: 13.5px; color: var(--body); }
+  .tl-jump > b { display: block; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--gold-ink); }
+  .tl-jump > b small { text-transform: none; letter-spacing: 0; font-weight: 600; color: var(--muted); font-size: 12px; margin-left: 4px; }
+  .tl-jump p { margin: 6px 0 0; }
+  .tl-deltas { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+  .dl { font-size: 12px; font-weight: 700; border-radius: 6px; padding: 2px 8px; white-space: nowrap; }
+  .dl.good { background: var(--good-soft); color: var(--good); }
+  .dl.warn { background: var(--warn-soft); color: var(--warn); }
+  .dl.same { background: var(--bg); color: var(--muted); }
+  .tl-note { color: var(--muted); font-size: 12.5px; margin-top: 4px; }
+
   @media (max-width: 980px) { .stats { grid-template-columns: repeat(2, 1fr); } .hero, .snap { grid-template-columns: 1fr; } .search { min-width: 0; width: 100%; } }
 </style>
 </head>
@@ -206,6 +262,12 @@ try {
   console.error(err);
   return;
 }
+
+let TL = null; // 12-month LLM timeline (optional: the rest of the page works without it)
+try {
+  const r = await fetch('./data/llm-timeline.json', { cache: 'no-store' });
+  if (r.ok) TL = await r.json();
+} catch (err) { console.warn('Timeline unavailable', err); }
 
 const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 
@@ -300,7 +362,7 @@ const countBy = (arr, key) => arr.reduce((m, i) => (m[i[key]] = (m[i[key]] || 0)
 const TABS = [
   ['overview', 'Overview'], ['ai', 'AI News'], ['db', 'Databricks'], ['models', 'LLM Models'], ['sources', 'Sources']
 ];
-const state = { tab: 'overview', ai: 'All', db: 'All', q: '' };
+const state = { tab: 'overview', ai: 'All', db: 'All', q: '', mview: 'timeline', prov: 'All' };
 const DOTS_AI = ['#00448e', '#7c3aed', '#0ea5a4', '#d97706', '#475569', '#16a34a', '#be185d'];
 const DOTS_DB = ['#ff6a55', '#3b82f6', '#8b5cf6', '#0d9488', '#d97706', '#db2777', '#64748b'];
 const $ = (id) => document.getElementById(id);
@@ -425,7 +487,95 @@ function newsResults(kind) {
 }
 
 /* ---------- Models + Sources ---------- */
-const modelsView = () => `<h2 class="sec">New LLM models<span>${MODELS.length} released in the past 7 days</span></h2><div class="models-grid">${MODELS.map((m) => modelCard(m, true)).join('')}</div>`;
+const weekView = () => `<h2 class="sec">New LLM models<span>${MODELS.length} released in the past 7 days</span></h2><div class="models-grid">${MODELS.map((m) => modelCard(m, true)).join('')}</div>`;
+
+/* ---------- LLM timeline: 12 months, by provider ---------- */
+const fgFor = (hex) => {
+  const n = parseInt(hex.slice(1), 16);
+  const lin = (v) => { v /= 255; return v <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4; };
+  return 0.2126 * lin(n >> 16) + 0.7152 * lin((n >> 8) & 255) + 0.0722 * lin(n & 255) > 0.4 ? '#111827' : '#fff';
+};
+const fmtCtx = (n) => (n >= 1e6 ? `${+(n / 1e6).toFixed(2)}M` : `${Math.round(n / 1e3)}K`);
+const fmtUsd = (n) => `$${+n.toFixed(3)}`;
+const fmtDay = (iso) => new Date(iso + 'T00:00:00Z').toLocaleDateString([], { month: 'short', day: 'numeric', year: 'numeric', timeZone: 'UTC' });
+const fmtMon = (iso) => new Date(iso + 'T00:00:00Z').toLocaleDateString([], { month: 'short', year: 'numeric', timeZone: 'UTC' });
+const mid = (id) => 'm-' + id.replace(/[^a-z0-9]+/gi, '-');
+const cleanDesc = (t) => String(t || '').replace(/\[([^\]]+)\]\([^)]*\)/g, '$1').replace(/`/g, '').split(/\n\s*\n/).map((p) => p.replace(/\s+/g, ' ').trim()).filter(Boolean);
+
+function deltaChip(label, a, b, fmt, goodWhen) {
+  if (a == null || b == null) return '';
+  if (a === b) return `<span class="dl same">= ${label} unchanged (${fmt(b)})</span>`;
+  const up = b > a, good = goodWhen === 'up' ? up : !up;
+  return `<span class="dl ${good ? 'good' : 'warn'}">${up ? '&#9650;' : '&#9660;'} ${label} ${fmt(a)} &rarr; ${fmt(b)} (${up ? '+' : '-'}${Math.round(Math.abs(b - a) / a * 100)}%)</span>`;
+}
+
+function tlCard(m) {
+  const paras = cleanDesc(m.description), d = m.deltas, p = m.previous;
+  const specs = [m.contextLength ? `${fmtCtx(m.contextLength)} context` : '', m.inputPerM != null ? `${fmtUsd(m.inputPerM)} in / ${fmtUsd(m.outputPerM)} out per 1M tokens` : ''].filter(Boolean);
+  const first = paras.slice(0, 1), rest = paras.slice(1);
+  const jump = p
+    ? `<b>Jump vs ${esc(p.name)}<small>released ${esc(fmtDay(p.releaseDate))} &middot; ${d.daysSince} days earlier</small></b>
+       <div class="tl-deltas">${deltaChip('Context', d.context.from, d.context.to, fmtCtx, 'up')}${deltaChip('Input price', d.input.from, d.input.to, fmtUsd, 'down')}${deltaChip('Output price', d.output.from, d.output.to, fmtUsd, 'down')}</div>
+       ${m.jump ? `<p>${esc(m.jump)}</p>` : ''}`
+    : `<b>First in its line<small>no earlier version to compare against in this window</small></b>${m.jump ? `<p>${esc(m.jump)}</p>` : ''}`;
+  return `<li class="tl-item" id="${mid(m.id)}"><span class="tl-node"></span><article class="tl-card">
+    <div class="tl-top"><b>${esc(m.name)}</b><time datetime="${esc(m.releaseDate)}">${esc(fmtDay(m.releaseDate))}</time></div>
+    <div class="tl-specs">${specs.map((s) => `<span>${esc(s)}</span>`).join('')}</div>
+    <div class="tl-desc">${first.map((t) => `<p>${esc(t)}</p>`).join('')}${rest.length ? `<details><summary>Read the full description</summary>${rest.map((t) => `<p>${esc(t)}</p>`).join('')}</details>` : ''}</div>
+    <div class="tl-jump">${jump}</div></article></li>`;
+}
+
+function tlChart(provs, models) {
+  const DAY = 864e5;
+  const first = new Date(Math.min(...models.map((m) => Date.parse(m.releaseDate))));
+  const last = new Date(Math.max(...models.map((m) => Date.parse(m.releaseDate)), Date.now()));
+  const t0 = Date.UTC(first.getUTCFullYear(), first.getUTCMonth(), 1);
+  const t1 = Date.UTC(last.getUTCFullYear(), last.getUTCMonth() + 1, 1);
+  const pct = (t) => ((t - t0) / (t1 - t0)) * 100;
+  const ticks = [];
+  for (let t = new Date(t0); t.getTime() < t1; t = new Date(Date.UTC(t.getUTCFullYear(), t.getUTCMonth() + 1, 1))) {
+    const mon = t.toLocaleDateString([], { month: 'short', timeZone: 'UTC' });
+    ticks.push({ x: pct(t.getTime()), label: t.getUTCMonth() === 0 || ticks.length === 0 ? `${mon} ’${String(t.getUTCFullYear()).slice(2)}` : mon });
+  }
+  const grid = (withLabel) => ticks.map((t) => `<div class="tl-tick" style="left:${t.x.toFixed(2)}%">${withLabel ? `<span>${esc(t.label)}</span>` : ''}</div>`).join('');
+  const lanes = provs.map((pv) => {
+    const mine = models.filter((m) => m.provider === pv.key);
+    const rowEnd = []; // right-most day used in each sub-row, so close releases stack instead of overlapping
+    const dots = mine.map((m) => {
+      const t = Date.parse(m.releaseDate);
+      let r = rowEnd.findIndex((e) => t - e >= 9 * DAY);
+      if (r < 0) r = rowEnd.length;
+      rowEnd[r] = t;
+      const tip = `${m.name} • ${fmtDay(m.releaseDate)}\n${m.summary || ''}`;
+      return `<button class="tl-dot" data-pick="${esc(m.id)}" style="left:${pct(t).toFixed(2)}%;top:${10 + r * 20}px" title="${esc(tip)}" aria-label="${esc(m.name + ', ' + fmtDay(m.releaseDate))}"></button>`;
+    }).join('');
+    return `<div class="tl-row tl-lane" style="--c:${pv.color}"><div class="tl-lab"><i></i>${esc(pv.label)}<small>${mine.length}</small></div><div class="tl-plot" style="height:${rowEnd.length * 20 + 14}px">${grid(false)}${dots}</div></div>`;
+  }).join('');
+  return `<div class="tl-chart"><div class="tl-inner" role="img" aria-label="Release timeline of major LLMs by provider">
+    <div class="tl-row tl-axis"><div class="tl-lab"></div><div class="tl-plot">${grid(true)}</div></div>${lanes}</div></div>`;
+}
+
+function timelineView() {
+  if (!TL || !TL.models || !TL.models.length) return '<div class="empty">The 12-month timeline is not available yet. Run <code>node scripts/build-timeline.js</code> to generate it.</div>';
+  const counts = countBy(TL.models, 'provider');
+  const provs = TL.providers.filter((p) => state.prov === 'All' || p.key === state.prov);
+  const models = TL.models.filter((m) => state.prov === 'All' || m.provider === state.prov);
+  const chips = `<button class="chip ${state.prov === 'All' ? 'on' : ''}" data-prov="All">All providers<span class="n">${TL.models.length}</span></button>` +
+    TL.providers.map((p) => `<button class="chip ${state.prov === p.key ? 'on' : ''}" data-prov="${esc(p.key)}" style="--c:${p.color}"><i></i>${esc(p.label)}<span class="n">${counts[p.key] || 0}</span></button>`).join('');
+  const sections = provs.map((pv) => {
+    const mine = models.filter((m) => m.provider === pv.key).slice().sort((a, b) => b.releaseDate.localeCompare(a.releaseDate));
+    return `<section class="tl-prov" id="prov-${esc(pv.key)}" style="--c:${pv.color}"><h3 class="tl-ph"><i></i>${esc(pv.label)}<span>${mine.length} models &middot; ${esc(fmtMon(mine[mine.length - 1].releaseDate))} &ndash; ${esc(fmtMon(mine[0].releaseDate))} &middot; newest first</span></h3>
+      <ol class="tl-list">${mine.map(tlCard).join('')}</ol></section>`;
+  }).join('');
+  return `<div class="toolbar"><div class="chips">${chips}</div></div>
+    ${tlChart(provs, models)}${sections}
+    <p class="tl-note">Release dates, context windows and prices come from the OpenRouter catalogue; descriptions are the model listings. Each model is compared with the previous model in the same line or tier from the same provider, which can pre-date this window. Prices are per million tokens at list price. The catalogue has no new Meta or Microsoft entries for this period.</p>`;
+}
+
+function modelsView() {
+  const seg = `<div class="seg" role="tablist" aria-label="Model view"><button class="${state.mview === 'timeline' ? 'on' : ''}" data-mview="timeline">12-month timeline${TL ? ` (${TL.models.length})` : ''}</button><button class="${state.mview === 'week' ? 'on' : ''}" data-mview="week">New this week (${MODELS.length})</button></div>`;
+  return `<div class="models-head">${seg}<p>${state.mview === 'timeline' ? 'Every major release from the leading providers over the last 12 months, each compared with its direct predecessor.' : 'Models first listed in the past 7 days.'}</p></div>${state.mview === 'timeline' ? timelineView() : weekView()}`;
+}
 function sourcesView() {
   const meta = DATA.meta || {};
   const rows = (meta.sources || []).map((s) => `<div class="srcrow"><div><b>${esc(s.name)}</b><small>${esc(s.origin || '')}${s.type ? ' &middot; ' + esc(s.type) : ''}</small></div><span class="cnt">${esc(s.count ?? '')} items</span></div>`).join('');
@@ -463,6 +613,20 @@ $('view').addEventListener('toggle', (e) => {
 
 $('tabs').addEventListener('click', (e) => { const b = e.target.closest('.tab'); if (b) go(b.dataset.tab); });
 $('view').addEventListener('click', (e) => {
+  const mv = e.target.closest('[data-mview]');
+  if (mv) { state.mview = mv.dataset.mview; render(true); return; }
+  const pv = e.target.closest('[data-prov]');
+  if (pv) { state.prov = pv.dataset.prov; render(true); return; }
+  const dot = e.target.closest('[data-pick]');
+  if (dot) {
+    const el = document.getElementById(mid(dot.dataset.pick));
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      el.classList.add('flash');
+      setTimeout(() => el.classList.remove('flash'), 1800);
+    }
+    return;
+  }
   const g = e.target.closest('[data-go]');
   if (g) { go(g.dataset.go, g.dataset.topic); return; }
   const t = e.target.closest('[data-topic]');
