@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-19T14:07:10.722Z",
+  "generatedAt": "2026-11-19T20:42:49.078Z",
   "windowMonths": 12,
   "providers": [
     {
@@ -1474,8 +1474,8 @@
       "description": "DeepSeek V4 Pro 0813 is a large-scale mixture-of-experts model from DeepSeek. This is the GA release of DeepSeek V4 Pro.",
       "descriptionFull": false,
       "contextLength": 1048576,
-      "inputPerM": 0.111,
-      "outputPerM": 4.44,
+      "inputPerM": 0.15,
+      "outputPerM": 6.5,
       "previous": {
         "id": "deepseek/deepseek-v4-pro",
         "name": "DeepSeek V4 Pro 0423",
@@ -1491,11 +1491,11 @@
         },
         "input": {
           "from": 0.9,
-          "to": 0.111
+          "to": 0.15
         },
         "output": {
           "from": 1.5,
-          "to": 4.44
+          "to": 6.5
         }
       }
     },
