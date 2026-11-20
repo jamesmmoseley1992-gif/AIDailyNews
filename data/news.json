@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-11-20T01:45:16.955Z",
+  "lastUpdated": "2026-11-20T14:06:40.201Z",
   "meta": {
     "schedule": "Twice daily at 8:00 AM & 2:00 PM US Central (CST)",
     "windowDays": 7,
@@ -51,7 +51,7 @@
         "name": "OpenRouter Models",
         "origin": "openrouter.ai",
         "type": "API",
-        "count": 8,
+        "count": 9,
         "status": "Live"
       },
       {
@@ -76,6 +76,21 @@
       "fullStory": "Databricks has announced that the Genie Code analysis for alerts is now available in Beta. This new feature allows alert owners to turn on Genie Code analysis within their Advanced settings, provided the Alertv2 Genie Analysis preview is enabled.\n\nWhen an alert transitions to a Triggered or Error state, Genie Code automatically initiates an investigation. It then appends an Investigate link directly to the alert history for users to review.\n\nUsers can access further details on how to set up this capability by referencing the official documentation on configuring Genie Code analysis.",
       "whyItMatters": "This feature automates initial troubleshooting for data alerts, reducing the time required to investigate errors or triggered thresholds.",
       "whoIsAffected": "Alert owners and data administrators using Databricks alerting features.",
+      "aiAnalyzed": true,
+      "summaryVersion": 2
+    },
+    {
+      "title": "Six AI-powered gadgets that could make your home office smarter",
+      "url": "https://techcrunch.com/2026/11/20/6-ai-powered-gadgets-that-could-make-your-home-office-smarter/",
+      "source": "TechCrunch AI",
+      "category": "AI",
+      "topic": "Business & Adoption",
+      "importance": 3,
+      "publishedAt": "2026-11-20T14:00:00.000Z",
+      "summary": "On November 20, 2026, TechCrunch reporter Lauren Forristal published an overview of six AI-powered gadgets designed to upgrade the home office workspace. Tech companies are increasingly integrating artificial intelligence into everyday work tools, ranging fro…",
+      "fullStory": "On November 20, 2026, TechCrunch reporter Lauren Forristal published an overview of six AI-powered gadgets designed to upgrade the home office workspace. Tech companies are increasingly integrating artificial intelligence into everyday work tools, ranging from smart notetakers to automated webcams, to streamline productivity.\n\nAmong the highlighted products is the Flowtica Scribe Pen ($159), which combines traditional handwriting with audio recording, offering transcription, summarization, and a built-in 32GB storage capacity supporting 92 languages and up to 15 speakers. Another audio device is the Anker Soundcore Work ($159), a coin-sized recording pin providing up to eight hours of standalone battery life and companion app summaries, with optional Pro ($99/year) and Unlimited ($239/year) subscription plans. Logitech introduced its MX Keypad ($99) to bring dedicated AI shortcuts for tools like GitHub Copilot, Claude Code, and OpenAI Codex directly to users' desks. Meanwhile, Amazon launched the Kindle Scribe Colorsoft ($629), a color digital note-taking device featuring AI tools to clean up messy handwriting and summarize notes. For video calls, the Insta360 Link 2 Pro ($249) offers 4K video capture with intelligent tracking, automatic framing, and AI-powered noise cancellation. Finally, the Autonomous Desk Pro ($599) is an adjustable standing desk utilizing built-in sensors and AI to monitor user activity, track sitting versus standing habits, and monitor room CO2 levels.\n\nThe featured gadgets aim to assist professionals, researchers, students, and presenters by automating administrative tasks like note transcription, camera framing, and ergonomic tracking. The article notes that purchases made through links in the text may earn the publication a small commission.",
+      "whyItMatters": "This news highlights the growing consumer hardware trend of embedding AI directly into everyday workspace accessories to automate administrative tasks and physical ergonomics. It showcases a diverse market of physical AI tools now available for remote workers and professionals.",
+      "whoIsAffected": "Remote workers, professionals, students, and home office users looking to upgrade their productivity and workspace hardware.",
       "aiAnalyzed": true,
       "summaryVersion": 2
     },
@@ -125,18 +140,34 @@
       "summaryVersion": 2
     },
     {
+      "title": "Introducing harness adapters: adapt your favorite model to your harness to improve performance and cost",
+      "url": "https://huggingface.co/blog/harness-adapters-at-scale",
+      "source": "Hugging Face",
+      "category": "AI",
+      "topic": "Models, Research & Advancement",
+      "importance": 9,
+      "publishedAt": "2026-11-20T00:00:00.000Z",
+      "summary": "On November 20, 2026, Hugging Face researchers published a technique called \"harness adapters,\" which applies reinforcement learning (RL) directly inside standard agent harnesses to optimize base models for specific workloads, improving both performance and c…",
+      "fullStory": "On November 20, 2026, Hugging Face researchers published a technique called \"harness adapters,\" which applies reinforcement learning (RL) directly inside standard agent harnesses to optimize base models for specific workloads, improving both performance and cost. The authors, including Younes Belkada, Lewis Tunstall, and others, demonstrated that while models target general performance, combining a model with a specific harness leaves efficiency on the table. By freezing base weights and adding a custom RL-trained LoRA adapter, models can reason less, call fewer tools, and achieve higher pass rates.\n\nTo showcase the approach, the team targeted the Qwen3.8-27B model across three distinct agent harnesses: Pi, OpenCode, and Hermes Agent. For the Qwen3.8-27B model running on Terminal-Bench 2.1 with the Pi harness, the base score of 39% (using 2.9K tokens per task) increased to a 55% pass@1 score while dropping average token usage to 1.5K. The workflow utilized TRL's AsyncGRPOTrainer, OpenEnv, and Harbor on Hugging Face Jobs to generate, validate, and train on custom agentic coding task distributions.\n\nThe task creation pipeline drew from three sources: SWE-smith (injecting bugs into real Python and Go repositories), SWE-Gym (converting GitHub issues and merged fixes into tasks via TaskTrove), and Tasksmith (generating tasks from merged pull requests). Out of 1,127 Hub candidates, 858 passed initial metadata and semantic validation using `openenv validate`. A subsequent difficulty check using Qwen3.8-27B further filtered the tasks to those solved only sometimes (171 tasks out of 442 scored), ensuring effective learning signals for Group Relative Policy Optimization (GRPO).\n\nFinally, the team merged the three individual harness LoRAs into a single \"super adapter\" that runs unchanged under Pi, Hermes Agent, and OpenCode. All resulting artifacts, including adapters, GGUFs, RL tasks, and the safeagents plugin, have been released in a public Hugging Face collection for community re-use.",
+      "whyItMatters": "Harness adapters prove that training models with RL directly inside native agent frameworks significantly boosts task performance while drastically cutting token consumption and inference costs. This reusable recipe empowers developers to squeeze maximum efficiency out of any open model for their specific toolchains.",
+      "whoIsAffected": "AI engineers, MLOps practitioners, and developers building autonomous agents using open-source models and standard evaluation harnesses.",
+      "aiAnalyzed": true,
+      "summaryVersion": 2
+    },
+    {
       "title": "Why PostgreSQL 19 shipped late",
       "url": "https://www.databricks.com/blog/why-postgresql-19-shipped-late",
       "source": "Databricks Engineering",
       "category": "Databricks",
       "topic": "Apps & Lakebase",
-      "importance": 7,
+      "importance": 6,
       "publishedAt": "2026-11-19T22:04:02.000Z",
-      "summary": "PostgreSQL 19 is now generally available, and there are some really cool things in...",
-      "fullStory": "PostgreSQL 19 is now generally available, and there are some really cool things in...",
-      "whyItMatters": "Platform updates and release notes often introduce performance improvements, new SQL/Spark capabilities, or deprecations that impact production pipelines.",
-      "whoIsAffected": "Databricks Data Engineers, Lakehouse Architects, and Workspace Admins managing clusters, jobs, and governance.",
-      "aiAnalyzed": false
+      "summary": "PostgreSQL 19 shipped approximately a month after its usual September to October window for major releases, with the delay driven by the project's focus on quality amid a surge in AI-discovered bugs. Written by Jonathan Katz and Robert Haas and published on N…",
+      "fullStory": "PostgreSQL 19 shipped approximately a month after its usual September to October window for major releases, with the delay driven by the project's focus on quality amid a surge in AI-discovered bugs. Written by Jonathan Katz and Robert Haas and published on November 19, 2026, the article explains that starting around February 2026, AI tools made finding bugs and security issues significantly easier. Consequently, CVEs fixed per quarterly update release surged from a historical range of one to four up to 28 by August 2026, while commits back-patched to the release branch increased by 61% and back-patches to prior release branches jumped by 74%. Contributors had to spend critical time fixing these discovered bugs rather than reviewing new features, resulting in the release timeline slipping as features not ready in time were deferred.\n\nDespite the delay, PostgreSQL 19 is now generally available and introduces several key features: REPACK for rebuilding bloated tables during normal read and write operations, query plan advice for stabilizing critical query plans without altering application SQL, WAIT FOR LSN for read-your-writes functionality on replicas without polling or arbitrary sleeps, and logical replication support for synchronizing sequences to eliminate migration friction. The November 12 update release for supported branches ultimately included so many fixes that the release team issued a second release candidate to ensure PostgreSQL 19 shipped with them.\n\nThe authors note that the PostgreSQL project is actively adapting to this new landscape where LLMs scrutinize software. While AI has made finding bugs much easier, fixing them remains a human task that strains contributor bandwidth. Looking ahead, the community views this heightened AI scrutiny as a permanent shift in open-source development and an unprecedented opportunity to make PostgreSQL more reliable than ever before.",
+      "whyItMatters": "The late release of PostgreSQL 19 illustrates a broader industry shift where the widespread use of LLMs for vulnerability discovery drastically increases bug-fix volume and strains maintainer bandwidth in open-source software.",
+      "whoIsAffected": "PostgreSQL developers, open-source maintainers, and database administrators managing PostgreSQL deployments.",
+      "aiAnalyzed": true,
+      "summaryVersion": 2
     },
     {
       "title": "Meta’s new Muse Charm device may cost $300",
@@ -450,21 +481,6 @@
       "fullStory": "Anthropic has reportedly priced its initial public offering at $83 per share, exceeding its initial projected range of $70 to $78. Reported by Marina Temkin on November 18, 2026, the pricing values the company at $1.5 trillion on a fully diluted basis. This valuation marks an increase from the $965 billion valuation achieved in May when the company raised $65 billion in a private market round, though it is below a reported $2 trillion target from earlier months. Anthropic is scheduled to begin trading on Nasdaq under the ticker symbol \"ANT\" on Thursday.\n\nThe IPO delivers significant financial returns for the company's backers and founders. Anthropic's seven co-founders, including CEO Dario Amodei, each sold nearly 3.4 million shares through the IPO, generating about $282 million per co-founder according to the S-1 filing. Strategic partners Amazon and Google hold nearly 15% and 14% of the company, respectively. Additionally, major tech companies including AMD, Broadcom, Google, Micron, Microsoft, Nvidia, and TSMC Partners agreed to purchase $26 billion in non-voting shares via a private placement alongside the IPO.\n\nSeveral venture capital firms and institutional backers hold stakes of approximately 1% or more, including Sequoia, former Google CEO Eric Schmidt, Singaporean sovereign wealth fund GIC, Iconiq, Menlo Ventures, Coatue, Sound Ventures, and Spark Ventures. Furthermore, investors such as Sequoia, Iconiq, Lightspeed, Accel, and Altimeter Capital Management planned to purchase billions of dollars worth of shares in the offering. The market debut serves as a barometer for investor sentiment toward AI adoption following recent market volatility.",
       "whyItMatters": "Anthropic's $1.5 trillion IPO valuation and strong pricing set a major benchmark for investor appetite and market expectations surrounding private artificial intelligence companies.",
       "whoIsAffected": "Anthropic investors, co-founders, strategic partners like Amazon and Google, and market competitors such as OpenAI.",
-      "aiAnalyzed": true,
-      "summaryVersion": 2
-    },
-    {
-      "title": "Nvidia created a weird bit of intrigue by not filing a routine SEC report",
-      "url": "https://techcrunch.com/2026/11/18/nvidia-created-a-weird-bit-of-intrigue-by-not-filing-a-routine-sec-report/",
-      "source": "TechCrunch AI",
-      "category": "AI",
-      "topic": "AI Governance & Regulation",
-      "importance": 7,
-      "publishedAt": "2026-11-18T21:57:40.000Z",
-      "summary": "During Nvidia's quarterly call on Tuesday, November 18, 2026, CFO-turned-interim-CEO Colette Kress announced that the company would not be immediately filing its quarterly results report, known as a 10-Q, with the SEC, stating only that they plan to file it \"…",
-      "fullStory": "During Nvidia's quarterly call on Tuesday, November 18, 2026, CFO-turned-interim-CEO Colette Kress announced that the company would not be immediately filing its quarterly results report, known as a 10-Q, with the SEC, stating only that they plan to file it \"in the coming weeks\" without offering a reason. The unusual delay was widely noticed, with economic and investment analyst Edward Dowd calling it a \"red flag\" on X, as Nvidia typically files the 10-Q on the same day it reports results. The 10-Q provides detailed operational information, including sections on legal proceedings and risk factors that could affect the company.\n\nWhen UBS analyst Timothy Arcuri queried management on a callback, Nvidia indicated that the delay was related to ongoing investigations and whether additional risk factors needed to be added to the filing. Following the earnings call, UBS analyst Timothy Arcuri lowered his price target for the stock to $220 from $240 while maintaining a \"buy\" rating, with the stock trading around $150. On the same day Nvidia reported earnings, The Wall Street Journal reported that the SEC is investigating Nvidia over whether its disclosures misled investors.\n\nThe delay follows mounting legal troubles for Nvidia, which is facing multiple federal investigations over allegations that its partners were sold restricted Nvidia AI chips to China. Scrutiny has involved congressional committees, the Department of Justice investigating Megaspeed (run by a woman with whom Huang had an affair and who is suspected of being a Chinese spy), and the SEC. Additionally, Nvidia is conducting an internal investigation into Huang after he admitted to having an affair with Alice Huang, alongside allegations of affairs with other Nvidia employees.",
-      "whyItMatters": "The delay in Nvidia's routine SEC filing amid multiple federal investigations and leadership scandals raises significant questions about upcoming financial and legal disclosures. This heightened uncertainty impacts investor confidence and market sentiment regarding one of the most prominent companies in the AI sector.",
-      "whoIsAffected": "Investors, market analysts, and Nvidia leadership and legal teams.",
       "aiAnalyzed": true,
       "summaryVersion": 2
     },
@@ -1007,32 +1023,29 @@
       "whoIsAffected": "AI researchers, developers building AI assistants, and end users relying on LLMs for troubleshooting.",
       "aiAnalyzed": true,
       "summaryVersion": 2
-    },
-    {
-      "title": "llama.cpp v1.0.0 : A stronger foundation for the local AI ecosystem",
-      "url": "https://huggingface.co/blog/ggml-org/llama-cpp-v1",
-      "source": "Hugging Face",
-      "category": "AI",
-      "topic": "Agents & Developer Tools",
-      "importance": 7,
-      "publishedAt": "2026-11-13T14:05:22.000Z",
-      "summary": "On November 13, 2026, the team behind llama.cpp—including contributors Daniel Bevenius, Georgi Gerganov, and Merve Noyan—announced the release of llama.cpp v1.0.0 and ggml v1.0.0. Spanning 3.5 years since its inception, the project provides a lightweight, ver…",
-      "fullStory": "On November 13, 2026, the team behind llama.cpp—including contributors Daniel Bevenius, Georgi Gerganov, and Merve Noyan—announced the release of llama.cpp v1.0.0 and ggml v1.0.0. Spanning 3.5 years since its inception, the project provides a lightweight, versatile platform for running multi-modal LLMs across various hardware configurations, from consumer-grade machines to enterprise servers, utilizing quantization, optimized backends, and portable C/C++ implementations.\n\nThe v1.0.0 release establishes stable library interfaces (libllama and libggml) with explicit semantic versioning rules, ensuring that future API and ABI incompatibilities will be clearly communicated through major-version bumps. This stability addresses the needs of downstream applications and developers relying on the library interfaces as local AI and privacy grow in importance.\n\nThe underlying machine learning engine, ggml, currently supports over 150 architecture variants and all mainstream speculative decoding methods across hardware backends from NVIDIA, AMD, Qualcomm, Arm, IBM, and Intel. Distribution channels include Linux, macOS, Windows, Android, and iOS via packages such as Docker, Homebrew, conda-forge, MacPorts, and Winget.\n\nMoving forward, the project plans to expand distribution pathways and utilize Hugging Face technologies like HF Buckets and HF Jobs to scale continuous integration infrastructure and guarantee correctness across master branches.",
-      "whyItMatters": "The release of v1.0.0 provides a stable API and ABI foundation for developers building privacy-focused, cross-platform local AI applications across diverse hardware backends. This milestone signals long-term reliability for the growing ecosystem of downstream software dependent on llama.cpp and ggml.",
-      "whoIsAffected": "Software developers and downstream consumers building local AI applications and integrations using llama.cpp and ggml.",
-      "aiAnalyzed": true,
-      "summaryVersion": 2
     }
   ],
   "llmTracker": {
     "recentModels": [
       {
+        "company": "Mistral",
+        "name": "Pixtral Large",
+        "version": "2502",
+        "releaseDate": "Nov 20, 2026",
+        "description": "Pixtral Large 2502 is the February 2025 version of Mistral AI's large multimodal model for text and image tasks.",
+        "fullDescription": "Pixtral Large 2502 is the February 2025 version of Mistral AI's large multimodal model, following [Pixtral Large 2411](https://openrouter.ai/mistralai/pixtral-large-2411). It accepts text and image input, including documents, charts, and natural images,...",
+        "howItIsDifferent": "No earlier version of this model was found to compare against.",
+        "id": "mistralai/pixtral-large-2502",
+        "previousModel": null,
+        "comparisonVersion": 1
+      },
+      {
         "company": "Google",
-        "name": "Gemini 4 Neon",
+        "name": "Gemini",
         "version": "4 Neon",
         "releaseDate": "Nov 18, 2026",
-        "description": "Gemini 4 Neon is a fast, mid-priced model in the Gemini 4 family from Google, built for coding and agentic work.",
-        "fullDescription": "Gemini 4 Neon is designed specifically for repository and terminal coding, as well as web-based agentic workflows. It offers a balance of speed and capability, making it a practical choice for developers seeking efficient assistance on complex programming tasks.",
+        "description": "Gemini 4 Neon is a fast, mid-priced model in the Gemini 4 family built for coding and agentic work.",
+        "fullDescription": "Optimized for repository and terminal coding as well as web-based tasks, this model balances speed and capability. It is designed to empower developer workflows and autonomous agent operations efficiently.",
         "howItIsDifferent": "No earlier version of this model was found to compare against.",
         "id": "google/gemini-4-neon",
         "previousModel": null,
@@ -1043,8 +1056,8 @@
         "name": "GPT-6.2 Astra Pro",
         "version": "6.2 Astra Pro",
         "releaseDate": "Nov 17, 2026",
-        "description": "GPT-6.2 Astra Pro is the same underlying model as GPT-6.2 Astra, served with reasoning.mode set to pro for higher-quality responses on complex tasks.",
-        "fullDescription": "Utilizing the underlying architecture of the flagship GPT-6.2 Astra, this pro-mode variant is configured to deliver deeper reasoning and higher-quality responses. It is engineered to tackle the most demanding projects in real-world engineering, professional work, and scientific research.",
+        "description": "GPT-6.2 Astra Pro is the flagship GPT-6.2 Astra model served with reasoning mode set to pro for complex tasks.",
+        "fullDescription": "GPT-6.2 Astra Pro is the same underlying model as [GPT-6.2 Astra](https://openrouter.ai/openai/gpt-6.2-astra), served with `reasoning.mode` set to `pro` for higher-quality responses on complex tasks. **Cost note:** pro mode spends far more...",
         "howItIsDifferent": "Compared with its previous version, GPT-6 Astra Pro (released Sep 4, 2026): no written comparison was available, so only the specification changes are shown. context window unchanged at 1.05M tokens; input $8.00 per 1M tokens (was $10.00); output $40.00 per 1M tokens (was $50.00).",
         "id": "openai/gpt-6.2-astra-pro",
         "previousModel": {
@@ -1057,10 +1070,10 @@
       {
         "company": "OpenAI",
         "name": "GPT-6.2 Astra",
-        "version": "6.2 Astra",
+        "version": "6.2",
         "releaseDate": "Nov 17, 2026",
-        "description": "GPT-6.2 Astra is the flagship model in the GPT-6.2 series from OpenAI, built for the hardest projects and advanced reasoning.",
-        "fullDescription": "As the top-tier offering in the GPT-6.2 series, this model is built to handle the most challenging real-world engineering feats, professional workloads, and scientific research. It combines robust general intelligence with deep contextual understanding.",
+        "description": "GPT-6.2 Astra is the flagship model in the GPT-6.2 series built for the hardest projects and scientific research.",
+        "fullDescription": "GPT-6.2 Astra Pro is the same underlying model as [GPT-6.2 Astra](https://openrouter.ai/openai/gpt-6.2-astra), served with `reasoning.mode` set to `pro` for higher-quality responses on complex tasks. **Cost note:** pro mode spends far more...",
         "howItIsDifferent": "Compared with its previous version, GPT-6 Astra Pro (released Sep 4, 2026): no written comparison was available, so only the specification changes are shown. context window unchanged at 1.05M tokens; input $8.00 per 1M tokens (was $10.00); output $40.00 per 1M tokens (was $50.00).",
         "id": "openai/gpt-6.2-astra-pro",
         "previousModel": {
@@ -1075,7 +1088,7 @@
         "name": "GPT-6.2 Sol Pro",
         "version": "6.2 Sol Pro",
         "releaseDate": "Nov 17, 2026",
-        "description": "GPT-6.2 Sol Pro is the same underlying model as GPT-6.2 Sol, served with reasoning.mode set to pro for higher-quality responses on complex tasks.",
+        "description": "GPT-6.2 Sol Pro is the efficient GPT-6.2 Sol model served with reasoning mode set to pro for enhanced accuracy.",
         "fullDescription": "GPT-6.2 Sol Pro is the same underlying model as [GPT-6.2 Sol](https://openrouter.ai/openai/gpt-6.2-sol), served with `reasoning.mode` set to `pro` for higher-quality responses on complex tasks. **Cost note:** pro mode spends far more...",
         "howItIsDifferent": "Compared with its previous version, GPT-6.1 Sol Pro (released Sep 29, 2026): GPT-6.2 Sol Pro is the same underlying model as GPT-6.2 Sol, served with reasoning.mode set to pro for higher-quality responses on complex tasks. Compared to its direct predecessor GPT-6.1 Sol Pro, it builds upon the newer underlying GPT-6.2 Sol version while retaining the pro reasoning mode that spends far more on cost. context window unchanged at 1.05M tokens; input price unchanged at $2.00 per 1M tokens; output price unchanged at $10.00 per 1M tokens.",
         "id": "openai/gpt-6.2-sol-pro",
@@ -1089,10 +1102,10 @@
       {
         "company": "OpenAI",
         "name": "GPT-6.2 Sol",
-        "version": "6.2 Sol",
+        "version": "6.2",
         "releaseDate": "Nov 17, 2026",
-        "description": "GPT-6.2 Sol is an efficient, versatile upgrade to GPT-6.1 Sol from OpenAI, positioned below the flagship GPT-6.2 Astra.",
-        "fullDescription": "Positioned as a versatile workhorse for everyday tasks, GPT-6.2 Sol succeeds GPT-6.1 Sol by offering improved efficiency and general capabilities. It serves as a reliable option for standard professional workflows that do not require full flagship power.",
+        "description": "GPT-6.2 Sol is an efficient, versatile model for everyday work positioned below the flagship Astra.",
+        "fullDescription": "GPT-6.2 Sol Pro is the same underlying model as [GPT-6.2 Sol](https://openrouter.ai/openai/gpt-6.2-sol), served with `reasoning.mode` set to `pro` for higher-quality responses on complex tasks. **Cost note:** pro mode spends far more...",
         "howItIsDifferent": "Compared with its previous version, GPT-6.1 Sol Pro (released Sep 29, 2026): GPT-6.2 Sol Pro is the same underlying model as GPT-6.2 Sol, served with reasoning.mode set to pro for higher-quality responses on complex tasks. Compared to its direct predecessor GPT-6.1 Sol Pro, it builds upon the newer underlying GPT-6.2 Sol version while retaining the pro reasoning mode that spends far more on cost. context window unchanged at 1.05M tokens; input price unchanged at $2.00 per 1M tokens; output price unchanged at $10.00 per 1M tokens.",
         "id": "openai/gpt-6.2-sol-pro",
         "previousModel": {
@@ -1105,10 +1118,10 @@
       {
         "company": "Tencent",
         "name": "Hy4 flash",
-        "version": "Hy4 Flash",
+        "version": "Flash",
         "releaseDate": "Nov 16, 2026",
-        "description": "Hy4 flash is a cost-efficient variant of Tencent's Hy4 model, served with roughly a quarter of the flagship's parameter count.",
-        "fullDescription": "Designed specifically for code assistance and agentic tasks, Hy4 flash reduces parameter count to approximately one-fourth of the flagship Hy4 model. This reduction enables significantly lower latency and reduced operational costs.",
+        "description": "Hy4 flash is a cost-efficient variant of Tencent's Hy4 model designed for lower latency and code assistance.",
+        "fullDescription": "Hy4 flash is a cost-efficient variant of [Hy4](https://openrouter.ai/tencent/hy4) from Tencent, served with roughly a quarter of the flagship's parameter count for lower latency and cost. It targets code assistance, agent...",
         "howItIsDifferent": "No direct earlier flash version was found in the same model line and tier. Hy4 flash is a cost-efficient variant of Hy4 that is served with roughly a quarter of the flagship's parameter count to deliver lower latency and cost while targeting code assistance and agents.",
         "id": "tencent/hy4-flash",
         "previousModel": null,
@@ -1119,8 +1132,8 @@
         "name": "Qwen4 Max",
         "version": "4 Max",
         "releaseDate": "Nov 16, 2026",
-        "description": "Qwen4 Max is the flagship model in Alibaba's Qwen4 series supporting text, image, and video inputs with a 1M-token context window.",
-        "fullDescription": "As the premier model in the Qwen4 lineup, Qwen4 Max handles multimodal inputs including text, images, and video, while outputting rich text responses. It features a massive 1M-token context window and built-in reasoning capabilities enabled by default.",
+        "description": "Qwen4 Max is Alibaba's flagship Qwen4 model featuring a 1M-token context window and native reasoning.",
+        "fullDescription": "Supporting text, image, and video inputs alongside text generation, Qwen4 Max handles massive multimodal contexts effortlessly. Its built-in reasoning capabilities make it suitable for deep analysis over long sequences.",
         "howItIsDifferent": "Compared with its previous version, Qwen3.7 Max (released May 21, 2026): Qwen4 Max serves as the flagship model in Alibaba's Qwen4 series, succeeding Qwen3.7 Max. It accepts text, image, and video input and returns text, featuring a 1M-token context window and reasoning enabled by default. context window unchanged at 1M tokens; input $1.50 per 1M tokens (was $1.48); output $4.50 per 1M tokens (was $4.42).",
         "id": "qwen/qwen4-max",
         "previousModel": {
@@ -1135,8 +1148,8 @@
         "name": "Ling 3.2 Flash",
         "version": "3.2 Flash",
         "releaseDate": "Nov 13, 2026",
-        "description": "Ling 3.2 Flash is a hybrid reasoning model from inclusionAI supporting text and image inputs with a 1M-token context window.",
-        "fullDescription": "This hybrid reasoning model handles both text and visual inputs, accepting up to 200 images in a single request. It integrates a 1M-token context window alongside active thinking processes for complex analytical problem-solving.",
+        "description": "Ling 3.2 Flash is a hybrid reasoning model supporting a 1M-token context window and heavy image inputs.",
+        "fullDescription": "This model accepts text and image inputs—handling up to 200 images per request—alongside an integrated thinking process. Its expansive context window makes it ideal for large-scale document and visual analysis.",
         "howItIsDifferent": "Compared with its previous version, Ling 3.1 Flash (released Oct 2, 2026): no written comparison was available, so only the specification changes are shown. context window 1.05M tokens (was 1M).",
         "id": "inclusionai/ling-3.2-flash:free",
         "previousModel": {
@@ -1145,6 +1158,33 @@
           "releaseDate": "Oct 2, 2026"
         },
         "comparisonVersion": 1
+      },
+      {
+        "company": "harness-hub",
+        "name": "Qwen3.8-27B-pi-adapted",
+        "version": "27B",
+        "releaseDate": "Past 7 days",
+        "description": "Qwen3.8-27B-pi-adapted is a specialized image-text-to-text model adapted from the Qwen3.8-27B architecture.",
+        "fullDescription": "This Hugging Face trending model is tailored for cross-modal tasks, blending advanced textual understanding with image processing capabilities. It is utilized by researchers and developers looking for customizable open weights.",
+        "howItIsDifferent": "It features specific adaptations on top of the base Qwen3.8-27B model to optimize specialized image-text workflows."
+      },
+      {
+        "company": "Qwen",
+        "name": "Qwen3.8",
+        "version": "27B",
+        "releaseDate": "Past 7 days",
+        "description": "Qwen3.8-27B is a robust open-weights image-text-to-text model from the Qwen family.",
+        "fullDescription": "Serving as a versatile mid-sized foundational model on Hugging Face, it processes both visual and textual inputs to generate coherent text. It is designed for community fine-tuning and deployment in multimodal applications.",
+        "howItIsDifferent": "It provides an open-weights alternative at the 27B scale optimized for multimodal reasoning tasks."
+      },
+      {
+        "company": "SenseNova",
+        "name": "SenseNova-Loop",
+        "version": "9B",
+        "releaseDate": "Past 7 days",
+        "description": "SenseNova-Loop-9B is an image-text-to-text model designed for multimodal tasks.",
+        "fullDescription": "Trending on Hugging Face, this 9B parameter model delivers efficient vision-language capabilities. It is targeted at developers seeking a compact, capable model for integrated image and text understanding.",
+        "howItIsDifferent": "It offers a smaller 9B footprint compared to larger multimodal models while maintaining competitive image-text performance."
       }
     ],
     "modelNews": []
