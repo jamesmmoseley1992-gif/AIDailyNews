@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-20T21:46:02.026Z",
+  "generatedAt": "2026-11-21T01:23:46.701Z",
   "windowMonths": 12,
   "providers": [
     {
@@ -1780,8 +1780,8 @@
       "description": "DeepSeek V4.1 Flash is a sparse mixture-of-experts model from DeepSeek, and the first built on the company's Causal Encoder-Decoder (CED) architecture. It activates 8B parameters on input and 16B on output from a 552B-parameter backbone, an asymmetric split that keeps per-token compute low relative to the model's total size. Image understanding is native to the architecture, with visual and text embeddings trained jointly from the start of pre-training rather than added afterward as in the earlier experimental [V4 Flash Vision Exp](https://openrouter.ai/deepseek/deepseek-v4-flash-vision-exp).\n\nIt is suited for coding, terminal, and computer-use agents, along with long-horizon tasks that must run to completion across many steps and long-context analysis. Compressed KV caching cuts cache memory to roughly a quarter of the previous Flash generation, significantly reducing costs on agentic workloads. DeepSeek positions it as the cost-efficient tier of the V4.1 family and reports that it exceeds [V4 Pro](https://openrouter.ai/deepseek/deepseek-v4-pro-0813) on performance, speed, and task completion time.",
       "descriptionFull": true,
       "contextLength": 1048576,
-      "inputPerM": 0.3,
-      "outputPerM": 1.2,
+      "inputPerM": 0.051,
+      "outputPerM": 0.203,
       "previous": {
         "id": "deepseek/deepseek-v4-flash-0731",
         "name": "DeepSeek V4 Flash 0731",
@@ -1797,11 +1797,11 @@
         },
         "input": {
           "from": 0.044,
-          "to": 0.3
+          "to": 0.051
         },
         "output": {
           "from": 0.3,
-          "to": 1.2
+          "to": 0.203
         }
       }
     },
@@ -2155,7 +2155,7 @@
       "descriptionFull": true,
       "contextLength": 1048576,
       "inputPerM": 0.15,
-      "outputPerM": 0.5,
+      "outputPerM": 0.47,
       "previous": {
         "id": "nvidia/nemotron-3-super-120b-a12b",
         "name": "Nemotron 3 Super",
@@ -2175,7 +2175,7 @@
         },
         "output": {
           "from": 0.4,
-          "to": 0.5
+          "to": 0.47
         }
       }
     },
@@ -2188,8 +2188,8 @@
       "description": "DeepSeek V4.1 Flash 1017 is the October 17, 2026 snapshot of DeepSeek V4.1 Flash, served by DeepSeek under the `deepseek-flash` API model name. V4.1 Flash is a sparse mixture-of-experts model from DeepSeek, and the first built on the company's Causal Encoder-Decoder (CED) architecture. It activates 8B parameters on input and 16B on output from a 552B-parameter backbone, an asymmetric split that keeps per-token compute low relative to the model's total size. Image understanding is native to the architecture, with visual and text embeddings trained jointly from the start of pre-training rather than added afterward as in the earlier experimental [V4 Flash Vision Exp](https://openrouter.ai/deepseek/deepseek-v4-flash-vision-exp).\n\nIt is suited for coding, terminal, and computer-use agents, along with long-horizon tasks that must run to completion across many steps and long-context analysis. Compressed KV caching cuts cache memory to roughly a quarter of the previous Flash generation, significantly reducing costs on agentic workloads. DeepSeek positions it as the cost-efficient tier of the V4.1 family and reports that it exceeds [V4 Pro](https://openrouter.ai/deepseek/deepseek-v4-pro-0813) on performance, speed, and task completion time.",
       "descriptionFull": true,
       "contextLength": 1048576,
-      "inputPerM": 0.036,
-      "outputPerM": 0.5,
+      "inputPerM": 0.15,
+      "outputPerM": 0.6,
       "previous": {
         "id": "deepseek/deepseek-v4.1-flash",
         "name": "DeepSeek V4.1 Flash",
@@ -2204,12 +2204,12 @@
           "to": 1048576
         },
         "input": {
-          "from": 0.3,
-          "to": 0.036
+          "from": 0.051,
+          "to": 0.15
         },
         "output": {
-          "from": 1.2,
-          "to": 0.5
+          "from": 0.203,
+          "to": 0.6
         }
       }
     },
