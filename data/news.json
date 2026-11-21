@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-11-21T20:28:18.739Z",
+  "lastUpdated": "2026-11-21T20:41:55.997Z",
   "meta": {
     "schedule": "Twice daily at 8:00 AM & 2:00 PM US Central (CST)",
     "windowDays": 7,
@@ -95,6 +95,20 @@
       "summaryVersion": 2
     },
     {
+      "title": "DARPA Grants NMSU $600K for Verified AI Reasoning - CASRAI",
+      "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxPeHlMOHBYVDJkMXVUQkNwVThXdjJrdFlVdlUxazdUS2dIVzlsbVR1OHY4cnduWU56NzNzcWtLdDctM0l0NG5BdGRlLTF4cjRKckgzZkNMVDZ3SDlRcE9Vc1N0bkd1cGpJdGVoVGNqTFFPZGlJNXVXUi0yQkJLUG5FQmlTWHAybTRFNzh2akFfR1NUUVBST21IRWNRMEc?oc=5",
+      "source": "Google News AI",
+      "category": "AI",
+      "topic": "Models, Research & Advancement",
+      "importance": 5,
+      "publishedAt": "2026-11-21T20:12:13.000Z",
+      "summary": "DARPA Grants NMSU $600K for Verified AI Reasoning CASRAI",
+      "fullStory": "DARPA Grants NMSU $600K for Verified AI Reasoning CASRAI",
+      "whyItMatters": "Tracks fast-moving model capabilities, releases, and research shaping how AI is built and deployed.",
+      "whoIsAffected": "AI Builders, ML Engineers, Researchers, and Product Teams evaluating new models.",
+      "aiAnalyzed": false
+    },
+    {
       "title": "FLORetina-ICOOR 2026: AI moves from the image to the trial, the clinic, and the operating room - Ophthalmology Times",
       "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxQdHhwYVhLMU9oRF81c1FMdGt2OXpmVkl3YUIwWFFIQXJmRURJNzktejllYlFZTVhkZGpITW1wNmV6YnM1VHA2V0xUNDI2WTJWZHNRQTRIY3h6T244dFFROFpjdlBzdEZqTV9KSmxtakpyM2NERFFRd0hmRTktT2x3aTJQR1J2ajluUGh0LUhfemRwVTZyaEFZZWlQOTM1WWItWVktNnpZeGhMT09JRTJvVEMxVGY3SU1Jb29taEJLUTVQOGZuV3RQck9lMA?oc=5",
       "source": "Google News AI",
@@ -177,20 +191,6 @@
       "fullStory": "Principal: Juvenile used AI to make nude images of Chatham Co.",
       "whyItMatters": "Shows where AI is delivering real results in organizations, and what it means for jobs, operations, and competitive position.",
       "whoIsAffected": "Business Leaders, Operations and Transformation Teams, and Workers in affected roles.",
-      "aiAnalyzed": false
-    },
-    {
-      "title": "We’ve Found the Only Good AI Chatbot: One So Tiny It Fits on a Single MS-DOS Floppy Disk - Futurism",
-      "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE53MzU2cm80aFk3SWZwbXlFQUVKTmFRTEtXbjFjN3pPMmRNeEpZbUM2ODlvX1lCNlNCeVpYNWU1Sl9zUWJZLWdXQ2xRajRmQjFKYmMtekJBUmNadWtIdzFDbjAwQmNIdjFUZTBpNHZnaDZhcUk?oc=5",
-      "source": "Google News AI",
-      "category": "AI",
-      "topic": "Models, Research & Advancement",
-      "importance": 5,
-      "publishedAt": "2026-11-21T17:52:00.000Z",
-      "summary": "We’ve Found the Only Good AI Chatbot: One So Tiny It Fits on a Single MS-DOS Floppy Disk Futurism",
-      "fullStory": "We’ve Found the Only Good AI Chatbot: One So Tiny It Fits on a Single MS-DOS Floppy Disk Futurism",
-      "whyItMatters": "Tracks fast-moving model capabilities, releases, and research shaping how AI is built and deployed.",
-      "whoIsAffected": "AI Builders, ML Engineers, Researchers, and Product Teams evaluating new models.",
       "aiAnalyzed": false
     },
     {
@@ -308,6 +308,20 @@
       "aiAnalyzed": false
     },
     {
+      "title": "Türkiye unveils 2026 – 2030 artificial intelligence action plan - Norton Rose Fulbright",
+      "url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxQSGg4QVBVYWxRcFdYNm8yeksyZVhSaEdfbzN2emhQNElmcGFWdjdNd3BJWEhNd0VXNXQyWTJKSzg3TGhuT1l1RE1tbTl2ZTZ2UEI5TWpyMzNUdE9Uamg3QXVHTjN1TXRGb0JIdFhsbi1tcmlobzE1M2QyNkFob1lXQmZZODBzRV9HTld3TnVIdmlfaFFxWGptMEtva2p2bHhuNkRVajRvcEpfSGlOZ3JKY0x5c1BLNVFINktldjhoamZFYWN1WHNpMkdzRnlnVjROcGszcQ?oc=5",
+      "source": "Google News AI",
+      "category": "AI",
+      "topic": "Models, Research & Advancement",
+      "importance": 5,
+      "publishedAt": "2026-11-21T15:13:31.000Z",
+      "summary": "Türkiye unveils 2026 – 2030 artificial intelligence action plan Norton Rose Fulbright",
+      "fullStory": "Türkiye unveils 2026 – 2030 artificial intelligence action plan Norton Rose Fulbright",
+      "whyItMatters": "Tracks fast-moving model capabilities, releases, and research shaping how AI is built and deployed.",
+      "whoIsAffected": "AI Builders, ML Engineers, Researchers, and Product Teams evaluating new models.",
+      "aiAnalyzed": false
+    },
+    {
       "title": "Killer robots: U.N. talks fall short of hopes for legally binding rules - Houston Public Media",
       "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxOSlBHNDRGajl6SXlUeFNSVW15c1JpVEFJQ3RhVzRRZmhkWXdHSE8zTDJkSFk1MFRLZG51RURoSUZ1QTVKMEQ1QUVGOFNrZFQ3NzVoMGZ3aW54N0Y3Tk50UTMwNE90NnRzVlJ2ckdHdVU4NjBvWnNhTDh0Y1JXSmx5SUdmOWEyRjBJcGNZVXNjUGFlM0FXWXpWeDh3TkhwaXpiSzdDcmJpVlczRGFlMnVDZUFGeGg1MjVkWmY4N3JkWDRmVDBGNXFGdUxmQXN3eG8?oc=5",
       "source": "Google News AI",
@@ -394,6 +408,20 @@
       "summaryVersion": 2
     },
     {
+      "title": "Many Etsy Sellers Close Up Shop Over Site’s New A.I. Policy - The New York Times",
+      "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE0ta1ZyUTJoeFlCYVB6Y3RLT3pUQVBSMGc5WXh5a3R0eDhCRGFYOGs0WHRBZ0c1NENGT25IR3kwd2xvMXEtZ2pLRENIZ1dBclRxVExqOF92emNPWE5XV2lnZl9iejdON002TlNv?oc=5",
+      "source": "Google News AI",
+      "category": "AI",
+      "topic": "AI Governance & Regulation",
+      "importance": 6,
+      "publishedAt": "2026-11-21T14:04:00.000Z",
+      "summary": "Many Etsy Sellers Close Up Shop Over Site’s New A.I. Policy The New York Times",
+      "fullStory": "Many Etsy Sellers Close Up Shop Over Site’s New A.",
+      "whyItMatters": "Regulatory and policy shifts can create new compliance requirements, data-usage rules, and vendor risk considerations.",
+      "whoIsAffected": "Legal & Compliance Teams, CISOs, Policy Makers, and Enterprise AI Governance Leaders.",
+      "aiAnalyzed": false
+    },
+    {
       "title": "Even scientists can't agree on what science actually is - ScienceDaily",
       "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE1qcklMOE1aNFlxemN5MUJJMV9ob1VrMkJRSHRSWVluUkdVXzhyeThGVGg1ZnpUYmRDaHlhdHZ2QU5pd2paS2dHYldHX2lEVU5FS2x2WGNTVHpsdUxiZVFYZlU3cFppSjhLcXk2QVBhNA?oc=5",
       "source": "Google News AI",
@@ -422,20 +450,6 @@
       "aiAnalyzed": false
     },
     {
-      "title": "Brevo AI-Powered Email Marketing: Transforming Digital Communication with Artificial Intelligence - Vocal",
-      "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxPdS1TNm1zRWFRQkdsdFEyVjh4dkx3U0tuUGg4OEpoS01qX0F4Q1BubFNLaTkyMjZFN0NQRXZ1QzdadzBITHBjMWpMcFNrb1Z0amlFOXpfZ25QbEJHcjhVc2R2UEdURFIxaWFHVzBiRlF1MVpteE1mUFJEUnA1eHBOZ292OWJvc2pTcXcwblZfcWt6WDBJOFU2aDlnTW05djllYTMwMU5XcUpRQ2Q5VXF4NXV1QmExYUhWS21uRUJWUlk1dw?oc=5",
-      "source": "Google News AI",
-      "category": "AI",
-      "topic": "Business & Adoption",
-      "importance": 6,
-      "publishedAt": "2026-11-21T13:27:42.000Z",
-      "summary": "Brevo AI-Powered Email Marketing: Transforming Digital Communication with Artificial Intelligence Vocal",
-      "fullStory": "Brevo AI-Powered Email Marketing: Transforming Digital Communication with Artificial Intelligence Vocal",
-      "whyItMatters": "Shows where AI is delivering real results in organizations, and what it means for jobs, operations, and competitive position.",
-      "whoIsAffected": "Business Leaders, Operations and Transformation Teams, and Workers in affected roles.",
-      "aiAnalyzed": false
-    },
-    {
       "title": "Open-Source Farming Tech Relies on Offline Rules Over Cloud Artificial Intelligence - Bioengineer.org",
       "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxPX1lMWDJpNnltbE83VUFiRnRVaDBTdUcwZzdiT0FyOWlqWkpaaFhlMHJUQnVocGl0SUhuU1l1Y0NSY2dJaWdfVTJSMlg5cVJoSHcwQzRmME8tX2plQ2xFVkhjaV9aWEI3R1gxQW40UG9zWk95STBNSG9fakRBQWgtZHlzNk8tLW1wNVlCVElobmVSN29IeTFoLTh5Sm9NZVVQaWtSM1dRWXlJWXZ0?oc=5",
       "source": "Google News AI",
@@ -445,20 +459,6 @@
       "publishedAt": "2026-11-21T13:22:33.000Z",
       "summary": "Open-Source Farming Tech Relies on Offline Rules Over Cloud Artificial Intelligence Bioengineer.org",
       "fullStory": "Open-Source Farming Tech Relies on Offline Rules Over Cloud Artificial Intelligence Bioengineer.",
-      "whyItMatters": "Tracks fast-moving model capabilities, releases, and research shaping how AI is built and deployed.",
-      "whoIsAffected": "AI Builders, ML Engineers, Researchers, and Product Teams evaluating new models.",
-      "aiAnalyzed": false
-    },
-    {
-      "title": "LDS leaders have warned against treating A.I. like God. Are members listening? - The Salt Lake Tribune",
-      "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxNWFBWdExnMDRIREpNc19DX2tEWC1oNHQ1Ml9MbENvWjJFdkV0UFlDdHNKT0dlWnJNWmJtSHNwSDF4MF9GZmZERWhNaWkzZXVPSTIwdDl2Z0w5SlpqTVBRbUttLUlmS0lWeTU2MHZjR3FQU3VVN281VzYtdWkyN2QydWJB?oc=5",
-      "source": "Google News AI",
-      "category": "AI",
-      "topic": "Models, Research & Advancement",
-      "importance": 5,
-      "publishedAt": "2026-11-21T13:00:40.000Z",
-      "summary": "LDS leaders have warned against treating A.I. like God. Are members listening? The Salt Lake Tribune",
-      "fullStory": "LDS leaders have warned against treating A. Are members listening?",
       "whyItMatters": "Tracks fast-moving model capabilities, releases, and research shaping how AI is built and deployed.",
       "whoIsAffected": "AI Builders, ML Engineers, Researchers, and Product Teams evaluating new models.",
       "aiAnalyzed": false
@@ -1339,10 +1339,10 @@
       {
         "company": "Thinking Machines",
         "name": "Inkling 2 Mini",
-        "version": "3.4B active / 26.4B MoE",
+        "version": "3.4B active / 26.4B total",
         "releaseDate": "Nov 21, 2026",
-        "description": "An open-weight multimodal looped transformer designed for efficient edge and server processing.",
-        "fullDescription": "Inkling 2 Mini is an open-weight multimodal looped transformer from Thinking Machines Lab featuring 3.4B active parameters out of 26.4B total via a mixture-of-experts architecture. Its middle layers run three times with shared weights, optimizing computational efficiency while maintaining strong multimodal understanding.",
+        "description": "An open-weight multimodal looped transformer from Thinking Machines Lab utilizing a Mixture of Experts architecture.",
+        "fullDescription": "Inkling 2 Mini is an innovative open-weight multimodal looped transformer featuring 3.4B active parameters out of 26.4B total parameters in an MoE setup. Its middle layers run three times with shared parameters, allowing it to process complex multimodal inputs efficiently. It is designed for developers seeking open-weight architecture with looped processing capabilities.",
         "howItIsDifferent": "No direct earlier version was found in the candidate list for the Inkling 2 Mini model tier. Inkling 2 Mini is a newly released open-weight multimodal looped transformer from Thinking Machines Lab featuring 3.4B active parameters out of 26.4B total in a mixture-of-experts architecture, with middle layers that run three times with shared weights.",
         "id": "thinkingmachines/inkling-2-mini",
         "previousModel": null,
@@ -1354,7 +1354,7 @@
         "version": "27B",
         "releaseDate": "Nov 21, 2026",
         "description": "An open-weight multimodal reasoning model trained exclusively via reinforcement learning on long-horizon agent tasks.",
-        "fullDescription": "DaisyRose 27B is an open-weight multimodal reasoning model from RadixArk, trained from [Qwen3.8 27B](https://openrouter.ai/qwen/qwen3.8-27b) using reinforcement learning only on long-horizon agent tasks, with no supervised fine-tuning or distillation. It is...",
+        "fullDescription": "DaisyRose 27B is an advanced open-weight multimodal reasoning model built from Qwen3.8 27B. It was trained using reinforcement learning exclusively on long-horizon agent tasks, entirely bypassing traditional supervised fine-tuning or distillation. This approach maximizes its raw agentic reasoning capabilities.",
         "howItIsDifferent": "DaisyRose 27B is a newly released open-weight multimodal reasoning model from RadixArk. It was trained from Qwen3.8 27B using reinforcement learning exclusively on long-horizon agent tasks, without any supervised fine-tuning or distillation. As no direct earlier version from the same lab was found in the candidate list, these training methods and its focus on long-horizon agent tasks represent what is new about this model.",
         "id": "radixark/daisyrose-27b",
         "previousModel": null,
@@ -1362,11 +1362,11 @@
       },
       {
         "company": "Mistral",
-        "name": "Pixtral Large",
+        "name": "Pixtral Large 2502",
         "version": "2502",
         "releaseDate": "Nov 20, 2026",
-        "description": "Mistral AI's large multimodal model capable of processing text, images, documents, and charts.",
-        "fullDescription": "Pixtral Large 2502 is the February 2025 version of Mistral AI's large multimodal model, succeeding Pixtral Large 2411. It accepts text and diverse visual inputs including charts, documents, and natural images to deliver enterprise-grade multimodal reasoning.",
+        "description": "Mistral AI's large multimodal model designed to accept text, image inputs, documents, and charts.",
+        "fullDescription": "Pixtral Large 2502 is a powerful multimodal model from Mistral AI, serving as an update following Pixtral Large 2411. It accepts text and diverse image inputs, including complex documents, charts, and natural images. It is intended for enterprise and heavy analytical tasks requiring robust visual and textual understanding.",
         "howItIsDifferent": "No earlier version of this model was found to compare against.",
         "id": "mistralai/pixtral-large-2502",
         "previousModel": null,
@@ -1375,10 +1375,10 @@
       {
         "company": "Google",
         "name": "Gemini 4 Neon",
-        "version": "Latest",
+        "version": "Gemini 4",
         "releaseDate": "Nov 18, 2026",
-        "description": "A fast, mid-priced model in the Gemini 4 family built specifically for coding and agentic work.",
-        "fullDescription": "Gemini 4 Neon is a fast, cost-efficient model from Google tailored for repository and terminal coding as well as web-based agentic workflows. It blends carbon-level quality with flash speed, priced competitively at $3 per million input tokens.",
+        "description": "A fast, mid-priced model in the Gemini 4 family built specifically for repository coding and agentic work.",
+        "fullDescription": "Gemini 4 Neon is a fast and efficient mid-priced model from Google's Gemini 4 lineup, designed to handle repository and terminal coding as well as broader agentic workflows. It combines carbon-level quality with flash speed, making it highly versatile for developer tasks. It is accessible to AI Pro subscribers and priced efficiently at $3 per million input tokens.",
         "howItIsDifferent": "No earlier version of this model was found to compare against.",
         "id": "google/gemini-4-neon",
         "previousModel": null,
@@ -1387,10 +1387,10 @@
       {
         "company": "OpenAI",
         "name": "GPT-6.2 Astra Pro",
-        "version": "Pro Mode",
+        "version": "6.2 Astra Pro",
         "releaseDate": "Nov 17, 2026",
-        "description": "The flagship GPT-6.2 Astra model served with reasoning mode set to pro for higher-quality complex outputs.",
-        "fullDescription": "GPT-6.2 Astra Pro uses the same underlying flagship architecture as GPT-6.2 Astra but is executed with reasoning.mode set to pro. This configuration spends significantly more compute to yield superior, highly refined responses for the hardest scientific and engineering tasks.",
+        "description": "The flagship GPT-6.2 Astra model served with reasoning mode set to pro for complex tasks.",
+        "fullDescription": "GPT-6.2 Astra Pro utilizes the exact same foundational architecture as GPT-6.2 Astra but is executed with the `reasoning.mode` configuration set to `pro`. This setting yields significantly higher-quality responses on intricate reasoning challenges. It is built for advanced professional research and demanding real-world engineering.",
         "howItIsDifferent": "Compared with its previous version, GPT-6 Astra Pro (released Sep 4, 2026): no written comparison was available, so only the specification changes are shown. context window unchanged at 1.05M tokens; input $8.00 per 1M tokens (was $10.00); output $40.00 per 1M tokens (was $50.00).",
         "id": "openai/gpt-6.2-astra-pro",
         "previousModel": {
@@ -1403,10 +1403,10 @@
       {
         "company": "OpenAI",
         "name": "GPT-6.2 Astra",
-        "version": "Flagship",
+        "version": "6.2",
         "releaseDate": "Nov 17, 2026",
-        "description": "OpenAI's flagship model in the GPT-6.2 series built for the most demanding real-world engineering and research.",
-        "fullDescription": "GPT-6.2 Astra Pro is the same underlying model as [GPT-6.2 Astra](https://openrouter.ai/openai/gpt-6.2-astra), served with `reasoning.mode` set to `pro` for higher-quality responses on complex tasks. **Cost note:** pro mode spends far more...",
+        "description": "OpenAI's flagship GPT-6.2 series model built for the most demanding real-world engineering and research projects.",
+        "fullDescription": "GPT-6.2 Astra represents the premier flagship model in OpenAI's GPT-6.2 series, engineered to tackle the hardest computational and creative projects. It is optimized for advanced professional work, scientific research, and complex real-world software engineering. It delivers industry-leading performance across diverse multi-domain evaluations.",
         "howItIsDifferent": "Compared with its previous version, GPT-6 Astra Pro (released Sep 4, 2026): no written comparison was available, so only the specification changes are shown. context window unchanged at 1.05M tokens; input $8.00 per 1M tokens (was $10.00); output $40.00 per 1M tokens (was $50.00).",
         "id": "openai/gpt-6.2-astra-pro",
         "previousModel": {
@@ -1419,10 +1419,10 @@
       {
         "company": "OpenAI",
         "name": "GPT-6.2 Sol Pro",
-        "version": "Pro Mode",
+        "version": "6.2 Sol Pro",
         "releaseDate": "Nov 17, 2026",
-        "description": "The efficient GPT-6.2 Sol model served with reasoning mode set to pro for elevated task performance.",
-        "fullDescription": "GPT-6.2 Sol Pro is the same underlying model as [GPT-6.2 Sol](https://openrouter.ai/openai/gpt-6.2-sol), served with `reasoning.mode` set to `pro` for higher-quality responses on complex tasks. **Cost note:** pro mode spends far more...",
+        "description": "The efficient GPT-6.2 Sol model served with reasoning mode set to pro for elevated response quality.",
+        "fullDescription": "GPT-6.2 Sol Pro is powered by the underlying GPT-6.2 Sol model, configured with `reasoning.mode` set to `pro`. This specialized serving mode delivers enhanced analytical depth and accuracy for everyday complex tasks. It balances efficiency with deeper cognitive processing when higher quality is required.",
         "howItIsDifferent": "Compared with its previous version, GPT-6.1 Sol Pro (released Sep 29, 2026): GPT-6.2 Sol Pro is the same underlying model as GPT-6.2 Sol, served with reasoning.mode set to pro for higher-quality responses on complex tasks. Compared to its direct predecessor GPT-6.1 Sol Pro, it builds upon the newer underlying GPT-6.2 Sol version while retaining the pro reasoning mode that spends far more on cost. context window unchanged at 1.05M tokens; input price unchanged at $2.00 per 1M tokens; output price unchanged at $10.00 per 1M tokens.",
         "id": "openai/gpt-6.2-sol-pro",
         "previousModel": {
@@ -1435,10 +1435,10 @@
       {
         "company": "OpenAI",
         "name": "GPT-6.2 Sol",
-        "version": "Latest",
+        "version": "6.2",
         "releaseDate": "Nov 17, 2026",
-        "description": "An efficient, versatile upgrade positioned below Astra for everyday professional work.",
-        "fullDescription": "GPT-6.2 Sol Pro is the same underlying model as [GPT-6.2 Sol](https://openrouter.ai/openai/gpt-6.2-sol), served with `reasoning.mode` set to `pro` for higher-quality responses on complex tasks. **Cost note:** pro mode spends far more...",
+        "description": "An efficient, versatile everyday model positioned below the flagship Astra in the GPT-6.2 series.",
+        "fullDescription": "GPT-6.2 Sol is an upgrade over the previous GPT-6.1 Sol from OpenAI, positioned directly beneath the flagship GPT-6.2 Astra. It functions as an agile and versatile model tailored for routine professional work and daily tasks. It provides a balanced combination of high speed, reliability, and cost-efficiency.",
         "howItIsDifferent": "Compared with its previous version, GPT-6.1 Sol Pro (released Sep 29, 2026): GPT-6.2 Sol Pro is the same underlying model as GPT-6.2 Sol, served with reasoning.mode set to pro for higher-quality responses on complex tasks. Compared to its direct predecessor GPT-6.1 Sol Pro, it builds upon the newer underlying GPT-6.2 Sol version while retaining the pro reasoning mode that spends far more on cost. context window unchanged at 1.05M tokens; input price unchanged at $2.00 per 1M tokens; output price unchanged at $10.00 per 1M tokens.",
         "id": "openai/gpt-6.2-sol-pro",
         "previousModel": {
@@ -1451,10 +1451,10 @@
       {
         "company": "Tencent",
         "name": "Hy4 flash",
-        "version": "Flash",
+        "version": "Latest",
         "releaseDate": "Nov 16, 2026",
-        "description": "A cost-efficient, lower-latency variant of the Hy4 flagship model optimized for coding and agents.",
-        "fullDescription": "Hy4 flash is a streamlined variant of Tencent's Hy4 model, running on approximately a quarter of the flagship model's parameter count. It targets high-throughput code assistance and agentic tasks while minimizing latency and operational costs.",
+        "description": "A cost-efficient variant of Tencent's Hy4 model scaled down to reduce latency and operational costs.",
+        "fullDescription": "Hy4 flash is a streamlined, cost-efficient variant of the Tencent Hy4 model, utilizing approximately one-quarter of the flagship's total parameter count. This reduction significantly cuts operational costs and lowers response latency. It is targeted explicitly at rapid code assistance and lightweight agentic applications.",
         "howItIsDifferent": "No direct earlier flash version was found in the same model line and tier. Hy4 flash is a cost-efficient variant of Hy4 that is served with roughly a quarter of the flagship's parameter count to deliver lower latency and cost while targeting code assistance and agents.",
         "id": "tencent/hy4-flash",
         "previousModel": null,
@@ -1463,10 +1463,10 @@
       {
         "company": "Qwen",
         "name": "Qwen4 Max",
-        "version": "1M Context",
+        "version": "Qwen4",
         "releaseDate": "Nov 16, 2026",
-        "description": "Alibaba's flagship multimodal Qwen4 model featuring a 1M-token context window and native reasoning.",
-        "fullDescription": "Qwen4 Max is the premier flagship model in Alibaba's Qwen4 series, accepting text, image, and video inputs to return text. It features a massive 1-million-token context window and built-in reasoning capabilities enabled by default.",
+        "description": "Alibaba's flagship Qwen4 series model featuring a 1M-token context window and native reasoning.",
+        "fullDescription": "Qwen4 Max is the premier flagship model in Alibaba's Qwen4 generation, capable of handling text, image, and video inputs while outputting text. It features a massive 1-million-token context window and has built-in reasoning capabilities enabled by default. It is engineered to handle massive documents, videos, and complex multimodal reasoning chains.",
         "howItIsDifferent": "Compared with its previous version, Qwen3.7 Max (released May 21, 2026): Qwen4 Max serves as the flagship model in Alibaba's Qwen4 series, succeeding Qwen3.7 Max. It accepts text, image, and video input and returns text, featuring a 1M-token context window and reasoning enabled by default. context window unchanged at 1M tokens; input $1.50 per 1M tokens (was $1.48); output $4.50 per 1M tokens (was $4.42).",
         "id": "qwen/qwen4-max",
         "previousModel": {
@@ -1477,13 +1477,13 @@
         "comparisonVersion": 1
       },
       {
-        "company": "Maxwell",
+        "company": "Maxwell Model",
         "name": "Maxwell-V1-Flash",
-        "version": "V1 Flash",
+        "version": "V1-Flash",
         "releaseDate": "Past 7 days",
-        "description": "A trending text-generation model optimized for rapid inference and lightweight deployment.",
-        "fullDescription": "Maxwell-V1-Flash is a text-generation model gaining traction on Hugging Face for its fast response times and efficient architecture. It is designed for developers seeking low-latency text completion and conversational capabilities.",
-        "howItIsDifferent": "It focuses on speed and lightweight generation, standing out among trending community text models for fast prototyping."
+        "description": "A trending text-generation model on Hugging Face optimized for rapid text output.",
+        "fullDescription": "Maxwell-V1-Flash is a text-generation model that has gained popularity on Hugging Face over the past week. It is designed for fast and efficient general-purpose text generation tasks. It provides developers with an alternative lightweight solution for conversational and generative workflows.",
+        "howItIsDifferent": "It offers specialized flash-optimized text generation performance distinct from standard open-weights transformers."
       }
     ],
     "modelNews": [
