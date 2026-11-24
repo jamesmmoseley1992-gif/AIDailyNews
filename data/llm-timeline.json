@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-24T14:06:24.846Z",
+  "generatedAt": "2026-11-24T20:46:01.916Z",
   "windowMonths": 12,
   "providers": [
     {
@@ -49,40 +49,6 @@
     }
   ],
   "models": [
-    {
-      "id": "anthropic/claude-opus-4.5",
-      "provider": "anthropic",
-      "line": "opus",
-      "name": "Claude Opus 4.5",
-      "releaseDate": "2025-11-24",
-      "description": "Claude Opus 4.5 is Anthropic’s frontier reasoning model optimized for complex software engineering, agentic workflows, and long-horizon computer use. It offers strong multimodal capabilities, competitive performance across real-world coding and reasoning benchmarks, and improved robustness to prompt injection. The model is designed to operate efficiently across varied effort levels, enabling developers to trade off speed, depth, and token usage depending on task requirements. It comes with a new parameter to control token efficiency, which can be accessed using the OpenRouter Verbosity parameter with low, medium, or high.\n\nOpus 4.5 supports advanced tool use, extended context management, and coordinated multi-agent setups, making it well-suited for autonomous research, debugging, multi-step planning, and spreadsheet/browser manipulation. It delivers substantial gains in structured reasoning, execution reliability, and alignment compared to prior Opus generations, while reducing token overhead and improving performance on long-running tasks.",
-      "descriptionFull": true,
-      "contextLength": 200000,
-      "inputPerM": 5,
-      "outputPerM": 25,
-      "previous": {
-        "id": "anthropic/claude-opus-4.1",
-        "name": "Claude Opus 4.1",
-        "releaseDate": "2025-08-05"
-      },
-      "jump": "Anthropic's frontier reasoning model, pitched at complex software engineering, long-horizon computer use and multi-agent setups, with better prompt-injection robustness and a new verbosity control for token efficiency. The biggest value jump versus Opus 4.1 is price: $5/$25 per million tokens, down from $15/$75, at the same 200K context.",
-      "summary": "Claude Opus 4.5 is Anthropic’s frontier reasoning model optimized for complex software engineering, agentic workflows, and long-horizon computer use.",
-      "deltas": {
-        "daysSince": 111,
-        "context": {
-          "from": 200000,
-          "to": 200000
-        },
-        "input": {
-          "from": 15,
-          "to": 5
-        },
-        "output": {
-          "from": 75,
-          "to": 25
-        }
-      }
-    },
     {
       "id": "deepseek/deepseek-v3.2",
       "provider": "deepseek",
@@ -832,28 +798,10 @@
       "contextLength": 262144,
       "inputPerM": 1.5,
       "outputPerM": 7.5,
-      "previous": {
-        "id": "mistralai/mistral-medium-3.1",
-        "name": "Mistral Medium 3.1",
-        "releaseDate": "2025-08-13"
-      },
+      "previous": null,
       "jump": "A dense 128B model with a 256K context (up from 131K), configurable reasoning, custom vision encoder and open weights, self-hostable on four GPUs. Strong multi-tool calling; price rises to $1.50/$7.50 per million.",
       "summary": "Mistral Medium 3.5 is a dense 128B instruction-following model from Mistral AI.",
-      "deltas": {
-        "daysSince": 260,
-        "context": {
-          "from": 131072,
-          "to": 262144
-        },
-        "input": {
-          "from": 0.44,
-          "to": 1.5
-        },
-        "output": {
-          "from": 2.2,
-          "to": 7.5
-        }
-      }
+      "deltas": null
     },
     {
       "id": "x-ai/grok-4.3",
