@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-24T01:38:18.653Z",
+  "generatedAt": "2026-11-24T04:42:41.832Z",
   "windowMonths": 12,
   "providers": [
     {
@@ -1424,8 +1424,8 @@
       "description": "DeepSeek V4 Flash 0731 is a sparse mixture-of-experts model from DeepSeek, with 13B active parameters out of 284B total. This re-post-trained revision is suited for coding, reasoning, and agent workflows. This is the GA release of DeepSeek V4 Flash.",
       "descriptionFull": true,
       "contextLength": 1048576,
-      "inputPerM": 0.043,
-      "outputPerM": 0.3,
+      "inputPerM": 0.069,
+      "outputPerM": 0.47,
       "previous": {
         "id": "deepseek/deepseek-v4-flash",
         "name": "DeepSeek V4 Flash 0423",
@@ -1441,11 +1441,11 @@
         },
         "input": {
           "from": 0.09,
-          "to": 0.043
+          "to": 0.069
         },
         "output": {
           "from": 0.18,
-          "to": 0.3
+          "to": 0.47
         }
       }
     },
@@ -1796,11 +1796,11 @@
           "to": 1048576
         },
         "input": {
-          "from": 0.043,
+          "from": 0.069,
           "to": 0.05
         },
         "output": {
-          "from": 0.3,
+          "from": 0.47,
           "to": 0.199
         }
       }
