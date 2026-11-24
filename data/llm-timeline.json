@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-24T20:46:01.916Z",
+  "generatedAt": "2026-11-24T23:30:19.056Z",
   "windowMonths": 12,
   "providers": [
     {
@@ -1729,7 +1729,7 @@
       "descriptionFull": true,
       "contextLength": 1048576,
       "inputPerM": 0.051,
-      "outputPerM": 0.203,
+      "outputPerM": 0.567,
       "previous": {
         "id": "deepseek/deepseek-v4-flash-0731",
         "name": "DeepSeek V4 Flash 0731",
@@ -1749,7 +1749,7 @@
         },
         "output": {
           "from": 0.3,
-          "to": 0.203
+          "to": 0.567
         }
       }
     },
@@ -2156,7 +2156,7 @@
           "to": 0.03
         },
         "output": {
-          "from": 0.203,
+          "from": 0.567,
           "to": 0.2
         }
       }
