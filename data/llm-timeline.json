@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-25T20:43:08.016Z",
+  "generatedAt": "2026-11-25T23:03:18.018Z",
   "windowMonths": 12,
   "providers": [
     {
@@ -258,8 +258,8 @@
       "description": "The Qwen3.5 series 397B-A17B native vision-language model is built on a hybrid architecture that integrates a linear attention mechanism with a sparse mixture-of-experts model, achieving higher inference efficiency. It delivers state-of-the-art performance comparable to leading-edge models across a wide range of tasks, including language understanding, logical reasoning, code generation, agent-based tasks, image understanding, video understanding, and graphical user interface (GUI) interactions. With its robust code-generation and agent capabilities, the model exhibits strong generalization across diverse agent.",
       "descriptionFull": true,
       "contextLength": 262144,
-      "inputPerM": 0.5,
-      "outputPerM": 3.6,
+      "inputPerM": 0.45,
+      "outputPerM": 3,
       "previous": null,
       "jump": "Debut of Qwen3.5: a native vision-language mixture-of-experts model (397B total, 17B active) combining linear attention with sparse experts for higher inference efficiency, aimed at reasoning, coding, agents and GUI interaction.",
       "summary": "The Qwen3.5 series 397B-A17B native vision-language model is built on a hybrid architecture that integrates a linear attention mechanism with a sparse mixture-of-experts model, achieving higher inference efficiency.",
@@ -694,8 +694,8 @@
       "description": "DeepSeek V4 Pro is a large-scale Mixture-of-Experts model from DeepSeek with 1.6T total parameters and 49B activated parameters, supporting a 1M-token context window. It is designed for advanced reasoning, coding, and long-horizon agent workflows, with strong performance across knowledge, math, and software engineering benchmarks.\n\nBuilt on the same architecture as DeepSeek V4 Flash, it introduces a hybrid attention system for efficient long-context processing. Reasoning efforts high and xhigh are supported; xhigh maps to max reasoning. It is well suited for complex workloads such as full-codebase analysis, multi-step automation, and large-scale information synthesis, where both capability and efficiency are critical",
       "descriptionFull": true,
       "contextLength": 1048576,
-      "inputPerM": 0.659,
-      "outputPerM": 1.572,
+      "inputPerM": 0.588,
+      "outputPerM": 1.525,
       "previous": {
         "id": "deepseek/deepseek-v3.2",
         "name": "DeepSeek V3.2",
@@ -711,11 +711,11 @@
         },
         "input": {
           "from": 0.26,
-          "to": 0.659
+          "to": 0.588
         },
         "output": {
           "from": 0.38,
-          "to": 1.572
+          "to": 1.525
         }
       }
     },
@@ -930,11 +930,11 @@
           "to": 1000000
         },
         "input": {
-          "from": 0.5,
+          "from": 0.45,
           "to": 1.475
         },
         "output": {
-          "from": 3.6,
+          "from": 3,
           "to": 4.425
         }
       }
@@ -1372,8 +1372,8 @@
       "description": "DeepSeek V4 Flash 0731 is a sparse mixture-of-experts model from DeepSeek, with 13B active parameters out of 284B total. This re-post-trained revision is suited for coding, reasoning, and agent workflows. This is the GA release of DeepSeek V4 Flash.",
       "descriptionFull": true,
       "contextLength": 1048576,
-      "inputPerM": 0.046,
-      "outputPerM": 0.3,
+      "inputPerM": 0.06,
+      "outputPerM": 0.18,
       "previous": {
         "id": "deepseek/deepseek-v4-flash",
         "name": "DeepSeek V4 Flash 0423",
@@ -1389,11 +1389,11 @@
         },
         "input": {
           "from": 0.09,
-          "to": 0.046
+          "to": 0.06
         },
         "output": {
           "from": 0.18,
-          "to": 0.3
+          "to": 0.18
         }
       }
     },
@@ -1438,11 +1438,11 @@
           "to": 1048576
         },
         "input": {
-          "from": 0.659,
+          "from": 0.588,
           "to": 0.111
         },
         "output": {
-          "from": 1.572,
+          "from": 1.525,
           "to": 4.44
         }
       }
@@ -1744,11 +1744,11 @@
           "to": 1048576
         },
         "input": {
-          "from": 0.046,
+          "from": 0.06,
           "to": 0.051
         },
         "output": {
-          "from": 0.3,
+          "from": 0.18,
           "to": 0.203
         }
       }
