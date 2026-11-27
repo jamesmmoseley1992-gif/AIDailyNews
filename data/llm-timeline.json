@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-27T20:41:59.372Z",
+  "generatedAt": "2026-11-27T22:38:31.455Z",
   "windowMonths": 12,
   "providers": [
     {
@@ -694,8 +694,8 @@
       "description": "DeepSeek V4 Pro is a large-scale Mixture-of-Experts model from DeepSeek with 1.6T total parameters and 49B activated parameters, supporting a 1M-token context window. It is designed for advanced reasoning, coding, and long-horizon agent workflows, with strong performance across knowledge, math, and software engineering benchmarks.\n\nBuilt on the same architecture as DeepSeek V4 Flash, it introduces a hybrid attention system for efficient long-context processing. Reasoning efforts high and xhigh are supported; xhigh maps to max reasoning. It is well suited for complex workloads such as full-codebase analysis, multi-step automation, and large-scale information synthesis, where both capability and efficiency are critical",
       "descriptionFull": true,
       "contextLength": 1048576,
-      "inputPerM": 0.634,
-      "outputPerM": 1.502,
+      "inputPerM": 0.573,
+      "outputPerM": 1.544,
       "previous": {
         "id": "deepseek/deepseek-v3.2",
         "name": "DeepSeek V3.2",
@@ -711,11 +711,11 @@
         },
         "input": {
           "from": 0.26,
-          "to": 0.634
+          "to": 0.573
         },
         "output": {
           "from": 0.38,
-          "to": 1.502
+          "to": 1.544
         }
       }
     },
@@ -1438,11 +1438,11 @@
           "to": 1048576
         },
         "input": {
-          "from": 0.634,
+          "from": 0.573,
           "to": 0.1
         },
         "output": {
-          "from": 1.502,
+          "from": 1.544,
           "to": 5
         }
       }

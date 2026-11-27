@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-11-27T20:41:58.233Z",
+  "lastUpdated": "2026-11-27T22:38:30.237Z",
   "meta": {
     "schedule": "Twice daily at 8:00 AM & 2:00 PM US Central (CST)",
     "windowDays": 7,
@@ -65,6 +65,76 @@
   },
   "items": [
     {
+      "title": "Russia’s Big Ambitions for A.I. Are Undercut by Constraints of War - The New York Times",
+      "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxORi1McEY4Z0s0WFpoM1JMenFlX1hiejdjbExuMkwyNlI4cWljR0V2V2pkcEV0NDRZYXM4Rzd2TFJjRnBJLW8tcWI5S0ZSX3lUcEpkaWs3X2J0MFpCd3BXZ2FZSm03WGV0WVlOdE8xSDhhR3R1Wk4ySGhaRkRPMk9mdm5XSV85QklC?oc=5",
+      "source": "Google News AI",
+      "category": "AI",
+      "topic": "Models, Research & Advancement",
+      "importance": 5,
+      "publishedAt": "2026-11-27T21:41:12.000Z",
+      "summary": "Russia’s Big Ambitions for A.I. Are Undercut by Constraints of War The New York Times",
+      "fullStory": "Russia’s Big Ambitions for A.",
+      "whyItMatters": "Tracks fast-moving model capabilities, releases, and research shaping how AI is built and deployed.",
+      "whoIsAffected": "AI Builders, ML Engineers, Researchers, and Product Teams evaluating new models.",
+      "aiAnalyzed": false
+    },
+    {
+      "title": "Structured Prompts Improve Artificial Intelligence Utility Across Integrative Medicine Commentary Finds - Bioengineer.org",
+      "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxQWGlQblFYNmJtdkxCY3MtRXUyX2ZHbjNNYmtkTkhOUmY4ZDVWUU1NN0xEbnJGdmFEZENtRlUwYmYtdW9xejNuZnhzc3k3dnNHTHVhaThlUUdQUmM2WE01dFVtZTVrc2lmWDVVbVlzRGlHNl82REpxMVFhckJlZGdqMWJJeXpyVzktbG1lb3VOUW5EU01yenBqMDNoTkxrVUs1Q1B6czZGeVVLeGxmb2ZZaHpOdDQ0OFl2SThUaXBXbVpra0xoWkVN?oc=5",
+      "source": "Google News AI",
+      "category": "AI",
+      "topic": "Models, Research & Advancement",
+      "importance": 5,
+      "publishedAt": "2026-11-27T21:32:14.000Z",
+      "summary": "Structured Prompts Improve Artificial Intelligence Utility Across Integrative Medicine Commentary Finds Bioengineer.org",
+      "fullStory": "Structured Prompts Improve Artificial Intelligence Utility Across Integrative Medicine Commentary Finds Bioengineer.",
+      "whyItMatters": "Tracks fast-moving model capabilities, releases, and research shaping how AI is built and deployed.",
+      "whoIsAffected": "AI Builders, ML Engineers, Researchers, and Product Teams evaluating new models.",
+      "aiAnalyzed": false
+    },
+    {
+      "title": "Offboard Artificial Intelligence Guides Low Cost Drone for Oil Palm Pollination - Bioengineer.org",
+      "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxQNUxDd3BjV05wQ3VERnFscjN4Q1lJQTY4MGVTZEFkSjdob1FxOUtybV9aWDN4VDhvWFNMcGQ4VlN3dG5UVFk1aC1MVHZrVGcxTDdBc20wZVpRWjl2Ym1WZEZJVHR2dnN2bGxXaWZnVzhGeDNoTjZ6aGVxc21OSTFySGM1OUpEUEhvNGxBQzdyR0tlTFZmdFBLR29STlR1UXc2YUs2UlBtNA?oc=5",
+      "source": "Google News AI",
+      "category": "AI",
+      "topic": "Models, Research & Advancement",
+      "importance": 5,
+      "publishedAt": "2026-11-27T21:12:46.000Z",
+      "summary": "Offboard Artificial Intelligence Guides Low Cost Drone for Oil Palm Pollination Bioengineer.org",
+      "fullStory": "Offboard Artificial Intelligence Guides Low Cost Drone for Oil Palm Pollination Bioengineer.",
+      "whyItMatters": "Tracks fast-moving model capabilities, releases, and research shaping how AI is built and deployed.",
+      "whoIsAffected": "AI Builders, ML Engineers, Researchers, and Product Teams evaluating new models.",
+      "aiAnalyzed": false
+    },
+    {
+      "title": "Five Great Reads: Buried history, the future of human intelligence, and why people are having less sex - The Guardian",
+      "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxPOTdENm1vTy1aams2a1RSVjBudG9aSGp0YVp5aFF4Sm9zUlJidHpNY3VPbWFWMXBTTkZ6enpFbXJGRWdqRzN4QWhNY3R4Vm9hNzVUbm9idnVoc0RzNTlCMkc4WFcxcTEyX2tGcy1CangwajNPa0RBX2JyT20weDIwTW4tX3hMcDRSc0J0Mk9ZWC1vQjYyT3Vfb1AtYkdreUlnRFdQY1NnckxOcGNVWVlfTHh2Y2phNjFHMk9IQ0xIWVhMcFBHWEJlaEpsQjhsajBmM0Fv?oc=5",
+      "source": "Google News AI",
+      "category": "AI",
+      "topic": "Models, Research & Advancement",
+      "importance": 5,
+      "publishedAt": "2026-11-27T21:11:00.000Z",
+      "summary": "Five Great Reads: Buried history, the future of human intelligence, and why people are having less sex The Guardian",
+      "fullStory": "Five Great Reads: Buried history, the future of human intelligence, and why people are having less sex The Guardian",
+      "whyItMatters": "Tracks fast-moving model capabilities, releases, and research shaping how AI is built and deployed.",
+      "whoIsAffected": "AI Builders, ML Engineers, Researchers, and Product Teams evaluating new models.",
+      "aiAnalyzed": false
+    },
+    {
+      "title": "OpenAI countersues Apple over trade secrets as AI race heats up - Al Jazeera",
+      "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxON1UyNzVUM1VWYllDUVB5Rl9LVDYwZExiMWt2WFp4eWVUckVjdDhqbFFfSXR1b2NiRm9LbFZQZ2xlZTNkRmtaSkZnb2M4ekJwVkVxbE1jdmNlazc2QUMxallwb1JpTWRvVk9ZOW12SVM5MTZ4RS1CQkNGcW5qZlMySWJZTjBkNXBtZXByR0NuVWdJZWVXWW8zcWRsTUF1ZUJXMlNVNWxEM2l0VThn0gGyAUFVX3lxTE16T05QbEdEbTdCUklBU3kyX05YX2RxaTZrVl9yWTEtWDF4dThXOFAyODNDTjFHTy1LRmJkZEJpd1E0eTBOaWxkS0NXV1BIWFo0V1ZTU01JMzd5bVpkMHFWTEhSNEVBT3E1cXd1NVJFbEJtSXFURGpxMzlKOWtNTXg1amFKZDhEOWttUlhkU1Y2UmVnSUgwRWZqWmJmTzdRaVBNM01pczFxTnh0RzYxRk02MFE?oc=5",
+      "source": "Google News AI",
+      "category": "AI",
+      "topic": "Models, Research & Advancement",
+      "importance": 5,
+      "publishedAt": "2026-11-27T20:46:26.000Z",
+      "summary": "OpenAI countersues Apple over trade secrets as AI race heats up Al Jazeera",
+      "fullStory": "OpenAI countersues Apple over trade secrets as AI race heats up Al Jazeera",
+      "whyItMatters": "Tracks fast-moving model capabilities, releases, and research shaping how AI is built and deployed.",
+      "whoIsAffected": "AI Builders, ML Engineers, Researchers, and Product Teams evaluating new models.",
+      "aiAnalyzed": false
+    },
+    {
       "title": "Cyber Monday nears as CIA breach renews focus on online safety and AI threats - KSNV",
       "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxOSEVfZXNlVmdmT09JdDgwNGl6TXEydEYxNXBIUnlVRnVWalA3UFBLTE5qa2xlUnVFeFdUN1dObExlNWtBVmRtTV8yZDFNWEZsemVFcGxVdUZ2azc0Sjg1WUhNUjc2SDVXcC1wTVBPNHBsNlUzSUZOOS1Fb2piSHhUNnJYaTBrTUhNbkNIV1BoZzNNaVR1ZF85MnZnRWdJVmx6OFlrRWpETjUzU25M?oc=5",
       "source": "Google News AI",
@@ -104,6 +174,20 @@
       "fullStory": "Meta's Content Moderation Said to Be Severely Broken After Moving to Human Reviewers to AI Futurism",
       "whyItMatters": "Tracks fast-moving model capabilities, releases, and research shaping how AI is built and deployed.",
       "whoIsAffected": "AI Builders, ML Engineers, Researchers, and Product Teams evaluating new models.",
+      "aiAnalyzed": false
+    },
+    {
+      "title": "Los Angeles schools block Google’s AI features, consider dropping tech giant’s products - AP News",
+      "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxPX28yVGlpUUl3UEpZMGJaTDRFbXBWR09uX1diWWotVXFuQ2JOTDlZRVVCUXRtN3FyUUNzczI2SG9sTXZXanlELUZfYU1YTHZ3enQ1NUoyUGU4NmwzNzJYV3l5ZjM0cHF0NHlhMDl2R3gwaWROaHREY3Zrd3BBd2hHd202WnFqWTJwSF9pSThfUk5wRV9TQkdBVC1zc09hbHh6M1BVVHJ5MUdmc2JzQmJ2YUJLaEkzSGJXNHc?oc=5",
+      "source": "Google News AI",
+      "category": "AI",
+      "topic": "Business & Adoption",
+      "importance": 6,
+      "publishedAt": "2026-11-27T19:46:00.000Z",
+      "summary": "Los Angeles schools block Google’s AI features, consider dropping tech giant’s products AP News",
+      "fullStory": "Los Angeles schools block Google’s AI features, consider dropping tech giant’s products AP News",
+      "whyItMatters": "Shows where AI is delivering real results in organizations, and what it means for jobs, operations, and competitive position.",
+      "whoIsAffected": "Business Leaders, Operations and Transformation Teams, and Workers in affected roles.",
       "aiAnalyzed": false
     },
     {
@@ -193,15 +277,15 @@
       "aiAnalyzed": false
     },
     {
-      "title": "Frozen language model helps predict materials properties with roughly 95% less training time - Tech Xplore",
-      "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxNdmJBU3BzM2tibldta1NZektaSkxkVmJMalJDUUw0OW53aWYxMXdLekFRVVZQblQwNnFoTkd4ZmNYcVZzN3ZTV0RRVUctcU5JZTZXRHE5YmpJMnZRZUpqSHcyR05CdzNnbFJmYkIwRXpzUGJiZmNUeVFlcEIzVzRreHZFN1FwY203ZlBTOFZR?oc=5",
+      "title": "Trump’s AI Gambit Fuels Wild Thanksgiving Week on Wall Street - Bloomberg",
+      "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPcFBtQzZXcFliTUQ0S3RaX3ZmZ1dIYlZxT3c2SDFHSElpVzdFajZ3TFRSUG80MHRHZURmankyTFdBMGNrRkZUZzZ3NHRUc2pYUGpJNGtRSTVHc0lHNExhaE10WF8yRUpNUVhaUTk1ZW9WaWdLa3RPem5WTDVIT0g1RlY1RldiWm1vd1ZvajQzaWNnSW1ldlF5SjV5VlBsdm91Mkx2UWs3eXh1cDEyRm5MMEl3?oc=5",
       "source": "Google News AI",
       "category": "AI",
       "topic": "Models, Research & Advancement",
       "importance": 5,
-      "publishedAt": "2026-11-27T18:40:02.000Z",
-      "summary": "Frozen language model helps predict materials properties with roughly 95% less training time Tech Xplore",
-      "fullStory": "Frozen language model helps predict materials properties with roughly 95% less training time Tech Xplore",
+      "publishedAt": "2026-11-27T18:43:36.000Z",
+      "summary": "Trump’s AI Gambit Fuels Wild Thanksgiving Week on Wall Street Bloomberg",
+      "fullStory": "Trump’s AI Gambit Fuels Wild Thanksgiving Week on Wall Street Bloomberg",
       "whyItMatters": "Tracks fast-moving model capabilities, releases, and research shaping how AI is built and deployed.",
       "whoIsAffected": "AI Builders, ML Engineers, Researchers, and Product Teams evaluating new models.",
       "aiAnalyzed": false
@@ -249,20 +333,6 @@
       "aiAnalyzed": false
     },
     {
-      "title": "With Dancing Robots, Russia Projects a Future Shaped by A.I., Not War - The New York Times",
-      "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxORi1McEY4Z0s0WFpoM1JMenFlX1hiejdjbExuMkwyNlI4cWljR0V2V2pkcEV0NDRZYXM4Rzd2TFJjRnBJLW8tcWI5S0ZSX3lUcEpkaWs3X2J0MFpCd3BXZ2FZSm03WGV0WVlOdE8xSDhhR3R1Wk4ySGhaRkRPMk9mdm5XSV85QklC?oc=5",
-      "source": "Google News AI",
-      "category": "AI",
-      "topic": "Models, Research & Advancement",
-      "importance": 5,
-      "publishedAt": "2026-11-27T18:01:19.000Z",
-      "summary": "With Dancing Robots, Russia Projects a Future Shaped by A.I., Not War The New York Times",
-      "fullStory": "With Dancing Robots, Russia Projects a Future Shaped by A.",
-      "whyItMatters": "Tracks fast-moving model capabilities, releases, and research shaping how AI is built and deployed.",
-      "whoIsAffected": "AI Builders, ML Engineers, Researchers, and Product Teams evaluating new models.",
-      "aiAnalyzed": false
-    },
-    {
       "title": "Elon Musk Wants to Take AI Beyond Earth - ColombiaOne.com",
       "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxOTzRhd0dLdHE3cktpdjBMTElIb2tWS0dNbnlWOE4yYVR3LWphdzVhSzlDdEpFTU92SDdLa0g4aGszZlphQmRic0dYZjg4V2NvdVhReEg0LVo5SnFOQksyTkFKODlfZFhaU3JyN1RpLWRIdk8zbVpZTnpHMWRkLWtBX2NuRm5wbkVGZmpjSDlCUzNUZw?oc=5",
       "source": "Google News AI",
@@ -274,20 +344,6 @@
       "fullStory": "Elon Musk Wants to Take AI Beyond Earth ColombiaOne.",
       "whyItMatters": "Tracks fast-moving model capabilities, releases, and research shaping how AI is built and deployed.",
       "whoIsAffected": "AI Builders, ML Engineers, Researchers, and Product Teams evaluating new models.",
-      "aiAnalyzed": false
-    },
-    {
-      "title": "Top Treasury Official Is Too Busy Vibe Coding a Crappy Video Game Clone Instead of Addressing a Historic Hack - Futurism",
-      "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxNTFhhT0FnN2NFQmNUZzA0dEstRFFPcGRNY0lqZEJkZnZPY05sanZ5dlppV0FyVzJNZkxZVzUwN2c1LXlpWm5IZkhieF92a2VMWndNVFRFSXdSYnJMUVpNR0Vic2xhWXhHY2lTOTNJWndpZWpuV1NlNmpYMFlZN1M2YUhtMk5JRy1aWnJn?oc=5",
-      "source": "Google News AI",
-      "category": "AI",
-      "topic": "Agents & Developer Tools",
-      "importance": 6,
-      "publishedAt": "2026-11-27T17:50:00.000Z",
-      "summary": "Top Treasury Official Is Too Busy Vibe Coding a Crappy Video Game Clone Instead of Addressing a Historic Hack Futurism",
-      "fullStory": "Top Treasury Official Is Too Busy Vibe Coding a Crappy Video Game Clone Instead of Addressing a Historic Hack Futurism",
-      "whyItMatters": "Advances in AI agents and coding tools directly accelerate software delivery and automate multi-step workflows.",
-      "whoIsAffected": "Software Engineers, AI App Developers, and Engineering Managers.",
       "aiAnalyzed": false
     },
     {
@@ -319,20 +375,6 @@
       "aiAnalyzed": false
     },
     {
-      "title": "We built an AI you can dance with. It taught us about developing the technology responsibly - Tech Xplore",
-      "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxOeTBTcVozOHB5cWJGZ1Y1LWtBUFRIOWNPOXJXRmRhOFBmUG1lbmsyanN1ZVRza3dORmdYRGkwdHRoX0swMS1sZmgzM2M0S2l2bG4wMHMteVNDSjFWcXR6WnZqTGNiaGJMd01lNW92Yk1ESzRJdmxoSGR6VmRtME5oNjJfSUpKdw?oc=5",
-      "source": "Google News AI",
-      "category": "AI",
-      "topic": "Models, Research & Advancement",
-      "importance": 5,
-      "publishedAt": "2026-11-27T16:40:04.000Z",
-      "summary": "We built an AI you can dance with. It taught us about developing the technology responsibly Tech Xplore",
-      "fullStory": "We built an AI you can dance with.",
-      "whyItMatters": "Tracks fast-moving model capabilities, releases, and research shaping how AI is built and deployed.",
-      "whoIsAffected": "AI Builders, ML Engineers, Researchers, and Product Teams evaluating new models.",
-      "aiAnalyzed": false
-    },
-    {
       "title": "Markets & Stocks - FinancialContent",
       "url": "https://news.google.com/rss/articles/CBMigwJBVV95cUxNc205X1FFaVRTM1dycndpRWtVZjRYbzliVmtJXzZGaVdOekdKOGJUd0tWR2V6V3F6b2d4emhVWm9QTUdTTExhaFhMZmpvOXpXUjk3ZE91eHdId3ZTb3AzSFBUS05XZi1ubTRQY3l3bWVSRkM0dGxyVXl4Nmtoa3dRRUlJc290X1I0LU5OTXh1akp2R1ZkSFF0T3pBMzlWbU4yaHFlOWpnN0xyT0NXbVhSQ0s0Nmo3RmlNNWFzcTZHMlM0aG9lb0pKSnppZ2NrbWh1Z2hMRWY1a0twOW56OG0yTjNDbnBmNFZ6NURRdmlLdGZoUzJKRl9pcmd0NTd5NGFnNnJB?oc=5",
       "source": "Google News AI",
@@ -342,20 +384,6 @@
       "publishedAt": "2026-11-27T16:37:00.000Z",
       "summary": "Markets & Stocks FinancialContent",
       "fullStory": "Markets & Stocks FinancialContent",
-      "whyItMatters": "Tracks fast-moving model capabilities, releases, and research shaping how AI is built and deployed.",
-      "whoIsAffected": "AI Builders, ML Engineers, Researchers, and Product Teams evaluating new models.",
-      "aiAnalyzed": false
-    },
-    {
-      "title": "A Hunger Strike Against Self-Improving AI Is Happening Outside of Anthropic's San Francisco Headquarters - Gizmodo",
-      "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxPRHRGWTZDZUJjMlRmZWRWYjVyTGNhNThQeWV0Y3c2ZHBwMFVoTUt1NXdvQU5kVjBlM3Y3aWNFdGdERUJqNHBmdmExb0FsT3l1WEh5TUJ2eEdpR0FuNzY0bXg3ck1jMWZWZ0tTemI0UUU0QXRiRFJfYWx2T0JRZFZ5aXJubVN5SU5WZElzbDB2Rm5UNktZRU5ic05zZExaenVFWWc1VFJLZk9YZElYdzZjM1RfM2hYR0lqQTFKWkgzZS1EUGtMY1BJbVN1RkhRaG8?oc=5",
-      "source": "Google News AI",
-      "category": "AI",
-      "topic": "Models, Research & Advancement",
-      "importance": 5,
-      "publishedAt": "2026-11-27T16:08:49.000Z",
-      "summary": "A Hunger Strike Against Self-Improving AI Is Happening Outside of Anthropic's San Francisco Headquarters Gizmodo",
-      "fullStory": "A Hunger Strike Against Self-Improving AI Is Happening Outside of Anthropic's San Francisco Headquarters Gizmodo",
       "whyItMatters": "Tracks fast-moving model capabilities, releases, and research shaping how AI is built and deployed.",
       "whoIsAffected": "AI Builders, ML Engineers, Researchers, and Product Teams evaluating new models.",
       "aiAnalyzed": false
@@ -384,34 +412,6 @@
       "publishedAt": "2026-11-27T16:00:00.000Z",
       "summary": "Sources say SAP mulling cuts of at least 10,000 roles Taipei Times",
       "fullStory": "Sources say SAP mulling cuts of at least 10,000 roles Taipei Times",
-      "whyItMatters": "Tracks fast-moving model capabilities, releases, and research shaping how AI is built and deployed.",
-      "whoIsAffected": "AI Builders, ML Engineers, Researchers, and Product Teams evaluating new models.",
-      "aiAnalyzed": false
-    },
-    {
-      "title": "Poland Signs AI Military Software Deal with Palantir - ForkLog",
-      "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxPdklvOHFDZ3BGbXQzTUpSYXh3Mml1WjZBdDZJbk1zUnFpSk9xa3RJUlIzUjFjcTFJem9tSzdPc2hOaGtTVHRDY2NJZElkNUVlY0N1YW5xMER3el9EeWdudElRYXFVTVMxWjRUX0VPWG1YZnB6OE1SNHZYWEFvajl3cU93?oc=5",
-      "source": "Google News AI",
-      "category": "AI",
-      "topic": "Models, Research & Advancement",
-      "importance": 5,
-      "publishedAt": "2026-11-27T16:00:00.000Z",
-      "summary": "Poland Signs AI Military Software Deal with Palantir ForkLog",
-      "fullStory": "Poland Signs AI Military Software Deal with Palantir ForkLog",
-      "whyItMatters": "Tracks fast-moving model capabilities, releases, and research shaping how AI is built and deployed.",
-      "whoIsAffected": "AI Builders, ML Engineers, Researchers, and Product Teams evaluating new models.",
-      "aiAnalyzed": false
-    },
-    {
-      "title": "Singapore says it is ‘engaging’ with firms on exports - Taipei Times",
-      "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTFBrSFowX1NKTUFqWVFINlkwQk95YnFLOHAzS0JSMFRfX2ZTZHBqbVFtaUtSOWdpRjZURTM4V1Nmbmw3czNDWWk4eEN1MTlJZm5CVDJOclpTS0NOd1BiT1E1dlBQVEpNMms3VnBoem1jWmRGYTFwTlE?oc=5",
-      "source": "Google News AI",
-      "category": "AI",
-      "topic": "Models, Research & Advancement",
-      "importance": 5,
-      "publishedAt": "2026-11-27T16:00:00.000Z",
-      "summary": "Singapore says it is ‘engaging’ with firms on exports Taipei Times",
-      "fullStory": "Singapore says it is ‘engaging’ with firms on exports Taipei Times",
       "whyItMatters": "Tracks fast-moving model capabilities, releases, and research shaping how AI is built and deployed.",
       "whoIsAffected": "AI Builders, ML Engineers, Researchers, and Product Teams evaluating new models.",
       "aiAnalyzed": false
@@ -1262,10 +1262,10 @@
       {
         "company": "inclusionAI",
         "name": "LingSante 3.1 Air VL",
-        "version": "124B / 5.5B active",
+        "version": "124B / 5.5B Active",
         "releaseDate": "Nov 26, 2026",
-        "description": "LingSante 3.1 Air VL is inclusionAI's medical vision-language model designed for multimodal health analysis.",
-        "fullDescription": "LingSante 3.1 Air VL is a 124B total / 5.5B active MoE model that takes text and up to 16 images including medical scans, skin and meal photos, and lab reports. It is built to assist clinicians and researchers with comprehensive multimodal medical diagnostics.",
+        "description": "A medical vision-language model designed to analyze clinical text and multiple medical images.",
+        "fullDescription": "LingSante 3.1 Air VL is a specialized medical vision-language model built on a mixture-of-experts architecture with 124B total and 5.5B active parameters. It accepts text inputs alongside up to 16 images such as medical scans, skin conditions, meal photos, and lab reports to assist healthcare diagnostics. It is intended for professional medical analysis and multimodal clinical workflows.",
         "howItIsDifferent": "No direct earlier version was found among the candidate models for the LingSante 3.1 Air VL line. The new model is inclusionAI's medical vision-language model, featuring a 124B total and 5.5B active MoE architecture that accepts text and up to 16 images such as scans, skin and meal photos, and labs.",
         "id": "inclusionai/lingsante-3.1-air-vl",
         "previousModel": null,
@@ -1276,8 +1276,8 @@
         "name": "Solar Mini 4.5",
         "version": "Preview",
         "releaseDate": "Nov 24, 2026",
-        "description": "Solar Mini 4.5 is Upstage's compact language model built on a mixture-of-experts architecture with a massive context window.",
-        "fullDescription": "Solar Mini 4.5 features 35B total and 3B active parameters alongside a massive 524K context window. It is designed to handle long-form context processing efficiently within a lightweight footprint.",
+        "description": "A compact mixture-of-experts language model featuring an extensive context window.",
+        "fullDescription": "Solar Mini 4.5 is Upstage's compact language model utilizing a proprietary mixture-of-experts architecture with 35B total and 3B active parameters. It features a massive 524K context window, making it ideal for processing large documents and long conversational histories. It is designed for efficient enterprise and everyday text processing tasks.",
         "howItIsDifferent": "Compared with its previous version, Solar Mini 4 (released Sep 23, 2026): Solar Mini 4.5 maintains the same 35B total and 3B active parameters, mixture-of-experts architecture, and 524K context window as its predecessor, Solar Mini 4. The updated model represents a step forward in Upstage's compact language model line. context window unchanged at 524K tokens; input $0.010 per 1M tokens (was $0.050); output $0.040 per 1M tokens (was $0.200).",
         "id": "upstage/solar-mini-4-5",
         "previousModel": {
@@ -1290,10 +1290,10 @@
       {
         "company": "Upstage",
         "name": "Solar Pro 4 Contributor",
-        "version": "Contributor",
+        "version": "Contributor Tier",
         "releaseDate": "Nov 24, 2026",
-        "description": "Solar Pro 4 Contributor is the standard Solar Pro 4 model offered at a discounted rate for data contribution.",
-        "fullDescription": "This model provides the exact performance and capabilities of Upstage's Solar Pro 4. In exchange for the reduced rate, users allow Upstage to use interaction data to further improve the model.",
+        "description": "A cost-effective version of the Solar Pro 4 model offered in exchange for interaction data sharing.",
+        "fullDescription": "Solar Pro 4 Contributor is the standard Solar Pro 4 model made available at a significantly reduced rate. In exchange for the lower usage cost, users permit Upstage to utilize their interaction data to improve and train future iterations of the model. It is designed for developers and organizations looking for high-tier performance on a budget.",
         "howItIsDifferent": "Compared with its previous version, Solar Pro 4 (released Aug 10, 2026): Solar Pro 4 Contributor is the same Solar Pro 4 model from Upstage, but it is offered at a lower rate. In exchange for the lower cost, Upstage is allowed to use interaction data to improve its models. context window unchanged at 524K tokens; input $0.090 per 1M tokens (was $0.150); output $0.360 per 1M tokens (was $0.600).",
         "id": "upstage/solar-pro-4-contributor",
         "previousModel": {
@@ -1306,10 +1306,10 @@
       {
         "company": "Xiaomi",
         "name": "MiMo-V2.6-Flash-MOPD",
-        "version": "V2.6-Flash-MOPD",
+        "version": "V2.6 Flash",
         "releaseDate": "Nov 23, 2026",
-        "description": "MiMo-V2.6-Flash-MOPD is an updated checkpoint of Xiaomi's multimodal mixture-of-experts model featuring a 1M-token context window.",
-        "fullDescription": "This Mixture-of-Experts model packs 309B total and 15B active parameters, offering native multimodal input support. This updated checkpoint introduces a multi-teacher distillation approach to enhance speed and response quality.",
+        "description": "An updated multimodal mixture-of-experts checkpoint featuring a 1M-token context window.",
+        "fullDescription": "MiMo-V2.6-Flash-MOPD is an updated checkpoint of Xiaomi's MiMo-V2.6-Flash model, featuring a Mixture-of-Experts architecture with 309B total and 15B active parameters. It supports native multimodal inputs and boasts a massive 1M-token context window. This updated version incorporates a multi-teacher distillation framework to enhance reasoning speed and output quality.",
         "howItIsDifferent": "Compared with its previous version, MiMo-V2.6-Flash (released Sep 21, 2026): MiMo-V2.6-Flash-MOPD is an updated checkpoint of Xiaomi's MiMo-V2.6-Flash. It maintains the Mixture-of-Experts architecture with 309B total and 15B active parameters, a 1M-token context window, and native multimodal input. The update specifically adds a multi-teacher component. context window unchanged at 1.05M tokens; input $0.150 per 1M tokens (was $0.140); output $0.420 per 1M tokens (was $0.280).",
         "id": "xiaomi/mimo-v2.6-flash-mopd",
         "previousModel": {
@@ -1322,10 +1322,10 @@
       {
         "company": "Thinking Machines",
         "name": "Inkling 2 Mini",
-        "version": "2 Mini",
+        "version": "2.6B / 3.4B Active",
         "releaseDate": "Nov 21, 2026",
-        "description": "Inkling 2 Mini is an open-weight multimodal looped transformer from Thinking Machines Lab.",
-        "fullDescription": "Featuring 3.4B active parameters out of 26.4B total parameters in an MoE configuration, this model uses a looped transformer architecture where middle layers run three times with shared weights. It excels at open-weight multimodal text-and-image tasks.",
+        "description": "An open-weight multimodal looped transformer utilizing shared middle layers.",
+        "fullDescription": "Inkling 2 Mini is an open-weight multimodal looped transformer developed by Thinking Machines Lab. It features 3.4B active parameters out of 26.4B total parameters using a mixture-of-experts design where the middle layers run three times with shared weights. It is designed for efficient open-source multimodal research and deployment.",
         "howItIsDifferent": "No direct earlier version was found in the candidate list for the Inkling 2 Mini model tier. Inkling 2 Mini is a newly released open-weight multimodal looped transformer from Thinking Machines Lab featuring 3.4B active parameters out of 26.4B total in a mixture-of-experts architecture, with middle layers that run three times with shared weights.",
         "id": "thinkingmachines/inkling-2-mini",
         "previousModel": null,
@@ -1336,8 +1336,8 @@
         "name": "DaisyRose 27B",
         "version": "27B",
         "releaseDate": "Nov 21, 2026",
-        "description": "DaisyRose 27B is an open-weight multimodal reasoning model trained exclusively with reinforcement learning.",
-        "fullDescription": "DaisyRose 27B is an open-weight multimodal reasoning model from RadixArk, trained from [Qwen3.8 27B](https://openrouter.ai/qwen/qwen3.8-27b) using reinforcement learning only on long-horizon agent tasks, with no supervised fine-tuning or distillation. It is...",
+        "description": "An open-weight reasoning model trained exclusively with reinforcement learning on long-horizon agent tasks.",
+        "fullDescription": "DaisyRose 27B is an open-weight multimodal reasoning model built upon Qwen3.8 27B. It was trained using reinforcement learning exclusively on complex, long-horizon agent tasks without relying on supervised fine-tuning or distillation. It is designed for advanced autonomous agent workflows and complex problem-solving.",
         "howItIsDifferent": "DaisyRose 27B is a newly released open-weight multimodal reasoning model from RadixArk. It was trained from Qwen3.8 27B using reinforcement learning exclusively on long-horizon agent tasks, without any supervised fine-tuning or distillation. As no direct earlier version from the same lab was found in the candidate list, these training methods and its focus on long-horizon agent tasks represent what is new about this model.",
         "id": "radixark/daisyrose-27b",
         "previousModel": null,
@@ -1345,30 +1345,21 @@
       },
       {
         "company": "Anthropic",
-        "name": "Opus",
+        "name": "Opus 5.6",
         "version": "5.6",
-        "releaseDate": "Past 7 days",
-        "description": "Anthropic's Opus 5.6 is a next-generation flagship language model currently undergoing secret initial deployments.",
-        "fullDescription": "Observed being rolled out to select users in a preliminary testing phase, Opus 5.6 is Anthropic's latest frontier model designed to push the boundaries of reasoning, safety, and complex task execution. It represents the upcoming tier of Anthropic's flagship offerings.",
-        "howItIsDifferent": "It introduces undisclosed architectural and alignment advancements over previous Claude iterations, currently restricted to early-access secret deployments."
+        "releaseDate": "Nov 25, 2026",
+        "description": "Anthropic's next-generation flagship model currently undergoing secret initial user testing.",
+        "fullDescription": "Opus 5.6 is Anthropic's highly anticipated next-generation model that has entered secret testing phases and initial deployment to select users. While full specifications remain under wraps, it is expected to push the boundaries of reasoning, coding, and safety alignment compared to its predecessor. It is intended to serve as Anthropic's premier frontier intelligence offering.",
+        "howItIsDifferent": "It represents a stealth deployment phase for Anthropic's newest flagship tier, aimed at surpassing existing frontier models in deep reasoning and advanced capability."
       },
       {
         "company": "SulphurAI",
         "name": "Sulphur-3",
         "version": "3",
         "releaseDate": "Past 7 days",
-        "description": "Sulphur-3 is a newly trending general-purpose LLM on Hugging Face.",
-        "fullDescription": "As a recently highlighted open model on Hugging Face, Sulphur-3 provides robust text generation capabilities optimized for diverse developer and downstream applications. It aims to bridge community open-source needs with competitive baseline performance.",
-        "howItIsDifferent": "It offers a fresh open-weights alternative tuned independently by the SulphurAI community for flexible general text generation."
-      },
-      {
-        "company": "prism-ml",
-        "name": "Ternary-Bonsai-2.5",
-        "version": "27B",
-        "releaseDate": "Past 7 days",
-        "description": "Ternary-Bonsai-2.5-27B is a heavily compressed and quantized model trending on Hugging Face.",
-        "fullDescription": "Available in GGUF format, this model applies advanced ternary quantization techniques to a 27B architecture. It allows users to run large-scale capabilities locally with drastically reduced hardware requirements.",
-        "howItIsDifferent": "It stands out through extreme quantization (ternary weights) which drastically lowers memory overhead while attempting to retain core model accuracy."
+        "description": "A newly trending open-weight language model optimized for general text generation.",
+        "fullDescription": "Sulphur-3 is a newly released open-weight LLM by SulphurAI that has quickly climbed the trending charts on Hugging Face. It is built to provide robust general-purpose language understanding, reasoning, and text generation capabilities for the open-source community. It is well-suited for fine-tuning and standalone local deployments.",
+        "howItIsDifferent": "It offers a fresh open-weight training recipe that delivers competitive community-driven performance distinct from major commercial labs."
       }
     ],
     "modelNews": [
